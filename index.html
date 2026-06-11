@@ -443,44 +443,56 @@
                 hlsInstance.destroy();
             }
 
-            // --- Mixed Content Warning ---
+            // --- FIX: Selective Proxying for HTTP Streams ---
+            let finalUrl = channel.url;
+            let isProxied = false;
+
             if (window.location.protocol === 'https:' && channel.url.startsWith('http://')) {
-                showError("Mixed Content Error: This link is insecure (HTTP) and cannot be played on a secure site (HTTPS).");
-                return;
+                // Use a secure proxy to bridge the HTTP -> HTTPS gap
+                finalUrl = `https://corsproxy.io/?url=${encodeURIComponent(channel.url)}`;
+                isProxied = true;
+                console.log("Using secure proxy for HTTP stream:", channel.name);
             }
 
             // HLS Streaming Logic
             if (Hls.isSupported()) {
                 hlsInstance = new Hls({
                     enableWorker: true,
-                    manifestLoadingMaxRetry: 2,
-                    levelLoadingMaxRetry: 2
+                    manifestLoadingMaxRetry: 4,
+                    levelLoadingMaxRetry: 4,
+                    xhrSetup: function(xhr, url) {
+                        xhr.withCredentials = false; // Required for some proxies
+                    }
                 });
-                hlsInstance.loadSource(channel.url);
+                
+                hlsInstance.loadSource(finalUrl);
                 hlsInstance.attachMedia(videoPlayer);
+                
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, function() {
                     videoPlaceholder.style.display = 'none';
                     videoPlayer.style.display = 'block';
-                    videoPlayer.play().catch(e => console.error("Auto-play failed:", e));
+                    videoPlayer.play().catch(e => {
+                        console.error("Auto-play failed:", e);
+                        // If autoplay fails, show a play button overlay
+                        videoPlayer.controls = true;
+                    });
                 });
                 
                 // Error handling
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
-                        switch (data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                showError("Network Error: Link might be dead or blocked by CORS.");
-                                break;
-                            default:
-                                showError("Playback Error: Stream unplayable in this browser.");
-                                break;
+                        console.error("HLS Fatal Error:", data);
+                        if (isProxied) {
+                            showError("Proxy failed to fetch this stream. It might be offline or protected.");
+                        } else {
+                            showError("Stream unplayable. It may require a proxy or be offline.");
                         }
                         hlsInstance.destroy();
                     }
                 });
             } 
             else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-                videoPlayer.src = channel.url;
+                videoPlayer.src = finalUrl;
                 videoPlayer.onloadedmetadata = function() {
                     videoPlaceholder.style.display = 'none';
                     videoPlayer.style.display = 'block';
