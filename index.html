@@ -3,266 +3,646 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genoin | Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
+    <title>GENOIN PRO | FIFA 26 EDITION</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
-        /* --- CSS RESET & VARIABLES (From NexGen UI) --- */
         :root {
-            --forest: #1E3932;
-            --sage:   #84A98C;
-            --terra:  #D66A45;
-            --sand:   #F3F0E7;
-            --white:  #ffffff;
-            --black:  #111111;
-            --radius: 24px;
+            /* FIFA World Cup 2026 - Ultra Vibrant Pro Colors */
+            --bg-main: #060012; 
+            --bg-surface: #12002A;
+            --bg-surface-soft: rgba(26, 0, 64, 0.6);
+            --accent-magenta: #FF007A;
+            --accent-cyan: #00E5FF;
+            --accent-green: #3DFF00;
+            --text-main: #FFFFFF;
+            --text-muted: #8B829E;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --neon-shadow: 0 0 20px rgba(255, 0, 122, 0.4);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Manrope', sans-serif;
-            color: var(--forest);
-            line-height: 1.6;
-            overflow-x: hidden;
-            /* Premium Animated Background */
-            background-color: var(--sand);
+            margin: 0; padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(132, 169, 140, 0.15) 0%, transparent 40%), /* Sage orb */
-                radial-gradient(circle at 80% 20%, rgba(214, 106, 69, 0.1) 0%, transparent 40%), /* Terra orb */
-                linear-gradient(rgba(30, 57, 50, 0.03) 1px, transparent 1px), /* Subtle grid */
-                linear-gradient(90deg, rgba(30, 57, 50, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
-            animation: backgroundShift 60s linear infinite alternate;
-            min-height: 100vh;
+                radial-gradient(circle at 0% 0%, rgba(255, 0, 122, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(0, 229, 255, 0.1) 0%, transparent 40%);
+        }
+
+        .app-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Sidebar Toggle Button */
+        .sidebar-toggle {
+            position: absolute;
+            top: 50%;
+            right: 340px;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            color: var(--accent-cyan);
+            padding: 20px 6px;
+            cursor: pointer;
+            border-radius: 12px 0 0 12px;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+        }
+        .sidebar-toggle:hover {
+            color: var(--accent-magenta);
+            background: var(--bg-surface-soft);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        }
+        .sidebar-collapsed .sidebar-toggle {
+            right: 0;
+            border-radius: 12px 0 0 12px;
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes backgroundShift {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        /* --- LAYOUT & COMPONENTS --- */
-        .main-container {
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        /* The Central Premium Bento Card */
-        .hero-bento {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: 0 20px 60px rgba(30, 57, 50, 0.08);
-            overflow: hidden;
-            min-height: 600px;
-            opacity: 0; /* Start hidden for animation */
-            animation: fadeUp 1s ease-out forwards;
-        }
-
-        /* Left Side: Content */
-        .content-side {
-            padding: 60px;
+        /* Player Section */
+        .player-section {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            z-index: 2;
+            padding: 30px;
+            box-sizing: border-box;
+            transition: var(--transition);
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--forest);
-            margin-bottom: auto; /* Pushes it to top */
-            opacity: 0; animation: fadeUp 1s ease-out 0.2s forwards;
-        }
-        .logo span { color: var(--terra); }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            opacity: 0; animation: fadeUp 1s ease-out 0.4s forwards;
-        }
-
-        .lead {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-bottom: 40px;
-            max-width: 450px;
-            opacity: 0; animation: fadeUp 1s ease-out 0.6s forwards;
-        }
-
-        /* Newsletter Form Styling */
-        .notify-form {
+        .brand-header {
             display: flex;
-            gap: 10px;
-            margin-bottom: auto; /* Pushes it down */
-            opacity: 0; animation: fadeUp 1s ease-out 0.8s forwards;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
         }
 
-        input[type="email"] {
-            flex-grow: 1;
-            padding: 18px 24px;
-            border: 2px solid var(--sand);
-            border-radius: 50px;
-            font-family: inherit;
-            font-size: 1rem;
-            background: var(--sand);
-            transition: 0.3s;
-            outline: none;
-        }
-        input[type="email"]:focus {
-            border-color: var(--forest);
-            background: var(--white);
+        .brand-name {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--accent-magenta), var(--accent-cyan), var(--accent-magenta));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 122, 0.3));
         }
 
-        .btn-submit {
-            padding: 18px 36px;
-            background: var(--forest);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-        .btn-submit:hover {
-            background: var(--terra);
-            box-shadow: 0 10px 20px rgba(214, 106, 69, 0.2);
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* Right Side: Abstract Visuals */
-        .visual-side {
+        .video-container {
             position: relative;
-            background: var(--forest);
+            flex-grow: 1;
+            background: #000;
+            border-radius: var(--radius);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 0 1px var(--glass-border);
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            group-hover: shadow-neon;
         }
 
-        /* The blurry glass overlay effect */
-        .visual-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            /* A complex gradient using brand colors */
-            background: 
-                linear-gradient(135deg, rgba(30, 57, 50, 0.9), rgba(132, 169, 140, 0.8)),
-                url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80'); /* Subtle abstract noise texture */
-            background-blend-mode: multiply;
-            background-size: cover;
-            z-index: 1;
+        video, iframe {
+            width: 100%; height: 100%; border: none; object-fit: contain; outline: none;
         }
 
-        /* Floating Abstract Shapes */
-        .shape {
+        /* Custom Video Controls */
+        .custom-controls {
             position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(6,0,18,0.95));
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        .video-container:hover .custom-controls {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .control-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.6;
-            z-index: 0;
-            animation: float 20s ease-in-out infinite alternate;
         }
-        .shape-1 {
-            width: 300px; height: 300px;
-            background: var(--terra);
-            top: -50px; right: -50px;
+        .control-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent-cyan);
+            transform: scale(1.1);
         }
-        .shape-2 {
-            width: 400px; height: 400px;
-            background: var(--sage);
-            bottom: -100px; left: -100px;
-            animation-delay: -10s; /* Start halfway through animation */
+        .control-btn svg { width: 24px; height: 24px; }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+        }
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            outline: none;
+        }
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px; height: 12px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
-        /* Big outline text effect */
-        .visual-text {
-            z-index: 2;
-            font-size: 8rem;
+        .spacer { flex-grow: 1; }
+
+        .meta-bar {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--bg-surface-soft);
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(15px);
+        }
+
+        .status-badge {
+            padding: 6px 14px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 100px;
+            font-size: 0.75rem;
             font-weight: 800;
-            color: transparent;
-            -webkit-text-stroke: 2px rgba(255,255,255,0.5);
-            opacity: 0.5;
-            letter-spacing: -5px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .status-badge.error {
+            background: rgba(255, 0, 122, 0.1);
+            border-color: var(--accent-magenta);
+            color: var(--accent-magenta);
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .hero-bento {
-                grid-template-columns: 1fr;
-                min-height: auto;
-            }
-            .visual-side {
-                height: 300px; /* Give it fixed height on mobile */
-                order: -1; /* Move visuals to top on mobile */
-            }
-            .content-side { padding: 40px 30px; }
-            h1 { font-size: 2.5rem; }
-            .notify-form { flex-direction: column; }
-            .btn-submit { width: 100%; }
-            .shape { filter: blur(40px); } /* Reduce blur load on mobile */
+        #now-playing { font-size: 1.1rem; font-weight: 700; color: #fff; }
+
+        /* Sidebar Section */
+        .sidebar-section {
+            width: 380px;
+            background: var(--bg-surface);
+            border-left: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+            z-index: 50;
+        }
+        .sidebar-collapsed .sidebar-section {
+            width: 0;
+            transform: translateX(380px);
+            border-left: none;
+        }
+
+        .sidebar-header {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 14px 20px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+            box-sizing: border-box;
+        }
+        .search-input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+
+        .tab-menu {
+            display: flex;
+            background: rgba(0,0,0,0.4);
+            padding: 6px;
+            border-radius: 12px;
+            gap: 4px;
+        }
+        .tab-btn {
+            flex: 1; border: none; background: transparent; color: var(--text-muted);
+            padding: 10px; font-size: 0.85rem; font-weight: 700; border-radius: 8px;
+            cursor: pointer; transition: var(--transition);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .tab-btn.active { background: var(--accent-magenta); color: #fff; box-shadow: var(--neon-shadow); }
+
+        .playlist-wrapper {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px 20px;
+        }
+
+        .playlist-item {
+            padding: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+            margin-bottom: 8px;
+            border: 1px solid transparent;
+        }
+        .playlist-item:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--glass-border);
+            transform: translateX(5px);
+        }
+        .playlist-item.active {
+            background: linear-gradient(90deg, rgba(0, 229, 255, 0.1), transparent);
+            border-color: rgba(0, 229, 255, 0.3);
+            position: relative;
+        }
+
+        .channel-logo {
+            width: 50px; height: 50px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: #000;
+            padding: 4px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .channel-info { flex-grow: 1; overflow: hidden; }
+        .channel-name { display: block; font-size: 1rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .channel-group { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
+
+        /* Playing Animation (Equalizer) */
+        .equalizer {
+            display: none;
+            align-items: flex-end;
+            gap: 2px;
+            width: 20px;
+            height: 20px;
+        }
+        .active .equalizer { display: flex; }
+        .eq-bar {
+            width: 3px;
+            background: var(--accent-green);
+            animation: eq 1s ease-in-out infinite;
+            border-radius: 10px;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.2s; height: 60%; }
+        .eq-bar:nth-child(3) { animation-delay: 0.4s; height: 30%; }
+        @keyframes eq {
+            0%, 100% { height: 30%; }
+            50% { height: 100%; }
+        }
+
+        .fav-btn {
+            background: transparent; border: none; color: var(--text-muted);
+            cursor: pointer; padding: 5px; transition: var(--transition);
+        }
+        .fav-btn.active { color: #FFD700; filter: drop-shadow(0 0 5px #FFD700); }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-magenta); }
+
+        @media (max-width: 1024px) {
+            .app-container { flex-direction: column; }
+            .sidebar-section { width: 100%; border-left: none; border-top: 1px solid var(--glass-border); height: 50vh; }
+            .sidebar-toggle { display: none; }
         }
     </style>
 </head>
-<body>
+<body class="sidebar-visible">
 
-    <main class="main-container">
-        <div class="hero-bento">
-            
-            <div class="content-side">
-                <div class="logo">
-                    <span>.</span>genoin
-                </div>
+    <div class="app-container" id="app-container">
+        <!-- Sidebar Toggle -->
+        <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle Sidebar">
+            <svg id="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
 
-                <div>
-                    <h1>The Next Generation of Digital Reliability.</h1>
-                    <p class="lead">We are redefining the standards of connectivity. Something extraordinary is on the horizon.</p>
-                </div>
-
-                <form class="notify-form" onsubmit="event.preventDefault(); alert('Thanks for joining the waitlist!');">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn-submit">Get Early Access</button>
-                </form>
-                
-                <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 20px; animation: fadeUp 1s ease-out 1s forwards; opacity: 0;">
-                    We respect your privacy. No spam, ever.
-                </p>
+        <!-- Main Content -->
+        <div class="player-section">
+            <div class="brand-header">
+                <div class="brand-name">GENOIN PRO</div>
             </div>
 
-            <div class="visual-side">
-                <div class="visual-overlay"></div>
+            <div class="video-container" id="video-container">
+                <video id="video" playsinline></video>
                 
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
+                <!-- Custom Controls -->
+                <div class="custom-controls" id="custom-controls">
+                    <button class="control-btn" id="play-pause" title="Play/Pause">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    
+                    <div class="volume-container">
+                        <button class="control-btn" id="mute-toggle" title="Mute/Unmute">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.1" value="1">
+                    </div>
 
-                <div class="visual-text">SOON</div>
+                    <div class="spacer"></div>
+
+                    <button class="control-btn" id="pip-btn" title="Picture in Picture">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 7h-8v6h8V7zm2-4H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>
+                    </button>
+                    
+                    <button class="control-btn" id="fullscreen-btn" title="Toggle Fullscreen">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                    </button>
+                </div>
             </div>
 
+            <div class="meta-bar">
+                <div class="status-badge" id="status-badge">STANDBY</div>
+                <div id="now-playing">SELECT A CHANNEL TO BEGIN STREAMING</div>
+            </div>
         </div>
-    </main>
 
+        <!-- Sidebar -->
+        <div class="sidebar-section">
+            <div class="sidebar-header">
+                <div class="search-wrapper">
+                    <input type="text" id="search-bar" class="search-input" placeholder="Find channels or categories...">
+                </div>
+
+                <div class="tab-menu">
+                    <button class="tab-btn active" id="tab-all">All</button>
+                    <button class="tab-btn" id="tab-fav">Favs</button>
+                    <button class="tab-btn" id="tab-recent">Recent</button>
+                </div>
+
+                <select id="category-filter" class="search-input">
+                    <option value="all">Global Categories</option>
+                </select>
+            </div>
+
+            <div class="playlist-wrapper">
+                <div id="playlist-target">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const LINKED_M3U_FILE = 'fifa2026.m3u';
+
+        // DOM
+        const video = document.getElementById('video');
+        const videoContainer = document.getElementById('video-container');
+        const playlistTarget = document.getElementById('playlist-target');
+        const nowPlayingText = document.getElementById('now-playing');
+        const statusBadge = document.getElementById('status-badge');
+        const categoryFilter = document.getElementById('category-filter');
+        const searchBar = document.getElementById('search-bar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const appContainer = document.getElementById('app-container');
+
+        // State
+        let streams = [];
+        let favorites = JSON.parse(localStorage.getItem('genoin_favs')) || [];
+        let recent = JSON.parse(localStorage.getItem('genoin_recent')) || [];
+        let currentTab = 'all';
+        let hls = null;
+
+        // Init
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch(LINKED_M3U_FILE);
+                if (!res.ok) throw new Error();
+                const text = await res.text();
+                parseM3U(text);
+            } catch (e) {
+                console.error("Fetch failed");
+                nowPlayingText.innerText = "LINKED FILE NOT ACCESSIBLE (CORS/404)";
+                statusBadge.innerText = "ERROR";
+                statusBadge.classList.add('error');
+            }
+        });
+
+        function parseM3U(text) {
+            const lines = text.split('\n');
+            let temp = {};
+            streams = [];
+
+            lines.forEach(line => {
+                line = line.trim();
+                if (line.startsWith('#EXTINF:')) {
+                    const logo = line.match(/tvg-logo="([^"]+)"/);
+                    const group = line.match(/group-title="([^"]+)"/);
+                    const title = line.match(/,(.+)$/);
+                    temp = {
+                        logo: logo ? logo[1] : '',
+                        group: group ? group[1] : 'Other',
+                        title: title ? title[1].trim() : 'Unknown'
+                    };
+                } else if (line && !line.startsWith('#')) {
+                    temp.url = line;
+                    streams.push(temp);
+                    temp = {};
+                }
+            });
+
+            // Fill Categories
+            const groups = [...new Set(streams.map(s => s.group))].sort();
+            groups.forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g; opt.textContent = g;
+                categoryFilter.appendChild(opt);
+            });
+
+            render();
+        }
+
+        function render() {
+            playlistTarget.innerHTML = '';
+            const query = searchBar.value.toLowerCase();
+            const group = categoryFilter.value;
+
+            let list = [];
+            if (currentTab === 'all') list = streams;
+            else if (currentTab === 'fav') list = streams.filter(s => favorites.includes(s.url));
+            else if (currentTab === 'recent') list = streams.filter(s => recent.includes(s.url)).sort((a,b) => recent.indexOf(b.url) - recent.indexOf(a.url));
+
+            if (group !== 'all') list = list.filter(s => s.group === group);
+            if (query) list = list.filter(s => s.title.toLowerCase().includes(query));
+
+            list.forEach(stream => {
+                const div = document.createElement('div');
+                div.className = `playlist-item ${video.src === stream.url ? 'active' : ''}`;
+                
+                const isFav = favorites.includes(stream.url);
+
+                div.innerHTML = `
+                    <img src="${stream.logo}" class="channel-logo" onerror="this.src='https://via.placeholder.com/50/060012/FFFFFF?text=TV'">
+                    <div class="channel-info">
+                        <span class="channel-name">${stream.title}</span>
+                        <span class="channel-group">${stream.group}</span>
+                    </div>
+                    <div class="equalizer">
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                    </div>
+                    <button class="fav-btn ${isFav ? 'active' : ''}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </button>
+                `;
+
+                div.addEventListener('click', (e) => {
+                    if (e.target.closest('.fav-btn')) return;
+                    playStream(stream);
+                });
+
+                div.querySelector('.fav-btn').onclick = (e) => {
+                    e.stopPropagation();
+                    toggleFav(stream.url);
+                };
+
+                playlistTarget.appendChild(div);
+            });
+        }
+
+        function playStream(stream) {
+            nowPlayingText.innerText = stream.title;
+            statusBadge.innerText = "CONNECTING";
+            statusBadge.classList.remove('error');
+
+            // Handle Recently Watched
+            recent = [stream.url, ...recent.filter(u => u !== stream.url)].slice(0, 15);
+            localStorage.setItem('genoin_recent', JSON.stringify(recent));
+
+            if (hls) { hls.destroy(); hls = null; }
+            const existingIframe = videoContainer.querySelector('iframe');
+            if (existingIframe) existingIframe.remove();
+            video.style.display = 'block';
+
+            const isWeb = !stream.url.includes('.m3u8') && !stream.url.includes('.ts');
+
+            if (isWeb) {
+                video.style.display = 'none';
+                const f = document.createElement('iframe');
+                f.src = stream.url;
+                f.allow = "autoplay; fullscreen";
+                videoContainer.appendChild(f);
+                statusBadge.innerText = "WEB STREAM";
+            } else if (Hls.isSupported()) {
+                hls = new Hls();
+                hls.loadSource(stream.url);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play();
+                    statusBadge.innerText = "LIVE";
+                });
+            } else {
+                video.src = stream.url;
+                video.play();
+            }
+            render();
+        }
+
+        function toggleFav(url) {
+            if (favorites.includes(url)) favorites = favorites.filter(u => u !== url);
+            else favorites.push(url);
+            localStorage.setItem('genoin_favs', JSON.stringify(favorites));
+            render();
+        }
+
+        // Custom Controls Logic
+        const playBtn = document.getElementById('play-pause');
+        const muteBtn = document.getElementById('mute-toggle');
+        const volumeSlider = document.getElementById('volume-slider');
+        const fsBtn = document.getElementById('fullscreen-btn');
+        const pipBtn = document.getElementById('pip-btn');
+
+        playBtn.onclick = () => video.paused ? video.play() : video.pause();
+        video.onplay = () => playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+        video.onpause = () => playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+        muteBtn.onclick = () => {
+            video.muted = !video.muted;
+            muteBtn.style.color = video.muted ? 'var(--accent-magenta)' : '#fff';
+        };
+
+        volumeSlider.oninput = (e) => video.volume = e.target.value;
+
+        fsBtn.onclick = () => {
+            if (!document.fullscreenElement) videoContainer.requestFullscreen();
+            else document.exitFullscreen();
+        };
+
+        pipBtn.onclick = () => {
+            if (document.pictureInPictureElement) document.exitPictureInPicture();
+            else if (video.requestPictureInPicture) video.requestPictureInPicture();
+        };
+
+        // Tabs
+        document.getElementById('tab-all').onclick = () => { switchTab('all'); };
+        document.getElementById('tab-fav').onclick = () => { switchTab('fav'); };
+        document.getElementById('tab-recent').onclick = () => { switchTab('recent'); };
+        function switchTab(t) {
+            currentTab = t;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`tab-${t}`).classList.add('active');
+            render();
+        }
+
+        searchBar.oninput = render;
+        categoryFilter.onchange = render;
+
+        sidebarToggle.onclick = () => {
+            const isCollapsed = appContainer.classList.toggle('sidebar-collapsed');
+            document.getElementById('toggle-icon').style.transform = isCollapsed ? 'rotate(180deg)' : 'rotate(0deg)';
+        };
+    </script>
 </body>
-
 </html>
-
