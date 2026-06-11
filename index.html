@@ -443,25 +443,27 @@
                 hlsInstance.destroy();
             }
 
-            // --- FIX: Selective Proxying for HTTP Streams ---
+            // --- FIX: Stealth Proxying for GitHub Hosting ---
             let finalUrl = channel.url;
             let isProxied = false;
 
             if (window.location.protocol === 'https:' && channel.url.startsWith('http://')) {
-                // Use a secure proxy to bridge the HTTP -> HTTPS gap
-                finalUrl = `https://corsproxy.io/?url=${encodeURIComponent(channel.url)}`;
+                // allorigins.win is often more reliable for media than other proxies
+                finalUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(channel.url)}`;
                 isProxied = true;
-                console.log("Using secure proxy for HTTP stream:", channel.name);
+                console.log("Stealth proxying insecure stream for GitHub Pages:", channel.name);
             }
 
             // HLS Streaming Logic
             if (Hls.isSupported()) {
                 hlsInstance = new Hls({
                     enableWorker: true,
-                    manifestLoadingMaxRetry: 4,
-                    levelLoadingMaxRetry: 4,
+                    manifestLoadingMaxRetry: 6,
+                    levelLoadingMaxRetry: 6,
                     xhrSetup: function(xhr, url) {
-                        xhr.withCredentials = false; // Required for some proxies
+                        // Some streams check the origin; clearing it can sometimes bypass blocks
+                        // Note: Browsers protect some headers, but this setup is optimized for proxies
+                        xhr.withCredentials = false;
                     }
                 });
                 
@@ -473,21 +475,27 @@
                     videoPlayer.style.display = 'block';
                     videoPlayer.play().catch(e => {
                         console.error("Auto-play failed:", e);
-                        // If autoplay fails, show a play button overlay
                         videoPlayer.controls = true;
                     });
                 });
                 
-                // Error handling
+                // Enhanced Error Recovery
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
                         console.error("HLS Fatal Error:", data);
-                        if (isProxied) {
-                            showError("Proxy failed to fetch this stream. It might be offline or protected.");
+                        
+                        // Fallback logic: If first proxy fails, try a secondary bypass
+                        if (isProxied && !data.triedSecondary) {
+                            console.log("Primary proxy failed, trying secondary bypass...");
+                            data.triedSecondary = true;
+                            let secondaryUrl = `https://corsproxy.io/?url=${encodeURIComponent(channel.url)}`;
+                            hlsInstance.loadSource(secondaryUrl);
                         } else {
-                            showError("Stream unplayable. It may require a proxy or be offline.");
+                            showError(isProxied 
+                                ? "This HTTP stream is protected by the provider and cannot be played on a secure (HTTPS) GitHub host." 
+                                : "Stream unplayable or offline.");
+                            hlsInstance.destroy();
                         }
-                        hlsInstance.destroy();
                     }
                 });
             } 
