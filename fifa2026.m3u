@@ -21,18 +21,6 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-vid
 https://tvsen6.aynaott.com/asports/tracks-v1a1/mono.ts.m3u8
 #EXTINF:-1 tvg-logo="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvJ1HtheTbTZjOoXTO9KRK1fIhh1uXhyvSckbf05J7yIcdT4ZucX1fvfjnyiv9QK-m0pBK6MoY6KhcVPQpsRSXdgBFU612nmbKpY864gsoMvMaCyu_fOdNVbx6ADMbz2dftZ7-0Arzx81kC8nqbeduSEsquwrPpzNGm2wZw6rXHe79vlF7DokCavubWA/s600/Nur_20251107_160202_0000.png" group-title="Sports",DD Sports
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index_3.m3u8
-#EXTINF:-1 tvg-logo="https://wapka-img.zuna.id/5708ceb8.png" group-title="IPL-2026",Start Sports 1
-https://cdn.dadocric.st/embed2.php?id=starsp1
-#EXTINF:-1 tvg-logo="https://wapka-img.zuna.id/5708ceb8.png" group-title="IPL-2026",Start Sports 2
-https://cdn.dadocric.st/embed2.php?id=starsp2
-#EXTINF:-1 tvg-logo="https://wapka-img.zuna.id/5708ceb8.png" group-title="IPL-2026",Start Sports 1 Hindi
-https://cdn.dadocric.st/embed2.php?id=starsp3
-#EXTINF:-1 tvg-logo="https://wapka-img.zuna.id/785a58ff.png" group-title="PSL-2026",Ptv Sports
-https://cdn.dadocric.st/embed2.php?id=ptvsp
-#EXTINF:-1 tvg-logo="https://wapka-img.zuna.id/785a58ff.png" group-title="PSL-2026",ASports
-https://cdn.dadocric.st/embed2.php?id=asports
-#EXTINF:-1 tvg-logo="https://wapka-img.zuna.id/785a58ff.png" group-title="PSL-2026",TenSports
-https://cdn.dadocric.st/embed2.php?id=tensp
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8e/Somoy_Television.svg" group-title="Bangla News",SOMOY NEWS
 https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/12/BTV_HD_Logo.svg" group-title="Bangla",BTV HD
