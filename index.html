@@ -342,6 +342,7 @@
     <script>
         const M3U_URL = "https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/fifa2026.m3u";
         let channelsData = [];
+        let workingChannels = [];
         let hlsInstance = null;
         
         const channelListEl = document.getElementById('channel-list');
@@ -394,8 +395,54 @@
                 }
             });
 
+            validateChannels();
+        }
+
+        
+        async function validateChannels() {
+
+            channelListEl.innerHTML = `
+                <div class="text-center mt-4">
+                    <div class="spinner-border text-success"></div>
+                    <p class="mt-2">Checking live channels...</p>
+                </div>
+            `;
+
+            workingChannels = [];
+
+            const checks = channelsData.map(channel => {
+                return new Promise(resolve => {
+
+                    const video = document.createElement('video');
+                    let finished = false;
+
+                    const done = (ok) => {
+                        if (finished) return;
+                        finished = true;
+
+                        if (ok) workingChannels.push(channel);
+                        resolve();
+                    };
+
+                    video.preload = 'metadata';
+                    video.muted = true;
+
+                    video.onloadedmetadata = () => done(true);
+                    video.onerror = () => done(false);
+
+                    setTimeout(() => done(false), 4000);
+
+                    video.src = channel.url;
+                });
+            });
+
+            await Promise.all(checks);
+
+            channelsData = workingChannels;
+
             renderChannels(channelsData);
         }
+
 
         // Render the channel HTML list
         function renderChannels(channels) {
