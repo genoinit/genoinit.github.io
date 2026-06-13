@@ -430,7 +430,7 @@
                     video.onloadedmetadata = () => done(true);
                     video.onerror = () => done(false);
 
-                    setTimeout(() => done(false), 4000);
+                    setTimeout(() => done(false), 15000);
 
                     video.src = channel.url;
                 });
