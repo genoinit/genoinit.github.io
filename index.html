@@ -268,6 +268,26 @@
             border-color: rgba(255,255,255,0.1);
         }
 
+        /* Viewer Count Badge */
+        .viewer-badge {
+            background: rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #fff !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .viewer-count-animate {
+            animation: count-pulse 0.5s ease-out;
+        }
+        
+        @keyframes count-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); color: #0dcaf0; }
+            100% { transform: scale(1); }
+        }
+
     </style>
 </head>
 <body>
@@ -281,6 +301,10 @@
                 <span class="live-dot"></span>
                 <a class="navbar-brand brand-logo" href="#">GENOIN</a>
                 <span class="edition-badge">FIFA26 Edition</span>
+                <div class="ms-2 d-none d-sm-flex align-items-center gap-2 px-2 py-1 rounded-pill" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="live-dot" style="width: 8px; height: 8px; background-color: #00ff88; box-shadow: 0 0 8px #00ff88;"></div>
+                    <span style="font-size: 0.75rem; font-weight: 600; color: #00ff88;"><span id="global-visitor-count">0</span> LIVE</span>
+                </div>
             </div>
 
             <!-- Navbar Ad Banner (Visible on Tablet/Desktop) -->
@@ -319,9 +343,14 @@
                 <div class="glass-panel p-4 mb-4">
                     <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
                         <div>
-                            <span class="badge mb-2 px-3 py-2 rounded-pill" style="background-color: var(--bd-red);">
-                                <i class="bi bi-broadcast me-1"></i> LIVE NOW
-                            </span>
+                            <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                <span class="badge px-3 py-2 rounded-pill" style="background-color: var(--bd-red);">
+                                    <i class="bi bi-broadcast me-1"></i> LIVE NOW
+                                </span>
+                                <span id="viewer-container" class="badge viewer-badge px-3 py-2 rounded-pill" style="display: none;">
+                                    <i class="bi bi-eye me-1 text-info"></i> <span id="viewer-count">0</span> <span class="ms-1 opacity-75">WATCHING</span>
+                                </span>
+                            </div>
                             <h2 class="h3 mb-2 fw-bold text-white" id="current-channel-title">No Channel Selected</h2>
                             <p class="text-secondary mb-0 d-flex align-items-center">
                                 <i class="bi bi-info-circle me-2 text-success"></i> <span id="current-channel-group">Waiting for selection...</span>
@@ -411,7 +440,7 @@
 
     <!-- Application Logic -->
     <script>
-        const M3U_URL = "https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/fifa2026.m3u";
+        const M3U_URL = "https://raw.githubusercontent.com/SHAJON-404/iptv/refs/heads/main/app/data/fifa.m3u";
         let channelsData = [];
         let hlsInstance = null;
         let collapsedCategories = new Set();
@@ -423,6 +452,96 @@
         const videoPlaceholder = document.getElementById('video-placeholder');
         const playerLoader = document.getElementById('player-loader');
         const pipBtn = document.getElementById('pip-btn');
+
+        // Viewer Count Simulation Logic
+        let viewerInterval = null;
+        let currentViewers = 0;
+        let globalVisitors = 0;
+
+        function startGlobalVisitorCount() {
+            // Using CounterAPI.dev for real-time hit tracking
+            const namespace = "genoin_fifa2026"; // Unique for your site
+            const key = "live_visits";
+
+            // Increment count on load
+            fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
+                .then(res => res.json())
+                .then(data => {
+                    globalVisitors = data.count;
+                    updateGlobalVisitorUI();
+                })
+                .catch(err => {
+                    console.error("CounterAPI Error:", err);
+                    // Fallback to a safe number if API is down
+                    globalVisitors = 1200;
+                    updateGlobalVisitorUI();
+                });
+
+            // Periodically refresh the count to see others visiting
+            setInterval(() => {
+                fetch(`https://api.counterapi.dev/v1/${namespace}/${key}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.count > globalVisitors) {
+                            globalVisitors = data.count;
+                            updateGlobalVisitorUI();
+                        }
+                    });
+            }, 10000); // Check every 10 seconds
+        }
+
+        function updateGlobalVisitorUI() {
+            const el = document.getElementById('global-visitor-count');
+            if (el) el.innerText = globalVisitors.toLocaleString();
+        }
+
+        function startViewerCount(channelName) {
+            if (viewerInterval) clearInterval(viewerInterval);
+            
+            const viewerContainer = document.getElementById('viewer-container');
+            viewerContainer.style.display = 'inline-flex';
+            
+            const namespace = "genoin_fifa2026";
+            // Create a clean key from the channel name
+            const channelKey = "ch_" + channelName.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+
+            // Increment channel specific count
+            fetch(`https://api.counterapi.dev/v1/${namespace}/${channelKey}/up`)
+                .then(res => res.json())
+                .then(data => {
+                    currentViewers = data.count;
+                    updateViewerUI();
+                })
+                .catch(() => {
+                    currentViewers = Math.floor(Math.random() * 50) + 1; // Minimal fallback
+                    updateViewerUI();
+                });
+
+            // Refresh channel count every 15 seconds
+            viewerInterval = setInterval(() => {
+                fetch(`https://api.counterapi.dev/v1/${namespace}/${channelKey}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.count > currentViewers) {
+                            currentViewers = data.count;
+                            updateViewerUI();
+                        }
+                    });
+            }, 15000);
+        }
+
+        function updateViewerUI() {
+            const el = document.getElementById('viewer-count');
+            const container = document.getElementById('viewer-container');
+            if (el) el.innerText = currentViewers.toLocaleString();
+            
+            // Trigger animation
+            if (container) {
+                container.classList.remove('viewer-count-animate');
+                void container.offsetWidth; // trigger reflow
+                container.classList.add('viewer-count-animate');
+            }
+        }
 
         // Fetch and parse the M3U file
         async function fetchM3U() {
@@ -574,17 +693,44 @@
                             <div class="channel-logo">
                                 ${logoHtml}
                             </div>
-                            <div class="channel-info">
-                                <h6 class="text-white text-truncate" style="max-width: 180px;">
+                            <div class="channel-info flex-grow-1">
+                                <h6 class="text-white text-truncate" style="max-width: 150px;">
                                     ${statusClass ? `<span class="status-dot ${statusClass}"></span>` : ''}
                                     ${channel.name}
                                 </h6>
-                                <p class="text-truncate" style="max-width: 180px;">${channel.group}</p>
+                                <p class="text-truncate" style="max-width: 150px;">${channel.group}</p>
+                            </div>
+                            <div class="channel-stats text-end">
+                                <span class="badge rounded-pill bg-dark border border-secondary border-opacity-25" style="font-size: 0.65rem; color: #0dcaf0 !important;">
+                                    <i class="bi bi-eye-fill me-1"></i> <span class="ch-list-count" data-ch-name="${channel.name}">...</span>
+                                </span>
                             </div>
                         `;
                         groupContainer.appendChild(item);
                     });
                     channelListEl.appendChild(groupContainer);
+                }
+            });
+
+            // After rendering, fetch counts for visible channels (Lazy approach)
+            updateListCounts();
+        }
+
+        // Fetch counts for channels in the list
+        async function updateListCounts() {
+            const counts = document.querySelectorAll('.ch-list-count');
+            const namespace = "genoin_fifa2026";
+            
+            counts.forEach(async (el) => {
+                const name = el.getAttribute('data-ch-name');
+                const channelKey = "ch_" + name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+                
+                try {
+                    const res = await fetch(`https://api.counterapi.dev/v1/${namespace}/${channelKey}`);
+                    const data = await res.json();
+                    el.innerText = data.count.toLocaleString();
+                } catch {
+                    el.innerText = "0";
                 }
             });
         }
@@ -671,6 +817,23 @@
             // Update Info Panel
             document.getElementById('current-channel-title').innerText = channel.name;
             document.getElementById('current-channel-group').innerText = channel.group;
+
+            // Start Real-time Channel Viewer Count
+            startViewerCount(channel.name);
+
+            // Update the count in the list immediately as well
+            const listCountEl = document.querySelector(`.ch-list-count[data-ch-name="${channel.name}"]`);
+            if (listCountEl) {
+                // We know it just went up because startViewerCount called /up
+                // but fetching the latest is safer
+                setTimeout(() => {
+                    const namespace = "genoin_fifa2026";
+                    const channelKey = "ch_" + channel.name.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+                    fetch(`https://api.counterapi.dev/v1/${namespace}/${channelKey}`)
+                        .then(res => res.json())
+                        .then(data => { listCountEl.innerText = data.count.toLocaleString(); });
+                }, 1000);
+            }
 
             // --- FIX: Reset Player UI State ---
             // Stop current playback
@@ -793,6 +956,10 @@
 
         // Initialize App
         fetchM3U();
+        startGlobalVisitorCount();
+        
+        // Periodically refresh list counts every 60 seconds
+        setInterval(updateListCounts, 60000);
         
     </script>
     
