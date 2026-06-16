@@ -628,8 +628,8 @@
             </a>
             
             <div class="d-flex ai-search-box align-items-center flex-grow-1">
-                <i class="bi bi-robot text-primary me-2"></i>
-                <input type="text" id="channel-search" placeholder="AI Smart Search...">
+                <i class="bi bi-broadcast text-primary me-2"></i>
+                <input type="text" id="channel-search" placeholder="Search Channels...">
                 <i class="bi bi-search ms-2 text-secondary" style="cursor: pointer;"></i>
             </div>
         </div>
@@ -645,9 +645,8 @@
                 <div class="hero-content w-100 px-4 px-md-5" id="hero-content">
                     <div class="row">
                         <div class="col-md-9">
-                            <span class="ai-badge"><i class="bi bi-lightning-charge-fill me-1"></i> AI Recommended</span>
                             <h1 class="display-4 fw-bold mb-3 text-shadow">Live TV Hub</h1>
-                            <p class="lead text-light mb-0" style="opacity: 0.8; font-size: 1.2rem;">genoin AI has analyzed your viewing habits. Select a channel below to start streaming immediately.</p>
+                            <p class="lead text-light mb-0" style="opacity: 0.8; font-size: 1.2rem;">Select a channel below to start streaming your favorite content immediately.</p>
                         </div>
                     </div>
                 </div>
@@ -956,24 +955,30 @@
         // --- Video Player Logic ---
         function playStream(encodedData) {
             const channel = JSON.parse(decodeURIComponent(encodedData));
+            const isPip = videoContainer.classList.contains('pip-mode');
 
             // UI Transitions: Hide Hero, Show Video & Reset Loader
-            heroBg.style.opacity = '0';
-            heroContent.style.opacity = '0';
+            if (!isPip) {
+                heroBg.style.opacity = '0';
+                heroContent.style.opacity = '0';
+                
+                // Auto scroll to top only if NOT in PiP mode
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                setTimeout(() => {
+                    heroBg.style.display = 'none';
+                    heroContent.style.display = 'none';
+                    videoContainer.style.display = 'block';
+                }, 500);
+            } else {
+                // If in PiP, ensure it's visible (it should be)
+                videoContainer.style.display = 'block';
+            }
             
+            videoLoader.style.display = 'block'; 
             loadingSpinner.style.display = 'inline-block';
             loaderText.innerText = "Connecting...";
             loaderText.classList.remove('text-danger');
-            
-            // Auto scroll to top to view player perfectly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            setTimeout(() => {
-                heroBg.style.display = 'none';
-                heroContent.style.display = 'none';
-                videoContainer.style.display = 'block';
-                videoLoader.style.display = 'block'; 
-            }, 500);
 
             // Update Control Bar Info
             playingTitle.textContent = channel.name;
@@ -1158,6 +1163,25 @@
 
             // PI-P Scroll Logic
             const stickyWrapper = document.getElementById('sticky-player-wrapper');
+            
+            window.addEventListener('scroll', () => {
+                // Only trigger PiP if video is actually playing/visible AND not in fullscreen
+                if (videoContainer.style.display === 'block' && !document.fullscreenElement && !document.webkitFullscreenElement) {
+                    // Trigger when the player is mostly scrolled out of view
+                    if (window.scrollY > 450) {
+                        videoContainer.classList.add('pip-mode');
+                        stickyWrapper.classList.add('pip-active');
+                    } else {
+                        videoContainer.classList.remove('pip-mode');
+                        stickyWrapper.classList.remove('pip-active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+= document.getElementById('sticky-player-wrapper');
             
             window.addEventListener('scroll', () => {
                 // Only trigger PiP if video is actually playing/visible AND not in fullscreen
