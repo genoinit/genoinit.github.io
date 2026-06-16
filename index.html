@@ -1181,22 +1181,4 @@
     </script>
 </body>
 </html>
-= document.getElementById('sticky-player-wrapper');
-            
-            window.addEventListener('scroll', () => {
-                // Only trigger PiP if video is actually playing/visible AND not in fullscreen
-                if (videoContainer.style.display === 'block' && !document.fullscreenElement && !document.webkitFullscreenElement) {
-                    // Trigger when the player is mostly scrolled out of view
-                    if (window.scrollY > 450) {
-                        videoContainer.classList.add('pip-mode');
-                        stickyWrapper.classList.add('pip-active');
-                    } else {
-                        videoContainer.classList.remove('pip-mode');
-                        stickyWrapper.classList.remove('pip-active');
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+
