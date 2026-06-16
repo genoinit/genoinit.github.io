@@ -72,15 +72,13 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* PARALLAX STICKY PLAYER */
+        /* PARALLAX PLAYER (Now scrolls away for PiP) */
         .sticky-player-wrapper {
-            position: sticky;
-            top: var(--nav-height);
-            z-index: 10; /* Lower z-index so content slides OVER it */
+            position: relative;
+            z-index: 10; 
             padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-            /* Fades slightly as content goes over it */
-            transition: opacity 0.3s ease;
+            padding-bottom: 0;
+            transition: all 0.3s ease;
         }
 
         /* Hero Section & Player Container */
@@ -280,9 +278,13 @@
         /* Horizontal Scroll Wrapper for the First Row */
         .scrolling-wrapper {
             display: flex;
+            flex-wrap: nowrap;
             overflow-x: auto;
+            overflow-y: hidden;
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
             gap: 15px;
+            padding-top: 10px; /* Added padding to prevent hover border clipping */
             padding-bottom: 15px;
             -ms-overflow-style: none; 
             scrollbar-width: none; 
@@ -312,19 +314,102 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             border: 2px solid transparent;
             cursor: pointer;
+            position: relative;
+        }
+
+        .fav-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            z-index: 10;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            color: white;
+            transition: all 0.2s;
+        }
+        .fav-btn:hover {
+            transform: scale(1.2);
+            background: rgba(0,0,0,0.8);
+        }
+        .fav-btn.active {
+            color: #ff416c;
         }
         
         .channel-card:hover {
             transform: scale(1.05);
-            border-color: #e8eaed;
+            border-top-color: #e8eaed;
+            border-bottom-color: #e8eaed;
             box-shadow: 0 8px 15px rgba(0,0,0,0.5);
             z-index: 2;
         }
         .channel-card.active {
-            border-color: #4285f4;
+            border-top-color: #4285f4;
+            border-bottom-color: #4285f4;
             box-shadow: 0 0 15px rgba(66, 133, 244, 0.4);
         }
 
+        .pip-active {
+            z-index: 2500 !important;
+        }
+
+        /* PI-P (Picture-in-Picture) Scroll Logic */
+        .pip-mode {
+            position: fixed !important;
+            top: auto !important;
+            left: auto !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            width: 320px !important;
+            height: 180px !important;
+            z-index: 9999 !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 20px rgba(66, 133, 244, 0.4);
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: slideInPip 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 12px !important;
+            overflow: hidden;
+            display: block !important;
+        }
+
+        @keyframes slideInPip {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .pip-mode .vignette,
+        .pip-mode .player-info-hero,
+        .pip-mode .hero-content {
+            display: none !important;
+        }
+
+        .pip-mode .player-overlay {
+            padding-bottom: 5px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+        }
+
+        .pip-mode .player-controls-bar {
+            gap: 10px;
+            padding-top: 5px;
+        }
+
+        .pip-mode .control-btn {
+            font-size: 1.2rem;
+        }
+
+        .pip-mode #playing-logo {
+            height: 30px;
+        }
+
+        .pip-mode #volume-slider {
+            width: 60px;
+        }
+
+        /* --- existing styles --- */
         .channel-logo-container {
             height: 70px; 
             background: #2a2d35;
@@ -443,9 +528,9 @@
     <div class="main-content-overlay w-100">
         <div class="container">
             
-            <div id="ai-picks-container" class="mb-5">
-                <h5 class="mb-3 fw-bold"><i class="bi bi-stars text-warning me-2"></i>AI Smart Picks (Live Now)</h5>
-                <div class="scrolling-wrapper" id="ai-picks-row"></div>
+            <div id="favorites-container" class="mb-5 d-none">
+                <h5 class="mb-3 fw-bold"><i class="bi bi-heart-fill text-danger me-2"></i>My Favorites</h5>
+                <div class="scrolling-wrapper" id="favorites-row"></div>
             </div>
 
             <h5 class="mb-3 fw-bold mt-4" id="all-channels-title">All Live Channels</h5>
@@ -473,6 +558,7 @@
         const M3U_URL = 'https://raw.githubusercontent.com/bdtechexpert/live-tv-playlist/refs/heads/main/live-tv-playlist.m3u';
         let hlsInstance = null;
         let allChannelsData = [];
+        let favorites = JSON.parse(localStorage.getItem('genoin_favorites')) || [];
         let controlsTimeout; 
 
         // Player DOM Elements
@@ -523,6 +609,7 @@
                 
                 document.getElementById('loader').style.display = 'none';
                 renderChannels(allChannelsData);
+                renderFavorites();
 
             } catch (error) {
                 console.error('Error fetching M3U:', error);
@@ -530,10 +617,31 @@
             }
         }
 
+        function toggleFavorite(event, channelId) {
+            event.stopPropagation();
+            const index = favorites.indexOf(channelId);
+            if (index === -1) {
+                favorites.push(channelId);
+            } else {
+                favorites.splice(index, 1);
+            }
+            localStorage.setItem('genoin_favorites', JSON.stringify(favorites));
+            
+            // Update UI
+            document.querySelectorAll(`.fav-btn[data-id="${channelId}"]`).forEach(btn => {
+                btn.classList.toggle('active');
+            });
+            renderFavorites();
+        }
+
         function createChannelCardHTML(channel) {
+            const isFav = favorites.includes(channel.id);
             const channelData = encodeURIComponent(JSON.stringify(channel));
             return `
                 <div class="channel-card" id="card-${channel.id}" data-name="${channel.name.toLowerCase()}" onclick="playStream('${channelData}')">
+                    <button class="fav-btn ${isFav ? 'active' : ''}" data-id="${channel.id}" onclick="toggleFavorite(event, ${channel.id})">
+                        <i class="bi bi-heart-fill"></i>
+                    </button>
                     <div class="channel-logo-container">
                         <img src="${channel.logo}" alt="${channel.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/150x80/2a2d35/FFFFFF?text=TV'">
                     </div>
@@ -545,30 +653,37 @@
             `;
         }
 
+        function renderFavorites() {
+            const favoritesContainer = document.getElementById('favorites-container');
+            const favoritesRow = document.getElementById('favorites-row');
+            
+            const favChannels = allChannelsData.filter(c => favorites.includes(c.id));
+            
+            if (favChannels.length > 0) {
+                favoritesContainer.classList.remove('d-none');
+                favoritesRow.innerHTML = favChannels.map(createChannelCardHTML).join('');
+            } else {
+                favoritesContainer.classList.add('d-none');
+            }
+        }
+
         function renderChannels(channels) {
-            const aiPicksRow = document.getElementById('ai-picks-row');
             const allChannelsGrid = document.getElementById('all-channels-grid');
-            
-            // Populate AI Picks Row
-            const aiPicks = [...channels].sort(() => 0.5 - Math.random()).slice(0, 10); 
-            aiPicksRow.innerHTML = aiPicks.map(createChannelCardHTML).join('');
-            
-            // Populate Main Grid
             allChannelsGrid.innerHTML = channels.map(createChannelCardHTML).join('');
         }
 
         // --- Live Search / Filtering Logic ---
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            const aiPicksContainer = document.getElementById('ai-picks-container');
+            const favoritesContainer = document.getElementById('favorites-container');
             const allChannelsTitle = document.getElementById('all-channels-title');
             const allCards = document.querySelectorAll('#all-channels-grid .channel-card');
 
             if (searchTerm.length > 0) {
-                aiPicksContainer.classList.add('d-none');
+                favoritesContainer.classList.add('d-none');
                 allChannelsTitle.textContent = `Search Results for "${e.target.value}"`;
             } else {
-                aiPicksContainer.classList.remove('d-none');
+                if (favorites.length > 0) favoritesContainer.classList.remove('d-none');
                 allChannelsTitle.textContent = 'All Live Channels';
             }
 
@@ -747,7 +862,35 @@
         }
 
         // Initialize App
-        document.addEventListener('DOMContentLoaded', fetchAndParseM3U);
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAndParseM3U();
+            
+            // Enable horizontal scroll with mouse wheel for Favorites
+            const favoritesRow = document.getElementById('favorites-row');
+            favoritesRow.addEventListener('wheel', (evt) => {
+                if (evt.deltaY !== 0) {
+                    evt.preventDefault();
+                    favoritesRow.scrollLeft += evt.deltaY;
+                }
+            }, { passive: false });
+
+            // PI-P Scroll Logic
+            const stickyWrapper = document.getElementById('sticky-player-wrapper');
+            
+            window.addEventListener('scroll', () => {
+                // Only trigger PiP if video is actually playing/visible
+                if (videoContainer.style.display === 'block') {
+                    // Trigger when the player is mostly scrolled out of view
+                    if (window.scrollY > 450) {
+                        videoContainer.classList.add('pip-mode');
+                        stickyWrapper.classList.add('pip-active');
+                    } else {
+                        videoContainer.classList.remove('pip-mode');
+                        stickyWrapper.classList.remove('pip-active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
