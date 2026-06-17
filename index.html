@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GENOIN - AI IPTV Player</title>
+    <title>GENOIN - IPTV Player</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -393,11 +393,13 @@
             text-overflow: ellipsis;
         }
 
-        #sidebar-toggle-btn {
+        #sidebar-toggle-btn, #prev-btn, #next-btn {
             display: none; /* Only show in fullscreen */
         }
 
-        .video-container.is-fullscreen #sidebar-toggle-btn {
+        .video-container.is-fullscreen #sidebar-toggle-btn,
+        .video-container.is-fullscreen #prev-btn,
+        .video-container.is-fullscreen #next-btn {
             display: inline-block;
         }
 
@@ -685,9 +687,11 @@
 
                             <div class="player-controls-bar">
                                 <button class="control-btn" id="sidebar-toggle-btn" title="Channel List"><i class="bi bi-chevron-right"></i></button>
+                                <button class="control-btn" id="prev-btn" title="Previous Channel"><i class="bi bi-skip-start-fill"></i></button>
                                 <button class="control-btn" id="play-pause-btn"><i class="bi bi-pause-fill"></i></button>
+                                <button class="control-btn" id="next-btn" title="Next Channel"><i class="bi bi-skip-end-fill"></i></button>
                                 <button class="control-btn ms-3" id="mute-btn" style="font-size: 1.5rem;"><i class="bi bi-volume-up-fill"></i></button>
-                                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="1">
+                                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.3">
                                 <button class="control-btn ms-auto" id="fullscreen-btn"><i class="bi bi-arrows-fullscreen"></i></button>
                             </div>
                         </div>
@@ -756,7 +760,7 @@
                             <i class="bi bi-play-btn-fill me-2 text-primary"></i>GENOIN
                         </div>
                         <p class="text-secondary mb-0" style="font-size: 0.85rem; max-width: 300px;">
-                            The next generation AI-powered IPTV streaming experience.
+                            The next generation IPTV streaming experience.
                         </p>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
@@ -795,12 +799,15 @@
         
         let hlsInstance = null;
         let allChannelsData = [];
+        let currentChannelIndex = -1;
         let favorites = JSON.parse(localStorage.getItem('genoin_favorites')) || [];
         let controlsTimeout; 
 
         // Player DOM Elements
         const video = document.getElementById('main-player');
         const playPauseBtn = document.getElementById('play-pause-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
         const muteBtn = document.getElementById('mute-btn');
         const volumeSlider = document.getElementById('volume-slider');
         const fullscreenBtn = document.getElementById('fullscreen-btn');
@@ -1058,8 +1065,25 @@
         });
 
         // --- Video Player Logic ---
+        function playNextChannel() {
+            if (allChannelsData.length === 0) return;
+            currentChannelIndex = (currentChannelIndex + 1) % allChannelsData.length;
+            const nextChannel = allChannelsData[currentChannelIndex];
+            const channelData = encodeURIComponent(JSON.stringify(nextChannel));
+            playStream(channelData);
+        }
+
+        function playPrevChannel() {
+            if (allChannelsData.length === 0) return;
+            currentChannelIndex = (currentChannelIndex - 1 + allChannelsData.length) % allChannelsData.length;
+            const prevChannel = allChannelsData[currentChannelIndex];
+            const channelData = encodeURIComponent(JSON.stringify(prevChannel));
+            playStream(channelData);
+        }
+
         function playStream(encodedData) {
             const channel = JSON.parse(decodeURIComponent(encodedData));
+            currentChannelIndex = allChannelsData.findIndex(c => c.id === channel.id);
             const isPip = videoContainer.classList.contains('pip-mode');
 
             // UI Transitions: Hide Hero, Show Video & Reset Loader
@@ -1170,6 +1194,16 @@
             updatePlayPauseUI();
         });
 
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playPrevChannel();
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playNextChannel();
+        });
+
         muteBtn.addEventListener('click', () => {
             video.muted = !video.muted;
             if (video.muted || video.volume === 0) {
@@ -1252,7 +1286,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             initPlaylistSelector();
             fetchAndParseM3U(PLAYLISTS[0].url);
-            
+			
+            // Set default volume
+			video.volume = 0.3;
+			
             // Enable horizontal scroll with mouse wheel for Favorites
             const favoritesRow = document.getElementById('favorites-row');
             favoritesRow.addEventListener('wheel', (evt) => {
