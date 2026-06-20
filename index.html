@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -256,7 +257,33 @@
             display: flex;
             flex-direction: column;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
+            overflow: visible;
+        }
+
+        /* Sidebar dropdown fix for fullscreen */
+        .fullscreen-sidebar .dropdown {
+            position: relative;
+        }
+
+        .fullscreen-sidebar .dropdown-menu {
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            right: 0 !important;
+            transform: none !important;
+            max-height: 45vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(66, 133, 244, 0.3) transparent;
+            z-index: 200;
+        }
+
+        .fullscreen-sidebar .dropdown-menu::-webkit-scrollbar {
+            width: 4px;
+        }
+        .fullscreen-sidebar .dropdown-menu::-webkit-scrollbar-thumb {
+            background: rgba(66, 133, 244, 0.3);
+            border-radius: 10px;
         }
 
         .fullscreen-sidebar.open {
@@ -528,8 +555,8 @@
             position: fixed !important;
             top: auto !important;
             left: auto !important;
-            bottom: 30px !important;
-            right: 30px !important;
+            bottom: 20px !important;
+            right: 20px !important;
             width: 320px !important;
             height: 180px !important;
             z-index: 9999 !important;
@@ -574,6 +601,67 @@
             width: 60px;
         }
 
+        /* --- PiP Responsive Breakpoints --- */
+
+        /* Tablets (landscape / small desktop) */
+        @media (max-width: 992px) {
+            .pip-mode {
+                width: 280px !important;
+                height: 158px !important;
+                bottom: 16px !important;
+                right: 16px !important;
+            }
+        }
+
+        /* Small tablets / large phones (landscape) */
+        @media (max-width: 768px) {
+            .pip-mode {
+                width: 240px !important;
+                height: 135px !important;
+                bottom: 12px !important;
+                right: 12px !important;
+                border-radius: 10px !important;
+            }
+            .pip-mode .control-btn {
+                font-size: 1rem;
+            }
+            .pip-mode .player-controls-bar {
+                gap: 6px;
+            }
+            .pip-mode #volume-slider {
+                width: 45px;
+            }
+            .pip-mode #playing-logo {
+                height: 24px;
+            }
+        }
+
+        /* Mobile phones — compact floating corner */
+        @media (max-width: 576px) {
+            .pip-mode {
+                width: 55vw !important;
+                height: calc(55vw * 9 / 16) !important;
+                max-height: 200px !important;
+                bottom: 10px !important;
+                right: 10px !important;
+                left: auto !important;
+                border-radius: 10px !important;
+            }
+            .pip-mode .control-btn {
+                font-size: 1rem;
+            }
+            .pip-mode .player-controls-bar {
+                gap: 6px;
+                padding: 3px 8px 2px 8px;
+            }
+            .pip-mode #volume-slider {
+                display: none;
+            }
+            .pip-mode #playing-logo {
+                height: 20px;
+            }
+        }
+
         /* --- existing styles --- */
         .channel-logo-container {
             height: 70px; 
@@ -612,6 +700,25 @@
         }
 
         .d-none { display: none !important; }
+
+        /* Server badge on favorite cards */
+        .server-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.25), rgba(138, 43, 226, 0.2));
+            border: 1px solid rgba(66, 133, 244, 0.25);
+            padding: 2px 8px;
+            border-radius: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            letter-spacing: 0.3px;
+        }
 
         .custom-footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -802,7 +909,39 @@
         let hlsInstance = null;
         let allChannelsData = [];
         let currentChannelIndex = -1;
-        let favorites = JSON.parse(localStorage.getItem('genoin_favorites')) || [];
+        let favoritesData = JSON.parse(localStorage.getItem('genoin_favorites_v3')) || {};
+        let currentPlaylistIndex = 0;
+
+        // Get favorites for the current server (array of channel objects)
+        function getCurrentFavorites() {
+            const key = PLAYLISTS[currentPlaylistIndex].url;
+            return favoritesData[key] || [];
+        }
+
+        function setCurrentFavorites(favs) {
+            const key = PLAYLISTS[currentPlaylistIndex].url;
+            favoritesData[key] = favs;
+            localStorage.setItem('genoin_favorites_v3', JSON.stringify(favoritesData));
+        }
+
+        // Check if a channel ID is favorited on the current server
+        function isChannelFavorited(channelId) {
+            return getCurrentFavorites().some(c => c.id === channelId);
+        }
+
+        // Get ALL favorites across every server
+        function getAllFavorites() {
+            const all = [];
+            for (const playlist of PLAYLISTS) {
+                const favs = favoritesData[playlist.url] || [];
+                if (favs.length > 0) {
+                    favs.forEach(channel => {
+                        all.push({ channel, serverName: playlist.name, serverIndex: PLAYLISTS.indexOf(playlist) });
+                    });
+                }
+            }
+            return all;
+        }
         let controlsTimeout; 
 
         // Player DOM Elements
@@ -832,6 +971,52 @@
         const playingLogo = document.getElementById('playing-logo');
         const searchInput = document.getElementById('channel-search');
 
+        // --- Letter Logo Generator ---
+        const LOGO_COLORS = [
+            '#E53935', '#D81B60', '#8E24AA', '#5E35B1',
+            '#3949AB', '#1E88E5', '#039BE5', '#00ACC1',
+            '#00897B', '#43A047', '#7CB342', '#C0CA33',
+            '#F4511E', '#6D4C41', '#546E7A', '#FF7043',
+            '#AB47BC', '#29B6F6'
+        ];
+
+        function getLogoColor(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return LOGO_COLORS[Math.abs(hash) % LOGO_COLORS.length];
+        }
+
+        function generateLetterLogo(name) {
+            const word = (name || '?').trim().split(/\s+/)[0];
+            const bg = getLogoColor(name || 'X');
+            // Scale font size based on word length to fit within 150px width
+            let fontSize = 36;
+            if (word.length >= 8) fontSize = 18;
+            else if (word.length >= 6) fontSize = 22;
+            else if (word.length >= 4) fontSize = 28;
+            else if (word.length >= 2) fontSize = 32;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="150" height="80" viewBox="0 0 150 80">
+                <defs>
+                    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:${bg};stop-opacity:1"/>
+                        <stop offset="100%" style="stop-color:${bg};stop-opacity:0.7"/>
+                    </linearGradient>
+                </defs>
+                <rect width="150" height="80" rx="8" fill="url(#g)"/>
+                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+                      font-family="Roboto,sans-serif" font-weight="700" font-size="${fontSize}"
+                      fill="white" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.3))">${word}</text>
+            </svg>`;
+            return 'data:image/svg+xml,' + encodeURIComponent(svg);
+        }
+
+        function handleLogoError(img, channelName) {
+            img.onerror = null;
+            img.src = generateLetterLogo(channelName);
+        }
+
         async function fetchAndParseM3U(url) {
             try {
                 // Show loader and clear grid
@@ -853,7 +1038,7 @@
                     
                     if (line.startsWith('#EXTINF:')) {
                         const logoMatch = line.match(/tvg-logo="([^"]+)"/);
-                        currentChannel.logo = logoMatch ? logoMatch[1] : 'https://via.placeholder.com/150x80/2a2d35/FFFFFF?text=No+Logo';
+                        currentChannel.logo = logoMatch ? logoMatch[1] : '';
                         
                         const nameSplit = line.split(',');
                         currentChannel.name = nameSplit.length > 1 ? nameSplit[1] : 'Unknown Channel';
@@ -894,8 +1079,20 @@
 
             window.changeServer = (event, index) => {
                 event.preventDefault();
+                event.stopPropagation();
+                currentPlaylistIndex = index;
                 const selected = PLAYLISTS[index];
                 
+                // Remember if sidebar was open (fullscreen mode)
+                const sidebarWasOpen = sidebar.classList.contains('open');
+                
+                // Manually close Bootstrap dropdown without affecting sidebar
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    menu.classList.remove('show');
+                    menu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]')?.classList.remove('show');
+                    menu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]')?.setAttribute('aria-expanded', 'false');
+                });
+
                 // Update UI
                 serverNameDisplay.textContent = selected.name;
                 if (sidebarServerNameDisplay) sidebarServerNameDisplay.textContent = selected.name;
@@ -909,19 +1106,28 @@
                 // Clear search and fetch
                 searchInput.value = '';
                 sidebarSearchInput.value = '';
-                fetchAndParseM3U(selected.url);
+                fetchAndParseM3U(selected.url).then(() => {
+                    // Re-ensure sidebar stays open after channels reload
+                    if (sidebarWasOpen) {
+                        sidebar.classList.add('open');
+                        sidebarToggleBtn.innerHTML = '<i class="bi bi-chevron-left"></i>';
+                    }
+                });
             };
         }
 
         function toggleFavorite(event, channelId) {
             event.stopPropagation();
-            const index = favorites.indexOf(channelId);
+            const favs = getCurrentFavorites();
+            const index = favs.findIndex(c => c.id === channelId);
             if (index === -1) {
-                favorites.push(channelId);
+                // Find the full channel object and store it
+                const channelObj = allChannelsData.find(c => c.id === channelId);
+                if (channelObj) favs.push({...channelObj});
             } else {
-                favorites.splice(index, 1);
+                favs.splice(index, 1);
             }
-            localStorage.setItem('genoin_favorites', JSON.stringify(favorites));
+            setCurrentFavorites(favs);
             
             // Update UI
             document.querySelectorAll(`.fav-btn[data-id="${channelId}"]`).forEach(btn => {
@@ -931,7 +1137,7 @@
         }
 
         function createChannelCardHTML(channel) {
-            const isFav = favorites.includes(channel.id);
+            const isFav = isChannelFavorited(channel.id);
             const channelData = encodeURIComponent(JSON.stringify(channel));
             return `
                 <div class="channel-card" id="card-${channel.id}" data-name="${channel.name.toLowerCase()}" onclick="playStream('${channelData}')">
@@ -939,7 +1145,7 @@
                         <i class="bi bi-heart-fill"></i>
                     </button>
                     <div class="channel-logo-container">
-                        <img src="${channel.logo}" alt="${channel.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/150x80/2a2d35/FFFFFF?text=TV'">
+                        <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${channel.name}" loading="lazy" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
                     </div>
                     <div class="channel-info">
                         <div class="channel-title">${channel.name}</div>
@@ -949,15 +1155,47 @@
             `;
         }
 
+        function createFavoriteCardHTML(channel, serverName, serverIndex) {
+            const channelData = encodeURIComponent(JSON.stringify(channel));
+            const isCurrentServer = serverIndex === currentPlaylistIndex;
+            return `
+                <div class="channel-card" data-name="${channel.name.toLowerCase()}" onclick="${isCurrentServer ? `playStream('${channelData}')` : `changeServer(event, ${serverIndex}); setTimeout(() => {}, 500);`}">
+                    <button class="fav-btn active" data-id="${channel.id}" onclick="${isCurrentServer ? `toggleFavorite(event, ${channel.id})` : `removeCrossServerFav(event, ${serverIndex}, ${channel.id})`}">
+                        <i class="bi bi-heart-fill"></i>
+                    </button>
+                    <div class="channel-logo-container">
+                        <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${channel.name}" loading="lazy" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
+                    </div>
+                    <div class="channel-info">
+                        <div class="channel-title">${channel.name}</div>
+                        <span class="server-badge"><i class="bi bi-server"></i>${serverName}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Remove a favorite from a different server (cross-server unfavorite)
+        function removeCrossServerFav(event, serverIndex, channelId) {
+            event.stopPropagation();
+            const key = PLAYLISTS[serverIndex].url;
+            let favs = favoritesData[key] || [];
+            favs = favs.filter(c => c.id !== channelId);
+            favoritesData[key] = favs;
+            localStorage.setItem('genoin_favorites_v3', JSON.stringify(favoritesData));
+            renderFavorites();
+        }
+
         function renderFavorites() {
             const favoritesContainer = document.getElementById('favorites-container');
             const favoritesRow = document.getElementById('favorites-row');
             
-            const favChannels = allChannelsData.filter(c => favorites.includes(c.id));
+            const allFavs = getAllFavorites();
             
-            if (favChannels.length > 0) {
+            if (allFavs.length > 0) {
                 favoritesContainer.classList.remove('d-none');
-                favoritesRow.innerHTML = favChannels.map(createChannelCardHTML).join('');
+                favoritesRow.innerHTML = allFavs.map(({ channel, serverName, serverIndex }) => 
+                    createFavoriteCardHTML(channel, serverName, serverIndex)
+                ).join('');
             } else {
                 favoritesContainer.classList.add('d-none');
             }
@@ -975,7 +1213,7 @@
                 const channelData = encodeURIComponent(JSON.stringify(channel));
                 return `
                     <div class="sidebar-item" id="sidebar-card-${channel.id}" onclick="playStream('${channelData}')">
-                        <img src="${channel.logo}" onerror="this.src='https://via.placeholder.com/150x80/2a2d35/FFFFFF?text=TV'">
+                        <img src="${channel.logo || generateLetterLogo(channel.name)}" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
                         <div class="sidebar-item-name">${channel.name}</div>
                     </div>
                 `;
@@ -1052,7 +1290,7 @@
                 favoritesContainer.classList.add('d-none');
                 allChannelsTitle.textContent = `Search Results for "${e.target.value}"`;
             } else {
-                if (favorites.length > 0) favoritesContainer.classList.remove('d-none');
+                if (getAllFavorites().length > 0) favoritesContainer.classList.remove('d-none');
                 allChannelsTitle.textContent = 'All Live Channels';
             }
 
@@ -1283,6 +1521,123 @@
                 }
             }, 3000); 
         }
+
+        // --- Volume UI Helper ---
+        function updateVolumeUI() {
+            volumeSlider.value = video.muted ? 0 : video.volume;
+            if (video.muted || video.volume == 0) {
+                muteBtn.innerHTML = '<i class="bi bi-volume-mute-fill"></i>';
+            } else if (video.volume < 0.5) {
+                muteBtn.innerHTML = '<i class="bi bi-volume-down-fill"></i>';
+            } else {
+                muteBtn.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
+            }
+        }
+
+        // --- KEYBOARD SHORTCUTS ---
+        document.addEventListener('keydown', (e) => {
+            // Don't capture keys when typing in search inputs
+            const tag = e.target.tagName.toLowerCase();
+            if (tag === 'input' || tag === 'textarea') return;
+
+            // Only activate shortcuts when video is visible (playing)
+            if (videoContainer.style.display !== 'block') return;
+
+            const isFullscreen = videoContainer.classList.contains('is-fullscreen');
+
+            // Show controls on any keypress in fullscreen
+            if (isFullscreen) {
+                videoContainer.classList.remove('hide-controls');
+                resetControlsTimeout();
+            }
+
+            switch (e.key) {
+                // --- Play / Pause ---
+                case ' ':
+                case 'k':
+                case 'K':
+                    e.preventDefault();
+                    if (video.paused) video.play();
+                    else video.pause();
+                    updatePlayPauseUI();
+                    break;
+
+                // --- Volume Up ---
+                case 'ArrowUp':
+                    e.preventDefault();
+                    video.volume = Math.min(1, video.volume + 0.05);
+                    video.muted = false;
+                    updateVolumeUI();
+                    break;
+
+                // --- Volume Down ---
+                case 'ArrowDown':
+                    e.preventDefault();
+                    video.volume = Math.max(0, video.volume - 0.05);
+                    video.muted = false;
+                    updateVolumeUI();
+                    break;
+
+                // --- Next Channel ---
+                case 'ArrowRight':
+                case 'n':
+                case 'N':
+                    e.preventDefault();
+                    playNextChannel();
+                    break;
+
+                // --- Previous Channel ---
+                case 'ArrowLeft':
+                case 'p':
+                case 'P':
+                    e.preventDefault();
+                    playPrevChannel();
+                    break;
+
+                // --- Fullscreen Toggle ---
+                case 'f':
+                case 'F':
+                    e.preventDefault();
+                    fullscreenBtn.click();
+                    break;
+
+                // --- Mute Toggle ---
+                case 'm':
+                case 'M':
+                    e.preventDefault();
+                    video.muted = !video.muted;
+                    updateVolumeUI();
+                    break;
+
+                // --- Sidebar Toggle (fullscreen only) ---
+                case 'l':
+                case 'L':
+                    if (isFullscreen) {
+                        e.preventDefault();
+                        toggleSidebar();
+                    }
+                    break;
+
+                // --- Close sidebar / exit fullscreen ---
+                case 'Escape':
+                    if (isFullscreen && sidebar.classList.contains('open')) {
+                        e.preventDefault();
+                        sidebar.classList.remove('open');
+                        sidebarToggleBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+                        resetControlsTimeout();
+                    }
+                    break;
+
+                // --- Number keys 0-9: set volume to 0%-90% ---
+                case '0': case '1': case '2': case '3': case '4':
+                case '5': case '6': case '7': case '8': case '9':
+                    e.preventDefault();
+                    video.volume = parseInt(e.key) / 10;
+                    video.muted = false;
+                    updateVolumeUI();
+                    break;
+            }
+        });
 
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
