@@ -154,6 +154,18 @@
             100% { opacity: 1; }
         }
 
+        .fav-mode-badge {
+            background: linear-gradient(45deg, #ff416c, #e91e63);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
         /* Custom Video Player */
         .video-container {
             position: absolute;
@@ -786,6 +798,7 @@
                         <div class="w-100 px-4 px-md-5">
                             <div class="player-info-hero">
                                 <span class="live-badge mb-2"><i class="bi bi-record-circle-fill me-1"></i> LIVE NOW</span>
+                                <span class="fav-mode-badge d-none" id="fav-mode-badge"><i class="bi bi-heart-fill me-1"></i>FAVORITES</span>
                                 <div class="d-flex align-items-center mt-2">
                                     <img id="playing-logo" src="" alt="" height="60" class="me-3 shadow" style="object-fit: contain; border-radius: 8px; display: none; background: rgba(255,255,255,0.1); padding: 5px;">
                                     <h1 class="display-5 fw-bold mb-0 text-white text-shadow" id="playing-title">Loading Stream...</h1>
@@ -911,6 +924,8 @@
         let currentChannelIndex = -1;
         let favoritesData = JSON.parse(localStorage.getItem('genoin_favorites_v3')) || {};
         let currentPlaylistIndex = 0;
+        let playbackMode = 'server'; // 'server' or 'favorites'
+        let currentFavIndex = -1;
 
         // Get favorites for the current server (array of channel objects)
         function getCurrentFavorites() {
@@ -942,6 +957,71 @@
             }
             return all;
         }
+
+        // --- Playback Mode (Server vs Favorites) ---
+        function updatePlaybackModeUI() {
+            const badge = document.getElementById('fav-mode-badge');
+            if (playbackMode === 'favorites') {
+                badge.classList.remove('d-none');
+            } else {
+                badge.classList.add('d-none');
+            }
+        }
+
+        function playFromFavorites(favIndex) {
+            const allFavs = getAllFavorites();
+            if (favIndex < 0 || favIndex >= allFavs.length) return;
+            playbackMode = 'favorites';
+            currentFavIndex = favIndex;
+            updatePlaybackModeUI();
+            const { channel } = allFavs[favIndex];
+            const encodedData = encodeURIComponent(JSON.stringify(channel));
+            playStream(encodedData);
+
+            // Highlight active favorite card
+            document.querySelectorAll('#favorites-row .channel-card').forEach(el => el.classList.remove('active'));
+            const favCards = document.querySelectorAll('#favorites-row .channel-card');
+            if (favCards[favIndex]) favCards[favIndex].classList.add('active');
+        }
+
+        function playFromGrid(encodedData) {
+            playbackMode = 'server';
+            currentFavIndex = -1;
+            updatePlaybackModeUI();
+            document.querySelectorAll('#favorites-row .channel-card').forEach(el => el.classList.remove('active'));
+            playStream(encodedData);
+        }
+
+        function removeFavoriteItem(event, serverIndex, channelId) {
+            event.stopPropagation();
+            const key = PLAYLISTS[serverIndex].url;
+            let favs = favoritesData[key] || [];
+            favs = favs.filter(c => c.id !== channelId);
+            favoritesData[key] = favs;
+            localStorage.setItem('genoin_favorites_v3', JSON.stringify(favoritesData));
+
+            // Update main grid heart button if on the same server
+            if (serverIndex === currentPlaylistIndex) {
+                document.querySelectorAll(`#all-channels-grid .fav-btn[data-id="${channelId}"]`).forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+
+            renderFavorites();
+
+            // Adjust favorites mode index if needed
+            if (playbackMode === 'favorites') {
+                const allFavs = getAllFavorites();
+                if (allFavs.length === 0) {
+                    playbackMode = 'server';
+                    currentFavIndex = -1;
+                    updatePlaybackModeUI();
+                } else if (currentFavIndex >= allFavs.length) {
+                    currentFavIndex = allFavs.length - 1;
+                }
+            }
+        }
+
         let controlsTimeout; 
 
         // Player DOM Elements
@@ -1081,6 +1161,9 @@
                 event.preventDefault();
                 event.stopPropagation();
                 currentPlaylistIndex = index;
+                playbackMode = 'server';
+                currentFavIndex = -1;
+                updatePlaybackModeUI();
                 const selected = PLAYLISTS[index];
                 
                 // Remember if sidebar was open (fullscreen mode)
@@ -1134,13 +1217,25 @@
                 btn.classList.toggle('active');
             });
             renderFavorites();
+
+            // Adjust favorites playback index if needed
+            if (playbackMode === 'favorites') {
+                const allFavs = getAllFavorites();
+                if (allFavs.length === 0) {
+                    playbackMode = 'server';
+                    currentFavIndex = -1;
+                    updatePlaybackModeUI();
+                } else if (currentFavIndex >= allFavs.length) {
+                    currentFavIndex = allFavs.length - 1;
+                }
+            }
         }
 
         function createChannelCardHTML(channel) {
             const isFav = isChannelFavorited(channel.id);
             const channelData = encodeURIComponent(JSON.stringify(channel));
             return `
-                <div class="channel-card" id="card-${channel.id}" data-name="${channel.name.toLowerCase()}" onclick="playStream('${channelData}')">
+                <div class="channel-card" id="card-${channel.id}" data-name="${channel.name.toLowerCase()}" onclick="playFromGrid('${channelData}')">
                     <button class="fav-btn ${isFav ? 'active' : ''}" data-id="${channel.id}" onclick="toggleFavorite(event, ${channel.id})">
                         <i class="bi bi-heart-fill"></i>
                     </button>
@@ -1155,12 +1250,10 @@
             `;
         }
 
-        function createFavoriteCardHTML(channel, serverName, serverIndex) {
-            const channelData = encodeURIComponent(JSON.stringify(channel));
-            const isCurrentServer = serverIndex === currentPlaylistIndex;
+        function createFavoriteCardHTML(channel, serverName, serverIndex, favIdx) {
             return `
-                <div class="channel-card" data-name="${channel.name.toLowerCase()}" onclick="${isCurrentServer ? `playStream('${channelData}')` : `changeServer(event, ${serverIndex}); setTimeout(() => {}, 500);`}">
-                    <button class="fav-btn active" data-id="${channel.id}" onclick="${isCurrentServer ? `toggleFavorite(event, ${channel.id})` : `removeCrossServerFav(event, ${serverIndex}, ${channel.id})`}">
+                <div class="channel-card" data-name="${channel.name.toLowerCase()}" onclick="playFromFavorites(${favIdx})">
+                    <button class="fav-btn active" data-id="${channel.id}" data-server="${serverIndex}" onclick="removeFavoriteItem(event, ${serverIndex}, ${channel.id})">
                         <i class="bi bi-heart-fill"></i>
                     </button>
                     <div class="channel-logo-container">
@@ -1193,8 +1286,8 @@
             
             if (allFavs.length > 0) {
                 favoritesContainer.classList.remove('d-none');
-                favoritesRow.innerHTML = allFavs.map(({ channel, serverName, serverIndex }) => 
-                    createFavoriteCardHTML(channel, serverName, serverIndex)
+                favoritesRow.innerHTML = allFavs.map(({ channel, serverName, serverIndex }, favIdx) => 
+                    createFavoriteCardHTML(channel, serverName, serverIndex, favIdx)
                 ).join('');
             } else {
                 favoritesContainer.classList.add('d-none');
@@ -1212,7 +1305,7 @@
             sidebarChannelsList.innerHTML = channels.map(channel => {
                 const channelData = encodeURIComponent(JSON.stringify(channel));
                 return `
-                    <div class="sidebar-item" id="sidebar-card-${channel.id}" onclick="playStream('${channelData}')">
+                    <div class="sidebar-item" id="sidebar-card-${channel.id}" onclick="playFromGrid('${channelData}')">
                         <img src="${channel.logo || generateLetterLogo(channel.name)}" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
                         <div class="sidebar-item-name">${channel.name}</div>
                     </div>
@@ -1306,6 +1399,13 @@
 
         // --- Video Player Logic ---
         function playNextChannel() {
+            if (playbackMode === 'favorites') {
+                const allFavs = getAllFavorites();
+                if (allFavs.length === 0) return;
+                currentFavIndex = (currentFavIndex + 1) % allFavs.length;
+                playFromFavorites(currentFavIndex);
+                return;
+            }
             if (allChannelsData.length === 0) return;
             currentChannelIndex = (currentChannelIndex + 1) % allChannelsData.length;
             const nextChannel = allChannelsData[currentChannelIndex];
@@ -1314,6 +1414,13 @@
         }
 
         function playPrevChannel() {
+            if (playbackMode === 'favorites') {
+                const allFavs = getAllFavorites();
+                if (allFavs.length === 0) return;
+                currentFavIndex = (currentFavIndex - 1 + allFavs.length) % allFavs.length;
+                playFromFavorites(currentFavIndex);
+                return;
+            }
             if (allChannelsData.length === 0) return;
             currentChannelIndex = (currentChannelIndex - 1 + allChannelsData.length) % allChannelsData.length;
             const prevChannel = allChannelsData[currentChannelIndex];
@@ -1351,12 +1458,14 @@
 
             // Update Control Bar Info
             playingTitle.textContent = channel.name;
-            playingLogo.src = channel.logo;
+            playingLogo.src = channel.logo || generateLetterLogo(channel.name);
             playingLogo.style.display = 'block';
 
-            // Highlight active card
-            document.querySelectorAll('.channel-card').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll(`#card-${channel.id}`).forEach(el => el.classList.add('active'));
+            // Highlight active card (grid only — favorites highlighting is handled by playFromFavorites)
+            document.querySelectorAll('#all-channels-grid .channel-card').forEach(el => el.classList.remove('active'));
+            if (playbackMode === 'server') {
+                document.querySelectorAll(`#card-${channel.id}`).forEach(el => el.classList.add('active'));
+            }
 
             // Highlight active sidebar item
             document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
