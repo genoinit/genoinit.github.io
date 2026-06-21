@@ -5,22 +5,39 @@
 # ==========================================
 
 # --- Somoy TV ---
-#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV [Server 1]
-http://primary-server.com/somoytv/live.m3u8
-#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV [Server 2]
-http://backup-server.com/somoytv/live.m3u8
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
+https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/somoyt000011226615544544.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
+http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
+
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
+https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
+
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
+https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
+
+
+
+
 
 # --- Jamuna TV ---
-#EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV [Server 1]
-http://primary-server.com/jamunatv/live.m3u8
-#EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV [Server 2]
-http://backup-server.com/jamunatv/live.m3u8
+#EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/jamuna-test-sample-ok.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8
 
 # --- Channel 24 ---
-#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24 [Main]
-http://primary-server.com/channel24/live.m3u8
-#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24 [Backup]
-http://backup-server.com/channel24/live.m3u8
+#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24
+https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8
+
+
+#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24
+https://ch24play.ncare.io/live/channel24.926f3953.m3u8?t=b738cb0516564076a627a7beffadc188
+
 
 
 # ==========================================
@@ -28,21 +45,34 @@ http://backup-server.com/channel24/live.m3u8
 # ==========================================
 
 # --- NTV ---
-#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV [Server 1]
-http://primary-server.com/ntv/live.m3u8
-#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV [Server 2]
-http://backup-server.com/ntv/live.m3u8
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/untv.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8
+
+
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/iontvuk.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8
+
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
+http://103.175.242.10:8080/ntv/index.m3u8
+
+
 
 # --- RTV ---
-#EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV [Server 1]
+#EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV
 http://primary-server.com/rtv/live.m3u8
-#EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV [Server 2]
+#EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV
 http://backup-server.com/rtv/live.m3u8
 
 # --- Maasranga TV ---
-#EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV [Main]
+#EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV
 http://primary-server.com/maasranga/live.m3u8
-#EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV [Backup]
+#EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV
 http://backup-server.com/maasranga/live.m3u8
 
 
@@ -51,17 +81,17 @@ http://backup-server.com/maasranga/live.m3u8
 # ==========================================
 
 # --- T Sports ---
-#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports [Server 1]
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports
 http://primary-server.com/tsports/live.m3u8
-#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports [Server 2]
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports
 http://backup-server.com/tsports/live.m3u8
-#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports [Server 3 - Low Res]
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports
 http://low-bandwidth-server.com/tsports/live.m3u8
 
 # --- GTV (Gazi TV) ---
-#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV [Server 1]
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV
 http://primary-server.com/gtv/live.m3u8
-#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV [Server 2]
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV
 http://backup-server.com/gtv/live.m3u8
 
 
@@ -70,7 +100,7 @@ http://backup-server.com/gtv/live.m3u8
 # ==========================================
 
 # --- BTV ---
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV [Main]
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
 http://primary-server.com/btv/live.m3u8
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV [Backup]
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
 http://backup-server.com/btv/live.m3u8
