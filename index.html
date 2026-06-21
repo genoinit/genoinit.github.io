@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=suggos3ifIteogOGXb7KVKR1zo3reAISGmKyh7zYKBs7oF01CEzeB_AWAIP1ygZI" charset="UTF-8"></script><script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <style>
         /* Google TV Style Theme */
@@ -596,6 +597,15 @@
             background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
         }
 
+        .pip-mode .screen-server-pill {
+            font-size: 0.58rem !important;
+            padding: 2px 8px !important;
+        }
+        .pip-mode #screen-servers-container {
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+        }
+
         .pip-mode .player-controls-bar {
             gap: 10px;
             padding-top: 5px;
@@ -738,6 +748,53 @@
             margin-top: 3rem;
             padding-bottom: 5rem; /* Extra padding for scrolling comfort */
         }
+
+        /* Screen Server selector pills */
+        .screen-server-pill {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .screen-server-pill:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #fff;
+        }
+        .screen-server-pill.testing {
+            border-color: #f59e0b;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+        }
+        .screen-server-pill.active {
+            background: rgba(66, 133, 244, 0.18);
+            border-color: #4285f4;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(66, 133, 244, 0.3);
+        }
+        .screen-server-pill.failed {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: #ef4444;
+            color: #ef4444;
+            opacity: 0.65;
+        }
+
+        @keyframes spin-anim {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spin {
+            animation: spin-anim 1s linear infinite;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -802,6 +859,14 @@
                                 <div class="d-flex align-items-center mt-2">
                                     <img id="playing-logo" src="" alt="" height="60" class="me-3 shadow" style="object-fit: contain; border-radius: 8px; display: none; background: rgba(255,255,255,0.1); padding: 5px;">
                                     <h1 class="display-5 fw-bold mb-0 text-white text-shadow" id="playing-title">Loading Stream...</h1>
+                                </div>
+                            </div>
+
+                            <!-- Screen Server selector box -->
+                            <div class="mt-2 mb-3 d-none text-shadow" id="screen-servers-container">
+                                <span class="text-white opacity-75 me-2 small fw-bold"><i class="bi bi-hdd-network-fill me-1"></i>SERVERS:</span>
+                                <div class="d-inline-flex gap-2 flex-wrap" id="screen-server-pills">
+                                    <!-- Populated dynamically -->
                                 </div>
                             </div>
 
@@ -908,6 +973,7 @@
         const PLAYLISTS = [
 			
 			{ name: 'Main Server', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/main.m3u' },
+			{ name: 'All TV', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/all.m3u' },
             { name: 'Mixed TV', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/mixed.m3u' },
             { name: 'Bangla', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/bangla.m3u' }
 
@@ -1104,27 +1170,58 @@
                 const textData = await response.text();
                 
                 const lines = textData.split('\n');
-                let currentChannel = { name: '', logo: '', url: '', id: 0 };
+                const channelsMap = {};
+                let currentChannel = { name: '', logo: '', url: '', group: '' };
                 let idCounter = 1;
 
                 for (let i = 0; i < lines.length; i++) {
                     const line = lines[i].trim();
+                    if (!line) continue;
                     
                     if (line.startsWith('#EXTINF:')) {
                         const logoMatch = line.match(/tvg-logo="([^"]+)"/);
                         currentChannel.logo = logoMatch ? logoMatch[1] : '';
                         
+                        const groupMatch = line.match(/group-title="([^"]+)"/);
+                        currentChannel.group = groupMatch ? groupMatch[1] : '';
+                        
                         const nameSplit = line.split(',');
-                        currentChannel.name = nameSplit.length > 1 ? nameSplit[1] : 'Unknown Channel';
+                        currentChannel.name = nameSplit.length > 1 ? nameSplit[1].trim() : 'Unknown Channel';
                     } 
                     else if (line.startsWith('http')) {
                         currentChannel.url = line;
-                        currentChannel.id = idCounter++;
-                        allChannelsData.push({...currentChannel});
-                        currentChannel = { name: '', logo: '', url: '', id: 0 }; 
+                        
+                        // Grouping logic: Clean region and server tags
+                        let cleanedName = currentChannel.name.replace(/\s*[-_\[(]+(bd|in|vip|sd|hd|hq|digital|clean)[\])]*\s*$/i, '').trim();
+                        cleanedName = cleanedName.replace(/\s*[-_\[(]+(server\s*)?\d+[\])]*\s*$/i, '').trim();
+                        
+                        const key = cleanedName.toLowerCase();
+                        
+                        if (!channelsMap[key]) {
+                            channelsMap[key] = {
+                                id: idCounter++,
+                                name: cleanedName,
+                                logo: currentChannel.logo,
+                                group: currentChannel.group,
+                                urls: []
+                            };
+                        }
+                        
+                        // Add URL if not already present
+                        if (!channelsMap[key].urls.includes(currentChannel.url)) {
+                            channelsMap[key].urls.push(currentChannel.url);
+                        }
+                        
+                        // Preserve logo if new entry has one and map doesn't
+                        if (currentChannel.logo && !channelsMap[key].logo) {
+                            channelsMap[key].logo = currentChannel.logo;
+                        }
+                        
+                        currentChannel = { name: '', logo: '', url: '', group: '' }; 
                     }
                 }
                 
+                allChannelsData = Object.values(channelsMap);
                 document.getElementById('loader').style.display = 'none';
                 renderChannels(allChannelsData);
                 renderFavorites();
@@ -1236,9 +1333,12 @@
                     <div class="channel-logo-container">
                         <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${channel.name}" loading="lazy" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
                     </div>
-                    <div class="channel-info">
+                    <div class="channel-info position-relative">
                         <div class="channel-title">${channel.name}</div>
-                        <small class="text-success"><i class="bi bi-record-circle-fill me-1" style="font-size: 0.6rem;"></i>Live</small>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <small class="text-success"><i class="bi bi-record-circle-fill me-1" style="font-size: 0.6rem;"></i>Live</small>
+                            ${channel.urls.length > 1 ? `<span class="badge bg-primary bg-opacity-20 text-white border border-primary border-opacity-10" style="font-size: 0.6rem; padding: 2px 6px; border-radius: 4px;"><i class="bi bi-hdd-network me-1"></i>${channel.urls.length} Servers</span>` : ''}
+                        </div>
                     </div>
                 </div>
             `;
@@ -1253,9 +1353,12 @@
                     <div class="channel-logo-container">
                         <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${channel.name}" loading="lazy" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
                     </div>
-                    <div class="channel-info">
+                    <div class="channel-info position-relative">
                         <div class="channel-title">${channel.name}</div>
-                        <span class="server-badge"><i class="bi bi-server"></i>${serverName}</span>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <span class="server-badge" style="max-width: 60%;"><i class="bi bi-server"></i>${serverName}</span>
+                            ${channel.urls.length > 1 ? `<span class="badge bg-primary bg-opacity-15 text-white border border-primary border-opacity-10" style="font-size: 0.55rem; padding: 1px 4px; border-radius: 4px;"><i class="bi bi-hdd-network"></i> ${channel.urls.length}</span>` : ''}
+                        </div>
                     </div>
                 </div>
             `;
@@ -1298,10 +1401,12 @@
             // Populate Sidebar
             sidebarChannelsList.innerHTML = channels.map(channel => {
                 const channelData = encodeURIComponent(JSON.stringify(channel));
+                const serverBadge = channel.urls.length > 1 ? `<span class="badge bg-primary bg-opacity-20 text-white border border-primary border-opacity-10 ms-auto extra-small" style="font-size: 0.6rem; padding: 2px 6px;"><i class="bi bi-hdd-network"></i> ${channel.urls.length}</span>` : '';
                 return `
                     <div class="sidebar-item" id="sidebar-card-${channel.id}" onclick="playFromGrid('${channelData}')">
                         <img src="${channel.logo || generateLetterLogo(channel.name)}" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
                         <div class="sidebar-item-name">${channel.name}</div>
+                        ${serverBadge}
                     </div>
                 `;
             }).join('');
@@ -1422,8 +1527,59 @@
             playStream(channelData);
         }
 
+        let activeChannel = null;
+        let activeServerIndex = 0;
+        let failoverTimer = null;
+
+        function buildScreenServerButtons() {
+            const container = document.getElementById('screen-servers-container');
+            const box = document.getElementById('screen-server-pills');
+            if (!container || !box) return;
+
+            if (!activeChannel || !activeChannel.urls || activeChannel.urls.length <= 1) {
+                container.classList.add('d-none');
+                return;
+            }
+
+            container.classList.remove('d-none');
+            box.innerHTML = '';
+            activeChannel.urls.forEach((url, i) => {
+                const button = document.createElement('button');
+                button.className = 'screen-server-pill';
+                button.id = `screen-server-pill-${i}`;
+                button.innerHTML = `<i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> Server ${i + 1}`;
+                button.onclick = (e) => {
+                    e.stopPropagation();
+                    clearTimeout(failoverTimer);
+                    playServer(i);
+                };
+                box.appendChild(button);
+            });
+        }
+
+        function updateScreenServerUIState(index, state) {
+            const pill = document.getElementById(`screen-server-pill-${index}`);
+            if (!pill) return;
+
+            pill.classList.remove('testing', 'active', 'failed');
+            const icon = pill.querySelector('i');
+            icon.className = 'bi bi-circle-fill';
+
+            if (state === 'testing') {
+                pill.classList.add('testing');
+                icon.className = 'bi bi-arrow-repeat spin';
+            } else if (state === 'active') {
+                pill.classList.add('active');
+                icon.className = 'bi bi-check-circle-fill';
+            } else if (state === 'failed') {
+                pill.classList.add('failed');
+                icon.className = 'bi bi-x-circle-fill';
+            }
+        }
+
         function playStream(encodedData) {
             const channel = JSON.parse(decodeURIComponent(encodedData));
+            activeChannel = channel;
             currentChannelIndex = allChannelsData.findIndex(c => c.id === channel.id);
             const isPip = videoContainer.classList.contains('pip-mode');
 
@@ -1432,7 +1588,6 @@
                 heroBg.style.opacity = '0';
                 heroContent.style.opacity = '0';
                 
-                // Auto scroll to top only if NOT in PiP mode
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
                 setTimeout(() => {
@@ -1441,21 +1596,10 @@
                     videoContainer.style.display = 'block';
                 }, 500);
             } else {
-                // If in PiP, ensure it's visible (it should be)
                 videoContainer.style.display = 'block';
             }
             
-            videoLoader.style.display = 'block'; 
-            loadingSpinner.style.display = 'inline-block';
-            loaderText.innerText = "Connecting...";
-            loaderText.classList.remove('text-danger');
-
-            // Update Control Bar Info
-            playingTitle.textContent = channel.name;
-            playingLogo.src = channel.logo || generateLetterLogo(channel.name);
-            playingLogo.style.display = 'block';
-
-            // Highlight active card (grid only — favorites highlighting is handled by playFromFavorites)
+            // Highlight active card (grid only)
             document.querySelectorAll('#all-channels-grid .channel-card').forEach(el => el.classList.remove('active'));
             if (playbackMode === 'server') {
                 document.querySelectorAll(`#card-${channel.id}`).forEach(el => el.classList.add('active'));
@@ -1466,11 +1610,81 @@
             const sidebarItem = document.getElementById(`sidebar-card-${channel.id}`);
             if (sidebarItem) sidebarItem.classList.add('active');
 
+            // Play first server
+            playServer(0);
+        }
+
+        function playServer(index) {
+            if (!activeChannel || !activeChannel.urls || activeChannel.urls.length === 0) {
+                showGlobalPlayerError();
+                return;
+            }
+
+            if (index >= activeChannel.urls.length) {
+                showGlobalPlayerError();
+                return;
+            }
+
+            activeServerIndex = index;
+            const url = activeChannel.urls[index];
+
+            // Rebuild pills if playing server 0 (new channel)
+            if (index === 0) {
+                buildScreenServerButtons();
+            }
+
+            // Update pills UI states
+            for (let i = 0; i < activeChannel.urls.length; i++) {
+                if (i === index) {
+                    updateScreenServerUIState(i, 'testing');
+                } else {
+                    const pill = document.getElementById(`screen-server-pill-${i}`);
+                    if (pill && !pill.classList.contains('failed')) {
+                        pill.className = 'screen-server-pill';
+                        pill.querySelector('i').className = 'bi bi-circle-fill';
+                    }
+                }
+            }
+
+            // Loader display setup
+            videoLoader.style.display = 'block'; 
+            loadingSpinner.style.display = 'inline-block';
+            loaderText.innerText = activeChannel.urls.length > 1 
+                ? `Connecting to Server ${index + 1}...` 
+                : "Connecting...";
+            loaderText.classList.remove('text-danger');
+
+            // Update Control Bar Info
+            playingTitle.textContent = activeChannel.name;
+            playingLogo.src = activeChannel.logo || generateLetterLogo(activeChannel.name);
+            playingLogo.style.display = 'block';
+
+            // Clean previous players
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+
+            // Timeout for failover
+            clearTimeout(failoverTimer);
+            failoverTimer = setTimeout(() => {
+                console.warn(`Server ${index + 1} timed out loading.`);
+                handleFailover();
+            }, 7500);
+
             // HLS Video Integration
             if (Hls.isSupported()) {
-                if (hlsInstance) { hlsInstance.destroy(); }
-                hlsInstance = new Hls();
-                hlsInstance.loadSource(channel.url);
+                hlsInstance = new Hls({
+                    maxMaxBufferLength: 8,
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    manifestLoadingMaxRetry: 1,
+                    levelLoadingMaxRetry: 1
+                });
+                hlsInstance.loadSource(url);
                 hlsInstance.attachMedia(video);
                 
                 hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () {
@@ -1478,30 +1692,54 @@
                     updatePlayPauseUI();
                 });
 
-                // Error Catching for HLS
                 hlsInstance.on(Hls.Events.ERROR, function (event, data) {
                     if (data.fatal) {
-                        loadingSpinner.style.display = 'none';
-                        loaderText.innerText = "Stream Offline / Unavailable";
-                        loaderText.classList.add('text-danger');
+                        console.warn(`Hls.js fatal error: ${data.details}`);
+                        handleFailover();
                     }
                 });
             } 
-            // Native HTML5 fallback (Safari/iOS)
+            // Native fallback
             else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = channel.url;
+                video.src = url;
                 video.addEventListener('loadedmetadata', function () {
-                    video.play();
+                    video.play().catch(e => {});
                     updatePlayPauseUI();
                 });
             }
         }
 
+        function handleFailover() {
+            clearTimeout(failoverTimer);
+            updateScreenServerUIState(activeServerIndex, 'failed');
+
+            const nextIndex = activeServerIndex + 1;
+            if (nextIndex < activeChannel.urls.length) {
+                console.log(`Failing over to Server ${nextIndex + 1}`);
+                playServer(nextIndex);
+            } else {
+                showGlobalPlayerError();
+            }
+        }
+
+        function showGlobalPlayerError() {
+            clearTimeout(failoverTimer);
+            videoLoader.style.display = 'block';
+            loadingSpinner.style.display = 'none';
+            loaderText.innerText = "All Servers Offline / Unavailable";
+            loaderText.classList.add('text-danger');
+            
+            if (activeChannel && activeChannel.urls) {
+                for (let i = 0; i < activeChannel.urls.length; i++) {
+                    updateScreenServerUIState(i, 'failed');
+                }
+            }
+        }
+
         // Catch native video errors
         video.addEventListener('error', () => {
-            loadingSpinner.style.display = 'none';
-            loaderText.innerText = "Stream Offline / Unavailable";
-            loaderText.classList.add('text-danger');
+            console.log("HTML Video native error triggered.");
+            handleFailover();
         });
 
         // --- Loader & Playback Events ---
@@ -1510,10 +1748,12 @@
         });
         
         video.addEventListener('playing', () => {
+            clearTimeout(failoverTimer);
             videoLoader.style.display = 'none';
             loaderText.innerText = "Connecting..."; 
             loaderText.classList.remove('text-danger');
             updatePlayPauseUI();
+            updateScreenServerUIState(activeServerIndex, 'active');
         });
 
         video.addEventListener('canplay', () => {
