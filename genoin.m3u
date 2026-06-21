@@ -1,0 +1,76 @@
+#EXTM3U
+
+# ==========================================
+# 📺 NEWS CHANNELS
+# ==========================================
+
+# --- Somoy TV ---
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV [Server 1]
+http://primary-server.com/somoytv/live.m3u8
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV [Server 2]
+http://backup-server.com/somoytv/live.m3u8
+
+# --- Jamuna TV ---
+#EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV [Server 1]
+http://primary-server.com/jamunatv/live.m3u8
+#EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV [Server 2]
+http://backup-server.com/jamunatv/live.m3u8
+
+# --- Channel 24 ---
+#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24 [Main]
+http://primary-server.com/channel24/live.m3u8
+#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24 [Backup]
+http://backup-server.com/channel24/live.m3u8
+
+
+# ==========================================
+# 🎬 ENTERTAINMENT CHANNELS
+# ==========================================
+
+# --- NTV ---
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV [Server 1]
+http://primary-server.com/ntv/live.m3u8
+#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV [Server 2]
+http://backup-server.com/ntv/live.m3u8
+
+# --- RTV ---
+#EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV [Server 1]
+http://primary-server.com/rtv/live.m3u8
+#EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV [Server 2]
+http://backup-server.com/rtv/live.m3u8
+
+# --- Maasranga TV ---
+#EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV [Main]
+http://primary-server.com/maasranga/live.m3u8
+#EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV [Backup]
+http://backup-server.com/maasranga/live.m3u8
+
+
+# ==========================================
+# 🏏 SPORTS & YOUTH
+# ==========================================
+
+# --- T Sports ---
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports [Server 1]
+http://primary-server.com/tsports/live.m3u8
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports [Server 2]
+http://backup-server.com/tsports/live.m3u8
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports [Server 3 - Low Res]
+http://low-bandwidth-server.com/tsports/live.m3u8
+
+# --- GTV (Gazi TV) ---
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV [Server 1]
+http://primary-server.com/gtv/live.m3u8
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV [Server 2]
+http://backup-server.com/gtv/live.m3u8
+
+
+# ==========================================
+# 🇧🇩 NATIONAL CHANNELS
+# ==========================================
+
+# --- BTV ---
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV [Main]
+http://primary-server.com/btv/live.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV [Backup]
+http://backup-server.com/btv/live.m3u8
