@@ -10,96 +10,80 @@
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
 #EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/somoyt000011226615544544.stream/playlist.m3u8
-
+#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
 #EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
 http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
-
 #EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
-
-#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://your-logo-url.com/somoytv.png" group-title="News", Somoy TV
-https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
-
-
-
-
 
 # --- Jamuna TV ---
 #EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/jamuna-test-sample-ok.stream/playlist.m3u8
-
 #EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://your-logo-url.com/jamunatv.png" group-title="News", Jamuna TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8
 
-
-
-
-
 # --- Channel 24 ---
 #EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24
-https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8
-
-
-#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24
 https://ch24play.ncare.io/live/channel24.926f3953.m3u8?t=b738cb0516564076a627a7beffadc188
-
-
-
+#EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24
+https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8
 
 # --- BTV News ---
 #EXTINF:-1 tvg-id="BTVNews" tvg-logo="https://your-logo-url.com/btvnews.png" group-title="News", BTV News
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/playlist.m3u8
 
-
-
-
 # --- ATN News ---
 #EXTINF:-1 tvg-id="ATNNews" tvg-logo="https://your-logo-url.com/atnnews.png" group-title="News", ATN News
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnws-sg.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="ATNNews" tvg-logo="https://your-logo-url.com/atnnews.png" group-title="News", ATN News
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnislamictv.stream/playlist.m3u8
-
+https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/index.m3u8
 
 # --- ATN Bangla ---
 #EXTINF:-1 tvg-id="ATNBangla" tvg-logo="https://your-logo-url.com/atnbangla.png" group-title="Entertainment", ATN Bangla
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnmusic.stream/playlist.m3u8
-
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnbd-8-org.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="ATNBangla" tvg-logo="https://your-logo-url.com/atnbangla.png" group-title="Entertainment", ATN Bangla
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnbd-8-org.stream/tracks-v1a1/mono.m3u8
 
 # --- Global Television ---
 #EXTINF:-1 tvg-id="GlobalTelevision" tvg-logo="https://your-logo-url.com/globaltelevision.png" group-title="News", Global Television
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/Global-tv.stream/playlist.m3u8
 
 # --- Channel S ---
 #EXTINF:-1 tvg-id="ChannelS" tvg-logo="https://your-logo-url.com/channels.png" group-title="News", Channel S
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channels.stream/playlist.m3u8
 
 # --- Ekattor TV ---
 #EXTINF:-1 tvg-id="EkattorTV" tvg-logo="https://your-logo-url.com/ekattortv.png" group-title="News", Ekattor TV
-http://
+https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/index.m3u8
 
 # --- Independent TV ---
 #EXTINF:-1 tvg-id="IndependentTV" tvg-logo="https://your-logo-url.com/independenttv.png" group-title="News", Independent TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/independent-8-org.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="IndependentTV" tvg-logo="https://your-logo-url.com/independenttv.png" group-title="News", Independent TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8
 
 # --- DBC News ---
 #EXTINF:-1 tvg-id="DBCNews" tvg-logo="https://your-logo-url.com/dbcnews.png" group-title="News", DBC News
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/dbcnews.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="DBCNews" tvg-logo="https://your-logo-url.com/dbcnews.png" group-title="News", DBC News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8
 
 # --- News24 ---
 #EXTINF:-1 tvg-id="News24" tvg-logo="https://your-logo-url.com/news24.png" group-title="News", News24
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/news24local.stream/playlist.m3u8
 
 # --- Ekhon TV ---
 #EXTINF:-1 tvg-id="EkhonTV" tvg-logo="https://your-logo-url.com/ekhontv.png" group-title="News", Ekhon TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/globaltv.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="EkhonTV" tvg-logo="https://your-logo-url.com/ekhontv.png" group-title="News", Ekhon TV
+https://tvsen6.aynaott.com/ekhontv/index.m3u8
 
 # --- Star News ---
 #EXTINF:-1 tvg-id="StarNews" tvg-logo="https://your-logo-url.com/starnews.png" group-title="News", Star News
-http://
-
-
+https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/1710-audio_113402_eng=113200-video=3224800.m3u8
+#EXTINF:-1 tvg-id="StarNews" tvg-logo="https://your-logo-url.com/starnews.png" group-title="News", Star News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8
 
 # ==========================================
 # 🎬 ENTERTAINMENT CHANNELS
@@ -107,107 +91,117 @@ http://
 
 # --- NTV ---
 #EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/untv.stream/playlist.m3u8
-
-#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8
-
-
-#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/iontvuk.stream/playlist.m3u8
-
-#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8
-
-#EXTINF:-1 tvg-id="NTV" tvg-logo="https://your-logo-url.com/ntv.png" group-title="Entertainment", NTV
-http://103.175.242.10:8080/ntv/index.m3u8
-
-
 
 # --- RTV ---
 #EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV
-http://primary-server.com/rtv/live.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/rtv-sg.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="RTV" tvg-logo="https://your-logo-url.com/rtv.png" group-title="Entertainment", RTV
-http://backup-server.com/rtv/live.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/rtv-sg.stream/tracks-v1a1/mono.m3u8
 
 # --- Maasranga TV ---
 #EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV
-http://primary-server.com/maasranga/live.m3u8
+https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8
 #EXTINF:-1 tvg-id="Maasranga" tvg-logo="https://your-logo-url.com/maasranga.png" group-title="Entertainment", Maasranga TV
-http://backup-server.com/maasranga/live.m3u8
-
+http://mtv.sunplex.live/MAASRANGA-TV/index.m3u8
 
 # --- Channel i ---
 #EXTINF:-1 tvg-id="Channeli" tvg-logo="https://your-logo-url.com/channeli.png" group-title="Entertainment", Channel i
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channeli-8-org.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="Channeli" tvg-logo="https://your-logo-url.com/channeli.png" group-title="Entertainment", Channel i
+https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8
 
 # --- Banglavision ---
 #EXTINF:-1 tvg-id="Banglavision" tvg-logo="https://your-logo-url.com/banglavision.png" group-title="Entertainment", Banglavision
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/banglav000.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="Banglavision" tvg-logo="https://your-logo-url.com/banglavision.png" group-title="Entertainment", Banglavision
+https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
 
 # --- Boishakhi TV ---
 #EXTINF:-1 tvg-id="BoishakhiTV" tvg-logo="https://your-logo-url.com/boishakhitv.png" group-title="Entertainment", Boishakhi TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BoishakhiTV" tvg-logo="https://your-logo-url.com/boishakhitv.png" group-title="Entertainment", Boishakhi TV
+https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
 
 # --- Desh TV ---
 #EXTINF:-1 tvg-id="DeshTV" tvg-logo="https://your-logo-url.com/deshtv.png" group-title="Entertainment", Desh TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/deshtv.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="DeshTV" tvg-logo="https://your-logo-url.com/deshtv.png" group-title="Entertainment", Desh TV
+https://bozztv.com/rongo/rongo-DeshTV/tracks-v2a1/mono.m3u8
+#EXTINF:-1 tvg-id="DeshTV" tvg-logo="https://your-logo-url.com/deshtv.png" group-title="Entertainment", Desh TV
+https://bozztv.com/rongo/rongo-DeshTV/index.m3u8
+#EXTINF:-1 tvg-id="DeshTV" tvg-logo="https://your-logo-url.com/deshtv.png" group-title="Entertainment", Desh TV
+https://bozztv.com/rongo/rongo-DeshTV/tracks-v1a1/mono.m3u8
 
 # --- MyTV ---
 #EXTINF:-1 tvg-id="MyTV" tvg-logo="https://your-logo-url.com/mytv.png" group-title="Entertainment", MyTV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mytv-up-off.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="MyTV" tvg-logo="https://your-logo-url.com/mytv.png" group-title="Entertainment", MyTV
+https://mytvbangla.com/0.m3u8
 
 # --- Mohona TV ---
 #EXTINF:-1 tvg-id="MohonaTV" tvg-logo="https://your-logo-url.com/mohonatv.png" group-title="Entertainment", Mohona TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mohonatv.stream/playlist.m3u8
 
 # --- Channel 9 ---
 #EXTINF:-1 tvg-id="Channel9" tvg-logo="https://your-logo-url.com/channel9.png" group-title="Entertainment", Channel 9
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channel9hd.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="Channel9" tvg-logo="https://your-logo-url.com/channel9.png" group-title="Entertainment", Channel 9
+https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8
 
 # --- Asian TV ---
 #EXTINF:-1 tvg-id="AsianTV" tvg-logo="https://your-logo-url.com/asiantv.png" group-title="Entertainment", Asian TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/asian-test-sample-ok-d.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="AsianTV" tvg-logo="https://your-logo-url.com/asiantv.png" group-title="Entertainment", Asian TV
+https://mtlivestream.com/hls/asian/ytlive/index.m3u8
 
 # --- SA TV ---
 #EXTINF:-1 tvg-id="SATV" tvg-logo="https://your-logo-url.com/satv.png" group-title="Entertainment", SA TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/satvoff5666.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="SATV" tvg-logo="https://your-logo-url.com/satv.png" group-title="Entertainment", SA TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/index.m3u8
 
 # --- Deepto TV ---
 #EXTINF:-1 tvg-id="DeeptoTV" tvg-logo="https://your-logo-url.com/deeptotv.png" group-title="Entertainment", Deepto TV
-http://
+https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8
+#EXTINF:-1 tvg-id="DeeptoTV" tvg-logo="https://your-logo-url.com/deeptotv.png" group-title="Entertainment", Deepto TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8
 
 # --- Nagorik TV ---
 #EXTINF:-1 tvg-id="NagorikTV" tvg-logo="https://your-logo-url.com/nagoriktv.png" group-title="Entertainment", Nagorik TV
-http://
+https://tvsen6.aynaott.com/nagoriktv/index.m3u8
 
 # --- Ananda TV ---
 #EXTINF:-1 tvg-id="AnandaTV" tvg-logo="https://your-logo-url.com/anandatv.png" group-title="Entertainment", Ananda TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/anandatv.stream/playlist.m3u8
 
 # --- Bijoy TV ---
 #EXTINF:-1 tvg-id="BijoyTV" tvg-logo="https://your-logo-url.com/bijoytv.png" group-title="Entertainment", Bijoy TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/bijoy00.stream/playlist.m3u8
 
 # --- Green TV ---
 #EXTINF:-1 tvg-id="GreenTV" tvg-logo="https://your-logo-url.com/greentv.png" group-title="Entertainment", Green TV
-http://
+https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/chunks.m3u8
 
 # --- Bangla TV ---
 #EXTINF:-1 tvg-id="BanglaTV" tvg-logo="https://your-logo-url.com/banglatv.png" group-title="Entertainment", Bangla TV
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/banglatvhd.stream/playlist.m3u8
 
 # --- Ekushey Television (ETV) ---
 #EXTINF:-1 tvg-id="EkusheyTV" tvg-logo="https://your-logo-url.com/ekusheytv.png" group-title="Entertainment", Ekushey Television (ETV)
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ekusheytv-8-org.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="EkusheyTV" tvg-logo="https://your-logo-url.com/ekusheytv.png" group-title="Entertainment", Ekushey Television (ETV)
+http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8
 
 # --- Nexus Television ---
 #EXTINF:-1 tvg-id="NexusTelevision" tvg-logo="https://your-logo-url.com/nexustelevision.png" group-title="Entertainment", Nexus Television
-http://
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/nexustv.stream/playlist.m3u8
 
 # --- Duronto TV ---
 #EXTINF:-1 tvg-id="DurontoTV" tvg-logo="https://your-logo-url.com/durontotv.png" group-title="Entertainment", Duronto TV
-http://
+https://tvsen6.aynaott.com/durontotv-live/index.m3u8
+#EXTINF:-1 tvg-id="DurontoTV" tvg-logo="https://your-logo-url.com/durontotv.png" group-title="Entertainment", Duronto TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/duronto.stream/tracks-v1a1/mono.m3u8
 
 # --- Gaan Bangla ---
 #EXTINF:-1 tvg-id="GaanBangla" tvg-logo="https://your-logo-url.com/gaanbangla.png" group-title="Entertainment", Gaan Bangla
@@ -215,9 +209,7 @@ http://
 
 # --- Islamic TV ---
 #EXTINF:-1 tvg-id="IslamicTV" tvg-logo="https://your-logo-url.com/islamictv.png" group-title="Entertainment", Islamic TV
-http://
-
-
+https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8
 
 # ==========================================
 # 🏏 SPORTS & YOUTH
@@ -225,19 +217,11 @@ http://
 
 # --- T Sports ---
 #EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports
-http://primary-server.com/tsports/live.m3u8
-#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports
-http://backup-server.com/tsports/live.m3u8
-#EXTINF:-1 tvg-id="TSports" tvg-logo="https://your-logo-url.com/tsports.png" group-title="Sports", T Sports
-http://low-bandwidth-server.com/tsports/live.m3u8
+https://mflixott.com/tv/dd/live.php?id=270&cid=270
 
 # --- GTV (Gazi TV) ---
 #EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
-
-#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV
-https://mflixott.com/tv/plusbox/live/GaziTVHD/index.m3u8
-
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
 
 # ==========================================
 # 🇧🇩 NATIONAL CHANNELS
@@ -245,12 +229,15 @@ https://mflixott.com/tv/plusbox/live/GaziTVHD/index.m3u8
 
 # --- BTV ---
 #EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/playlist.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational1.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ibtvus.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/abtvusa.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/nrb-eu.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
-
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational1.stream/playlist.m3u8
 
 # --- BTV Chattogram ---
 #EXTINF:-1 tvg-id="BTVChattogram" tvg-logo="https://your-logo-url.com/btvchattogram.png" group-title="National", BTV Chattogram
