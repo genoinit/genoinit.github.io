@@ -1,3 +1,5 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="News 24/7" tvg-name="FIFA" tvg-logo="" group-title="fifa", FIFA
 https://live05.msdht.app/live/24561735.m3u8
+#EXTINF:-1 tvg-id="News 24/7" tvg-name="FIFA" tvg-logo="" group-title="fifa", FIFA
+https://live05.apusport.com/live/08552895.m3u8
