@@ -246,3 +246,197 @@ https://mflixott.com/tv/dd/live.php?id=270&cid=270
 # --- GTV (Gazi TV) ---
 #EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
+
+
+
+
+#KOLKATA Bengali
+
+# ==========================================
+# 📺 ENTERTAINMENT CHANNELS
+# ==========================================
+
+# --- Zee Bangla ---
+#EXTINF:-1 tvg-id="ZeeBangla" tvg-logo="https://dl.dropbox.com/s/8z5yuaoyryedp6l/ZB.jpg" group-title="Entertainment", Zee Bangla
+https://yupptvcatchupire.yuppcdn.net/preview/zeebangla/2500.m3u8
+#EXTINF:-1 tvg-id="ZeeBangla" tvg-logo="https://dl.dropbox.com/s/8z5yuaoyryedp6l/ZB.jpg" group-title="Entertainment", Zee Bangla
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_bangla&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeBangla" tvg-logo="https://dl.dropbox.com/s/8z5yuaoyryedp6l/ZB.jpg" group-title="Entertainment", Zee Bangla
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_bangla/playlist.m3u8
+
+# --- Zee Bangla HD ---
+#EXTINF:-1 tvg-id="ZeeBanglaHD" tvg-logo="https://images.toffeelive.com/images/program/340/logo/240x240/mobile_logo_094417001655891123.png" group-title="Entertainment", Zee Bangla HD
+https://mflixott.com/tv/plusbox/live/ZeeBanglaHD/index.m3u8
+
+# --- Star Jalsha ---
+#EXTINF:-1 tvg-id="StarJalsha" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ef/Star_Jalsha_logo_2023.png" group-title="Entertainment", Star Jalsha
+https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8
+#EXTINF:-1 tvg-id="StarJalsha" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ef/Star_Jalsha_logo_2023.png" group-title="Entertainment", Star Jalsha
+https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
+
+# --- Star Jalsha HD ---
+#EXTINF:-1 tvg-id="StarJalshaHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ef/Star_Jalsha_logo_2023.png" group-title="Entertainment", Star Jalsha HD
+https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
+
+# --- Colors Bangla ---
+#EXTINF:-1 tvg-id="ColorsBangla" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7b/Colors_Bangla.png" group-title="Entertainment", Colors Bangla
+https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8?hdnts=
+#EXTINF:-1 tvg-id="ColorsBangla" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7b/Colors_Bangla.png" group-title="Entertainment", Colors Bangla
+https://padmaonline.duckdns.org:8088/ColorsBanglaHD/tracks-v1a1/mono.m3u8
+
+# --- Colors Bangla HD ---
+#EXTINF:-1 tvg-id="ColorsBanglaHD" tvg-logo="https://static.wikia.nocookie.net/etv-gspn-bangla/images/0/08/Colors_Bangla_HD_logo_%282016-alt%29.png" group-title="Entertainment", Colors Bangla HD
+https://padmaonline.duckdns.org:8088/ColorsBanglaHD/tracks-v1a1/mono.m3u8
+
+# --- Sony Aath ---
+#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sony_Aath_logo.svg/1200px-Sony_Aath_logo.svg.png" group-title="Entertainment", Sony Aath
+http://198.195.239.50:8095/SonyAath/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sony_Aath_logo.svg/1200px-Sony_Aath_logo.svg.png" group-title="Entertainment", Sony Aath
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonyaath&e=.m3u8
+#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sony_Aath_logo.svg/1200px-Sony_Aath_logo.svg.png" group-title="Entertainment", Sony Aath
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sonyaath/playlist.m3u8
+
+# --- Sun Bangla ---
+#EXTINF:-1 tvg-id="SunBangla" tvg-logo="https://upload.wikimedia.org/wikipedia/en/b/b3/Sun_Bangla.png" group-title="Entertainment", Sun Bangla
+https://live.dinesh29.com.np/stream/jiotv/sunbangla/master.m3u8
+
+# --- Akash Aath ---
+#EXTINF:-1 tvg-id="AkashAath" tvg-logo="https://yt3.ggpht.com/ytc/AKedOLStHh2dnAyRzexuxwISlK8CPWNQb09Xr4tpYGBM=s900-c-k-c0x00ffffff-no-rj" group-title="Entertainment", Akash Aath
+https://live.thebosstv.com:30443/dwlive/AAKAASH-AATH/chunks.m3u8
+#EXTINF:-1 tvg-id="AkashAath" tvg-logo="https://yt3.ggpht.com/ytc/AKedOLStHh2dnAyRzexuxwISlK8CPWNQb09Xr4tpYGBM=s900-c-k-c0x00ffffff-no-rj" group-title="Entertainment", Akash Aath
+https://cdn-4.pishow.tv/live/969/master.m3u8
+
+# --- Ruposhi Bangla ---
+#EXTINF:-1 tvg-id="RuposhiBangla" tvg-logo="https://i.postimg.cc/pLs2ZYhz/20250529-111853.png" group-title="Entertainment", Ruposhi Bangla
+https://cdn-4.pishow.tv/live/1039/master.m3u8
+#EXTINF:-1 tvg-id="RuposhiBangla" tvg-logo="https://i.postimg.cc/pLs2ZYhz/20250529-111853.png" group-title="Entertainment", Ruposhi Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8
+
+# --- DD Bangla ---
+#EXTINF:-1 tvg-id="DDBangla" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8wJdNPAfkGDb7D52d7HRbJ5hLgCUB7Ss74mStkPgemQ&s" group-title="Entertainment", DD Bangla
+https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/7ff57cc9046b4c188b51a0d506f36e7f/index_3.m3u8
+
+# ==========================================
+# 🎬 MOVIES CHANNELS
+# ==========================================
+
+# --- Jalsha Movies ---
+#EXTINF:-1 tvg-id="JalshaMovies" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/6/61/Jalsha_Movies.png" group-title="Movies", Jalsha Movies
+https://live.dinesh29.com.np/stream/jiotvplus/jalshamovies/master.m3u8
+
+# --- Jalsha Movies HD ---
+#EXTINF:-1 tvg-id="JalshaMoviesHD" tvg-logo="https://live.dinesh29.com.np/logos/jiotvplus/jalshamovieshd.png" group-title="Movies", Jalsha Movies HD
+https://live.dinesh29.com.np/stream/jiotvplus/jalshamovieshd/master.m3u8
+
+# --- Zee Bangla Cinema ---
+#EXTINF:-1 tvg-id="ZeeBanglaCinema" tvg-logo="https://images.toffeelive.com/images/program/403/logo/240x240/mobile_logo_368845001655891378.png" group-title="Movies", Zee Bangla Cinema
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_bangla_cinema&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeBanglaCinema" tvg-logo="https://images.toffeelive.com/images/program/403/logo/240x240/mobile_logo_368845001655891378.png" group-title="Movies", Zee Bangla Cinema
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_bangla_cinema/playlist.m3u8
+
+# --- Colors Bangla Cinema ---
+#EXTINF:-1 tvg-id="ColorsBanglaCinema" tvg-logo="https://static.wikia.nocookie.net/etv-gspn-bangla/images/0/06/Colors_Bangla_Cinema_logo_%282023-2024%29.png" group-title="Movies", Colors Bangla Cinema
+https://live.dinesh29.com.np/stream/jiotv/colorsbanglacinema/master.m3u8
+
+# ==========================================
+# 📰 NEWS CHANNELS
+# ==========================================
+
+# --- Tv9 Bangla ---
+#EXTINF:-1 tvg-id="Tv9Bangla" tvg-logo="https://jio.dinesh29.com.np/smart/ardinesh/logos/tv9-bangla.png" group-title="News", Tv9 Bangla
+https://amg01448-samsungin-tv9bangla-samsungin-9lgnh.amagi.tv/playlist/amg01448-samsungin-tv9bangla-samsungin/playlist.m3u8
+
+# --- News18 Bangla News ---
+#EXTINF:-1 tvg-id="News18BanglaNews" tvg-logo="https://jio.dinesh29.com.np/smart/ardinesh/logos/news18-bangla-news.png" group-title="News", News18 Bangla News
+https://amg01448-samsungin-news18bangla-samsungin-ad-qy.amagi.tv/playlist/amg01448-samsungin-news18bangla-samsungin/playlist.m3u8
+
+# --- Republic Bangla ---
+#EXTINF:-1 tvg-id="RepublicBangla" group-title="News", Republic Bangla
+https://vg-republictvlive.akamaized.net/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/06e5afc2-a022-4e51-9131-4e33a6207c5c/1.m3u8
+
+# --- High News ---
+#EXTINF:-1 tvg-id="HighNews" group-title="News", High News
+https://highmedia.livebox.co.in/HIGHNEWShls/LIVE.m3u8
+
+# --- Ananda Barta ---
+#EXTINF:-1 tvg-id="AnandaBarta" group-title="News", Ananda Barta
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/anandabarta.stream/playlist.m3u8
+
+# --- Network 10 ---
+#EXTINF:-1 tvg-id="Network10" group-title="News", Network 10
+https://network10.livebox.co.in/network10hls/live.m3u8
+
+# ==========================================
+# 🎵 MUSIC CHANNELS
+# ==========================================
+
+# --- Sangeet Bangla ---
+#EXTINF:-1 tvg-id="SangeetBangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/1f/Sangeet_Bangla.jpg/revision/latest?cb=20200804091515" group-title="Music", Sangeet Bangla
+https://cdn-4.pishow.tv/live/1143/master.m3u8
+#EXTINF:-1 tvg-id="SangeetBangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/1f/Sangeet_Bangla.jpg/revision/latest?cb=20200804091515" group-title="Music", Sangeet Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/sbin.stream/playlist.m3u8
+
+# --- Music Bangla ---
+#EXTINF:-1 tvg-id="MusicBangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/7/75/Music_Bangla_new.jpeg" group-title="Music", Music Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/musicbangla44.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="MusicBangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/7/75/Music_Bangla_new.jpeg" group-title="Music", Music Bangla
+http://live.matribhumitv.com/music-bangla/index.m3u8
+
+# ==========================================
+# 📡 OTHERS & LOCAL CABLE CHANNELS
+# ==========================================
+
+# --- Bangla+ ---
+#EXTINF:-1 tvg-id="BanglaPlus" tvg-logo="https://dl.dropbox.com/s/8z5yuaoyryedp6l/ZB.jpg" group-title="Others & Local Cable", Bangla+
+https://live-stream.utkalbongo.com/hls/livebanglatvstream.m3u8
+#EXTINF:-1 tvg-id="BanglaPlus" tvg-logo="https://dl.dropbox.com/s/8z5yuaoyryedp6l/ZB.jpg" group-title="Others & Local Cable", Bangla+
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/banglaplushd.stream/playlist.m3u8
+
+# --- Enterr10 Bangla ---
+#EXTINF:-1 tvg-id="Enterr10Bangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/0/01/Enterr10_Bangla.jpg" group-title="Others & Local Cable", Enterr10 Bangla
+https://amg01448-samsungin-enterr10bangla-samsungin-ad-gg.amagi.tv/playlist/amg01448-samsungin-enterr10bangla-samsungin/playlist.m3u8
+#EXTINF:-1 tvg-id="Enterr10Bangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/0/01/Enterr10_Bangla.jpg" group-title="Others & Local Cable", Enterr10 Bangla
+https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_360p/chunks.m3u8
+
+# --- R Plus ---
+#EXTINF:-1 tvg-id="RPlus" group-title="Others & Local Cable", R Plus
+https://thelegitpro.in/pntv/rplusnews24x7/tracks-v1a1/mono.m3u8
+
+# --- R Plus Gould ---
+#EXTINF:-1 tvg-id="RPlusGould" group-title="Others & Local Cable", R Plus Gould
+https://cdn-4.pishow.tv/live/1231/1231_2.m3u8
+#EXTINF:-1 tvg-id="RPlusGould" group-title="Others & Local Cable", R Plus Gould
+https://cdn-4.pishow.tv/live/1231/1231_1.m3u8
+
+# --- Orange Bangla ---
+#EXTINF:-1 tvg-id="OrangeBangla" group-title="Others & Local Cable", Orange Bangla
+https://cdn-4.pishow.tv/live/1499/1499_2.m3u8
+
+# --- Tara TV ---
+#EXTINF:-1 tvg-id="TaraTV" group-title="Others & Local Cable", Tara TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/tara.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="TaraTV" group-title="Others & Local Cable", Tara TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/taratvinn.stream/playlist.m3u8
+
+# --- CTVN AKD Plus ---
+#EXTINF:-1 tvg-id="CTVNAKDPlus" group-title="Others & Local Cable", CTVN AKD Plus
+https://akdnetwork.co.in/live/ctvn/index.m3u8
+
+# --- Onkar Bangla ---
+#EXTINF:-1 tvg-id="OnkarBangla" group-title="Others & Local Cable", Onkar Bangla
+https://5dd3981940faa.streamlock.net/onkarentertainment/onkarentertainment/chunklist_w1855751334.m3u8
+
+# --- Amar Digital ---
+#EXTINF:-1 tvg-id="AmarDigital" group-title="Others & Local Cable", Amar Digital
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/amardigital.stream/playlist.m3u8
+
+# --- Home TV ---
+#EXTINF:-1 tvg-id="HomeTV" group-title="Others & Local Cable", Home TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/zodiaktv.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="HomeTV" group-title="Others & Local Cable", Home TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/hometv.stream/playlist.m3u8
+
+
