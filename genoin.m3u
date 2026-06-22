@@ -158,9 +158,9 @@ https://bozztv.com/rongo/rongo-DeshTV/index.m3u8
 https://bozztv.com/rongo/rongo-DeshTV/tracks-v1a1/mono.m3u8
 
 # --- MyTV ---
-#EXTINF:-1 tvg-id="MyTV" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8b/Logo_of_My_TV_%28Bangladesh%29.svg/revision/latest" group-title="Entertainment", MyTV
+#EXTINF:-1 tvg-id="MyTV" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp1DTIKA9HfN9GOJUgWT3sa5bvPhmGdhV_Z6xpNLfYVg&s=10" group-title="Entertainment", MyTV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mytv-up-off.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="MyTV" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8b/Logo_of_My_TV_%28Bangladesh%29.svg/revision/latest" group-title="Entertainment", MyTV
+#EXTINF:-1 tvg-id="MyTV" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp1DTIKA9HfN9GOJUgWT3sa5bvPhmGdhV_Z6xpNLfYVg&s=10" group-title="Entertainment", MyTV
 https://mytvbangla.com/0.m3u8
 
 # --- Mohona TV ---
@@ -523,7 +523,7 @@ https://highmedia.livebox.co.in/HIGHNEWShls/LIVE.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/anandabarta.stream/playlist.m3u8
 
 # --- Network 10 ---
-#EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/0/06/Network_10_2018.svg/revision/latest/scale-to-width-down/512" tvg-id="Network10" group-title="News", Network 10
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCcjkFk7ZnmsynxmlTOSPb7E7D8EYbFlAWe9KdMT_aA&s=10" tvg-id="Network10" group-title="News", Network 10
 https://network10.livebox.co.in/network10hls/live.m3u8
 
 # ==========================================
@@ -531,9 +531,9 @@ https://network10.livebox.co.in/network10hls/live.m3u8
 # ==========================================
 
 # --- Sangeet Bangla ---
-#EXTINF:-1 tvg-id="SangeetBangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/1f/Sangeet_Bangla.jpg/revision/latest?cb=20200804091515" group-title="Music", Sangeet Bangla
+#EXTINF:-1 tvg-id="SangeetBangla" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_LODJXjs9HhHOGHqQnXpxTVQwZZS1xNvEJGFFS5cWPg&s=10" group-title="Music", Sangeet Bangla
 https://cdn-4.pishow.tv/live/1143/master.m3u8
-#EXTINF:-1 tvg-id="SangeetBangla" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/1f/Sangeet_Bangla.jpg/revision/latest?cb=20200804091515" group-title="Music", Sangeet Bangla
+#EXTINF:-1 tvg-id="SangeetBangla" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_LODJXjs9HhHOGHqQnXpxTVQwZZS1xNvEJGFFS5cWPg&s=10" group-title="Music", Sangeet Bangla
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/sbin.stream/playlist.m3u8
 
 # --- Music Bangla ---
@@ -605,11 +605,11 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 # ==========================================
 
 # --- Star Plus ---
-#EXTINF:-1 tvg-id="StarPlus" tvg-logo="https://i.imgur.com/XUnWcZF.png" group-title="Entertainment", Star Plus
+#EXTINF:-1 tvg-id="StarPlus" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" group-title="Entertainment", Star Plus
 https://tvsen7.aynaott.com/sphdbd/index.m3u8
 
 # --- Star Plus HD ---
-#EXTINF:-1 tvg-id="StarPlusHD" tvg-logo="https://i.imgur.com/XUnWcZF.png" group-title="Entertainment", Star Plus HD
+#EXTINF:-1 tvg-id="StarPlusHD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" group-title="Entertainment", Star Plus HD
 https://tvsen7.aynaott.com/sphdbd/index.m3u8
 
 # --- Zee TV HD ---
