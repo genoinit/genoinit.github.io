@@ -439,4 +439,295 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="HomeTV" group-title="Others & Local Cable", Home TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/hometv.stream/playlist.m3u8
 
+#Hindi Channel 
+
+#EXTM3U
+
+# ==========================================
+# 📺 HINDI ENTERTAINMENT CHANNELS
+# ==========================================
+
+# --- Star Plus ---
+#EXTINF:-1 tvg-id="StarPlus" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" group-title="Entertainment", Star Plus
+https://tvsen7.aynaott.com/sphdbd/index.m3u8
+
+# --- Star Plus HD ---
+#EXTINF:-1 tvg-id="StarPlusHD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" group-title="Entertainment", Star Plus HD
+https://tvsen7.aynaott.com/sphdbd/index.m3u8
+
+# --- Zee TV HD ---
+#EXTINF:-1 tvg-id="ZeeTVHD" tvg-logo="https://images.toffeelive.com/images/program/644/logo/240x240/mobile_logo_649814001655891557.png" group-title="Entertainment", Zee TV HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_tv_hd&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeTVHD" tvg-logo="https://images.toffeelive.com/images/program/644/logo/240x240/mobile_logo_649814001655891557.png" group-title="Entertainment", Zee TV HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_tv_hd/playlist.m3u8
+
+# --- Sony Entertainment Television ---
+#EXTINF:-1 tvg-id="SET" tvg-logo="https://images.toffeelive.com/images/program/57/logo/240x240/mobile_logo_149299001666780350.png" group-title="Entertainment", Sony Entertainment Television
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_entertainment&e=.m3u8
+#EXTINF:-1 tvg-id="SET" tvg-logo="https://images.toffeelive.com/images/program/57/logo/240x240/mobile_logo_149299001666780350.png" group-title="Entertainment", Sony Entertainment Television
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sony_entertainment/playlist.m3u8
+
+# --- Sony Entertainment Television HD ---
+#EXTINF:-1 tvg-id="SETHD" tvg-logo="https://images.toffeelive.com/images/program/602/logo/240x240/mobile_logo_495351001666780441.png" group-title="Entertainment", Sony Entertainment Television HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonyentertainmnt_hd&e=.m3u8
+#EXTINF:-1 tvg-id="SETHD" tvg-logo="https://images.toffeelive.com/images/program/602/logo/240x240/mobile_logo_495351001666780441.png" group-title="Entertainment", Sony Entertainment Television HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sonyentertainmnt_hd/playlist.m3u8
+
+# --- Colors ---
+#EXTINF:-1 tvg-id="Colors" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_SD.png" group-title="Entertainment", Colors
+https://cdn-2.pishow.tv/live/1461/master.m3u8
+#EXTINF:-1 tvg-id="Colors" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_SD.png" group-title="Entertainment", Colors
+https://live.dinesh29.com.np/stream/jiotv/colorssd/master.m3u8
+
+# --- Colors HD ---
+#EXTINF:-1 tvg-id="ColorsHD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_SD.png" group-title="Entertainment", Colors HD
+https://live.dinesh29.com.np/stream/jiotv/colorshd/master.m3u8
+
+# --- Sony Sab ---
+#EXTINF:-1 tvg-id="SonySab" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/43/SonySABlogo.png" group-title="Entertainment", Sony Sab
+http://maxotts.maxdigitaltv.com/x-media/C64/master.m3u8
+
+# --- Sony Sab HD ---
+#EXTINF:-1 tvg-id="SonySabHD" tvg-logo="https://images.toffeelive.com/images/program/2420/logo/240x240/mobile_logo_688156001666785674.png" group-title="Entertainment", Sony Sab HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonysab_hd&e=.m3u8
+#EXTINF:-1 tvg-id="SonySabHD" tvg-logo="https://images.toffeelive.com/images/program/2420/logo/240x240/mobile_logo_688156001666785674.png" group-title="Entertainment", Sony Sab HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sonysab_hd/playlist.m3u8
+
+# --- Star Bharat ---
+#EXTINF:-1 tvg-id="StarBharat" tvg-logo="https://live.dinesh29.com.np/logos/jiotvplus/starbharat.png" group-title="Entertainment", Star Bharat
+https://live.dinesh29.com.np/stream/jiotvplus/starbharat/master.m3u8
+
+# --- Star Bharat HD ---
+#EXTINF:-1 tvg-id="StarBharatHD" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/b/b9/Star_bharat_hd_clean.png" group-title="Entertainment", Star Bharat HD
+https://live.dinesh29.com.np/stream/jiotvplus/starbharathd/master.m3u8
+
+# --- Big Magic ---
+#EXTINF:-1 tvg-id="BigMagic" group-title="Entertainment", Big Magic
+http://103.175.73.12:8080/live/13/13_0.m3u8
+
+# --- &TV HD ---
+#EXTINF:-1 tvg-id="AndTVHD" tvg-logo="https://images.toffeelive.com/images/program/801/logo/240x240/mobile_logo_974516001655891652.png" group-title="Entertainment", &TV HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=and_tv_hd&e=.m3u8
+#EXTINF:-1 tvg-id="AndTVHD" tvg-logo="https://images.toffeelive.com/images/program/801/logo/240x240/mobile_logo_974516001655891652.png" group-title="Entertainment", &TV HD
+https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8
+#EXTINF:-1 tvg-id="AndTVHD" tvg-logo="https://images.toffeelive.com/images/program/801/logo/240x240/mobile_logo_974516001655891652.png" group-title="Entertainment", &TV HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/and_tv_hd/playlist.m3u8
+
+# --- Colors Infinity SD ---
+#EXTINF:-1 tvg-id="ColorsInfinity" group-title="Entertainment", Colors Infinity SD
+https://livecdn.live247stream.com/joomusic/tv/playlist.m3u8
+
+# --- Zing ---
+#EXTINF:-1 tvg-id="Zing" tvg-logo="https://logowik.com/content/uploads/images/4104-zing-tv-new.webp" group-title="Entertainment", Zing
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zing_sd&e=.m3u8
+#EXTINF:-1 tvg-id="Zing" tvg-logo="https://logowik.com/content/uploads/images/4104-zing-tv-new.webp" group-title="Entertainment", Zing
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zing_sd/playlist.m3u8
+
+# ==========================================
+# 🎬 HINDI MOVIES CHANNELS
+# ==========================================
+
+# --- Sony Max ---
+#EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://images.toffeelive.com/images/program/352/logo/240x240/mobile_logo_612341001666782969.png" group-title="Movies", Sony Max
+http://maxotts.maxdigitaltv.com/x-media/C111/master.m3u8
+#EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://images.toffeelive.com/images/program/352/logo/240x240/mobile_logo_612341001666782969.png" group-title="Movies", Sony Max
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_max&e=.m3u8
+#EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://images.toffeelive.com/images/program/352/logo/240x240/mobile_logo_612341001666782969.png" group-title="Movies", Sony Max
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sony_max/playlist.m3u8
+
+# --- Sony Max HD ---
+#EXTINF:-1 tvg-id="SonyMaxHD" tvg-logo="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" group-title="Movies", Sony Max HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_max_hd&e=.m3u8
+#EXTINF:-1 tvg-id="SonyMaxHD" tvg-logo="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" group-title="Movies", Sony Max HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sony_max_hd/playlist.m3u8
+
+# --- Zee Cinema ---
+#EXTINF:-1 tvg-id="ZeeCinema" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-zeecinemahd/list/09zeecinemahdzeecinemahd.jpg" group-title="Movies", Zee Cinema
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Zeecinemahd/default/manifest.mpd
+
+# --- Zee Cinema HD ---
+#EXTINF:-1 tvg-id="ZeeCinemaHD" tvg-logo="https://images.toffeelive.com/images/program/804/logo/240x240/mobile_logo_370803001655891689.png" group-title="Movies", Zee Cinema HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_cinema_hd&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeCinemaHD" tvg-logo="https://images.toffeelive.com/images/program/804/logo/240x240/mobile_logo_370803001655891689.png" group-title="Movies", Zee Cinema HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_cinema_hd/playlist.m3u8
+
+# --- Star Gold ---
+#EXTINF:-1 tvg-id="StarGold" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_HD.png" group-title="Movies", Star Gold
+http://maxotts.maxdigitaltv.com/x-media/C103/master.m3u8
+
+# --- Colors Cineplex ---
+#EXTINF:-1 tvg-id="ColorsCineplex" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/13/Colors-cineplex.png?20211203010524" group-title="Movies", Colors Cineplex
+https://vods2.aynaott.com/hindimovies/index.m3u8
+
+# --- &Pictures ---
+#EXTINF:-1 tvg-id="AndPictures" tvg-logo="https://images.toffeelive.com/images/program/4570/logo/240x240/mobile_logo_000080001675856893.png" group-title="Movies", &Pictures
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Andpictureshd/default/index.mpd
+#EXTINF:-1 tvg-id="AndPictures" tvg-logo="https://images.toffeelive.com/images/program/4570/logo/240x240/mobile_logo_000080001675856893.png" group-title="Movies", &Pictures
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=andpicture_hd&e=.m3u8
+#EXTINF:-1 tvg-id="AndPictures" tvg-logo="https://images.toffeelive.com/images/program/4570/logo/240x240/mobile_logo_000080001675856893.png" group-title="Movies", &Pictures
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/andpicture_hd/playlist.m3u8
+
+# --- Sony Max 2 ---
+#EXTINF:-1 tvg-id="SonyMax2" tvg-logo="https://images.toffeelive.com/images/program/353/logo/240x240/mobile_logo_044841001666779831.png" group-title="Movies", Sony Max 2
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonymax_2&e=.m3u8
+#EXTINF:-1 tvg-id="SonyMax2" tvg-logo="https://images.toffeelive.com/images/program/353/logo/240x240/mobile_logo_044841001666779831.png" group-title="Movies", Sony Max 2
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sonymax_2/playlist.m3u8
+
+# --- Zee Bollywood ---
+#EXTINF:-1 tvg-id="ZeeBollywood" tvg-logo="https://www.bizasialive.com/wp-content/uploads/2018/08/zeebollywoodlogoNEW.jpg" group-title="Movies", Zee Bollywood
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_bollywood&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeBollywood" tvg-logo="https://www.bizasialive.com/wp-content/uploads/2018/08/zeebollywoodlogoNEW.jpg" group-title="Movies", Zee Bollywood
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_bollywood/playlist.m3u8
+
+# --- Zee Action ---
+#EXTINF:-1 tvg-id="ZeeAction" tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/a4/Zee_Action_2023_logo.png" group-title="Movies", Zee Action
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_action&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeAction" tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/a4/Zee_Action_2023_logo.png" group-title="Movies", Zee Action
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_action/playlist.m3u8
+#EXTINF:-1 tvg-id="ZeeAction" tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/a4/Zee_Action_2023_logo.png" group-title="Movies", Zee Action
+http://103.175.73.12:8080/live/270/270_0.m3u8
+
+# --- Zee Anmol ---
+#EXTINF:-1 tvg-id="ZeeAnmol" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a3/Zee_Anmol_logo.png" group-title="Movies", Zee Anmol
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_anmol&e=.m3u8
+#EXTINF:-1 tvg-id="ZeeAnmol" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a3/Zee_Anmol_logo.png" group-title="Movies", Zee Anmol
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_anmol/playlist.m3u8
+#EXTINF:-1 tvg-id="ZeeAnmol" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a3/Zee_Anmol_logo.png" group-title="Movies", Zee Anmol
+http://103.175.73.12:8080/live/256/256_0.m3u8
+
+# --- B4U Movies ---
+#EXTINF:-1 tvg-id="B4UMovies" tvg-logo="https://images.toffeelive.com/images/program/366/logo/240x240/mobile_logo_702115001663003759.png" group-title="Movies", B4U Movies
+https://amg00877-b4unew-amg00877c2-xiaomi-in-5489.playouts.now.amagi.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="B4UMovies" tvg-logo="https://images.toffeelive.com/images/program/366/logo/240x240/mobile_logo_702115001663003759.png" group-title="Movies", B4U Movies
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=b4u_movies&e=.m3u8
+#EXTINF:-1 tvg-id="B4UMovies" tvg-logo="https://images.toffeelive.com/images/program/366/logo/240x240/mobile_logo_702115001663003759.png" group-title="Movies", B4U Movies
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/b4u_movies/playlist.m3u8
+
+# --- Goldmines Bollywood ---
+#EXTINF:-1 tvg-id="GoldminesBollywood" group-title="Movies", Goldmines Bollywood
+http://103.175.73.12:8080/live/52/52_0.m3u8
+
+# --- Goldmines Movies ---
+#EXTINF:-1 tvg-id="GoldminesMovies" group-title="Movies", Goldmines Movies
+https://cdn-2.pishow.tv/live/1461/master.m3u8
+
+# --- Goldmines ---
+#EXTINF:-1 tvg-id="Goldmines" group-title="Movies", Goldmines
+https://cdn-2.pishow.tv/live/1459/master.m3u8
+
+# --- MBC Bollywood ---
+#EXTINF:-1 tvg-id="MBCBollywood" tvg-logo="https://i.postimg.cc/CLPr6gq6/IMG-20220828-165715.jpg" group-title="Movies", MBC Bollywood
+http://93.184.10.248/MBCBollywood/index.m3u8
+
+# --- Sony Pix HD ---
+#EXTINF:-1 tvg-id="SonyPixHD" tvg-logo="https://images.toffeelive.com/images/program/2419/logo/240x240/mobile_logo_287412001666784602.png" group-title="Movies", Sony Pix HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonypix_hd&e=.m3u8
+#EXTINF:-1 tvg-id="SonyPixHD" tvg-logo="https://images.toffeelive.com/images/program/2419/logo/240x240/mobile_logo_287412001666784602.png" group-title="Movies", Sony Pix HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/sonypix_hd/playlist.m3u8
+
+# --- Bflix Movies ---
+#EXTINF:-1 tvg-id="BflixMovies" tvg-logo="https://www.tvchannelpricelist.com/wp-content/uploads/channels-logo-300/bflix-movies-logo-300x300.jpg" group-title="Movies", Bflix Movies
+https://cdn-2.pishow.tv/live/1459/master.m3u8
+
+# --- Mk Six ---
+#EXTINF:-1 tvg-id="MkSix" tvg-logo="https://i.postimg.cc/CLPr6gq6/IMG-20220828-165715.jpg" group-title="Movies", Mk Six
+https://cdn-3.pishow.tv/live/1253/master.m3u8
+
+# --- South Station ---
+#EXTINF:-1 tvg-id="SouthStation" tvg-logo="https://i.postimg.cc/CLPr6gq6/IMG-20220828-165715.jpg" group-title="Movies", South Station
+https://jmp2.uk/stvp-IN3800008CX
+
+# --- South Movies ---
+#EXTINF:-1 tvg-id="SouthMovies" group-title="Movies", South Movies
+http://premimum.online/movie/jen12345/jen54321/724489.mp4
+#EXTINF:-1 tvg-id="SouthMovies" group-title="Movies", South Movies
+https://live20.bozztv.com/giatvplayout7/giatv-209593/tracks-v1a1/mono.ts.m3u8
+
+# --- Hindi Movies ---
+#EXTINF:-1 tvg-id="HindiMovies" group-title="Movies", Hindi Movies
+https://live20.bozztv.com/giatvplayout7/giatv-209612/tracks-v1a1/mono.ts.m3u8
+
+# ==========================================
+# 📰 HINDI NEWS CHANNELS
+# ==========================================
+
+# --- NDTV India ---
+#EXTINF:-1 tvg-id="NDTVIndia" group-title="News", NDTV India
+https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8
+
+# --- NDTV 24x7 ---
+#EXTINF:-1 tvg-id="NDTV24x7" group-title="News", NDTV 24x7
+https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678-b/ndtv24x7/master.m3u8
+#EXTINF:-1 tvg-id="NDTV24x7" group-title="News", NDTV 24x7
+https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
+
+# ==========================================
+# 🎵 HINDI MUSIC CHANNELS
+# ==========================================
+
+# --- 9XM ---
+#EXTINF:-1 tvg-id="9XM" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/81/9xm_red.svg" group-title="Music", 9XM
+https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/9xm/a731c680-6a62-4174-bc98-186fe654724a/0.m3u8
+#EXTINF:-1 tvg-id="9XM" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/81/9xm_red.svg" group-title="Music", 9XM
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/9xmin.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="9XM" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/81/9xm_red.svg" group-title="Music", 9XM
+http://103.175.73.12:8080/live/155/155_0.m3u8
+
+# --- 9X Jalwa ---
+#EXTINF:-1 tvg-id="9XJalwa" tvg-logo="https://s4.gifyu.com/images/image86b5f8b135364512.png" group-title="Music", 9X Jalwa
+https://mumt03.tangotv.in/9XJALWA/tracks-v2a1/mono.m3u8
+#EXTINF:-1 tvg-id="9XJalwa" tvg-logo="https://s4.gifyu.com/images/image86b5f8b135364512.png" group-title="Music", 9X Jalwa
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/9xjalwain.stream/playlist.m3u8
+
+# --- B4U Music ---
+#EXTINF:-1 tvg-id="B4UMusic" tvg-logo="https://images.toffeelive.com/images/program/367/logo/115x115/mobile_logo_886909001563629905.png" group-title="Music", B4U Music
+https://cdn-2.pishow.tv/live/415/master.m3u8
+#EXTINF:-1 tvg-id="B4UMusic" tvg-logo="https://images.toffeelive.com/images/program/367/logo/115x115/mobile_logo_886909001563629905.png" group-title="Music", B4U Music
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=b4u_music&e=.m3u8
+#EXTINF:-1 tvg-id="B4UMusic" tvg-logo="https://images.toffeelive.com/images/program/367/logo/115x115/mobile_logo_886909001563629905.png" group-title="Music", B4U Music
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/b4u_music/playlist.m3u8
+
+# --- Music Mastii ---
+#EXTINF:-1 tvg-id="MusicMastii" tvg-logo="https://yt3.ggpht.com/ytc/AKedOLRD92lTNDFEe1iA-zJLoFb-mu28rBgjGIqs3qFS_w=s900-c-k-c0x00ffffff-no-rj" group-title="Music", Music Mastii
+https://live20.bozztv.com/giatvplayout7/giatv-209592/tracks-v1a1/mono.ts.m3u8
+
+# --- Music India ---
+#EXTINF:-1 tvg-id="MusicIndia" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKyMNNb_SRC2dnm7IW84llAJ9aO5Zb7V4jdjHaweOo58tzrc9pSsRv85-TZD1w4L57nc4&usqp=CAU" group-title="Music", Music India
+https://cdn-2.pishow.tv/live/226/master.m3u8
+#EXTINF:-1 tvg-id="MusicIndia" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKyMNNb_SRC2dnm7IW84llAJ9aO5Zb7V4jdjHaweOo58tzrc9pSsRv85-TZD1w4L57nc4&usqp=CAU" group-title="Music", Music India
+https://tvsen6.aynaott.com/MusicIndia/index.m3u8
+#EXTINF:-1 tvg-id="MusicIndia" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKyMNNb_SRC2dnm7IW84llAJ9aO5Zb7V4jdjHaweOo58tzrc9pSsRv85-TZD1w4L57nc4&usqp=CAU" group-title="Music", Music India
+http://103.175.73.12:8080/live/158/158_0.m3u8
+
+# --- E24 ---
+#EXTINF:-1 tvg-id="E24" group-title="Music", E24
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/e24in.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="E24" group-title="Music", E24
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/fr24.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="E24" group-title="Music", E24
+https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_2300.m3u8
+#EXTINF:-1 tvg-id="E24" group-title="Music", E24
+http://103.175.73.12:8080/live/159/159_0.m3u8
+
+# --- Hindi Hits HD ---
+#EXTINF:-1 tvg-id="HindiHitsHD" group-title="Music", Hindi Hits HD
+http://146.59.253.52:8080/hindihitshd/index.m3u8
+
 
