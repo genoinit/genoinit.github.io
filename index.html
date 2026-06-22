@@ -10,7 +10,7 @@
     <meta name="description" content="GENOIN is a next-generation premium IPTV streaming player. Watch live channels with a modern, high-performance interface.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         /* Google TV Style Theme */
@@ -415,6 +415,14 @@
             border-color: #4285f4;
         }
 
+        .sidebar-item.keyboard-highlight {
+            background: rgba(66, 133, 244, 0.35) !important;
+            border-color: #4285f4 !important;
+            box-shadow: 0 0 12px rgba(66, 133, 244, 0.6);
+            transform: scale(1.02);
+            transition: all 0.2s ease;
+        }
+
         .sidebar-item img {
             width: 40px;
             height: 40px;
@@ -589,6 +597,63 @@
         .pip-mode .vignette,
         .pip-mode .player-info-hero,
         .pip-mode .hero-content {
+            display: none !important;
+        }
+
+        /* Player Status Widget (Watermark & Clock) */
+        .player-status-widget {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 16, 20, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            pointer-events: none; /* Let clicks pass through to player */
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            user-select: none;
+        }
+        
+        .widget-watermark {
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+            display: flex;
+            align-items: center;
+        }
+
+        .widget-divider {
+            width: 1px;
+            height: 14px;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .widget-time {
+            font-family: monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Auto-hide clock widget along with controls when fullscreen hide-controls is active */
+        .video-container.is-fullscreen.hide-controls .player-status-widget {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        /* Hide in PiP mode to avoid clutter */
+        .pip-mode .player-status-widget {
             display: none !important;
         }
 
@@ -846,6 +911,11 @@
                     
                     <div class="vignette"></div>
 
+                    <!-- Top-Right Status Widget (Clock only) -->
+                    <div class="player-status-widget" id="player-status-widget">
+                        <span class="widget-time" id="widget-time">00:00:00 AM</span>
+                    </div>
+
                     <div class="video-loader-overlay" id="video-loader">
                         <div class="spinner-border spinner-glow" id="loading-spinner" role="status">
                             <span class="visually-hidden">Loading...</span>
@@ -1000,6 +1070,7 @@
         let currentPlaylistIndex = 0;
         let playbackMode = 'server'; // 'server' or 'favorites'
         let currentFavIndex = -1;
+        let sidebarHighlightedIndex = -1;
 
         // Get favorites for the current server (array of channel objects)
         function getCurrentFavorites() {
@@ -1299,6 +1370,15 @@
                     if (sidebarWasOpen) {
                         sidebar.classList.add('open');
                         sidebarToggleBtn.innerHTML = '<i class="bi bi-chevron-left"></i>';
+                        
+                        // Highlight the active channel or first channel after server change
+                        const visibleItems = getVisibleSidebarItems();
+                        const activeItemIndex = visibleItems.findIndex(item => item.classList.contains('active'));
+                        if (activeItemIndex !== -1) {
+                            highlightSidebarItem(activeItemIndex);
+                        } else if (visibleItems.length > 0) {
+                            highlightSidebarItem(0);
+                        }
                     }
                 });
             };
@@ -1427,6 +1507,29 @@
         }
 
         // --- Sidebar Logic ---
+        function getVisibleSidebarItems() {
+            return Array.from(sidebarChannelsList.querySelectorAll('.sidebar-item:not(.d-none)'));
+        }
+
+        function highlightSidebarItem(index) {
+            const visibleItems = getVisibleSidebarItems();
+            if (visibleItems.length === 0) return;
+
+            // Remove previous highlight
+            visibleItems.forEach(item => item.classList.remove('keyboard-highlight'));
+
+            // Clamp index
+            if (index < 0) index = 0;
+            if (index >= visibleItems.length) index = visibleItems.length - 1;
+
+            sidebarHighlightedIndex = index;
+            const itemToHighlight = visibleItems[index];
+            itemToHighlight.classList.add('keyboard-highlight');
+
+            // Scroll item into view smoothly
+            itemToHighlight.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
         function toggleSidebar() {
             sidebar.classList.toggle('open');
             const isOpen = sidebar.classList.contains('open');
@@ -1435,10 +1538,24 @@
             if (isOpen) {
                 clearTimeout(controlsTimeout);
                 sidebarSearchInput.focus();
+                
+                // Highlight active channel or first channel
+                const visibleItems = getVisibleSidebarItems();
+                const activeItemIndex = visibleItems.findIndex(item => item.classList.contains('active'));
+                if (activeItemIndex !== -1) {
+                    highlightSidebarItem(activeItemIndex);
+                } else if (visibleItems.length > 0) {
+                    highlightSidebarItem(0);
+                }
             } else {
                 resetControlsTimeout();
                 sidebarSearchInput.value = '';
                 filterSidebarChannels('');
+                
+                // Clear highlight
+                const visibleItems = getVisibleSidebarItems();
+                visibleItems.forEach(item => item.classList.remove('keyboard-highlight'));
+                sidebarHighlightedIndex = -1;
             }
         }
 
@@ -1456,6 +1573,13 @@
 
         sidebarSearchInput.addEventListener('input', (e) => {
             filterSidebarChannels(e.target.value);
+            // Highlight the first visible item after filtering
+            const visibleItems = getVisibleSidebarItems();
+            if (visibleItems.length > 0) {
+                highlightSidebarItem(0);
+            } else {
+                sidebarHighlightedIndex = -1;
+            }
         });
 
         sidebarToggleBtn.addEventListener('click', (e) => {
@@ -1893,14 +2017,29 @@
 
         // --- KEYBOARD SHORTCUTS ---
         document.addEventListener('keydown', (e) => {
-            // Don't capture keys when typing in search inputs
-            const tag = e.target.tagName.toLowerCase();
-            if (tag === 'input' || tag === 'textarea') return;
-
-            // Only activate shortcuts when video is visible (playing)
-            if (videoContainer.style.display !== 'block') return;
-
             const isFullscreen = videoContainer.classList.contains('is-fullscreen');
+            const isSidebarOpen = sidebar.classList.contains('open');
+            const keyLower = e.key.toLowerCase();
+            const hasModifier = e.ctrlKey || e.altKey;
+
+            // Don't capture keys when typing in search inputs, EXCEPT:
+            // 1. Arrow navigation / Enter / Escape when sidebar is open
+            // 2. Ctrl/Alt + S/L shortcuts (toggles and defocuses panels)
+            const tag = e.target.tagName.toLowerCase();
+            if (tag === 'input' || tag === 'textarea') {
+                if (isSidebarOpen && (e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'Enter')) {
+                    // Let it pass through to navigate sidebar below
+                } else if (e.key === 'Escape') {
+                    // Let Escape pass through to close sidebar
+                } else if (hasModifier && (keyLower === 's' || keyLower === 'l')) {
+                    // Let Ctrl/Alt + S/L pass through to handle toggle/defocus
+                } else {
+                    return;
+                }
+            }
+
+            // Only activate shortcuts when video is visible (playing) OR if key is 's'/'S' (to focus homepage search)
+            if (videoContainer.style.display !== 'block' && keyLower !== 's') return;
 
             // Show controls on any keypress in fullscreen
             if (isFullscreen) {
@@ -1919,20 +2058,39 @@
                     updatePlayPauseUI();
                     break;
 
-                // --- Volume Up ---
+                // --- Volume Up / Sidebar Navigate Up ---
                 case 'ArrowUp':
                     e.preventDefault();
-                    video.volume = Math.min(1, video.volume + 0.05);
-                    video.muted = false;
-                    updateVolumeUI();
+                    if (isSidebarOpen) {
+                        highlightSidebarItem(sidebarHighlightedIndex - 1);
+                    } else {
+                        video.volume = Math.min(1, video.volume + 0.05);
+                        video.muted = false;
+                        updateVolumeUI();
+                    }
                     break;
 
-                // --- Volume Down ---
+                // --- Volume Down / Sidebar Navigate Down ---
                 case 'ArrowDown':
                     e.preventDefault();
-                    video.volume = Math.max(0, video.volume - 0.05);
-                    video.muted = false;
-                    updateVolumeUI();
+                    if (isSidebarOpen) {
+                        highlightSidebarItem(sidebarHighlightedIndex + 1);
+                    } else {
+                        video.volume = Math.max(0, video.volume - 0.05);
+                        video.muted = false;
+                        updateVolumeUI();
+                    }
+                    break;
+
+                // --- Select channel (Enter) ---
+                case 'Enter':
+                    if (isSidebarOpen) {
+                        e.preventDefault();
+                        const visibleItems = getVisibleSidebarItems();
+                        if (sidebarHighlightedIndex >= 0 && sidebarHighlightedIndex < visibleItems.length) {
+                            visibleItems[sidebarHighlightedIndex].click();
+                        }
+                    }
                     break;
 
                 // --- Next Channel ---
@@ -1971,7 +2129,42 @@
                 case 'L':
                     if (isFullscreen) {
                         e.preventDefault();
-                        toggleSidebar();
+                        if (isSidebarOpen) {
+                            // Defocus search input and close sidebar
+                            sidebarSearchInput.blur();
+                            sidebar.classList.remove('open');
+                            sidebarToggleBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+                            resetControlsTimeout();
+                        } else {
+                            toggleSidebar();
+                        }
+                    }
+                    break;
+
+                // --- Search Channel Shortcut ---
+                case 's':
+                case 'S':
+                    e.preventDefault();
+                    if (isFullscreen) {
+                        if (!isSidebarOpen) {
+                            toggleSidebar();
+                        } else {
+                            // If sidebar is open, defocus and close sidebar
+                            sidebarSearchInput.blur();
+                            sidebar.classList.remove('open');
+                            sidebarToggleBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+                            resetControlsTimeout();
+                        }
+                    } else {
+                        const homepageSearch = document.getElementById('channel-search');
+                        if (homepageSearch) {
+                            if (document.activeElement === homepageSearch) {
+                                homepageSearch.blur();
+                            } else {
+                                homepageSearch.focus();
+                                homepageSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }
                     }
                     break;
 
@@ -1996,10 +2189,31 @@
             }
         });
 
+        function startWidgetClock() {
+            const timeDisplay = document.getElementById('widget-time');
+            if (!timeDisplay) return;
+            
+            function updateClock() {
+                const now = new Date();
+                let hours = now.getHours();
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                const hoursStr = String(hours).padStart(2, '0');
+                timeDisplay.textContent = `${hoursStr}:${minutes}:${seconds} ${ampm}`;
+            }
+            
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
             initPlaylistSelector();
             fetchAndParseM3U(PLAYLISTS[0].url);
+            startWidgetClock();
 			
             // Set default volume
 			video.volume = 0.3;
