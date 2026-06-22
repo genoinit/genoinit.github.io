@@ -596,9 +596,204 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="HomeTV" group-title="Others & Local Cable", Home TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/hometv.stream/playlist.m3u8
 
-#Hindi Channel 
+
 
 #EXTM3U
+
+# ==========================================
+# 🕌 ISLAMIC CHANNELS CHANNELS
+# ==========================================
+
+# --- Makkah Live ---
+#EXTINF:-1 tvg-id="MakkahLive" group-title="Islamic Channels", Makkah Live
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/makkah.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="MakkahLive" group-title="Islamic Channels", Makkah Live
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/makkahtv.stream/playlist.m3u8
+
+# --- Madina Live ---
+#EXTINF:-1 tvg-id="MadinaLive" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Madina Live
+https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8
+#EXTINF:-1 tvg-id="MadinaLive" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Madina Live
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/madina.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="MadinaLive" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Madina Live
+http://m.live.net.sa:1935/live/sunnah/chunklist.m3u8?v=1
+#EXTINF:-1 tvg-id="MadinaLive" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Madina Live
+http://m.live.net.sa:1935/live/sunnah/playlist.m3u8
+
+# --- Saudi Quran ---
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+http://m.live.net.sa:1935/live/quran/playlist.m3u8
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+https://live.kwikmotion.com/smcquranlive/quranradiolive/playlist.m3u8
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+https://cdn-globecast.akamaized.net/live/eds/saudi_quran/hls_roku/index.m3u8
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/96.mp3
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+https://5c7b683162943.streamlock.net/live/ngrp:bahrainquran_all/playlist.m3u8
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://yt3.ggpht.com/ytc/AMLnZu_Gxy8ywjMY6_YPX-1uYtUGA56FOfDoBsH62-ekNA=s900-c-k-c0x00ffffff-no-rj" group-title="Islamic Channels", Saudi Quran
+http://66.45.232.131:9994/;stream.mp3
+
+# --- Islamic TV ---
+#EXTINF:-1 tvg-id="IslamicTV" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Islamic TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8
+#EXTINF:-1 tvg-id="IslamicTV" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Islamic TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnislamictv.stream/playlist.m3u8
+
+# --- Peace TV Bangla ---
+#EXTINF:-1 tvg-id="PeaceTVBangla" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Peace TV Bangla
+https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8?sid=s7AaNdTzDE2912wNcPLejQ
+#EXTINF:-1 tvg-id="PeaceTVBangla" tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="Islamic Channels", Peace TV Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/peacetvban.stream/playlist.m3u8
+
+# --- Peace TV Urdu ---
+#EXTINF:-1 tvg-id="PeaceTVUrdu" group-title="Islamic Channels", Peace TV Urdu
+https://dzkyvlfyge.erbvr.com/PeaceTvUrdu/index.m3u8
+
+# --- Madani TV Bangla ---
+#EXTINF:-1 tvg-id="MadaniTVBangla" group-title="Islamic Channels", Madani TV Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/madanitvbangla.stream1/playlist.m3u8
+
+# --- Madani TV ---
+#EXTINF:-1 tvg-id="MadaniTV" group-title="Islamic Channels", Madani TV
+https://streaming.madanichannel.tv/static/streaming-playlists/hls/d3e49b76-ac06-4689-a641-9200445b647f/master.m3u8
+
+# --- Islam Channel Bangla ---
+#EXTINF:-1 tvg-id="IslamChannelBangla" group-title="Islamic Channels", Islam Channel Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/islamchbangla.stream/playlist.m3u8
+
+# --- Iqra TV Bangla ---
+#EXTINF:-1 tvg-id="IqraTVBangla" group-title="Islamic Channels", Iqra TV Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/iqrabanglatvoffice.stream/playlist.m3u8
+
+# --- Almasira Mubasher ---
+#EXTINF:-1 tvg-id="AlmasiraMubasher" group-title="Islamic Channels", Almasira Mubasher
+https://live2.cdnbridge.tv/AlmasirahMubasher/Mubasher_All/playlist.m3u8
+
+# --- Al Ekhbaria ---
+#EXTINF:-1 tvg-id="AlEkhbaria" group-title="Islamic Channels", Al Ekhbaria
+https://cdn-globecast.akamaized.net/live/eds/al_ekhbariya/hls_roku/index.m3u8
+#EXTINF:-1 tvg-id="AlEkhbaria" group-title="Islamic Channels", Al Ekhbaria
+https://shd-gcp-live.edgenextcdn.net/live/bitmovin-al-ekhbaria/297b3ef1cd0633ad9cfba7473a686a06/index.m3u8
+
+# --- Al Qamar ---
+#EXTINF:-1 tvg-id="AlQamar" group-title="Islamic Channels", Al Qamar
+https://streamer3.premio.link/alqamar/playlist.m3u8
+
+
+#Information 
+
+
+#EXTM3U
+
+# ==========================================
+# 🌿 DOCUMENTARY CHANNELS
+# ==========================================
+
+# --- Discovery Bangla ---
+#EXTINF:-1 tvg-id="DiscoveryBangla" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Bangla
+http://103.180.212.191:3500/live/573.m3u8
+#EXTINF:-1 tvg-id="DiscoveryBangla" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Bangla
+https://tvsen6.aynaott.com/discovery_hd_bangla/index.m3u8
+
+# --- Discovery English ---
+#EXTINF:-1 tvg-id="DiscoveryEnglish" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery English
+http://103.180.212.191:3500/live/242.m3u8
+
+# --- Discovery Hindi ---
+#EXTINF:-1 tvg-id="DiscoveryHindi" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Hindi
+https://korim.packingggl.workers.dev/api/bc508cf627/playlist.m3u8
+#EXTINF:-1 tvg-id="DiscoveryHindi" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Hindi
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovery_sd&e=.m3u8
+#EXTINF:-1 tvg-id="DiscoveryHindi" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Hindi
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovary_investigation_hd&e=.m3u8
+#EXTINF:-1 tvg-id="DiscoveryHindi" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Hindi
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/discovery_hd/playlist.m3u8
+#EXTINF:-1 tvg-id="DiscoveryHindi" tvg-logo="https://bdiptv.stream/uploads/tv_image/discovery.png" group-title="Documentary", Discovery Hindi
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/discovary_investigation_hd/playlist.m3u8
+
+# --- Discovery Science ---
+#EXTINF:-1 tvg-id="DiscoveryScience" tvg-logo="https://images.toffeelive.com/images/program/378/logo/240x240/mobile_logo_604754001673177502.png" group-title="Documentary", Discovery Science
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovery_science&e=.m3u8
+#EXTINF:-1 tvg-id="DiscoveryScience" tvg-logo="https://images.toffeelive.com/images/program/378/logo/240x240/mobile_logo_604754001673177502.png" group-title="Documentary", Discovery Science
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/discovery_science/playlist.m3u8
+
+# --- Discovery Turbo ---
+#EXTINF:-1 tvg-id="DiscoveryTurbo" tvg-logo="https://images.toffeelive.com/images/program/379/logo/240x240/mobile_logo_775127001673177876.png" group-title="Documentary", Discovery Turbo
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovery_turbo&e=.m3u8
+#EXTINF:-1 tvg-id="DiscoveryTurbo" tvg-logo="https://images.toffeelive.com/images/program/379/logo/240x240/mobile_logo_775127001673177876.png" group-title="Documentary", Discovery Turbo
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/discovery_turbo/playlist.m3u8
+
+# --- Animal Planet ---
+#EXTINF:-1 tvg-id="AnimalPlanet" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Animal_Planet_logo.svg/1280px-Animal_Planet_logo.svg.png" group-title="Documentary", Animal Planet
+https://tiger-hub.vercel.app@vodzong.mjunoon.tv:8087/streamtest/Animal-Planet-158-3/playlist.m3u8
+#EXTINF:-1 tvg-id="AnimalPlanet" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Animal_Planet_logo.svg/1280px-Animal_Planet_logo.svg.png" group-title="Documentary", Animal Planet
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=animal_planet_sd&e=.m3u8
+#EXTINF:-1 tvg-id="AnimalPlanet" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Animal_Planet_logo.svg/1280px-Animal_Planet_logo.svg.png" group-title="Documentary", Animal Planet
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=animal_planet_hd&e=.m3u8
+#EXTINF:-1 tvg-id="AnimalPlanet" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Animal_Planet_logo.svg/1280px-Animal_Planet_logo.svg.png" group-title="Documentary", Animal Planet
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/animal_planet_sd/playlist.m3u8
+#EXTINF:-1 tvg-id="AnimalPlanet" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Animal_Planet_logo.svg/1280px-Animal_Planet_logo.svg.png" group-title="Documentary", Animal Planet
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/animal_planet_hd/playlist.m3u8
+
+# --- National Geographic ---
+#EXTINF:-1 tvg-id="NationalGeographic" tvg-logo="https://logos-world.net/wp-content/uploads/2020/09/National-Geographic-Logo.png" group-title="Documentary", National Geographic
+http://202.70.146.135:8000/play/a05o/index.m3u8
+#EXTINF:-1 tvg-id="NationalGeographic" tvg-logo="https://logos-world.net/wp-content/uploads/2020/09/National-Geographic-Logo.png" group-title="Documentary", National Geographic
+https://tvsen6.aynaott.com/natgeo/index.m3u8
+#EXTINF:-1 tvg-id="NationalGeographic" tvg-logo="https://logos-world.net/wp-content/uploads/2020/09/National-Geographic-Logo.png" group-title="Documentary", National Geographic
+https://live.dinesh29.com.np/stream/jiotvplus/natgeowild/master.m3u8
+
+# --- Love Nature ---
+#EXTINF:-1 tvg-id="LoveNature" tvg-logo="https://upload.wikimedia.org/wikipedia/en/1/1d/Love_Nature_TV.png" group-title="Documentary", Love Nature
+https://cdn1.logichost.in/ajmantv/live/playlist.m3u8
+
+# --- Real Wild ---
+#EXTINF:-1 tvg-id="RealWild" group-title="Documentary", Real Wild
+https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00426-littledotstudio-realwild-tcl/playlist.m3u8
+
+# ==========================================
+# 🌿 TRAVEL & LIFE CHANNELS
+# ==========================================
+
+# --- Travel XP ---
+#EXTINF:-1 tvg-id="TravelXP" tvg-logo="https://photos.prnewswire.com/prnfull/20150515/10122924" group-title="Travel & Life", Travel XP
+https://travelxp-travelxp-1-eu.rakuten.wurl.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="TravelXP" tvg-logo="https://photos.prnewswire.com/prnfull/20150515/10122924" group-title="Travel & Life", Travel XP
+https://travelxp-travelxp-3-nl.samsung.wurl.tv/1200.m3u8
+#EXTINF:-1 tvg-id="TravelXP" tvg-logo="https://photos.prnewswire.com/prnfull/20150515/10122924" group-title="Travel & Life", Travel XP
+https://travelxp-travelxp-1-nz.samsung.wurl.tv/playlist.m3u8
+
+# --- Delicious ---
+#EXTINF:-1 tvg-id="Delicious" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1778086478755.png" group-title="Travel & Life", Delicious
+https://nomawnoijl.gpcdn.net/akash/delicious/playlist.m3u8
+
+# --- Luxel HD ---
+#EXTINF:-1 tvg-id="LuxelHD" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770378560772.png" group-title="Travel & Life", Luxel HD
+https://nomawnoijl.gpcdn.net/akash/luxell/playlist.m3u8
+
+# --- Sochi 24 HD ---
+#EXTINF:-1 tvg-id="Sochi24HD" group-title="Travel & Life", Sochi 24 HD
+http://serv30.vintera.tv:8081/sochi/sochi24_tv/playlist.m3u8
+
+# --- Amazon SAT ---
+#EXTINF:-1 tvg-id="AmazonSAT" group-title="Travel & Life", Amazon SAT
+https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8
+
+
+
+#Hindi Channel 
+
 
 # ==========================================
 # 📺 HINDI ENTERTAINMENT CHANNELS
@@ -886,5 +1081,250 @@ http://103.175.73.12:8080/live/159/159_0.m3u8
 # --- Hindi Hits HD ---
 #EXTINF:-1 tvg-id="HindiHitsHD" group-title="Music", Hindi Hits HD
 http://146.59.253.52:8080/hindihitshd/index.m3u8
+
+
+#Sports
+#EXTM3U
+
+# ==========================================
+# 🇧🇩 BANGLADESHI SPORTS
+# ==========================================
+
+# --- T Sports ---
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://www.jagobd.com/wp-content/uploads/2019/12/t-sports.jpg" group-title="Bangladeshi Sports", T Sports
+https://mflixott.com/tv/dd/live.php?id=270&cid=270
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://www.jagobd.com/wp-content/uploads/2019/12/t-sports.jpg" group-title="Bangladeshi Sports", T Sports
+https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/court-sports-network/7c96e8a8-9be8-487f-9509-cb2fa31f35d4/1.m3u8
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://www.jagobd.com/wp-content/uploads/2019/12/t-sports.jpg" group-title="Bangladeshi Sports", T Sports
+http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts
+
+# --- Gazi TV ---
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://i.ibb.co/pQGXzMP/images-1-removebg-preview.png" group-title="Bangladeshi Sports", Gazi TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://i.ibb.co/pQGXzMP/images-1-removebg-preview.png" group-title="Bangladeshi Sports", Gazi TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://i.ibb.co/pQGXzMP/images-1-removebg-preview.png" group-title="Bangladeshi Sports", Gazi TV
+https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/wedding-tv-by-love-stories-tv/master.m3u8
+
+# ==========================================
+# 🇮🇳 INDIAN SPORTS
+# ==========================================
+
+# --- Sony Sports Ten 1 HD ---
+#EXTINF:-1 tvg-id="SonySportsTen1HD" tvg-logo="https://images.toffeelive.com/images/program/603/logo/240x240/mobile_logo_23724400166678563.png" group-title="Indian Sports", Sony Sports Ten 1 HD
+http://maxotts.maxdigitaltv.com/x-media/C65/master.m3u8
+#EXTINF:-1 tvg-id="SonySportsTen1HD" tvg-logo="https://images.toffeelive.com/images/program/603/logo/240x240/mobile_logo_23724400166678563.png" group-title="Indian Sports", Sony Sports Ten 1 HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_1_hd&e=.m3u8
+
+# --- Sony Sports Ten 2 HD ---
+#EXTINF:-1 tvg-id="SonySportsTen2HD" tvg-logo="https://images.toffeelive.com/images/program/604/logo/240x240/mobile_logo_093449001666780976.png" group-title="Indian Sports", Sony Sports Ten 2 HD
+http://maxotts.maxdigitaltv.com/x-media/C72/master.m3u8
+#EXTINF:-1 tvg-id="SonySportsTen2HD" tvg-logo="https://images.toffeelive.com/images/program/604/logo/240x240/mobile_logo_093449001666780976.png" group-title="Indian Sports", Sony Sports Ten 2 HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_2_hd&e=.m3u8
+
+# --- Sony Sports Ten 3 HD ---
+#EXTINF:-1 tvg-id="SonySportsTen3HD" tvg-logo="https://dtat2ks7dludr.cloudfront.net/spnsportsindia/channel_logos/SONY_SportsTen3_HD.png" group-title="Indian Sports", Sony Sports Ten 3 HD
+http://maxotts.maxdigitaltv.com/x-media/C73/master.m3u8
+#EXTINF:-1 tvg-id="SonySportsTen3HD" tvg-logo="https://dtat2ks7dludr.cloudfront.net/spnsportsindia/channel_logos/SONY_SportsTen3_HD.png" group-title="Indian Sports", Sony Sports Ten 3 HD
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn3.zohanayaan.com:1686/hls/ten1hd.m3u8?md5=FkJUHjgKsSy61Ql5WLA5Cg&expires=1782022820
+
+# --- Sony Sports Ten 5 HD ---
+#EXTINF:-1 tvg-id="SonySportsTen5HD" tvg-logo="https://images.toffeelive.com/images/program/606/logo/240x240/mobile_logo_689539001672145843.png" group-title="Indian Sports", Sony Sports Ten 5 HD
+http://maxotts.maxdigitaltv.com/x-media/C61/master.m3u8
+#EXTINF:-1 tvg-id="SonySportsTen5HD" tvg-logo="https://images.toffeelive.com/images/program/606/logo/240x240/mobile_logo_689539001672145843.png" group-title="Indian Sports", Sony Sports Ten 5 HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_5_hd&e=.m3u8
+
+# --- Sony Ten Cricket ---
+#EXTINF:-1 tvg-id="SonyTenCricket" tvg-logo="https://images.toffeelive.com/images/program/301891/logo/240x240/mobile_logo_578686001735197654.png" group-title="Indian Sports", Sony Ten Cricket
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=ten_cricket&e=.m3u8
+#EXTINF:-1 tvg-id="SonyTenCricket" tvg-logo="https://images.toffeelive.com/images/program/301891/logo/240x240/mobile_logo_578686001735197654.png" group-title="Indian Sports", Sony Ten Cricket
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/ten_cricket/playlist.m3u8
+
+# --- Star Sports 1 ---
+#EXTINF:-1 tvg-id="StarSports1" tvg-logo="https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg" group-title="Indian Sports", Star Sports 1
+http://maxotts.maxdigitaltv.com/x-media/C283/master.m3u8
+#EXTINF:-1 tvg-id="StarSports1" tvg-logo="https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg" group-title="Indian Sports", Star Sports 1
+https://mxonlive.xyz/universal_restream/play/810/stream.m3u8
+#EXTINF:-1 tvg-id="StarSports1" tvg-logo="https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg" group-title="Indian Sports", Star Sports 1
+https://cdn4.zohanayaan.com:1686/hls/star1in.m3u8?md5=lE6-zzzCij68HYXfQLCDkQ&expires=1782022814
+#EXTINF:-1 tvg-id="StarSports1" tvg-logo="https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg" group-title="Indian Sports", Star Sports 1
+http://41.205.93.154/STARSPORTS1/index.m3u8
+
+# --- Star Sports 1 Hindi ---
+#EXTINF:-1 tvg-id="StarSports1Hindi" tvg-logo="https://wclegends.uk/wp-content/uploads/2025/07/star-sports-hindi-hd-WCL-2025-Broadcaster.webp" group-title="Indian Sports", Star Sports 1 Hindi
+https://starsportshindiii.pages.dev/index.m3u8
+#EXTINF:-1 tvg-id="StarSports1Hindi" tvg-logo="https://wclegends.uk/wp-content/uploads/2025/07/star-sports-hindi-hd-WCL-2025-Broadcaster.webp" group-title="Indian Sports", Star Sports 1 Hindi
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn1.zohanayaan.com:1686/hls/starhindi.m3u8?md5=kNuMGEZvib6JXhHOhKI_7Q&expires=1782022815
+
+# --- Star Sports 2 ---
+#EXTINF:-1 tvg-id="StarSports2" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiFDmfGWRRhNvctt0StKUFKyPkGj7zR_EEDg&s" group-title="Indian Sports", Star Sports 2
+https://mxonlive.xyz/universal_restream/play/805/stream.m3u8
+
+# --- Star Sports Select 1 ---
+#EXTINF:-1 tvg-id="StarSportsSelect1" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/200/-/Star_Sports_Select_HD_1.png" group-title="Indian Sports", Star Sports Select 1
+https://cdn1.ctgiptv.com/star-select-1/tracks-v1a1/mono.ts.m3u8
+
+# --- Star Sports Select 2 ---
+#EXTINF:-1 tvg-id="StarSportsSelect2" tvg-logo="https://live.dinesh29.com.np/logos/jiotvplus/starsportsselecthd2.png" group-title="Indian Sports", Star Sports Select 2
+https://cdn1.ctgiptv.com/star-select-2/tracks-a1/mono.ts.m3u8
+
+# --- DD Sports ---
+#EXTINF:-1 tvg-id="DDSports" tvg-logo="https://s3.aynaott.com/storage/188500190395c4de0e506d518925dcc4" group-title="Indian Sports", DD Sports
+https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
+#EXTINF:-1 tvg-id="DDSports" tvg-logo="https://s3.aynaott.com/storage/188500190395c4de0e506d518925dcc4" group-title="Indian Sports", DD Sports
+https://cdn-6.pishow.tv/live/13/master.m3u8
+
+# ==========================================
+# ⚽ INTERNATIONAL SPORTS
+# ==========================================
+
+# --- Willow HD ---
+#EXTINF:-1 tvg-id="WillowHD" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/38-by-xfireflix.png" group-title="International Sports", Willow HD
+https://tvsen5.aynaott.com/willowhd/index.m3u8
+#EXTINF:-1 tvg-id="WillowHD" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/38-by-xfireflix.png" group-title="International Sports", Willow HD
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn3.zohanayaan.com:1686/hls/willowusa.m3u8?md5=N8UZPzxgkv6mMvL4hqfiIQ&expires=1782022815
+
+# --- Willow HD 2 ---
+#EXTINF:-1 tvg-id="WillowHD2" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/8-by-xfireflix.png" group-title="International Sports", Willow HD 2
+https://mxonlive.xyz/universal_restream/play/808/stream.m3u8
+#EXTINF:-1 tvg-id="WillowHD2" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/8-by-xfireflix.png" group-title="International Sports", Willow HD 2
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn2.zohanayaan.com:1686/hls/willowextra.m3u8?md5=xx0kcYOHs87xKhks77y03A&expires=1782022815
+
+# --- Sky Sports Cricket ---
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn1.zohanayaan.com:1686/hls/skyscric.m3u8?md5=4ZtAmbG4B8OShSSfrn16Zg&expires=1782022816
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn8.zohanayaan.com:1686/hls/skysme.m3u8?md5=1iXV1tp59HZALU02vrwCYA&expires=1782022816
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn9.zohanayaan.com:1686/hls/skysact.m3u8?md5=UY9SzMWUZ1te2EzbXow1kQ&expires=1782022818
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn2.zohanayaan.com:1686/hls/skysgol.m3u8?md5=wLHDMgnt6Y0KdI50MOgI0w&expires=1782022818
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn6.zohanayaan.com:1686/hls/skysprem.m3u8?md5=iP3p3t4uwOxV67iapRBRpQ&expires=1782022818
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn9.zohanayaan.com:1686/hls/skysfott.m3u8?md5=knzPbSqOtHoXejLp2294-w&expires=1782022818
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn3.zohanayaan.com:1686/hls/skysare.m3u8?md5=huHCGbVHs6t0k3ySbbVAJQ&expires=1782022818
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn8.zohanayaan.com:1686/hls/skysfor1.m3u8?md5=zPDijyZYIhH4Ucs9_usqPw&expires=1782022819
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn2.zohanayaan.com:1686/hls/skysmixx.m3u8?md5=VKp9bcXLEkhhDFWHaW0lSw&expires=1782022820
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn3.zohanayaan.com:1686/hls/skystennis.m3u8?md5=WWPyl8shVbxPJrae9w96IQ&expires=1782022820
+#EXTINF:-1 tvg-id="SkySportsCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/9-by-xfireflix.png" group-title="International Sports", Sky Sports Cricket
+https://atc.hopto.org/sly-sprts-cricket-hd-sport/playlist.m3u8
+
+# --- Sky Sports Main Event ---
+#EXTINF:-1 tvg-id="SkySportsMainEvent" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/skycinema.png" group-title="International Sports", Sky Sports Main Event
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn8.zohanayaan.com:1686/hls/skysme.m3u8?md5=1iXV1tp59HZALU02vrwCYA&expires=1782022816
+
+# --- TNT Sports 1 ---
+#EXTINF:-1 tvg-id="TNTSports1" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/tnt.png" group-title="International Sports", TNT Sports 1
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn9.zohanayaan.com:1686/hls/bbtsp1.m3u8?md5=fYNQ57cyqjRM0pdSiZmC0Q&expires=1782022816
+
+# --- TNT Sports 2 ---
+#EXTINF:-1 tvg-id="TNTSports2" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/tnt.png" group-title="International Sports", TNT Sports 2
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn8.zohanayaan.com:1686/hls/bbtsp2.m3u8?md5=ZAVPrXi0zFKQ1JtvvUE3Dw&expires=1782022816
+
+# --- TNT Sports 3 ---
+#EXTINF:-1 tvg-id="TNTSports3" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/tnt.png" group-title="International Sports", TNT Sports 3
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn9.zohanayaan.com:1686/hls/bbtsp3.m3u8?md5=6QBEzddkkn4T-MgOy01oxg&expires=1782022816
+
+# --- TNT Sports 4 ---
+#EXTINF:-1 tvg-id="TNTSports4" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/tnt.png" group-title="International Sports", TNT Sports 4
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn9.zohanayaan.com:1686/hls/bbtespn.m3u8?md5=HPmnwA9I0pS3iU62TwoPrg&expires=1782022816
+
+# --- Astro Cricket ---
+#EXTINF:-1 tvg-id="AstroCricket" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/runded/1745008895589.png" group-title="International Sports", Astro Cricket
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn9.zohanayaan.com:1686/hls/fox501.m3u8?md5=SONVwNBWRGz1XZ5t4YQgOA&expires=1782022819
+
+# --- Eurosport HD ---
+#EXTINF:-1 tvg-id="EurosportHD" tvg-logo="https://images.toffeelive.com/images/program/4388/logo/240x240/mobile_logo_422191001674119624.png" group-title="International Sports", Eurosport HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=euro_sports_hd&e=.m3u8
+#EXTINF:-1 tvg-id="EurosportHD" tvg-logo="https://images.toffeelive.com/images/program/4388/logo/240x240/mobile_logo_422191001674119624.png" group-title="International Sports", Eurosport HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/euro_sports_hd/playlist.m3u8
+
+# --- PTV Sports ---
+#EXTINF:-1 tvg-id="PTVSports" tvg-logo="https://upload.wikimedia.org/wikipedia/en/e/e4/PTV_Sports.png" group-title="International Sports", PTV Sports
+http://119.156.228.231:9983/stream/channelid/679185749?ticket=DED82FB8AE85893524A1035AAE7CD187020FFA04&profile=pass
+#EXTINF:-1 tvg-id="PTVSports" tvg-logo="https://upload.wikimedia.org/wikipedia/en/e/e4/PTV_Sports.png" group-title="International Sports", PTV Sports
+https://tvsen5.aynaott.com/PtvSports/playlist.m3u8
+#EXTINF:-1 tvg-id="PTVSports" tvg-logo="https://upload.wikimedia.org/wikipedia/en/e/e4/PTV_Sports.png" group-title="International Sports", PTV Sports
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn2.zohanayaan.com:1686/hls/ptvpk.m3u8?md5=zkAxKejz4yGW1JY3CI4fDw&expires=1782022815
+
+# --- A Sports HD ---
+#EXTINF:-1 tvg-id="ASportsHD" tvg-logo="https://play-lh.googleusercontent.com/Qhs1jcocO2FenxF7j5DBVn-3lQV3cPhnsJCfeo3fAvEPzdsUx1RCb8Ka956B_ZEhAA8" group-title="International Sports", A Sports HD
+https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/03.m3u8
+#EXTINF:-1 tvg-id="ASportsHD" tvg-logo="https://play-lh.googleusercontent.com/Qhs1jcocO2FenxF7j5DBVn-3lQV3cPhnsJCfeo3fAvEPzdsUx1RCb8Ka956B_ZEhAA8" group-title="International Sports", A Sports HD
+https://tvsen6.aynaott.com/asports/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-id="ASportsHD" tvg-logo="https://play-lh.googleusercontent.com/Qhs1jcocO2FenxF7j5DBVn-3lQV3cPhnsJCfeo3fAvEPzdsUx1RCb8Ka956B_ZEhAA8" group-title="International Sports", A Sports HD
+#EXTVLCOPT:http-referrer=https://executeandship.com/
+#EXTVLCOPT:http-origin=https://executeandship.com
+https://cdn7.zohanayaan.com:1686/hls/asportshd.m3u8?md5=wt5a52upoVM6GbvFvDsycQ&expires=1782022816
+
+# --- CricLife ---
+#EXTINF:-1 tvg-id="CricLife" tvg-logo="https://lo1.in/LOGO/CARIBBEAN/FLOWSPORTS2.png" group-title="International Sports", CricLife
+http://tv-premium-pro.com/live/wezqqszfr2/i7481xvrdf/579823.m3u8
+#EXTINF:-1 tvg-id="CricLife" tvg-logo="https://lo1.in/LOGO/CARIBBEAN/FLOWSPORTS2.png" group-title="International Sports", CricLife
+http://tv-premium-pro.com/live/wezqqszfr2/i7481xvrdf/579821.m3u8
+
+# --- BeIN Sports Extra ---
+#EXTINF:-1 tvg-id="BeINSportsExtra" tvg-logo="https://static.epg.best/qa/beINSports1.qa.png" group-title="International Sports", BeIN Sports Extra
+https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
+
+# --- BeIN Sports 1 Max Arabic ---
+#EXTINF:-1 tvg-id="BeINSports1MaxArabic" group-title="International Sports", BeIN Sports 1 Max Arabic
+http://starhub.pro/live/farhat-3379/67897-913379/744517.ts
+#EXTINF:-1 tvg-id="BeINSports1MaxArabic" group-title="International Sports", BeIN Sports 1 Max Arabic
+http://ua.online24.pm/play/1101/350B326FB34F4B8/video.m3u8
+#EXTINF:-1 tvg-id="BeINSports1MaxArabic" group-title="International Sports", BeIN Sports 1 Max Arabic
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg02873-kravemedia-mtrspt1-distrotv/playlist.m3u8
+#EXTINF:-1 tvg-id="BeINSports1MaxArabic" group-title="International Sports", BeIN Sports 1 Max Arabic
+https://ua.online24.pm/play/1103/350B326FB34F4B8/video.m3u8
+
 
 
