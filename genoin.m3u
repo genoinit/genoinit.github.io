@@ -250,6 +250,163 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 
 
 
+#Kids
+
+# ==========================================
+# 🧸 BENGALI KIDS CHANNELS
+# ==========================================
+
+# --- Duronto TV ---
+#EXTINF:-1 tvg-id="DurontoTV" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/Duronto_TV_Logo.png" group-title="Bengali Kids", Duronto TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/duronto.stream/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="DurontoTV" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/Duronto_TV_Logo.png" group-title="Bengali Kids", Duronto TV
+https://tvsen6.aynaott.com/durontotv-live/index.m3u8
+
+# --- Sonic Bangla ---
+#EXTINF:-1 tvg-id="SonicBangla" tvg-logo="https://live.dinesh29.com.np/logos/jiotvplus/sonicbangla.png" group-title="Bengali Kids", Sonic Bangla
+https://live.dinesh29.com.np/stream/jiotvplus/sonicbangla/master.m3u8
+
+# --- Srk TV ---
+#EXTINF:-1 tvg-id="SrkTV" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1746005940155.png" group-title="Bengali Kids", Srk TV
+https://srknowapp.ncare.live/srktvhlswodrm/srktv.stream/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="SrkTV" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1746005940155.png" group-title="Bengali Kids", Srk TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/flixsrktv.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="SrkTV" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1746005940155.png" group-title="Bengali Kids", Srk TV
+https://srknowapp.ncare.live/srktvhlswodrm/srktv.stream/playlist.m3u8
+
+# --- Gopal Bhar TV ---
+#EXTINF:-1 tvg-id="GopalBharTV" group-title="Bengali Kids", Gopal Bhar TV
+https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8
+
+# --- ZB Kartun ---
+#EXTINF:-1 tvg-id="ZBKartun" group-title="Bengali Kids", ZB Kartun
+https://server.zillarbarta.com/zbcatun/tracks-v1a1/mono.ts.m3u8
+
+# ==========================================
+# 🤖 CARTOON & KIDS CHANNELS
+# ==========================================
+
+# --- Cartoon Network ---
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=cnn&e=.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=cartoon_network_sd&e=.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/dbcnews.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://cdn4.skygo.mn/live/disk1/BBC_News/HLSv3-FTA/BBC_News-avc1_3000000=8-mp4a_208000_eng=2.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/cnn/playlist.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/cartoon_network_sd/playlist.m3u8
+#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
+https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
+
+# --- Cartoon Network HD ---
+#EXTINF:-1 tvg-id="CartoonNetworkHD" tvg-logo="https://images.toffeelive.com/images/program/26942/logo/240x240/mobile_logo_443429001678950505.png" group-title="Cartoon & Kids", Cartoon Network HD
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=cartoon_network_hd&e=.m3u8
+#EXTINF:-1 tvg-id="CartoonNetworkHD" tvg-logo="https://images.toffeelive.com/images/program/26942/logo/240x240/mobile_logo_443429001678950505.png" group-title="Cartoon & Kids", Cartoon Network HD
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/cartoon_network_hd/playlist.m3u8
+
+# --- Pogo ---
+#EXTINF:-1 tvg-id="Pogo" tvg-logo="https://images.toffeelive.com/images/program/27159/logo/240x240/mobile_logo_740957001679201029.png" group-title="Cartoon & Kids", Pogo
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=pogo_sd&e=.m3u8
+#EXTINF:-1 tvg-id="Pogo" tvg-logo="https://images.toffeelive.com/images/program/27159/logo/240x240/mobile_logo_740957001679201029.png" group-title="Cartoon & Kids", Pogo
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/pogo_sd/playlist.m3u8
+
+# --- Nick ---
+#EXTINF:-1 tvg-id="Nick" tvg-logo="https://play-lh.googleusercontent.com/hs9q_ggMJ-cUFiqqpSi-pC12G8-pdbjKo2c4Y5t1VQfB8t9_vEKOpVFGM3imFvxUbLg" group-title="Cartoon & Kids", Nick
+https://live.dinesh29.com.np/stream/jiotvplus/nickhindi/master.m3u8
+
+# --- Nick HD+ ---
+#EXTINF:-1 tvg-id="NickHDPlus" tvg-logo="https://images.seeklogo.com/logo-png/31/1/nick-hd-logo-png_seeklogo-314639.png" group-title="Cartoon & Kids", Nick HD+
+https://live.dinesh29.com.np/stream/jiotvplus/nickhd/master.m3u8
+
+# --- Hungama ---
+#EXTINF:-1 tvg-id="Hungama" tvg-logo="https://live.dinesh29.com.np/logos/jiotvplus/hungama.png" group-title="Cartoon & Kids", Hungama
+https://live.dinesh29.com.np/stream/jiotvplus/hungama/master.m3u8
+#EXTINF:-1 tvg-id="Hungama" tvg-logo="https://live.dinesh29.com.np/logos/jiotvplus/hungama.png" group-title="Cartoon & Kids", Hungama
+https://live.dinesh29.com.np/stream/jiotvplus/superhungama/master.m3u8
+
+# --- Sony Yay ---
+#EXTINF:-1 tvg-id="SonyYay" tvg-logo="https://images.toffeelive.com/images/program/612/logo/240x240/mobile_logo_091186001666784752.png" group-title="Cartoon & Kids", Sony Yay
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonyyay&e=.m3u8
+
+# --- Discovery Kids ---
+#EXTINF:-1 tvg-id="DiscoveryKids" tvg-logo="https://images.toffeelive.com/images/program/611/logo/240x240/mobile_logo_430542001673177743.png" group-title="Cartoon & Kids", Discovery Kids
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovery_kids&e=.m3u8
+#EXTINF:-1 tvg-id="DiscoveryKids" tvg-logo="https://images.toffeelive.com/images/program/611/logo/240x240/mobile_logo_430542001673177743.png" group-title="Cartoon & Kids", Discovery Kids
+#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
+https://bldcmprod-cdn.toffeelive.com/cdn/live/discovery_kids/playlist.m3u8
+
+# --- Doraemon TV ---
+#EXTINF:-1 tvg-id="DoraemonTV" group-title="Cartoon & Kids", Doraemon TV
+https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8
+
+# --- Motu Patlu ---
+#EXTINF:-1 tvg-id="MotuPatlu" group-title="Cartoon & Kids", Motu Patlu
+https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8
+
+# --- Mr Bean Animated ---
+#EXTINF:-1 tvg-id="MrBeanAnimated" group-title="Cartoon & Kids", Mr Bean Animated
+https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-rakutenit/playlist.m3u8
+
+# ==========================================
+# 👶 EDUCATION & BABY CHANNELS
+# ==========================================
+
+# --- PBS Kids ---
+#EXTINF:-1 tvg-id="PBSKids" group-title="Education & Baby", PBS Kids
+https://2-fss-2.streamhoster.com/pl_140/amlst%3a200914-1298290/chunklist_b2000000.m3u8
+#EXTINF:-1 tvg-id="PBSKids" group-title="Education & Baby", PBS Kids
+https://2-fss-2.streamhoster.com/pl_140/amlst:200914-1298290/playlist.m3u8
+
+# --- BuddyStar HD ---
+#EXTINF:-1 tvg-id="BuddyStarHD" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770379038530.png" group-title="Education & Baby", BuddyStar HD
+https://nomawnoijl.gpcdn.net/akash/buddystar/playlist.m3u8
+
+# --- Joy ---
+#EXTINF:-1 tvg-id="Joy" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770378874717.png" group-title="Education & Baby", Joy
+https://nomawnoijl.gpcdn.net/akash/joy/playlist.m3u8
+
+# --- Funny Junior HD ---
+#EXTINF:-1 tvg-id="FunnyJuniorHD" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770379573329.png" group-title="Education & Baby", Funny Junior HD
+https://nomawnoijl.gpcdn.net/akash/funnyjunior/playlist.m3u8
+
+# --- Smarty ---
+#EXTINF:-1 tvg-id="Smarty" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770381107924.png" group-title="Education & Baby", Smarty
+https://nomawnoijl.gpcdn.net/akash/smarty/playlist.m3u8
+
+# --- Lucky Family ---
+#EXTINF:-1 tvg-id="LuckyFamily" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770381248531.png" group-title="Education & Baby", Lucky Family
+https://nomawnoijl.gpcdn.net/akash/luckyfamily/playlist.m3u8
+
+# --- Kids Stars ---
+#EXTINF:-1 tvg-id="KidsStars" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770381398090.png" group-title="Education & Baby", Kids Stars
+https://nomawnoijl.gpcdn.net/akash/kidsstars/playlist.m3u8
+
+# --- Nikki ---
+#EXTINF:-1 tvg-id="Nikky" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1778083459294.png" group-title="Education & Baby", Nikki
+https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8
+
+
+
+
+
+
+
+
+
 #KOLKATA Bengali
 
 # ==========================================
