@@ -32,14 +32,18 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 # --- Somoy TV ---
 #EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://i.imgur.com/i54AQic.png" group-title="News", Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
-#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://i.imgur.com/i54AQic.png" group-title="News", Somoy TV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/somoyt000011226615544544.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://i.imgur.com/i54AQic.png" group-title="News", Somoy TV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
+
 #EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://i.imgur.com/i54AQic.png" group-title="News", Somoy TV
 http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
 #EXTINF:-1 tvg-id="SomoyTV" tvg-logo="https://i.imgur.com/i54AQic.png" group-title="News", Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
+
+# --- Channel One ---
+#EXTINF:-1 tvg-id="ChannelOne" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMr5Vso0imMvRabkLuRt3mzrpnx8ZMsUGqm8OnV4XUDA&s=10" group-title="News", Channel One
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/somoyt000011226615544544.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="ChannelOne" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMr5Vso0imMvRabkLuRt3mzrpnx8ZMsUGqm8OnV4XUDA&s=10" group-title="News", Channel One
+https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
+
 
 # --- Jamuna TV ---
 #EXTINF:-1 tvg-id="JamunaTV" tvg-logo="https://jamunagroup.com.bd/company-images/1662487622-mdshamimislam.png" group-title="News", Jamuna TV
