@@ -141,6 +141,10 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="Banglavision" tvg-logo="https://s4.gifyu.com/images/image5c0bfa6b281be803.png" group-title="Entertainment", Banglavision
 https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
 
+# --- Deshe Bideshe---
+#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/739539785304281088/zMwNO936_400x400.jpg" group-title="BANGLA",Deshe Bideshe
+https://dbcanada.sonarbanglatv.com/deshebideshe/dbtv/index.m3u8
+
 # --- Boishakhi TV ---
 #EXTINF:-1 tvg-id="BoishakhiTV" tvg-logo="https://i.imgur.com/gxL05Y4.png" group-title="Entertainment", Boishakhi TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8
@@ -886,3 +890,58 @@ http://103.175.73.12:8080/live/159/159_0.m3u8
 # --- Hindi Hits HD ---
 #EXTINF:-1 tvg-logo="https://i.imgur.com/zApTDWn.png" tvg-id="HindiHitsHD" group-title="Music", Hindi Hits HD
 http://146.59.253.52:8080/hindihitshd/index.m3u8
+
+
+
+
+# ==========================================
+# 🎬 ENGLISH MOVIES
+# ==========================================
+
+# --- Box Cinama ---
+#EXTINF:-1 tvg-id="BoxCinama" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Box Cinama
+https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8
+
+
+# --- HBO ---
+#EXTINF:-1 tvg-id="HBO" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/HBO_logo.svg/2560px-HBO_logo.svg.png" group-title="English Movies", HBO
+http://103.213.31.111/HBOHD/index.m3u8
+
+
+# --- MNX-HD ---
+#EXTINF:-1 tvg-id="MNXHD" tvg-logo="https://s4.gifyu.com/images/image8c255c8f4e981429.png" group-title="English Movies", MNX-HD
+https://nomawnoijl.gpcdn.net/akash/screem/playlist.m3u8
+
+
+# --- My Cinema ---
+#EXTINF:-1 tvg-id="MyCinema" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f0/611-cinemax.png" group-title="English Movies", My Cinema
+https://nomawnoijl.gpcdn.net/akash/superrix/playlist.m3u8
+
+
+# --- Sci-Fi ---
+#EXTINF:-1 tvg-id="SciFi" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Sci-Fi
+https://nomawnoijl.gpcdn.net/akash/partyuniverse/playlist.m3u8
+
+
+# --- Star Movies ---
+#EXTINF:-1 tvg-id="StarMovies" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Star Movies
+https://d20xuwbyc4yoag.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/DistroTV-MuxIP-CINDIE/387.m3u8
+
+
+# ==========================================
+# 📰 ENGLISH NEWS
+# ==========================================
+
+# --- Al Jazeera ---
+#EXTINF:-1 tvg-id="AlJazeera" tvg-logo="https://1000logos.net/wp-content/uploads/2020/08/Al-Jazeera-Logo.jpg" group-title="English News", Al Jazeera
+https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
+
+
+# --- BBC News ---
+#EXTINF:-1 tvg-id="BBCNews" tvg-logo="https://seeklogo.com/images/B/bbc-news-logo-8648ABD044-seeklogo.com.png" group-title="English News", BBC News
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
+
+
+# --- CNN ---
+#EXTINF:-1 tvg-id="CNN" tvg-logo="https://logos-world.net/wp-content/uploads/2020/11/CNN-Logo.png" group-title="English News", CNN
+https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
