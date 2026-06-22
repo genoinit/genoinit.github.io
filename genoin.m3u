@@ -1,5 +1,33 @@
 #EXTM3U
 
+# ==========================================
+# 🇧🇩 NATIONAL CHANNELS
+# ==========================================
+
+# --- BTV ---
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational1.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ibtvus.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/abtvusa.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/nrb-eu.stream/playlist.m3u8
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
+
+# --- BTV Chattogram ---
+#EXTINF:-1 tvg-id="BTVChattogram" tvg-logo="https://your-logo-url.com/btvchattogram.png" group-title="National", BTV Chattogram
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational-ctg.stream/playlist.m3u8
+
+# --- BTV News ---
+#EXTINF:-1 tvg-id="BTVNews" tvg-logo="https://your-logo-url.com/btvnews.png" group-title="News", BTV News
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/playlist.m3u8
+
+# --- Sangsad Television ---
+#EXTINF:-1 tvg-id="SangsadTelevision" tvg-logo="https://your-logo-url.com/sangsadtelevision.png" group-title="National", Sangsad Television
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/songsodtv-world.stream/playlist.m3u8
+
 
 # ==========================================
 # 📺 NEWS CHANNELS
@@ -28,10 +56,6 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8
 https://ch24play.ncare.io/live/channel24.926f3953.m3u8?t=b738cb0516564076a627a7beffadc188
 #EXTINF:-1 tvg-id="Channel24" tvg-logo="https://your-logo-url.com/channel24.png" group-title="News", Channel 24
 https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8
-
-# --- BTV News ---
-#EXTINF:-1 tvg-id="BTVNews" tvg-logo="https://your-logo-url.com/btvnews.png" group-title="News", BTV News
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/playlist.m3u8
 
 # --- ATN News ---
 #EXTINF:-1 tvg-id="ATNNews" tvg-logo="https://your-logo-url.com/atnnews.png" group-title="News", ATN News
@@ -222,28 +246,3 @@ https://mflixott.com/tv/dd/live.php?id=270&cid=270
 # --- GTV (Gazi TV) ---
 #EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://your-logo-url.com/gtv.png" group-title="Sports", GTV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
-
-# ==========================================
-# 🇧🇩 NATIONAL CHANNELS
-# ==========================================
-
-# --- BTV ---
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational1.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ibtvus.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/abtvusa.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/nrb-eu.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="BTV" tvg-logo="https://your-logo-url.com/btv.png" group-title="National", BTV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
-
-# --- BTV Chattogram ---
-#EXTINF:-1 tvg-id="BTVChattogram" tvg-logo="https://your-logo-url.com/btvchattogram.png" group-title="National", BTV Chattogram
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational-ctg.stream/playlist.m3u8
-
-# --- Sangsad Television ---
-#EXTINF:-1 tvg-id="SangsadTelevision" tvg-logo="https://your-logo-url.com/sangsadtelevision.png" group-title="National", Sangsad Television
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/songsodtv-world.stream/playlist.m3u8
-
