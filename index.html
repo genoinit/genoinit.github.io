@@ -1,16 +1,13 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GENOIN - IPTV Player</title>
+    <title>GENOIN - Live TV </title>
     <meta name="description" content="GENOIN is a next-generation premium IPTV streaming player. Watch live channels with a modern, high-performance interface.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@500;700;900&family=Outfit:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         /* Google TV Style Theme */
@@ -38,32 +35,127 @@
             padding-bottom: 0 !important;
             will-change: transform, backdrop-filter;
             backface-visibility: hidden;
+            transition: height 0.3s ease;
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --nav-height: 120px;
+            }
+            .navbar-glass .container {
+                flex-wrap: wrap !important;
+                padding-top: 6px;
+                padding-bottom: 6px;
+                justify-content: space-between;
+            }
+            .navbar-glass .brand-logo {
+                margin-right: 0 !important;
+                font-size: 1.25rem;
+            }
+            .navbar-glass .dropdown {
+                margin-right: 0 !important;
+            }
+            .ai-search-box {
+                width: 100% !important;
+                max-width: 100% !important;
+                order: 3;
+                padding: 0 15px;
+                margin-top: 4px;
+                height: 44px;
+            }
         }
 
         .brand-logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #ffffff !important;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             display: flex;
             align-items: center;
             white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.65rem;
+            background: linear-gradient(90deg, #4285f4, #00c6ff, #00e5ff, #4285f4);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            animation: text-shine 4s linear infinite;
+        }
+
+        @keyframes text-shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Pulsing Dot animation */
+        @keyframes pulse-dot-anim {
+            0% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 2px #00c6ff); }
+            50% { transform: scale(1.3); opacity: 0.8; filter: drop-shadow(0 0 8px #00c6ff); }
+            100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 2px #00c6ff); }
+        }
+        .pulse-dot {
+            transform-origin: 82px 84px;
+            animation: pulse-dot-anim 2s infinite ease-in-out;
+        }
+
+        /* Pulsing Rings animation */
+        @keyframes pulse-ring-anim {
+            0% { transform: scale(0.85); opacity: 0.8; }
+            100% { transform: scale(1.15); opacity: 0; }
+        }
+        .pulse-ring {
+            transform-origin: 60px 71px;
+        }
+        .ring-1 {
+            animation: pulse-ring-anim 3s infinite linear;
+        }
+        .ring-2 {
+            animation: pulse-ring-anim 3s infinite linear 1.5s;
         }
 
         /* Full-Width AI Search Bar */
         .ai-search-box {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(66, 133, 244, 0.04);
+            border: 1px solid rgba(66, 133, 244, 0.25);
             border-radius: 30px;
-            padding: 8px 20px;
+            padding: 0 20px;
             color: white;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 44px;
+            max-width: 450px;
+            width: 100%;
         }
         .ai-search-box:focus-within {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(66, 133, 244, 0.08);
             border-color: #4285f4;
-            box-shadow: 0 0 15px rgba(66, 133, 244, 0.3);
+            box-shadow: 0 0 15px rgba(66, 133, 244, 0.35);
+        }
+
+        /* Matched Server Selector Button Styling */
+        .server-selector-btn {
+            background: rgba(66, 133, 244, 0.04) !important;
+            border: 1px solid rgba(66, 133, 244, 0.25) !important;
+            border-radius: 30px !important;
+            color: #ffffff !important;
+            height: 44px;
+            padding: 0 20px !important;
+            font-size: 0.85rem !important;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .server-selector-btn:hover, .server-selector-btn:focus, .server-selector-btn.show {
+            background: rgba(66, 133, 244, 0.08) !important;
+            border-color: #4285f4;
+            box-shadow: 0 0 15px rgba(66, 133, 244, 0.35) !important;
+            color: #ffffff !important;
         }
         .ai-search-box input {
             background: transparent;
@@ -71,6 +163,7 @@
             color: white;
             outline: none;
             width: 100%;
+            height: 100%;
         }
         .ai-search-box input::placeholder {
             color: rgba(255, 255, 255, 0.5);
@@ -351,31 +444,36 @@
         .sidebar-search {
             margin: 0 20px 20px 20px;
             position: relative;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
+            background: rgba(66, 133, 244, 0.04) !important;
+            border: 1px solid rgba(66, 133, 244, 0.25) !important;
+            border-radius: 30px !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: 0 20px !important;
+            height: 44px !important;
+            box-sizing: border-box !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 10;
         }
 
         .sidebar-search:focus-within {
-            border-color: #4285f4;
-            background: rgba(66, 133, 244, 0.1);
-            box-shadow: 0 0 15px rgba(66, 133, 244, 0.2);
+            border-color: #4285f4 !important;
+            background: rgba(66, 133, 244, 0.08) !important;
+            box-shadow: 0 0 15px rgba(66, 133, 244, 0.35) !important;
         }
 
         .sidebar-search input {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 10px 0;
+            height: 44px;
             color: white;
             font-size: 0.9rem;
             outline: none;
             order: 1;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
         }
 
         .sidebar-search i {
@@ -391,6 +489,30 @@
 
         .sidebar-search:focus-within i {
             color: #4285f4;
+        }
+
+        /* Sidebar Server Dropdown Selector */
+        .sidebar-server-btn {
+            background: rgba(66, 133, 244, 0.04) !important;
+            border: 1px solid rgba(66, 133, 244, 0.25) !important;
+            border-radius: 30px !important;
+            color: #ffffff !important;
+            height: 44px !important;
+            padding: 0 20px !important;
+            font-size: 0.85rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box !important;
+            outline: none !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .sidebar-server-btn:hover, .sidebar-server-btn:focus, .sidebar-server-btn.show {
+            background: rgba(66, 133, 244, 0.08) !important;
+            border-color: #4285f4 !important;
+            box-shadow: 0 0 15px rgba(66, 133, 244, 0.35) !important;
+            color: #ffffff !important;
         }
 
         .sidebar-item {
@@ -868,24 +990,51 @@
 
     <nav class="navbar navbar-dark fixed-top navbar-glass px-0">
         <div class="container h-100 flex-nowrap align-items-center">
-            <a class="navbar-brand brand-logo m-0 me-4" href="#">
-                <i class="bi bi-play-btn-fill me-2 text-primary"></i>GENOIN
+            <a class="navbar-brand brand-logo m-0 me-4" href="#" style="text-decoration: none;">
+                <svg class="brand-logo-svg me-2" viewBox="0 0 120 120" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#4285f4" />
+                            <stop offset="100%" stop-color="#00c6ff" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Vintage Antennas -->
+                    <line x1="35" y1="15" x2="60" y2="38" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" />
+                    <line x1="85" y1="15" x2="60" y2="38" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linecap="round" />
+                    <circle cx="35" cy="15" r="4" fill="#00c6ff" />
+                    <circle cx="85" cy="15" r="4" fill="#00c6ff" />
+                    
+                    <!-- Concentric Pulsing rings from the TV box -->
+                    <circle cx="60" cy="71" r="50" stroke="url(#logoGrad)" stroke-width="1.5" fill="none" class="pulse-ring ring-1" opacity="0.3"/>
+                    <circle cx="60" cy="71" r="40" stroke="url(#logoGrad)" stroke-width="2" fill="none" class="pulse-ring ring-2" opacity="0.6"/>
+                    
+                    <!-- TV Frame -->
+                    <rect x="20" y="38" width="80" height="66" rx="16" fill="#14151a" stroke="url(#logoGrad)" stroke-width="5" />
+                    <!-- Inner Screen -->
+                    <rect x="28" y="46" width="64" height="50" rx="10" fill="#0f1014" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+                    <!-- Play Symbol -->
+                    <polygon points="54,61 72,71 54,81" fill="url(#logoGrad)" />
+                    <!-- Pulsing Dot -->
+                    <circle cx="82" cy="84" r="4" fill="#00c6ff" class="pulse-dot" />
+                </svg>
+                <span class="brand-title">GENOIN</span>
             </a>
 
-            <!-- Server Selector -->
-            <div class="dropdown me-3">
-                <button class="btn btn-outline-primary dropdown-toggle btn-sm rounded-pill px-3 border-opacity-25" type="button" id="serverSelector" data-bs-toggle="dropdown" aria-expanded="false" style="background: rgba(66, 133, 244, 0.1);">
-                    <i class="bi bi-server me-1"></i> <span id="current-server-name">Main Server</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark shadow-lg border-secondary" aria-labelledby="serverSelector" id="playlist-menu" style="background: #1a1c23; border-radius: 12px;">
-                    <!-- Populated by JS -->
-                </ul>
-            </div>
-            
-            <div class="d-flex ai-search-box align-items-center flex-grow-1">
+            <!-- Search Bar (Middle) -->
+            <div class="d-flex ai-search-box align-items-center mx-auto">
                 <i class="bi bi-broadcast text-primary me-2"></i>
                 <input type="text" id="channel-search" placeholder="Search Channels...">
                 <i class="bi bi-search ms-2 text-secondary" style="cursor: pointer;"></i>
+            </div>
+
+            <!-- Server Selector (Right) -->
+            <div class="dropdown">
+                <button class="server-selector-btn dropdown-toggle" type="button" id="serverSelector" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-server me-1"></i> <span id="current-server-name">Main Server</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow-lg border-secondary" aria-labelledby="serverSelector" id="playlist-menu" style="background: #1a1c23; border-radius: 12px; min-width: 200px;">
+                    <!-- Populated by JS -->
+                </ul>
             </div>
         </div>
     </nav>
@@ -962,9 +1111,9 @@
                         </div>
 
                         <!-- Sidebar Server Selector -->
-                        <div class="px-3 mb-3">
+                        <div class="mb-3" style="margin: 0 20px;">
                             <div class="dropdown w-100">
-                                <button class="btn btn-outline-primary dropdown-toggle btn-sm w-100 text-start d-flex align-items-center justify-content-between border-opacity-25 rounded-pill px-3" type="button" id="sidebarServerSelector" data-bs-toggle="dropdown" aria-expanded="false" style="background: rgba(66, 133, 244, 0.1);">
+                                <button class="sidebar-server-btn dropdown-toggle" type="button" id="sidebarServerSelector" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span><i class="bi bi-server me-2"></i> <span id="sidebar-current-server-name">Main Server</span></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark shadow-lg border-secondary w-100" aria-labelledby="sidebarServerSelector" id="sidebar-playlist-menu" style="background: #1a1c23; border-radius: 12px;">
@@ -1013,14 +1162,34 @@
             <footer class="custom-footer mt-5 pt-5 pb-5">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <div class="brand-logo mb-2 justify-content-center justify-content-md-start" style="font-size: 1.2rem;">
-                            <i class="bi bi-play-btn-fill me-2 text-primary"></i>GENOIN
+                        <div class="brand-logo mb-2 justify-content-center justify-content-md-start">
+                            <svg class="brand-logo-svg me-2" viewBox="0 0 120 120" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#4285f4" />
+                                        <stop offset="100%" stop-color="#00c6ff" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Vintage Antennas -->
+                                <line x1="35" y1="15" x2="60" y2="38" stroke="url(#logoGradFooter)" stroke-width="4.5" stroke-linecap="round" />
+                                <line x1="85" y1="15" x2="60" y2="38" stroke="url(#logoGradFooter)" stroke-width="4.5" stroke-linecap="round" />
+                                <circle cx="35" cy="15" r="4" fill="#00c6ff" />
+                                <circle cx="85" cy="15" r="4" fill="#00c6ff" />
+                                
+                                <circle cx="60" cy="71" r="50" stroke="url(#logoGradFooter)" stroke-width="1.5" fill="none" class="pulse-ring ring-1" opacity="0.3"/>
+                                <circle cx="60" cy="71" r="40" stroke="url(#logoGradFooter)" stroke-width="2" fill="none" class="pulse-ring ring-2" opacity="0.6"/>
+                                <rect x="20" y="38" width="80" height="66" rx="16" fill="#14151a" stroke="url(#logoGradFooter)" stroke-width="5" />
+                                <rect x="28" y="46" width="64" height="50" rx="10" fill="#0f1014" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+                                <polygon points="54,61 72,71 54,81" fill="url(#logoGradFooter)" />
+                                <circle cx="82" cy="84" r="4" fill="#00c6ff" class="pulse-dot" />
+                            </svg>
+                            <span class="brand-title" style="font-size: 1.25rem;">GENOIN</span>
                         </div>
-                        <p class="text-secondary mb-0" style="font-size: 0.85rem; max-width: 300px;">
+                        <p class="text-secondary mb-0 mx-auto mx-md-0" style="font-size: 0.85rem; max-width: 300px;">
                             The next generation IPTV streaming experience.
                         </p>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
+                    <div class="col-md-6 text-center text-md-end mt-4 mt-md-0">
                         <p class="text-secondary mb-1" style="font-size: 0.85rem;">Designed & Developed by</p>
                         <h6 class="fw-bold text-white mb-0">Saidur Rahman</h6>
                         <div class="mt-2">
