@@ -577,9 +577,9 @@ https://cdn-4.pishow.tv/live/1231/1231_1.m3u8
 https://cdn-4.pishow.tv/live/1499/1499_2.m3u8
 
 # --- Tara TV ---
-#EXTINF:-1 tvg-logo="https://taratv.in/images/logo.png" tvg-id="TaraTV" group-title="Others & Local Cable", Tara TV
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlSo5sXtbvStw9m_wHAWs45fvx7zaHo9qGYbdMUhqbZg&s=10" tvg-id="TaraTV" group-title="Others & Local Cable", Tara TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/tara.stream/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://taratv.in/images/logo.png" tvg-id="TaraTV" group-title="Others & Local Cable", Tara TV
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlSo5sXtbvStw9m_wHAWs45fvx7zaHo9qGYbdMUhqbZg&s=10" tvg-id="TaraTV" group-title="Others & Local Cable", Tara TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/taratvinn.stream/playlist.m3u8
 
 # --- CTVN AKD Plus ---
@@ -587,7 +587,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 https://akdnetwork.co.in/live/ctvn/index.m3u8
 
 # --- Onkar Bangla ---
-#EXTINF:-1 tvg-logo="https://5dd3981940faa.streamlock.net/onkarentertainment/onkarentertainment/logo.png" tvg-id="OnkarBangla" group-title="Others & Local Cable", Onkar Bangla
+#EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZtI_3qgOzL_6egWRpvG9qn-UjhxZkjS9Ar9VfdDtz_g&s=10" tvg-id="OnkarBangla" group-title="Others & Local Cable", Onkar Bangla
 https://5dd3981940faa.streamlock.net/onkarentertainment/onkarentertainment/chunklist_w1855751334.m3u8
 
 # --- Amar Digital ---
@@ -904,7 +904,7 @@ https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d2
 
 
 # --- HBO ---
-#EXTINF:-1 tvg-id="HBO" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/HBO_logo.svg/2560px-HBO_logo.svg.png" group-title="English Movies", HBO
+#EXTINF:-1 tvg-id="HBO" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC0qjpA2Y456EYo8uQ-LDRwVDhoeNOzcr7A9pYCiTlTQ&s=10" group-title="English Movies", HBO
 http://103.213.31.111/HBOHD/index.m3u8
 
 
@@ -933,7 +933,7 @@ https://d20xuwbyc4yoag.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d2
 # ==========================================
 
 # --- Al Jazeera ---
-#EXTINF:-1 tvg-id="AlJazeera" tvg-logo="https://1000logos.net/wp-content/uploads/2020/08/Al-Jazeera-Logo.jpg" group-title="English News", Al Jazeera
+#EXTINF:-1 tvg-id="AlJazeera" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMWSsG9-vJZAKflmxrKqDOrorXjQN61z1HztVmjIYD9g&s=10" group-title="English News", Al Jazeera
 https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
 
 
@@ -943,5 +943,5 @@ http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
 
 
 # --- CNN ---
-#EXTINF:-1 tvg-id="CNN" tvg-logo="https://logos-world.net/wp-content/uploads/2020/11/CNN-Logo.png" group-title="English News", CNN
+#EXTINF:-1 tvg-id="CNN" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf-SIKO0iqZ5s3crlFfZQCq5B7xuCxvto1NYBD4n72AA&s" group-title="English News", CNN
 https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
