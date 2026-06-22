@@ -252,8 +252,6 @@ https://mflixott.com/tv/dd/live.php?id=270&cid=270
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
 
 
-
-
 #Kids
 
 # ==========================================
@@ -407,10 +405,6 @@ https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8
 
 
 
-
-
-
-
 #KOLKATA Bengali
 
 # ==========================================
@@ -437,7 +431,7 @@ https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8
 https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
 
 # --- Star Jalsha HD ---
-#EXTINF:-1 tvg-id="StarJalshaHD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_JALSHA_MOVIES/images/LOGO_HD/image.png" group-title="Entertainment", Star Jalsha HD
+#EXTINF:-1 tvg-id="StarJalsha" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_JALSHA_MOVIES/images/LOGO_HD/image.png" group-title="Entertainment", Star Jalsha
 https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
 
 # --- Colors Bangla ---
@@ -447,7 +441,7 @@ https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8?hdnts=
 https://padmaonline.duckdns.org:8088/ColorsBanglaHD/tracks-v1a1/mono.m3u8
 
 # --- Colors Bangla HD ---
-#EXTINF:-1 tvg-id="ColorsBanglaHD" tvg-logo="https://static.wikia.nocookie.net/etv-gspn-bangla/images/0/08/Colors_Bangla_HD_logo_%282016-alt%29.png" group-title="Entertainment", Colors Bangla HD
+#EXTINF:-1 tvg-id="ColorsBangla" tvg-logo="https://static.wikia.nocookie.net/etv-gspn-bangla/images/0/08/Colors_Bangla_HD_logo_%282016-alt%29.png" group-title="Entertainment", Colors Bangla
 https://padmaonline.duckdns.org:8088/ColorsBanglaHD/tracks-v1a1/mono.m3u8
 
 # --- Sony Aath ---
@@ -488,7 +482,7 @@ https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/7ff57cc9046b4c188b51a0d506f36e7f/in
 https://live.dinesh29.com.np/stream/jiotvplus/jalshamovies/master.m3u8
 
 # --- Jalsha Movies HD ---
-#EXTINF:-1 tvg-id="JalshaMoviesHD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_JALSHA_MOVIES/images/LOGO_HD/image.png" group-title="Movies", Jalsha Movies HD
+#EXTINF:-1 tvg-id="JalshaMovies" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_JALSHA_MOVIES/images/LOGO_HD/image.png" group-title="Movies", Jalsha Movies
 https://live.dinesh29.com.np/stream/jiotvplus/jalshamovieshd/master.m3u8
 
 # --- Zee Bangla Cinema ---
@@ -566,10 +560,10 @@ https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_360p/chunks.m3
 #EXTINF:-1 tvg-logo="https://i.imgur.com/XUnWcZF.png" tvg-id="RPlus" group-title="Others & Local Cable", R Plus
 https://thelegitpro.in/pntv/rplusnews24x7/tracks-v1a1/mono.m3u8
 
-# --- R Plus Gould ---
-#EXTINF:-1 tvg-logo="https://i.imgur.com/XUnWcZF.png" tvg-id="RPlusGould" group-title="Others & Local Cable", R Plus Gould
+# --- R Plus Gold ---
+#EXTINF:-1 tvg-logo="https://i.imgur.com/XUnWcZF.png" tvg-id="RPlus" group-title="Others & Local Cable", R Plus
 https://cdn-4.pishow.tv/live/1231/1231_2.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/XUnWcZF.png" tvg-id="RPlusGould" group-title="Others & Local Cable", R Plus Gould
+#EXTINF:-1 tvg-logo="https://i.imgur.com/XUnWcZF.png" tvg-id="RPlus" group-title="Others & Local Cable", R Plus
 https://cdn-4.pishow.tv/live/1231/1231_1.m3u8
 
 # --- Orange Bangla ---
@@ -613,7 +607,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 https://tvsen7.aynaott.com/sphdbd/index.m3u8
 
 # --- Star Plus HD ---
-#EXTINF:-1 tvg-id="StarPlusHD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" group-title="Entertainment", Star Plus HD
+#EXTINF:-1 tvg-id="StarPlus" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" group-title="Entertainment", Star Plus
 https://tvsen7.aynaott.com/sphdbd/index.m3u8
 
 # --- Zee TV HD ---
@@ -644,7 +638,7 @@ https://cdn-2.pishow.tv/live/1461/master.m3u8
 https://live.dinesh29.com.np/stream/jiotv/colorssd/master.m3u8
 
 # --- Colors HD ---
-#EXTINF:-1 tvg-id="ColorsHD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_SD.png" group-title="Entertainment", Colors HD
+#EXTINF:-1 tvg-id="Colors" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_SD.png" group-title="Entertainment", Colors
 https://live.dinesh29.com.np/stream/jiotv/colorshd/master.m3u8
 
 # --- Sony Sab ---
@@ -704,9 +698,9 @@ https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_max&e=.m3u8
 https://bldcmprod-cdn.toffeelive.com/cdn/live/sony_max/playlist.m3u8
 
 # --- Sony Max HD ---
-#EXTINF:-1 tvg-id="SonyMaxHD" tvg-logo="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" group-title="Movies", Sony Max HD
+#EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" group-title="Movies", Sony Max
 https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_max_hd&e=.m3u8
-#EXTINF:-1 tvg-id="SonyMaxHD" tvg-logo="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" group-title="Movies", Sony Max HD
+#EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" group-title="Movies", Sony Max
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/sony_max_hd/playlist.m3u8
 
@@ -780,11 +774,11 @@ https://mflixott.com/tv/toffee-by-maruf/live.php?id=b4u_movies&e=.m3u8
 https://bldcmprod-cdn.toffeelive.com/cdn/live/b4u_movies/playlist.m3u8
 
 # --- Goldmines Bollywood ---
-#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOLDMINES/images/LOGO_HD/image.png" tvg-id="GoldminesBollywood" group-title="Movies", Goldmines Bollywood
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOLDMINES/images/LOGO_HD/image.png" tvg-id="Goldmines" group-title="Movies", Goldmines
 http://103.175.73.12:8080/live/52/52_0.m3u8
 
 # --- Goldmines Movies ---
-#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOLDMINES/images/LOGO_HD/image.png" tvg-id="GoldminesMovies" group-title="Movies", Goldmines Movies
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOLDMINES/images/LOGO_HD/image.png" tvg-id="Goldmines" group-title="Movies", Goldmines
 https://cdn-2.pishow.tv/live/1461/master.m3u8
 
 # --- Goldmines ---
@@ -810,9 +804,6 @@ https://cdn-2.pishow.tv/live/1459/master.m3u8
 #EXTINF:-1 tvg-id="MkSix" tvg-logo="https://i.postimg.cc/CLPr6gq6/IMG-20220828-165715.jpg" group-title="Movies", Mk Six
 https://cdn-3.pishow.tv/live/1253/master.m3u8
 
-# --- South Station ---
-#EXTINF:-1 tvg-id="SouthStation" tvg-logo="https://i.postimg.cc/CLPr6gq6/IMG-20220828-165715.jpg" group-title="Movies", South Station
-https://jmp2.uk/stvp-IN3800008CX
 
 # --- South Movies ---
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/CLPr6gq6/IMG-20220828-165715.jpg" tvg-id="SouthMovies" group-title="Movies", South Movies
