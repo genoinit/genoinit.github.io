@@ -1,8 +1,7 @@
 const PLAYLISTS = [
-    { name: 'Genoin Server', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/genoin.m3u' },		
-    { name: 'FIFA NEW', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/fifa.m3u' },
+    { name: 'Genoin Server', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u },		
+    { name: 'FIFA NEW', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/fifa.m3u' },
     { name: 'FIFA 26', url: 'https://iamshajon.com/playlist/fifa.m3u' },
-    { name: 'NEW', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/tv.m3u' }
 ];
 
 let hlsInstance = null;
