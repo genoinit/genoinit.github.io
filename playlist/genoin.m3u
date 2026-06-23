@@ -643,9 +643,6 @@ https://live.dinesh29.com.np/stream/jiotv/colorssd/master.m3u8
 #EXTINF:-1 tvg-id="Colors" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_SD.png" group-title="Entertainment", Colors
 https://live.dinesh29.com.np/stream/jiotv/colorshd/master.m3u8
 
-# --- Sony Sab ---
-#EXTINF:-1 tvg-id="SonySab" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SET/images/LOGO_HD/image.png" group-title="Entertainment", Sony Sab
-http://maxotts.maxdigitaltv.com/x-media/C64/master.m3u8
 
 # --- Sony Sab HD ---
 #EXTINF:-1 tvg-id="SonySabHD" tvg-logo="https://images.toffeelive.com/images/program/2420/logo/240x240/mobile_logo_688156001666785674.png" group-title="Entertainment", Sony Sab HD
@@ -653,6 +650,9 @@ https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonysab_hd&e=.m3u8
 #EXTINF:-1 tvg-id="SonySabHD" tvg-logo="https://images.toffeelive.com/images/program/2420/logo/240x240/mobile_logo_688156001666785674.png" group-title="Entertainment", Sony Sab HD
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/sonysab_hd/playlist.m3u8
+
+#EXTINF:-1 tvg-id="SonySabHD" tvg-logo="https://images.toffeelive.com/images/program/2420/logo/240x240/mobile_logo_688156001666785674.png" group-title="Entertainment", Sony Sab HD
+http://maxotts.maxdigitaltv.com/x-media/C64/master.m3u8
 
 # --- Star Bharat ---
 #EXTINF:-1 tvg-id="StarBharat" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/b/bc/Star_Ananda_2005.png" group-title="Entertainment", Star Bharat
@@ -842,11 +842,12 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="9XM" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/81/9xm_red.svg" group-title="Music", 9XM
 http://103.175.73.12:8080/live/155/155_0.m3u8
 
-# --- 9X Jalwa ---
-#EXTINF:-1 tvg-id="9XJalwa" tvg-logo="https://s4.gifyu.com/images/image86b5f8b135364512.png" group-title="Music", 9X Jalwa
+#EXTINF:-1 tvg-id="9XM" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/81/9xm_red.svg" group-title="Music", 9XM
 https://mumt03.tangotv.in/9XJALWA/tracks-v2a1/mono.m3u8
-#EXTINF:-1 tvg-id="9XJalwa" tvg-logo="https://s4.gifyu.com/images/image86b5f8b135364512.png" group-title="Music", 9X Jalwa
+#EXTINF:-1 tvg-id="9XM" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/81/9xm_red.svg" group-title="Music", 9XM
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/9xjalwain.stream/playlist.m3u8
+
+
 
 # --- B4U Music ---
 #EXTINF:-1 tvg-id="B4UMusic" tvg-logo="https://images.toffeelive.com/images/program/367/logo/115x115/mobile_logo_886909001563629905.png" group-title="Music", B4U Music
@@ -890,10 +891,6 @@ http://146.59.253.52:8080/hindihitshd/index.m3u8
 # 🎬 ENGLISH MOVIES
 # ==========================================
 
-# --- Box Cinama ---
-#EXTINF:-1 tvg-id="BoxCinama" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Box Cinama
-https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8
-
 
 # --- HBO ---
 #EXTINF:-1 tvg-id="HBO" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC0qjpA2Y456EYo8uQ-LDRwVDhoeNOzcr7A9pYCiTlTQ&s=10" group-title="English Movies", HBO
@@ -910,14 +907,15 @@ https://nomawnoijl.gpcdn.net/akash/screem/playlist.m3u8
 https://nomawnoijl.gpcdn.net/akash/superrix/playlist.m3u8
 
 
-# --- Sci-Fi ---
-#EXTINF:-1 tvg-id="SciFi" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Sci-Fi
-https://nomawnoijl.gpcdn.net/akash/partyuniverse/playlist.m3u8
-
-
 # --- Star Movies ---
 #EXTINF:-1 tvg-id="StarMovies" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Star Movies
 https://d20xuwbyc4yoag.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/DistroTV-MuxIP-CINDIE/387.m3u8
+#EXTINF:-1 tvg-id="StarMovies" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Star Movies
+https://nomawnoijl.gpcdn.net/akash/partyuniverse/playlist.m3u8
+
+#EXTINF:-1 tvg-id="StarMovies" tvg-logo="https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png" group-title="English Movies", Star Movies
+https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8
+
 
 
 # ==========================================
