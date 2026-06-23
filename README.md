@@ -4,26 +4,6 @@ GENOIN is a next-generation, premium IPTV streaming player built with a modern, 
 
 ---
 
-## 📁 Project Directory Structure
-
-The project has been refactored into a clean, modular structure for easier maintenance and optimization:
-
-```text
-├── css/
-│   └── styles.css          # Glassmorphism theme, animations, grid, and layout CSS
-├── js/
-│   ├── config.js           # Server playlists, global state variables, and logo utilities
-│   ├── favorites.js        # LocalStorage favorites manager and UI sync logic
-│   ├── sidebar.js          # Sidebar channel navigation drawer and search filter logic
-│   └── player.js           # HLS player, controls, failover routing, and hotkeys
-├── images/                 # Asset folder for logo resources and cover banners
-├── playlist/               # Playlists resource directory
-├── index.html              # Main application markup page
-└── README.md               # Project documentation
-```
-
----
-
 ## 🚀 Key Features
 
 ### 1. Modern Glassmorphism & Parallax Interface
@@ -45,10 +25,6 @@ The project has been refactored into a clean, modular structure for easier maint
 
 ### 5. Multi-Server Playlists
 * Includes out-of-the-box servers:
-  1. *Genoin Server*
-  2. *FIFA NEW*
-  3. *FIFA 26*
-  4. *NEW*
 * Choose playlists using the server dropdown selector on the top-right navbar or sidebar drawer.
 
 ### 6. Interactive Favorites Row
