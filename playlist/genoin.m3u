@@ -294,18 +294,12 @@ https://server.zillarbarta.com/zbcatun/tracks-v1a1/mono.ts.m3u8
 # ==========================================
 
 # --- Cartoon Network ---
-#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
-https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8
+
 #EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
 http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
-#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
-https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
-#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
-https://mflixott.com/tv/toffee-by-maruf/live.php?id=cnn&e=.m3u8
+
 #EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
 https://mflixott.com/tv/toffee-by-maruf/live.php?id=cartoon_network_sd&e=.m3u8
-#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/dbcnews.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
 https://cdn4.skygo.mn/live/disk1/BBC_News/HLSv3-FTA/BBC_News-avc1_3000000=8-mp4a_208000_eng=2.m3u8
 #EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
@@ -314,8 +308,7 @@ https://bldcmprod-cdn.toffeelive.com/cdn/live/cnn/playlist.m3u8
 #EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/cartoon_network_sd/playlist.m3u8
-#EXTINF:-1 tvg-id="CartoonNetwork" tvg-logo="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" group-title="Cartoon & Kids", Cartoon Network
-https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
+
 
 # --- Cartoon Network HD ---
 #EXTINF:-1 tvg-id="CartoonNetworkHD" tvg-logo="https://images.toffeelive.com/images/program/26942/logo/240x240/mobile_logo_443429001678950505.png" group-title="Cartoon & Kids", Cartoon Network HD
@@ -936,3 +929,9 @@ http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
 # --- CNN ---
 #EXTINF:-1 tvg-id="CNN" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf-SIKO0iqZ5s3crlFfZQCq5B7xuCxvto1NYBD4n72AA&s" group-title="English News", CNN
 https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
+#EXTINF:-1 tvg-id="CNN" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf-SIKO0iqZ5s3crlFfZQCq5B7xuCxvto1NYBD4n72AA&s" group-title="English News", CNN
+https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
+#EXTINF:-1 tvg-id="CNN" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf-SIKO0iqZ5s3crlFfZQCq5B7xuCxvto1NYBD4n72AA&s" group-title="English News", CNN
+https://mflixott.com/tv/toffee-by-maruf/live.php?id=cnn&e=.m3u8
+#EXTINF:-1 tvg-id="CNN" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf-SIKO0iqZ5s3crlFfZQCq5B7xuCxvto1NYBD4n72AA&s" group-title="English News", CNN
+https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
