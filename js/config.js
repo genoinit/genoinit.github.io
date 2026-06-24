@@ -1,6 +1,12 @@
 const PLAYLISTS = [
     { name: 'Genoin Server', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u' },		
-    { name: 'FIFA', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/fifa.m3u' },
+ //   { name: 'FIFA', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/fifa.m3u' },
+    { name: 'Bangla', url: 'https://iamshajon.com/playlist/bangla.m3u' },
+    { name: 'FIFA V2', url: 'https://iamshajon.com/playlist/fifa.m3u' },
+    { name: 'Sports', url: 'https://iamshajon.com/playlist/sports.m3u' },
+    { name: 'All Channel', url: 'https://iamshajon.com/playlist/channels.m3u' }
+
+    
 ];
 
 let hlsInstance = null;
