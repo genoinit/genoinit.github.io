@@ -178,7 +178,7 @@
             height: var(--nav-height);
             padding-top: 0 !important;
             padding-bottom: 0 !important;
-            will-change: transform, backdrop-filter;
+            will-change: transform;
             backface-visibility: hidden;
             transition: height 0.3s ease, background 0.3s ease;
         }
@@ -368,7 +368,10 @@
         }
 
         /* Reset styles for true fullscreen */
-        .hero-section:fullscreen, 
+        .hero-section:fullscreen {
+            border-radius: 0 !important;
+            border: none;
+        }
         .hero-section:-webkit-full-screen {
             border-radius: 0 !important;
             border: none;
@@ -1205,6 +1208,7 @@
 
         @media (min-width: 992px) {
             /* --- Dashboard Sidebar Layout (Split Screen) --- */
+            [data-layout="dashboard-sidebar"] body,
             body[data-layout="dashboard-sidebar"] {
                 display: grid;
                 grid-template-columns: 380px 1fr;
@@ -1216,7 +1220,7 @@
                 box-sizing: border-box !important;
             }
             
-            body[data-layout="dashboard-sidebar"] .sticky-player-wrapper {
+            [data-layout="dashboard-sidebar"] .sticky-player-wrapper {
                 grid-column: 2;
                 grid-row: 1;
                 height: 100%;
@@ -1229,7 +1233,7 @@
                 position: relative;
             }
 
-            body[data-layout="dashboard-sidebar"] .sticky-player-wrapper .container {
+            [data-layout="dashboard-sidebar"] .sticky-player-wrapper .container {
                 max-width: 100% !important;
                 width: 100% !important;
                 height: 100% !important;
@@ -1237,7 +1241,7 @@
                 margin: 0 !important;
             }
             
-            body[data-layout="dashboard-sidebar"] .hero-section {
+            [data-layout="dashboard-sidebar"] .hero-section {
                 height: 100% !important;
                 min-height: auto !important;
                 border-radius: 0 !important;
@@ -1245,16 +1249,16 @@
                 box-shadow: none !important;
             }
 
-            body[data-layout="dashboard-sidebar"] .video-container {
+            [data-layout="dashboard-sidebar"] .video-container {
                 border-radius: 0 !important;
             }
             
-            body[data-layout="dashboard-sidebar"] .main-content-overlay {
+            [data-layout="dashboard-sidebar"] .main-content-overlay {
                 grid-column: 1;
                 grid-row: 1;
                 height: 100%;
                 overflow-y: auto;
-                padding-top: calc(var(--nav-height) + 20px) !important;
+                padding-top: 20px !important;
                 background-color: var(--bg-secondary) !important;
                 box-shadow: none !important;
                 border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -1263,61 +1267,61 @@
                 padding-bottom: 50px !important;
             }
 
-            body[data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar {
+            [data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar {
                 width: 4px;
             }
-            body[data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar-track {
+            [data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar-track {
                 background: transparent;
             }
-            body[data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar-thumb {
+            [data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar-thumb {
                 background: rgba(var(--accent-primary-rgb), 0.2);
                 border-radius: 10px;
                 transition: background 0.3s ease;
             }
-            body[data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar-thumb:hover {
+            [data-layout="dashboard-sidebar"] .main-content-overlay::-webkit-scrollbar-thumb:hover {
                 background: var(--accent-primary);
             }
             
-            body[data-layout="dashboard-sidebar"] .main-content-overlay .container {
+            [data-layout="dashboard-sidebar"] .main-content-overlay .container {
                 max-width: 100% !important;
                 width: 100% !important;
                 padding-left: 15px !important;
                 padding-right: 15px !important;
             }
             
-            body[data-layout="dashboard-sidebar"] .main-content-overlay h5 {
+            [data-layout="dashboard-sidebar"] .main-content-overlay h5 {
                 font-size: 1.1rem !important;
             }
             
-            body[data-layout="dashboard-sidebar"] #channel-count-badge {
+            [data-layout="dashboard-sidebar"] #channel-count-badge {
                 font-size: 0.72rem !important;
                 padding: 4px 10px !important;
             }
             
-            body[data-layout="dashboard-sidebar"] .channel-grid {
+            [data-layout="dashboard-sidebar"] .channel-grid {
                 grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
                 gap: 10px !important;
             }
 
-            body[data-layout="dashboard-sidebar"] .channel-card {
+            [data-layout="dashboard-sidebar"] .channel-card {
                 border-radius: 6px;
             }
 
-            body[data-layout="dashboard-sidebar"] .channel-logo-container {
+            [data-layout="dashboard-sidebar"] .channel-logo-container {
                 height: 55px;
                 padding: 6px;
             }
 
-            body[data-layout="dashboard-sidebar"] .scrolling-wrapper .channel-card {
+            [data-layout="dashboard-sidebar"] .scrolling-wrapper .channel-card {
                 flex: 0 0 110px;
                 width: 110px;
             }
 
-            body[data-layout="dashboard-sidebar"] .scrolling-wrapper .channel-logo-container {
+            [data-layout="dashboard-sidebar"] .scrolling-wrapper .channel-logo-container {
                 height: 55px;
             }
             
-            body[data-layout="dashboard-sidebar"] .custom-footer {
+            [data-layout="dashboard-sidebar"] .custom-footer {
                 display: none;
             }
         }
