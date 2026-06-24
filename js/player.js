@@ -585,7 +585,6 @@ async function fetchAndParseM3U(url) {
         const lines = textData.split('\n');
         const channelsMap = {};
         let currentChannel = { name: '', logo: '', url: '', group: '' };
-        let idCounter = 1;
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
@@ -612,7 +611,7 @@ async function fetchAndParseM3U(url) {
                 
                 if (!channelsMap[key]) {
                     channelsMap[key] = {
-                        id: idCounter++,
+                        id: getStableId(cleanedName),
                         name: cleanedName,
                         logo: currentChannel.logo,
                         group: currentChannel.group,

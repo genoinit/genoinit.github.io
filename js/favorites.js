@@ -87,8 +87,13 @@ function removeFavoriteItem(event, serverIndex, channelId) {
             playbackMode = 'server';
             currentFavIndex = -1;
             updatePlaybackModeUI();
-        } else if (currentFavIndex >= allFavs.length) {
-            currentFavIndex = allFavs.length - 1;
+        } else {
+            const activeIndex = allFavs.findIndex(f => f.channel.id === activeChannel?.id);
+            if (activeIndex !== -1) {
+                currentFavIndex = activeIndex;
+            } else if (currentFavIndex >= allFavs.length) {
+                currentFavIndex = allFavs.length - 1;
+            }
         }
     }
 }
@@ -119,8 +124,13 @@ function toggleFavorite(event, channelId) {
             playbackMode = 'server';
             currentFavIndex = -1;
             updatePlaybackModeUI();
-        } else if (currentFavIndex >= allFavs.length) {
-            currentFavIndex = allFavs.length - 1;
+        } else {
+            const activeIndex = allFavs.findIndex(f => f.channel.id === activeChannel?.id);
+            if (activeIndex !== -1) {
+                currentFavIndex = activeIndex;
+            } else if (currentFavIndex >= allFavs.length) {
+                currentFavIndex = allFavs.length - 1;
+            }
         }
     }
 }

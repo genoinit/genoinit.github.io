@@ -88,3 +88,12 @@ function handleLogoError(img, channelName) {
     img.onerror = null;
     img.src = generateLetterLogo(channelName);
 }
+
+function getStableId(name) {
+    let hash = 0;
+    const str = (name || '').toLowerCase().trim();
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash);
+}
