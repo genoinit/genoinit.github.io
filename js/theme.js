@@ -5,6 +5,7 @@
 
     // Apply the theme to the body element
     function applyTheme(themeName) {
+        document.documentElement.setAttribute('data-theme', themeName);
         document.body.setAttribute('data-theme', themeName);
         localStorage.setItem(THEME_KEY, themeName);
         updateThemeUI(themeName);

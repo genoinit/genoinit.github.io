@@ -5,9 +5,25 @@
 
     // Apply the layout to the body element
     function applyLayout(layoutName) {
+        document.documentElement.setAttribute('data-layout', layoutName);
         document.body.setAttribute('data-layout', layoutName);
         localStorage.setItem(LAYOUT_KEY, layoutName);
         updateLayoutUI(layoutName);
+
+        // Toggle drawer based on layout name
+        const sidebar = document.getElementById('fullscreen-sidebar');
+        const toggleBtn = document.getElementById('sidebar-toggle-btn');
+        if (layoutName === 'cinema-mode') {
+            if (sidebar) {
+                sidebar.classList.add('open');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-chevron-left"></i>';
+            }
+        } else {
+            if (sidebar) {
+                sidebar.classList.remove('open');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+            }
+        }
 
         // Adjust window layout trigger events if needed
         window.dispatchEvent(new Event('resize'));
@@ -17,7 +33,8 @@
     function updateLayoutUI(layoutName) {
         const layoutLabels = {
             'classical': 'Classical Grid',
-            'dashboard-sidebar': 'Dashboard Sidebar'
+            'dashboard-sidebar': 'Dashboard Sidebar',
+            'cinema-mode': 'Cinema Mode'
         };
 
         // Update active class in menu
@@ -50,5 +67,15 @@
     document.addEventListener('DOMContentLoaded', () => {
         document.body.setAttribute('data-layout', savedLayout);
         updateLayoutUI(savedLayout);
+
+        // Auto-open drawer if page initialized in cinema mode
+        if (savedLayout === 'cinema-mode') {
+            const sidebar = document.getElementById('fullscreen-sidebar');
+            const toggleBtn = document.getElementById('sidebar-toggle-btn');
+            if (sidebar) {
+                sidebar.classList.add('open');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-chevron-left"></i>';
+            }
+        }
     });
 })();

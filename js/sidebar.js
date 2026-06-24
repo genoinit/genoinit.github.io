@@ -92,7 +92,7 @@ function toggleSidebar() {
     
     if (isOpen) {
         clearTimeout(controlsTimeout);
-        sidebarSearchInput.focus();
+        sidebarSearchInput.focus({ preventScroll: true });
         
         // Highlight active channel or first channel
         const visibleItems = getVisibleSidebarItems();

@@ -1324,4 +1324,202 @@
             [data-layout="dashboard-sidebar"] .custom-footer {
                 display: none;
             }
+
+            /* --- Cinema Mode Layout (Theater Viewport) --- */
+            [data-layout="cinema-mode"] body,
+            body[data-layout="cinema-mode"] {
+                overflow: hidden !important;
+                height: 100vh !important;
+                margin-top: 0 !important;
+                padding-top: var(--nav-height) !important;
+                background: #000 !important;
+                box-sizing: border-box !important;
+            }
+
+            [data-layout="cinema-mode"] .sticky-player-wrapper {
+                position: absolute !important;
+                top: var(--nav-height) !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                height: calc(100vh - var(--nav-height)) !important;
+                padding: 0 !important; /* Full screen width (no margins/gaps) */
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                background: #000 !important;
+                z-index: 20 !important;
+                transition: none !important;
+            }
+
+            [data-layout="cinema-mode"] .sticky-player-wrapper .container {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            [data-layout="cinema-mode"] .hero-section {
+                width: 100% !important;
+                height: 100% !important; /* Fill height of player wrapper */
+                max-height: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important; /* Flush edges */
+                border: none !important; /* Remove borders */
+                box-shadow: none !important;
+                min-height: auto !important;
+                background: #000 !important;
+                overflow: hidden !important;
+                transition: none !important;
+            }
+
+            [data-layout="cinema-mode"] .hero-bg-image,
+            [data-layout="cinema-mode"] .hero-content {
+                display: none !important;
+            }
+
+            [data-layout="cinema-mode"] .video-container {
+                display: block !important;
+            }
+
+            [data-layout="cinema-mode"] .main-content-overlay {
+                display: none !important;
+            }
+
+            /* Always show the toggle control buttons in Cinema Mode */
+            [data-layout="cinema-mode"] #sidebar-toggle-btn,
+            [data-layout="cinema-mode"] #prev-btn,
+            [data-layout="cinema-mode"] #next-btn {
+                display: inline-block !important;
+            }
+
+            /* Morph Sidebar into a bottom drawer sliding overlay */
+            [data-layout="cinema-mode"] .fullscreen-sidebar {
+                display: grid !important;
+                grid-template-areas: 
+                    "header theme server search"
+                    "list list list list" !important;
+                grid-template-columns: 200px 180px 180px 1fr !important;
+                grid-template-rows: auto 1fr !important;
+                gap: 15px !important;
+                left: 20px !important;
+                right: 20px !important;
+                top: auto !important;
+                bottom: 20px !important; /* Stay anchored at bottom */
+                width: auto !important;
+                height: 250px !important;
+                transform: translateY(280px) !important; /* Translate off-screen */
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease !important;
+                flex-direction: column !important;
+                border-right: none !important;
+                border: 1px solid rgba(255, 255, 255, 0.08) !important;
+                border-radius: 16px !important;
+                padding: 15px !important;
+                z-index: 100 !important;
+                overflow: visible !important; /* Ensure dropdown menu is not clipped */
+            }
+
+            [data-layout="cinema-mode"] .fullscreen-sidebar.open {
+                bottom: 20px !important;
+                transform: translateY(0) !important; /* Slide up using translation */
+            }
+
+            /* Make dropdown menus open upwards (dropup) in Cinema Mode */
+            [data-layout="cinema-mode"] .fullscreen-sidebar .dropdown-menu {
+                top: auto !important;
+                bottom: 100% !important;
+                transform: none !important; /* Override Popper inline position transform */
+                margin-bottom: 8px !important;
+                max-height: 40vh !important;
+            }
+
+            [data-layout="cinema-mode"] .sidebar-header {
+                grid-area: header !important;
+                margin-bottom: 0 !important;
+                padding: 0 !important;
+                border-bottom: none !important;
+                height: 44px !important;
+            }
+
+            [data-layout="cinema-mode"] .fullscreen-sidebar .mb-2 {
+                grid-area: theme !important;
+                margin: 0 !important;
+            }
+
+            [data-layout="cinema-mode"] .fullscreen-sidebar .mb-3 {
+                grid-area: server !important;
+                margin: 0 !important;
+            }
+
+            [data-layout="cinema-mode"] .sidebar-search {
+                grid-area: search !important;
+                margin: 0 !important;
+            }
+
+            [data-layout="cinema-mode"] #sidebar-channels-list {
+                grid-area: list !important;
+                margin: 0 !important;
+                padding: 10px 0 !important;
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent) !important;
+                -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent) !important;
+                gap: 15px !important;
+            }
+
+            /* Custom scrollbar styling for the horizontal list */
+            [data-layout="cinema-mode"] #sidebar-channels-list::-webkit-scrollbar {
+                height: 3px !important;
+            }
+            [data-layout="cinema-mode"] #sidebar-channels-list::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.1) !important;
+            }
+
+            /* Morph channel sidebar items into centered grid cards */
+            [data-layout="cinema-mode"] .sidebar-item {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 90px !important;
+                height: 110px !important;
+                flex-shrink: 0 !important;
+                margin-bottom: 0 !important;
+                padding: 10px !important;
+                text-align: center !important;
+            }
+
+            [data-layout="cinema-mode"] .sidebar-item img {
+                width: 50px !important;
+                height: 50px !important;
+                margin-right: 0 !important;
+                margin-bottom: 8px !important;
+            }
+
+            [data-layout="cinema-mode"] .sidebar-item-name {
+                width: 100% !important;
+                font-size: 0.75rem !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                text-align: center !important;
+            }
+
+            [data-layout="cinema-mode"] .sidebar-item .badge {
+                display: none !important;
+            }
+        }
+
+        /* Mobile Fallback: Cinema mode behaves like classical layout on mobile */
+        @media (max-width: 991.98px) {
+            body[data-layout="cinema-mode"] {
+                padding-top: var(--nav-height) !important;
+            }
         }
