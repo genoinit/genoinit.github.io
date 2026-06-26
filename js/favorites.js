@@ -71,9 +71,9 @@ function removeFavoriteItem(event, serverIndex, channelId) {
     favoritesData[key] = favs;
     localStorage.setItem('genoin_favorites_v3', JSON.stringify(favoritesData));
 
-    // Update main grid heart button if on the same server
+    // Update main grid and sidebar heart buttons if on the same server
     if (serverIndex === currentPlaylistIndex) {
-        document.querySelectorAll(`#all-channels-grid .fav-btn[data-id="${channelId}"]`).forEach(btn => {
+        document.querySelectorAll(`#all-channels-grid .fav-btn[data-id="${channelId}"], #sidebar-channels-list .sidebar-fav-btn[data-id="${channelId}"]`).forEach(btn => {
             btn.classList.remove('active');
         });
     }
@@ -112,7 +112,7 @@ function toggleFavorite(event, channelId) {
     setCurrentFavorites(favs);
     
     // Update UI
-    document.querySelectorAll(`.fav-btn[data-id="${channelId}"]`).forEach(btn => {
+    document.querySelectorAll(`.fav-btn[data-id="${channelId}"], .sidebar-fav-btn[data-id="${channelId}"]`).forEach(btn => {
         btn.classList.toggle('active');
     });
     renderFavorites();
@@ -143,7 +143,20 @@ function removeCrossServerFav(event, serverIndex, channelId) {
     favs = favs.filter(c => c.id !== channelId);
     favoritesData[key] = favs;
     localStorage.setItem('genoin_favorites_v3', JSON.stringify(favoritesData));
+    
+    if (serverIndex === currentPlaylistIndex) {
+        document.querySelectorAll(`#all-channels-grid .fav-btn[data-id="${channelId}"], #sidebar-channels-list .sidebar-fav-btn[data-id="${channelId}"]`).forEach(btn => {
+            btn.classList.remove('active');
+        });
+    }
+    
     renderFavorites();
+}
+
+function renderSidebarFavorites() {
+    if (typeof renderSidebarChannels === 'function') {
+        renderSidebarChannels();
+    }
 }
 
 function renderFavorites() {
@@ -160,4 +173,6 @@ function renderFavorites() {
     } else {
         favoritesContainer.classList.add('d-none');
     }
+
+    renderSidebarFavorites();
 }

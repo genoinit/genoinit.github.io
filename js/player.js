@@ -108,6 +108,7 @@ function playStream(encodedData) {
     const sidebarItem = document.getElementById(`sidebar-card-${channel.id}`);
     if (sidebarItem) sidebarItem.classList.add('active');
 
+
     // Play first server
     playServer(0);
 }
@@ -125,6 +126,10 @@ function playServer(index) {
 
     activeServerIndex = index;
     const url = activeChannel.urls[index];
+
+    // Hide quality selector initially until manifest is parsed
+    const qContainer = document.getElementById('quality-selector-container');
+    if (qContainer) qContainer.style.display = 'none';
 
     // Rebuild pills if playing server 0 (new channel)
     if (index === 0) {
@@ -165,6 +170,7 @@ function playServer(index) {
     video.pause();
     video.removeAttribute('src');
     video.load();
+    video.classList.add('fade-out');
 
     // Timeout for failover
     clearTimeout(failoverTimer);
@@ -188,6 +194,7 @@ function playServer(index) {
         hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play().catch(e => console.log("Autoplay blocked:", e));
             updatePlayPauseUI();
+            updateQualityMenu();
         });
 
         hlsInstance.on(Hls.Events.ERROR, function (event, data) {
@@ -226,6 +233,7 @@ function showGlobalPlayerError() {
     loadingSpinner.style.display = 'none';
     loaderText.innerText = "All Servers Offline / Unavailable";
     loaderText.classList.add('text-danger');
+    video.classList.remove('fade-out');
     
     if (activeChannel && activeChannel.urls) {
         for (let i = 0; i < activeChannel.urls.length; i++) {
@@ -252,10 +260,12 @@ video.addEventListener('playing', () => {
     loaderText.classList.remove('text-danger');
     updatePlayPauseUI();
     updateScreenServerUIState(activeServerIndex, 'active');
+    video.classList.remove('fade-out');
 });
 
 video.addEventListener('canplay', () => {
     videoLoader.style.display = 'none';
+    video.classList.remove('fade-out');
 });
 
 video.addEventListener('pause', updatePlayPauseUI);
@@ -546,6 +556,17 @@ document.addEventListener('keydown', (e) => {
             video.muted = false;
             updateVolumeUI();
             break;
+
+        // --- Toggle Keyboard Help Modal ---
+        case '?':
+        case '/':
+            e.preventDefault();
+            const modalEl = document.getElementById('shortcutsModal');
+            if (modalEl && typeof bootstrap !== 'undefined') {
+                const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+                modalInstance.toggle();
+            }
+            break;
     }
 });
 
@@ -672,11 +693,10 @@ function initPlaylistSelector() {
         // Remember if sidebar was open (fullscreen mode)
         const sidebarWasOpen = sidebar.classList.contains('open');
         
-        // Manually close Bootstrap dropdown without affecting sidebar
-        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-            menu.classList.remove('show');
-            menu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]')?.classList.remove('show');
-            menu.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]')?.setAttribute('aria-expanded', 'false');
+        // Close Bootstrap dropdowns programmatically
+        document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(toggle => {
+            const dp = bootstrap.Dropdown.getInstance(toggle);
+            if (dp) dp.hide();
         });
 
         // Update UI
@@ -733,6 +753,85 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: false });
 
+    // Enable horizontal drag-to-scroll for Favorites row
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let hasMoved = false;
+
+    favoritesRow.addEventListener('mousedown', (e) => {
+        isDown = true;
+        hasMoved = false;
+        favoritesRow.classList.add('dragging');
+        startX = e.pageX - favoritesRow.offsetLeft;
+        scrollLeft = favoritesRow.scrollLeft;
+    });
+
+    favoritesRow.addEventListener('mouseleave', () => {
+        isDown = false;
+        favoritesRow.classList.remove('dragging');
+    });
+
+    favoritesRow.addEventListener('mouseup', () => {
+        isDown = false;
+        favoritesRow.classList.remove('dragging');
+    });
+
+    favoritesRow.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - favoritesRow.offsetLeft;
+        const walk = (x - startX) * 2; // scroll speed multiplier
+        if (Math.abs(walk) > 5) {
+            hasMoved = true;
+        }
+        favoritesRow.scrollLeft = scrollLeft - walk;
+    });
+
+    // Prevent trigger click on drag scroll release
+    favoritesRow.addEventListener('click', (e) => {
+        if (hasMoved) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+
+    // Auto-close open dropdowns when clicking outside or opening another dropdown
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+        const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+        
+        openDropdowns.forEach(menu => {
+            const dropdownContainer = menu.closest('.dropdown');
+            const toggle = dropdownContainer?.querySelector('[data-bs-toggle="dropdown"]');
+            
+            // Check if settings dropdown with auto-close outside (allow click inside settings menu)
+            if (toggle && toggle.id === 'settingsDropdown' && menu.contains(target)) {
+                return;
+            }
+            
+            // Close if clicking outside the dropdown container
+            if (dropdownContainer && !dropdownContainer.contains(target)) {
+                if (toggle && typeof bootstrap !== 'undefined') {
+                    const dp = bootstrap.Dropdown.getInstance(toggle);
+                    if (dp) dp.hide();
+                }
+            }
+        });
+    });
+
+    // Programmatically close other dropdowns when a dropdown is toggled open
+    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    const inst = bootstrap.Dropdown.getInstance(otherBtn);
+                    if (inst) inst.hide();
+                }
+            });
+        });
+    });
+
     // PI-P Scroll Logic
     const stickyWrapper = document.getElementById('sticky-player-wrapper');
     
@@ -750,3 +849,68 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// --- HLS Quality Selector Functions ---
+function updateQualityMenu() {
+    const qualityMenu = document.getElementById('quality-menu');
+    const container = document.getElementById('quality-selector-container');
+    if (!qualityMenu || !container) return;
+
+    if (!hlsInstance || !hlsInstance.levels || hlsInstance.levels.length <= 1) {
+        container.style.display = 'none';
+        return;
+    }
+
+    container.style.display = 'inline-block';
+
+    const levels = hlsInstance.levels;
+    let html = `<li><a class="dropdown-item ${hlsInstance.loadLevel === -1 ? 'active' : ''}" href="#" onclick="changeQuality(event, -1)">Auto Quality</a></li>`;
+    
+    levels.forEach((level, index) => {
+        let name = level.name;
+        if (!name) {
+            if (level.height) {
+                name = `${level.height}p`;
+            } else if (level.bitrate) {
+                name = `${Math.round(level.bitrate / 1000)}kbps`;
+            } else {
+                name = `Level ${index + 1}`;
+            }
+        }
+        
+        html += `<li><a class="dropdown-item ${hlsInstance.loadLevel === index ? 'active' : ''}" id="quality-item-${index}" href="#" onclick="changeQuality(event, ${index})">${name}</a></li>`;
+    });
+
+    qualityMenu.innerHTML = html;
+}
+
+window.changeQuality = function (event, index) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    if (!hlsInstance) return;
+
+    hlsInstance.currentLevel = index;
+    hlsInstance.loadLevel = index;
+
+    const qualityMenu = document.getElementById('quality-menu');
+    if (qualityMenu) {
+        qualityMenu.querySelectorAll('.dropdown-item').forEach((item, i) => {
+            const isAuto = i === 0;
+            const targetIdx = isAuto ? -1 : i - 1;
+            if (targetIdx === index) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Close the dropdown menu manually after click
+    const dropdownToggle = document.getElementById('qualityBtn');
+    if (dropdownToggle && typeof bootstrap !== 'undefined') {
+        const dp = bootstrap.Dropdown.getInstance(dropdownToggle);
+        if (dp) dp.hide();
+    }
+};

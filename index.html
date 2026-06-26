@@ -58,9 +58,13 @@
                 </div>
             </div>
 
-            <!-- Settings Dropdown (Right) -->
-            <div class="dropdown">
-                <button class="settings-btn" type="button" id="settingsDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="Settings">
+            <!-- Settings & Help Dropdown (Right) -->
+            <div class="d-flex align-items-center gap-2">
+                <button class="settings-btn" type="button" data-bs-toggle="modal" data-bs-target="#shortcutsModal" title="Keyboard Shortcuts" style="font-size: 1.15rem; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: none; color: #fff; transition: all 0.2s;">
+                    <i class="bi bi-keyboard"></i>
+                </button>
+                <div class="dropdown">
+                    <button class="settings-btn" type="button" id="settingsDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="Settings">
                     <i class="bi bi-gear-fill"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow-lg py-3 px-2" aria-labelledby="settingsDropdown" style="min-width: 260px; border-radius: 12px; border: 1px solid rgba(var(--accent-primary-rgb), 0.25);">
@@ -96,6 +100,7 @@
                     </li>
                 </ul>
             </div>
+        </div>
         </div>
     </nav>
 
@@ -158,7 +163,16 @@
                                 <button class="control-btn" id="next-btn" title="Next Channel"><i class="bi bi-skip-end-fill"></i></button>
                                 <button class="control-btn ms-3" id="mute-btn" style="font-size: 1.5rem;"><i class="bi bi-volume-up-fill"></i></button>
                                 <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.3">
-                                <button class="control-btn ms-auto" id="fullscreen-btn"><i class="bi bi-arrows-fullscreen"></i></button>
+                                <!-- Quality Selector Dropdown -->
+                                <div class="dropup d-inline-block ms-auto" id="quality-selector-container" style="display: none;">
+                                    <button class="control-btn" type="button" id="qualityBtn" data-bs-toggle="dropdown" aria-expanded="false" title="Video Quality" style="font-size: 1.25rem;">
+                                        <i class="bi bi-gear-wide-connected"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark shadow-lg py-2 px-1" aria-labelledby="qualityBtn" id="quality-menu" style="min-width: 120px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; margin-bottom: 8px;">
+                                        <li><a class="dropdown-item active" href="#" onclick="changeQuality(event, -1)">Auto</a></li>
+                                    </ul>
+                                </div>
+                                <button class="control-btn ms-3" id="fullscreen-btn"><i class="bi bi-arrows-fullscreen"></i></button>
                             </div>
                         </div>
                     </div>
@@ -205,6 +219,17 @@
                         <div class="sidebar-search">
                             <input type="text" id="sidebar-search-input" placeholder="Search channels...">
                             <i class="bi bi-search"></i>
+                        </div>
+                        <!-- Sidebar Tab Selector -->
+                        <div class="mb-3 sidebar-tab-wrapper" style="margin: 0 20px;">
+                            <div class="sidebar-tab-group w-100 d-flex">
+                                <button class="sidebar-tab-btn active w-50" id="sidebar-tab-all" onclick="changeSidebarTab(event, 'all')">
+                                    <i class="bi bi-broadcast me-1"></i> All
+                                </button>
+                                <button class="sidebar-tab-btn w-50" id="sidebar-tab-fav" onclick="changeSidebarTab(event, 'fav')">
+                                    <i class="bi bi-heart-fill me-1"></i> Favs
+                                </button>
+                            </div>
                         </div>
                         <div id="sidebar-channels-list">
                             <!-- Populated by JS -->
@@ -298,6 +323,36 @@
                 </p>
             </footer>
 
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Help Modal -->
+    <div class="modal fade" id="shortcutsModal" tabindex="-1" aria-labelledby="shortcutsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content shortcuts-modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-primary" id="shortcutsModalLabel">
+                        <i class="bi bi-keyboard-fill me-2"></i> Keyboard Shortcuts
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="shortcuts-list">
+                        <div class="shortcut-row"><span class="shortcut-key">Space</span><span class="shortcut-desc">Play / Pause</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key"><i class="bi bi-arrow-up"></i></span><span class="shortcut-desc">Increase Volume (5%) / Nav Sidebar Up</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key"><i class="bi bi-arrow-down"></i></span><span class="shortcut-desc">Decrease Volume (5%) / Nav Sidebar Down</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key"><i class="bi bi-arrow-right"></i> / N</span><span class="shortcut-desc">Play Next Channel</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key"><i class="bi bi-arrow-left"></i> / P</span><span class="shortcut-desc">Play Previous Channel</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">Enter</span><span class="shortcut-desc">Play Highlighted Channel</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">F</span><span class="shortcut-desc">Toggle Fullscreen</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">M</span><span class="shortcut-desc">Mute / Unmute Audio</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">L</span><span class="shortcut-desc">Toggle Sidebar (Fullscreen only)</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">S</span><span class="shortcut-desc">Focus / Toggle Search Bar</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">0 - 9</span><span class="shortcut-desc">Set Volume Level (0% to 90%)</span></div>
+                        <div class="shortcut-row"><span class="shortcut-key">?</span><span class="shortcut-desc">Toggle This Help Modal</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
