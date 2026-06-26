@@ -8,17 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- ==========================================
-         CONFIG — .env theke ase (Flask /config.js serve kore)
-         Local/static file e cholate chaile niche fallback edit koro
-    ========================================== -->
     <script>
-    // Fallback (jodi /config.js load na hoy, ba file:// e khola hoy)
+    // Fallback 
     window.APP_CONFIG = window.APP_CONFIG || {};
     window.APP_CONFIG.TV_SERVER_URL = window.APP_CONFIG.TV_SERVER_URL || 'http://10.20.30.40/tv-server';
 	
     window.APP_CONFIG.playlists = window.APP_CONFIG.playlists || [
-	{ name: 'Genoin', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u', type: 'm3u' },
+	{ name: 'Genoin', url: 'https://genoin.com/playlist/genoin.m3u', type: 'm3u' },
         { name: 'MAIN', url: 'http://10.20.30.40/tv-server', type: 'json' },
         { name: 'FIFA', url: 'https://iamshajon.com/playlist/fifa.m3u', type: 'm3u' }
     ];
