@@ -2028,10 +2028,10 @@ body {
 
         if (!channels.length) {
             const msg = categoryLabel === FAV_CAT
-                ? '<i class="far fa-heart"></i>No favorites yet. Tap ♡ on a channel.'
+                ? '<i class="far "></i>No favorites yet. Tap ♡ on a channel.'
                 : categoryLabel === RECENT_CAT
-                ? '<i class="fas fa-history"></i>No recently watched channels yet.'
-                : '<i class="fas fa-search"></i>No channels found.';
+                ? '<i class="fas "></i>No recently watched channels yet.'
+                : '<i class="fas "></i>No channels found.';
             channelGridMobile.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${msg}</div>`;
             channelListDesktop.innerHTML = `<div class="empty-state">${msg}</div>`;
             return;
