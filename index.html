@@ -1151,6 +1151,8 @@ body {
 
     // ---- NEW: feature vars ----
     const FAV_CAT = '⭐ Favorites';
+    const RECENT_CAT = '🕒 Recent';
+    const MAX_RECENT_WATCHED = 15;
     let searchMode = false;
     let currentQuery = '';
     let channelCategoryMap = {};   // url -> real category name
@@ -1247,6 +1249,37 @@ body {
             });
         });
         return out;
+    }
+
+    // ---- NEW: Recents helpers ----
+    function getRecentWatched() {
+        try { return JSON.parse(localStorage.getItem('nbox_recent_watched') || '[]'); }
+        catch (e) { return []; }
+    }
+    function addRecentWatched(ch) {
+        if (!ch || ch.isAPK) return;
+        let list = getRecentWatched();
+        list = list.filter(url => url !== ch.url);
+        list.unshift(ch.url);
+        localStorage.setItem('nbox_recent_watched', JSON.stringify(list.slice(0, MAX_RECENT_WATCHED)));
+    }
+    function getRecentWatchedChannels() {
+        const recentUrls = getRecentWatched();
+        const out = [];
+        recentUrls.forEach(url => {
+            let foundCh = null;
+            for (const cat of Object.keys(channelsData)) {
+                foundCh = (channelsData[cat] || []).find(ch => !ch.isAPK && ch.url === url);
+                if (foundCh) break;
+            }
+            if (foundCh) out.push(foundCh);
+        });
+        return out;
+    }
+    function getCategoryChannels(category) {
+        if (category === FAV_CAT) return getFavChannels();
+        if (category === RECENT_CAT) return getRecentWatchedChannels();
+        return channelsData[category] || [];
     }
     // ----
 
@@ -1478,10 +1511,11 @@ body {
         clearTimeout(loadingTimeout);
         errorOverlay.classList.remove('show');
 
-        // NEW: save last watched
+        // NEW: save last watched & recent watched
         if (!channel.isAPK) {
             const saveUrl = (channel.urls && channel.urls.length > 0) ? channel.urls[channel.currentUrlIndex || 0] : channel.url;
             localStorage.setItem('nbox_last_url', saveUrl);
+            addRecentWatched(channel);
         }
         if (reelsMode) updateReelsInfo();
 
@@ -1545,19 +1579,82 @@ body {
         }
     }
 
+    function getNextCategory(category) {
+        const cats = [RECENT_CAT, FAV_CAT, ...Object.keys(channelsData)];
+        if (cats.length <= 1) return null;
+        let idx = cats.indexOf(category);
+        if (idx === -1) idx = 0;
+        
+        let nextIdx = (idx + 1) % cats.length;
+        while (nextIdx !== idx) {
+            const nextCat = cats[nextIdx];
+            const chs = getCategoryChannels(nextCat);
+            if (chs.length > 0) {
+                return nextCat;
+            }
+            nextIdx = (nextIdx + 1) % cats.length;
+        }
+        return null;
+    }
+
+    function getPreviousCategory(category) {
+        const cats = [RECENT_CAT, FAV_CAT, ...Object.keys(channelsData)];
+        if (cats.length <= 1) return null;
+        let idx = cats.indexOf(category);
+        if (idx === -1) idx = 0;
+        
+        let prevIdx = (idx - 1 + cats.length) % cats.length;
+        while (prevIdx !== idx) {
+            const prevCat = cats[prevIdx];
+            const chs = getCategoryChannels(prevCat);
+            if (chs.length > 0) {
+                return prevCat;
+            }
+            prevIdx = (prevIdx - 1 + cats.length) % cats.length;
+        }
+        return null;
+    }
+
     function playNextChannel() {
         if (!currentCategoryChannels.length) return;
+        
+        if (!searchMode && currentChannelIndex >= currentCategoryChannels.length - 1) {
+            const nextCat = getNextCategory(currentCategory);
+            if (nextCat && nextCat !== currentCategory) {
+                switchCategory(nextCat);
+                currentChannelIndex = 0;
+                const ch = currentCategoryChannels[0];
+                const card = Array.from(document.querySelectorAll('.channel-card-mobile,.channel-card-desktop')).find(c => c.dataset.index == 0);
+                playChannel(ch, nextCat, card);
+                return;
+            }
+        }
+        
         currentChannelIndex = (currentChannelIndex + 1) % currentCategoryChannels.length;
         const ch = currentCategoryChannels[currentChannelIndex];
         const card = Array.from(document.querySelectorAll('.channel-card-mobile,.channel-card-desktop')).find(c => c.dataset.index == currentChannelIndex);
-        playChannel(ch, currentCategory, card);
+        playChannel(ch, searchMode ? 'Search' : currentCategory, card);
     }
+
     function playPreviousChannel() {
         if (!currentCategoryChannels.length) return;
+        
+        if (!searchMode && currentChannelIndex <= 0) {
+            const prevCat = getPreviousCategory(currentCategory);
+            if (prevCat && prevCat !== currentCategory) {
+                switchCategory(prevCat);
+                currentChannelIndex = currentCategoryChannels.length - 1;
+                const ch = currentCategoryChannels[currentChannelIndex];
+                const card = Array.from(document.querySelectorAll('.channel-card-mobile,.channel-card-desktop')).find(c => c.dataset.index == currentChannelIndex);
+                playChannel(ch, prevCat, card);
+                return;
+            }
+        }
+        
         currentChannelIndex = (currentChannelIndex - 1 + currentCategoryChannels.length) % currentCategoryChannels.length;
         const ch = currentCategoryChannels[currentChannelIndex];
         const card = Array.from(document.querySelectorAll('.channel-card-mobile,.channel-card-desktop')).find(c => c.dataset.index == currentChannelIndex);
-        playChannel(ch, currentCategory, card);
+        playChannel(ch, searchMode ? 'Search' : currentCategory, card);
     }
 
     // Parse .m3u text format to the app's channel JSON structure
@@ -1872,14 +1969,17 @@ body {
     initPlaylists();
 
     function renderCategories() {
-        const cats = [FAV_CAT, ...Object.keys(channelsData)];
+        const cats = [RECENT_CAT, FAV_CAT, ...Object.keys(channelsData)];
         [categoryTabsDesktop, categoryTabsMobile].forEach(container => {
             container.innerHTML = '';
             cats.forEach((cat) => {
                 const tab = document.createElement('div');
                 tab.className = 'category-tab';
                 tab.dataset.cat = cat;
-                const displayName = cat === FAV_CAT ? cat : (cat.charAt(0).toUpperCase() + cat.slice(1));
+                let displayName = cat;
+                if (cat !== FAV_CAT && cat !== RECENT_CAT) {
+                    displayName = cat.charAt(0).toUpperCase() + cat.slice(1);
+                }
                 tab.innerHTML = `<span>${displayName}</span>`;
                 tab.addEventListener('click', () => switchCategory(cat));
                 container.appendChild(tab);
@@ -1899,9 +1999,7 @@ body {
     }
 
     function renderChannels(category) {
-        let channels;
-        if (category === FAV_CAT) channels = getFavChannels();
-        else channels = channelsData[category] || [];
+        const channels = getCategoryChannels(category);
         renderChannelList(channels, category);
     }
 
@@ -1931,6 +2029,8 @@ body {
         if (!channels.length) {
             const msg = categoryLabel === FAV_CAT
                 ? '<i class="far fa-heart"></i>No favorites yet. Tap ♡ on a channel.'
+                : categoryLabel === RECENT_CAT
+                ? '<i class="fas fa-history"></i>No recently watched channels yet.'
                 : '<i class="fas fa-search"></i>No channels found.';
             channelGridMobile.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${msg}</div>`;
             channelListDesktop.innerHTML = `<div class="empty-state">${msg}</div>`;
