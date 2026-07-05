@@ -1,6 +1,7 @@
 const PLAYLISTS = [
     { name: 'Genoin Server', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u' },		
-  { name: 'FIFA', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/fifa.m3u' } 
+    { name: 'FIFA', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/fifa.m3u' },
+    { name: 'FIFA (JSON)', url: 'https://iamshajon.com/playlist/fifa.json' }
 ];
 
 let hlsInstance = null;

@@ -603,29 +603,22 @@ async function fetchAndParseM3U(url) {
         if (!response.ok) throw new Error('Network response was not ok');
         const textData = await response.text();
         
-        const lines = textData.split('\n');
         const channelsMap = {};
-        let currentChannel = { name: '', logo: '', url: '', group: '' };
 
-        for (let i = 0; i < lines.length; i++) {
-            const line = lines[i].trim();
-            if (!line) continue;
+        if (url.endsWith('.json') || textData.trim().startsWith('[') || textData.trim().startsWith('{')) {
+            const data = JSON.parse(textData);
+            const arrayData = Array.isArray(data) ? data : (data.channels || Object.values(data)[0] || []);
             
-            if (line.startsWith('#EXTINF:')) {
-                const logoMatch = line.match(/tvg-logo="([^"]+)"/);
-                currentChannel.logo = logoMatch ? logoMatch[1] : '';
-                
-                const groupMatch = line.match(/group-title="([^"]+)"/);
-                currentChannel.group = groupMatch ? groupMatch[1] : '';
-                
-                const nameSplit = line.split(',');
-                currentChannel.name = nameSplit.length > 1 ? nameSplit[1].trim() : 'Unknown Channel';
-            } 
-            else if (line.startsWith('http')) {
-                currentChannel.url = line;
-                
+            for (const ch of arrayData) {
+                if (!ch.url) continue;
+
                 // Grouping logic: Clean region and server tags
-                let cleanedName = currentChannel.name.replace(/\s*[-_\[(]+(bd|in|vip|sd|hd|hq|digital|clean)[\])]*\s*$/i, '').trim();
+                const name = ch.name || ch.channel_name || 'Unknown Channel';
+                const logo = ch.logo || ch.image || '';
+                const group = ch.group || '';
+                const chUrl = ch.url;
+
+                let cleanedName = name.replace(/\s*[-_\[(]+(bd|in|vip|sd|hd|hq|digital|clean)[\])]*\s*$/i, '').trim();
                 cleanedName = cleanedName.replace(/\s*[-_\[(]+(server\s*)?\d+[\])]*\s*$/i, '').trim();
                 
                 const key = cleanedName.toLowerCase();
@@ -634,23 +627,71 @@ async function fetchAndParseM3U(url) {
                     channelsMap[key] = {
                         id: getStableId(cleanedName),
                         name: cleanedName,
-                        logo: currentChannel.logo,
-                        group: currentChannel.group,
+                        logo: logo,
+                        group: group,
                         urls: []
                     };
                 }
                 
                 // Add URL if not already present
-                if (!channelsMap[key].urls.includes(currentChannel.url)) {
-                    channelsMap[key].urls.push(currentChannel.url);
+                if (!channelsMap[key].urls.includes(chUrl)) {
+                    channelsMap[key].urls.push(chUrl);
                 }
                 
                 // Preserve logo if new entry has one and map doesn't
-                if (currentChannel.logo && !channelsMap[key].logo) {
-                    channelsMap[key].logo = currentChannel.logo;
+                if (logo && !channelsMap[key].logo) {
+                    channelsMap[key].logo = logo;
                 }
+            }
+        } else {
+            const lines = textData.split('\n');
+            let currentChannel = { name: '', logo: '', url: '', group: '' };
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
                 
-                currentChannel = { name: '', logo: '', url: '', group: '' }; 
+                if (line.startsWith('#EXTINF:')) {
+                    const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+                    currentChannel.logo = logoMatch ? logoMatch[1] : '';
+                    
+                    const groupMatch = line.match(/group-title="([^"]+)"/);
+                    currentChannel.group = groupMatch ? groupMatch[1] : '';
+                    
+                    const nameSplit = line.split(',');
+                    currentChannel.name = nameSplit.length > 1 ? nameSplit[1].trim() : 'Unknown Channel';
+                } 
+                else if (line.startsWith('http')) {
+                    currentChannel.url = line;
+                    
+                    // Grouping logic: Clean region and server tags
+                    let cleanedName = currentChannel.name.replace(/\s*[-_\[(]+(bd|in|vip|sd|hd|hq|digital|clean)[\])]*\s*$/i, '').trim();
+                    cleanedName = cleanedName.replace(/\s*[-_\[(]+(server\s*)?\d+[\])]*\s*$/i, '').trim();
+                    
+                    const key = cleanedName.toLowerCase();
+                    
+                    if (!channelsMap[key]) {
+                        channelsMap[key] = {
+                            id: getStableId(cleanedName),
+                            name: cleanedName,
+                            logo: currentChannel.logo,
+                            group: currentChannel.group,
+                            urls: []
+                        };
+                    }
+                    
+                    // Add URL if not already present
+                    if (!channelsMap[key].urls.includes(currentChannel.url)) {
+                        channelsMap[key].urls.push(currentChannel.url);
+                    }
+                    
+                    // Preserve logo if new entry has one and map doesn't
+                    if (currentChannel.logo && !channelsMap[key].logo) {
+                        channelsMap[key].logo = currentChannel.logo;
+                    }
+                    
+                    currentChannel = { name: '', logo: '', url: '', group: '' }; 
+                }
             }
         }
         
@@ -660,7 +701,7 @@ async function fetchAndParseM3U(url) {
         renderFavorites();
 
     } catch (error) {
-        console.error('Error fetching M3U:', error);
+        console.error('Error fetching playlist:', error);
         document.getElementById('loader').innerHTML = `<p class="text-danger">Failed to load channels. Check CORS or URL.</p>`;
         sidebarChannelsList.innerHTML = '<div class="text-center p-4 text-danger small">Failed to load channels.</div>';
     }
