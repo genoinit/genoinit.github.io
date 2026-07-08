@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ============================================================
+       SEO & META
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>GENOIN HORIZON ECOSYSTEM — The Genius of Innovation</title>
+  <meta name="description" content="GENOIN HORIZON ECOSYSTEM: One intelligent digital platform where businesses, developers, AI, cloud, identity, payments, commerce, and automation work together seamlessly." />
+  <meta name="keywords" content="GENOIN, Horizon Ecosystem, AI Platform, Cloud Infrastructure, Digital Innovation, Smart Commerce, Developer API, Identity Management, Payment Gateway, Automation" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://genoin.io/" />
+  <meta name="theme-color" content="#044EA0" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://genoin.io/" />
+  <meta property="og:title" content="GENOIN HORIZON ECOSYSTEM — The Genius of Innovation" />
+  <meta property="og:description" content="Build an intelligent digital ecosystem where businesses, developers, AI services, cloud infrastructure, commerce, identity, payments, and automation work together seamlessly." />
+  <meta property="og:image" content="https://genoin.io/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@genoin_io" />
+  <meta name="twitter:title" content="GENOIN HORIZON ECOSYSTEM — The Genius of Innovation" />
+  <meta name="twitter:description" content="One platform. Infinite possibilities. AI, Cloud, Commerce, Identity, Payments, Automation." />
+  <meta name="twitter:image" content="https://genoin.io/twitter-card.jpg" />
+
+  <!-- JSON-LD Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GENOIN HORIZON ECOSYSTEM",
+    "url": "https://genoin.io",
+    "logo": "https://genoin.io/logo.png",
+    "description": "Build an intelligent digital ecosystem where businesses, developers, AI services, cloud infrastructure, commerce, identity, payments, and automation work together seamlessly through one platform.",
+    "sameAs": [
+      "https://twitter.com/genoin_io",
+      "https://linkedin.com/company/genoin",
+      "https://github.com/genoin"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "hello@genoin.io"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23044EA0'/><text y='72' x='12' font-size='72' font-family='Inter,sans-serif' font-weight='900' fill='%23FAB814'>G</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --primary:       #044EA0;
+      --primary-light: #1a6dd4;
+      --primary-dark:  #033880;
+      --accent:        #FAB814;
+      --accent-dark:   #d99a0e;
+      --dark:          #0F172A;
+      --bg:            #F8FAFC;
+      --glass:         rgba(255,255,255,0.72);
+      --glass-border:  rgba(255,255,255,0.28);
+      --glass-dark:    rgba(15,23,42,0.65);
+      --success:       #16A34A;
+      --danger:        #DC2626;
+      --info:          #3B82F6;
+      --text:          #1E293B;
+      --muted:         #64748B;
+      --border:        rgba(100,116,139,0.18);
+      --radius:        16px;
+      --radius-lg:     24px;
+      --radius-xl:     32px;
+      --shadow-sm:     0 2px 12px rgba(4,78,160,0.08);
+      --shadow-md:     0 8px 32px rgba(4,78,160,0.14);
+      --shadow-lg:     0 24px 64px rgba(4,78,160,0.18);
+      --shadow-glow:   0 0 40px rgba(4,78,160,0.22);
+      --font:          'Inter', system-ui, sans-serif;
+      --transition:    all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    [data-theme="dark"] {
+      --bg:          #0F172A;
+      --glass:       rgba(15,23,42,0.72);
+      --glass-border:rgba(255,255,255,0.10);
+      --text:        #F1F5F9;
+      --muted:       #94A3B8;
+      --border:      rgba(255,255,255,0.10);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; font-size:16px; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+      cursor: none;
+    }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; }
+    ::selection { background:var(--primary); color:#fff; }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:var(--primary); border-radius:8px; }
+
+    /* ============================================================
+       CUSTOM CURSOR
+    ============================================================ */
+    #cursor-dot {
+      width:10px; height:10px;
+      background:var(--primary); border-radius:50%;
+      position:fixed; top:0; left:0;
+      pointer-events:none; z-index:99999;
+      transform:translate(-50%,-50%);
+      transition:width 0.2s, height 0.2s, background 0.2s;
+      mix-blend-mode:multiply;
+    }
+    #cursor-ring {
+      width:38px; height:38px;
+      border:2px solid var(--primary); border-radius:50%;
+      position:fixed; top:0; left:0;
+      pointer-events:none; z-index:99998;
+      transform:translate(-50%,-50%);
+      transition:width 0.3s, height 0.3s, border-color 0.3s;
+      opacity:0.6;
+    }
+    body.cursor-hover #cursor-dot { width:16px; height:16px; background:var(--accent); }
+    body.cursor-hover #cursor-ring { width:54px; height:54px; border-color:var(--accent); opacity:0.4; }
+    @media (pointer:coarse) { #cursor-dot,#cursor-ring { display:none; } body { cursor:auto; } }
+
+    /* ============================================================
+       PRELOADER
+    ============================================================ */
+    #preloader {
+      position:fixed; inset:0; z-index:99997;
+      background:var(--dark);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      transition:opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #preloader.hidden { opacity:0; visibility:hidden; }
+    .preloader-logo {
+      font-size:2.8rem; font-weight:900; letter-spacing:-1px;
+      background:linear-gradient(135deg,#044EA0,#FAB814,#044EA0);
+      background-size:200% 200%;
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:gradientShift 2.2s ease infinite;
+      margin-bottom:1.5rem;
+    }
+    .preloader-bar-wrap { width:220px; height:4px; background:rgba(255,255,255,0.1); border-radius:8px; overflow:hidden; }
+    .preloader-bar {
+      height:100%; width:0%;
+      background:linear-gradient(90deg,#044EA0,#FAB814);
+      border-radius:8px;
+      animation:loadBar 2.4s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    .preloader-tagline { margin-top:1rem; color:rgba(255,255,255,0.45); font-size:0.82rem; letter-spacing:3px; text-transform:uppercase; }
+    @keyframes loadBar { 0%{width:0%} 60%{width:75%} 100%{width:100%} }
+    @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    /* ============================================================
+       ANIMATED BACKGROUND
+    ============================================================ */
+    #bg-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+    .bg-blob { position:absolute; border-radius:50%; filter:blur(90px); opacity:0.28; animation:blobFloat 12s ease-in-out infinite; }
+    .bg-blob-1 { width:640px; height:640px; background:#044EA0; top:-200px; left:-200px; animation-delay:0s; }
+    .bg-blob-2 { width:500px; height:500px; background:#FAB814; top:30%; right:-150px; animation-delay:-4s; }
+    .bg-blob-3 { width:420px; height:420px; background:#3B82F6; bottom:-100px; left:30%; animation-delay:-8s; }
+    .bg-blob-4 { width:300px; height:300px; background:#16A34A; top:60%; left:10%; animation-delay:-6s; }
+    @keyframes blobFloat {
+      0%,100%{transform:translate(0,0) scale(1);}
+      33%{transform:translate(30px,-30px) scale(1.06);}
+      66%{transform:translate(-20px,20px) scale(0.96);}
+    }
+    .particle { position:absolute; width:3px; height:3px; background:var(--primary); border-radius:50%; opacity:0; animation:particleFloat linear infinite; }
+    @keyframes particleFloat {
+      0%{transform:translateY(100vh) scale(0);opacity:0;}
+      10%{opacity:0.6;} 90%{opacity:0.3;}
+      100%{transform:translateY(-100px) scale(1);opacity:0;}
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+    .section-pad { padding:110px 0; }
+    .section-pad-sm { padding:70px 0; }
+    .gradient-text {
+      background:linear-gradient(135deg,var(--primary),#3B82F6,var(--accent));
+      background-size:200% 200%;
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:gradientShift 4s ease infinite;
+    }
+    .glass {
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(20px) saturate(180%);
+      -webkit-backdrop-filter:blur(20px) saturate(180%);
+    }
+    .card-hover { transition:var(--transition); cursor:pointer; }
+    .card-hover:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+    .btn-primary-g {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:14px 32px; border-radius:50px;
+      background:linear-gradient(135deg,var(--primary),#1a6dd4);
+      color:#fff; font-weight:600; font-size:1rem; border:none; cursor:pointer;
+      box-shadow:0 4px 24px rgba(4,78,160,0.30);
+      transition:var(--transition); position:relative; overflow:hidden;
+    }
+    .btn-primary-g:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(4,78,160,0.40); }
+    .btn-accent-g {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:14px 32px; border-radius:50px;
+      background:linear-gradient(135deg,var(--accent),#f5c842);
+      color:var(--dark); font-weight:700; font-size:1rem; border:none; cursor:pointer;
+      box-shadow:0 4px 24px rgba(250,184,20,0.30);
+      transition:var(--transition);
+    }
+    .btn-accent-g:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(250,184,20,0.40); }
+    .btn-ghost-g {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:13px 31px; border-radius:50px;
+      background:transparent; color:var(--text); font-weight:600; font-size:1rem;
+      border:1.5px solid var(--border); cursor:pointer; transition:var(--transition);
+    }
+    .btn-ghost-g:hover { background:var(--glass); border-color:var(--primary); color:var(--primary); transform:translateY(-2px); }
+    .badge-pill {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 16px; border-radius:50px;
+      background:rgba(4,78,160,0.10); border:1px solid rgba(4,78,160,0.20);
+      color:var(--primary); font-size:0.82rem; font-weight:600; letter-spacing:0.5px;
+    }
+    .badge-pill .dot { width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(250,184,20,0.5);} 50%{box-shadow:0 0 0 6px rgba(250,184,20,0);} }
+    .section-label { font-size:0.78rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary); margin-bottom:0.75rem; }
+    .section-title { font-size:clamp(2rem,5vw,3rem); font-weight:800; line-height:1.15; letter-spacing:-1px; color:var(--text); }
+    .section-sub { font-size:1.1rem; color:var(--muted); max-width:560px; line-height:1.75; }
+    .reveal { opacity:0; transform:translateY(40px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .ripple-btn { position:relative; overflow:hidden; }
+    .ripple-btn .ripple-effect {
+      position:absolute; border-radius:50%;
+      background:rgba(255,255,255,0.35);
+      transform:scale(0); animation:rippleAnim 0.6s linear;
+      pointer-events:none;
+    }
+    @keyframes rippleAnim { to { transform:scale(4); opacity:0; } }
+    .glow-border { border:1.5px solid transparent; background-clip:padding-box; position:relative; }
+    .glow-border::before {
+      content:''; position:absolute; inset:-1.5px; border-radius:inherit;
+      background:linear-gradient(135deg,var(--primary),var(--accent),var(--primary));
+      z-index:-1; opacity:0; transition:opacity 0.35s;
+      background-size:200% 200%; animation:gradientShift 3s linear infinite;
+    }
+    .glow-border:hover::before { opacity:1; }
+    .float-anim { animation:floatAnim 4s ease-in-out infinite; }
+    .float-anim-2 { animation:floatAnim 5.5s ease-in-out infinite reverse; }
+    .float-anim-3 { animation:floatAnim 3.8s ease-in-out 1s infinite; }
+    @keyframes floatAnim { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+    .shine-effect { position:relative; overflow:hidden; }
+    .shine-effect::after {
+      content:''; position:absolute; top:-50%; left:-60%; width:40%; height:200%;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent);
+      transform:skewX(-20deg); transition:left 0.55s ease;
+    }
+    .shine-effect:hover::after { left:120%; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position:fixed; top:0; left:0; right:0; z-index:9000;
+      padding:18px 0; transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #navbar.scrolled {
+      padding:10px 0;
+      background:var(--glass) !important;
+      backdrop-filter:blur(20px) saturate(180%);
+      -webkit-backdrop-filter:blur(20px) saturate(180%);
+      border-bottom:1px solid var(--glass-border);
+      box-shadow:var(--shadow-sm);
+    }
+    .nav-logo {
+      font-size:1.45rem; font-weight:900; letter-spacing:-0.5px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .nav-link-g {
+      color:var(--text) !important; font-weight:500; font-size:0.92rem;
+      padding:6px 14px !important; border-radius:10px;
+      transition:var(--transition); position:relative;
+    }
+    .nav-link-g::after {
+      content:''; position:absolute; bottom:2px; left:14px; right:14px;
+      height:2px; background:var(--primary); border-radius:4px;
+      transform:scaleX(0); transition:transform 0.3s;
+    }
+    .nav-link-g:hover { color:var(--primary) !important; background:rgba(4,78,160,0.07); }
+    .nav-link-g:hover::after { transform:scaleX(1); }
+    .nav-btn-login {
+      padding:8px 22px; border-radius:50px;
+      border:1.5px solid var(--border); background:transparent;
+      color:var(--text); font-weight:600; font-size:0.9rem;
+      transition:var(--transition); cursor:pointer;
+    }
+    .nav-btn-login:hover { border-color:var(--primary); color:var(--primary); background:rgba(4,78,160,0.07); }
+    .nav-btn-start {
+      padding:9px 22px; border-radius:50px;
+      background:linear-gradient(135deg,var(--primary),#1a6dd4);
+      color:#fff; font-weight:600; font-size:0.9rem; border:none; cursor:pointer;
+      box-shadow:0 4px 16px rgba(4,78,160,0.30); transition:var(--transition);
+    }
+    .nav-btn-start:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(4,78,160,0.40); }
+    #theme-toggle, #search-btn {
+      width:38px; height:38px; border-radius:50%;
+      background:var(--glass); border:1px solid var(--glass-border);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:var(--transition); font-size:1rem; color:var(--text);
+    }
+    #theme-toggle:hover, #search-btn:hover { background:rgba(4,78,160,0.10); color:var(--primary); }
+    .mobile-menu {
+      position:fixed; inset:0; z-index:8999;
+      background:rgba(15,23,42,0.97); backdrop-filter:blur(20px);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.5rem;
+      transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-menu.open { transform:translateX(0); }
+    .mobile-menu .nav-link-g { font-size:1.4rem; color:#fff !important; }
+    .mobile-menu .nav-link-g:hover { color:var(--accent) !important; background:transparent; }
+    #menu-toggle { background:none; border:none; cursor:pointer; color:var(--text); font-size:1.4rem; padding:4px; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #home { min-height:100vh; padding-top:100px; display:flex; align-items:center; position:relative; overflow:hidden; }
+    .hero-title { font-size:clamp(2.8rem,6.5vw,4.5rem); font-weight:900; line-height:1.08; letter-spacing:-2px; color:var(--text); }
+    .hero-desc { font-size:1.15rem; color:var(--muted); max-width:520px; line-height:1.8; margin-top:1.2rem; }
+    .hero-stats { display:flex; gap:2.5rem; flex-wrap:wrap; margin-top:2.5rem; }
+    .stat-item { display:flex; flex-direction:column; }
+    .stat-num { font-size:1.7rem; font-weight:800; color:var(--primary); line-height:1; letter-spacing:-0.5px; }
+    .stat-label { font-size:0.78rem; color:var(--muted); font-weight:500; margin-top:2px; }
+    /* Eco illustration */
+    .eco-illustration { position:relative; height:560px; width:100%; display:flex; align-items:center; justify-content:center; }
+    .eco-orbit { position:absolute; border-radius:50%; border:1.5px solid rgba(4,78,160,0.15); animation:orbitSpin linear infinite; }
+    .eco-orbit-1 { width:360px; height:360px; animation-duration:24s; }
+    .eco-orbit-2 { width:500px; height:500px; animation-duration:38s; animation-direction:reverse; }
+    .eco-orbit-3 { width:640px; height:640px; animation-duration:54s; border-style:dashed; }
+    @keyframes orbitSpin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    .eco-core {
+      width:120px; height:120px; border-radius:28px;
+      background:linear-gradient(135deg,var(--primary),#1a6dd4);
+      display:flex; align-items:center; justify-content:center;
+      font-size:2.6rem; color:#fff; font-weight:900;
+      box-shadow:0 0 60px rgba(4,78,160,0.45);
+      position:relative; z-index:2;
+      animation:coreGlow 3s ease-in-out infinite;
+    }
+    @keyframes coreGlow {
+      0%,100%{box-shadow:0 0 40px rgba(4,78,160,0.35),0 0 80px rgba(4,78,160,0.15);}
+      50%{box-shadow:0 0 70px rgba(4,78,160,0.55),0 0 120px rgba(4,78,160,0.22);}
+    }
+    .orbit-node {
+      position:absolute; width:52px; height:52px; border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem; box-shadow:var(--shadow-md); color:#fff;
+    }
+    .eco-float-card {
+      position:absolute; border-radius:18px; padding:14px 18px;
+      backdrop-filter:blur(16px); border:1px solid var(--glass-border);
+    }
+    .glow-ring { position:absolute; border-radius:50%; border:2px solid; animation:ringPulse 3s ease-in-out infinite; }
+    @keyframes ringPulse { 0%,100%{transform:scale(1);opacity:0.6;} 50%{transform:scale(1.08);opacity:0.2;} }
+    .notif-card {
+      position:absolute; padding:10px 14px; border-radius:14px;
+      background:var(--glass); border:1px solid var(--glass-border);
+      box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:10px;
+      font-size:0.78rem; white-space:nowrap; animation:notifPop 4s ease-in-out infinite;
+    }
+    @keyframes notifPop { 0%,100%{transform:translateY(0);opacity:1;} 50%{transform:translateY(-6px);opacity:0.9;} }
+    .notif-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* ============================================================
+       TRUSTED BY MARQUEE
+    ============================================================ */
+    #trusted { padding:50px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .marquee-wrap { overflow:hidden; position:relative; }
+    .marquee-wrap::before,.marquee-wrap::after {
+      content:''; position:absolute; top:0; width:120px; height:100%; z-index:2; pointer-events:none;
+    }
+    .marquee-wrap::before { left:0; background:linear-gradient(to right,var(--bg),transparent); }
+    .marquee-wrap::after  { right:0; background:linear-gradient(to left,var(--bg),transparent); }
+    .marquee-track { display:flex; gap:3rem; align-items:center; animation:marqueeScroll 28s linear infinite; width:max-content; }
+    .marquee-track:hover { animation-play-state:paused; }
+    @keyframes marqueeScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .marquee-logo {
+      display:flex; align-items:center; gap:10px; padding:12px 22px; border-radius:12px;
+      background:var(--glass); border:1px solid var(--glass-border);
+      color:var(--muted); font-weight:700; font-size:0.88rem; white-space:nowrap; transition:var(--transition);
+    }
+    .marquee-logo:hover { color:var(--primary); box-shadow:var(--shadow-sm); }
+    .marquee-logo i { font-size:1.2rem; }
+
+    /* ============================================================
+       ECOSYSTEM GRID
+    ============================================================ */
+    .eco-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+    @media(max-width:1024px){ .eco-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px)  { .eco-grid{grid-template-columns:1fr;} }
+    .eco-grid-card {
+      border-radius:var(--radius-lg); padding:2rem;
+      background:var(--glass); border:1px solid var(--glass-border);
+      backdrop-filter:blur(16px); transition:var(--transition); cursor:pointer; position:relative; overflow:hidden;
+    }
+    .eco-grid-card::before {
+      content:''; position:absolute; inset:0; border-radius:inherit;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      opacity:0; transition:opacity 0.4s; z-index:0;
+    }
+    .eco-grid-card:hover { transform:translateY(-10px); box-shadow:var(--shadow-lg); }
+    .eco-grid-card:hover::before { opacity:0.05; }
+    .eco-grid-card:hover .eco-icon-wrap { transform:scale(1.15) rotate(-5deg); }
+    .eco-grid-card > * { position:relative; z-index:1; }
+    .eco-icon-wrap { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; transition:transform 0.35s; }
+    .eco-card-title { font-size:1.1rem; font-weight:700; margin-bottom:0.5rem; color:var(--text); }
+    .eco-card-desc  { font-size:0.875rem; color:var(--muted); line-height:1.7; }
+    .eco-tag { display:inline-block; margin-top:1rem; padding:4px 12px; border-radius:50px; font-size:0.72rem; font-weight:600; letter-spacing:0.5px; }
+
+    /* ============================================================
+       PLATFORM DASHBOARD
+    ============================================================ */
+    .dashboard-outer {
+      border-radius:var(--radius-xl); overflow:hidden;
+      background:linear-gradient(135deg,#0f172a,#1e293b);
+      border:1px solid rgba(255,255,255,0.08); box-shadow:var(--shadow-lg);
+    }
+    .dashboard-titlebar {
+      background:rgba(255,255,255,0.04); padding:12px 20px;
+      display:flex; align-items:center; gap:8px;
+      border-bottom:1px solid rgba(255,255,255,0.07);
+    }
+    .titlebar-dot { width:12px; height:12px; border-radius:50%; }
+    .dashboard-inner { display:flex; min-height:520px; }
+    .dash-sidebar {
+      width:220px; background:rgba(0,0,0,0.20);
+      border-right:1px solid rgba(255,255,255,0.06);
+      padding:20px 0; flex-shrink:0;
+    }
+    .sidebar-logo {
+      padding:0 20px 20px; font-size:1rem; font-weight:800;
+      background:linear-gradient(135deg,#044EA0,#FAB814);
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-fill-color:transparent;
+      border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:12px;
+    }
+    .sidebar-item {
+      display:flex; align-items:center; gap:10px; padding:10px 20px;
+      color:rgba(255,255,255,0.55); font-size:0.84rem; font-weight:500;
+      transition:var(--transition); cursor:pointer;
+    }
+    .sidebar-item:hover,.sidebar-item.active {
+      color:#fff; background:rgba(4,78,160,0.25); border-left:3px solid var(--primary);
+    }
+    .dash-main { flex:1; padding:22px; overflow:hidden; }
+    .dash-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px; }
+    .dash-widget {
+      border-radius:14px; padding:16px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.07);
+    }
+    .widget-val   { font-size:1.5rem; font-weight:800; color:#fff; }
+    .widget-label { font-size:0.72rem; color:rgba(255,255,255,0.5); margin-top:2px; }
+    .widget-change { font-size:0.72rem; font-weight:600; margin-top:6px; }
+    .widget-change.up   { color:#34d399; }
+    .widget-change.down { color:#f87171; }
+    .dash-chart-row { display:grid; grid-template-columns:2fr 1fr; gap:14px; }
+    .dash-chart { border-radius:14px; padding:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.07); }
+    .chart-bars { display:flex; align-items:flex-end; gap:6px; height:100px; margin-top:12px; }
+    .chart-bar { flex:1; border-radius:6px 6px 0 0; background:linear-gradient(180deg,#044EA0,rgba(4,78,160,0.3)); transition:height 0.5s ease; }
+    .chart-bar.accent { background:linear-gradient(180deg,#FAB814,rgba(250,184,20,0.3)); }
+    .pie-wrap { display:flex; align-items:center; justify-content:center; margin-top:12px; }
+    .pie-chart {
+      width:90px; height:90px; border-radius:50%;
+      background:conic-gradient(var(--primary) 0 45%, var(--accent) 45% 70%, #16A34A 70% 88%, #3B82F6 88% 100%);
+      position:relative;
+    }
+    .pie-chart::after { content:''; position:absolute; inset:20px; background:#0f172a; border-radius:50%; }
+    .activity-feed { margin-top:6px; }
+    .feed-item {
+      display:flex; align-items:center; gap:10px; padding:8px 0;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      font-size:0.75rem; color:rgba(255,255,255,0.6);
+    }
+    .feed-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+    .feed-time { margin-left:auto; font-size:0.68rem; color:rgba(255,255,255,0.35); }
+
+    /* ============================================================
+       BENTO GRID (FEATURES)
+    ============================================================ */
+    .bento-grid {
+      display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:160px; gap:1.25rem;
+    }
+    .bento-cell {
+      border-radius:var(--radius-lg); padding:1.75rem;
+      background:var(--glass); border:1px solid var(--glass-border);
+      backdrop-filter:blur(16px); transition:var(--transition); cursor:pointer; overflow:hidden; position:relative;
+    }
+    .bento-cell:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .bento-cell:hover .bento-icon { transform:scale(1.2); }
+    .bento-icon  { font-size:2rem; margin-bottom:0.75rem; transition:transform 0.3s; display:block; }
+    .bento-title { font-size:1rem; font-weight:700; margin-bottom:0.4rem; color:var(--text); }
+    .bento-desc  { font-size:0.82rem; color:var(--muted); line-height:1.6; }
+    .b-span-3 { grid-column:span 3; }
+    .b-span-4 { grid-column:span 4; }
+    .b-span-6 { grid-column:span 6; }
+    .b-span-8 { grid-column:span 8; }
+    .b-row-2  { grid-row:span 2; }
+    @media(max-width:900px) {
+      .bento-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto;}
+      .b-span-3,.b-span-4,.b-span-6,.b-span-8{grid-column:span 1;} .b-row-2{grid-row:span 1;}
+    }
+    @media(max-width:580px) { .bento-grid{grid-template-columns:1fr;} }
+
+    /* ============================================================
+       TIMELINE ROADMAP
+    ============================================================ */
+    .timeline-h { display:flex; align-items:flex-start; gap:0; position:relative; padding:0 2rem; }
+    .timeline-step { flex:1; text-align:center; position:relative; }
+    .timeline-step::before {
+      content:''; position:absolute; top:28px; left:50%; right:-50%;
+      height:3px; background:linear-gradient(to right,var(--primary),rgba(4,78,160,0.2)); z-index:0;
+    }
+    .timeline-step:last-child::before { display:none; }
+    .tl-dot {
+      width:56px; height:56px; border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),#1a6dd4);
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-size:1.3rem; margin:0 auto; position:relative; z-index:1;
+      box-shadow:0 0 0 6px rgba(4,78,160,0.15),var(--shadow-md);
+      transition:var(--transition);
+    }
+    .timeline-step:hover .tl-dot { transform:scale(1.12); box-shadow:0 0 0 10px rgba(4,78,160,0.15),var(--shadow-lg); }
+    .tl-label { font-size:1rem; font-weight:700; margin-top:1rem; color:var(--text); }
+    .tl-sub   { font-size:0.8rem; color:var(--muted); margin-top:0.3rem; }
+    @media(max-width:600px){
+      .timeline-h{flex-direction:column;padding:0;}
+      .timeline-step::before{top:28px;left:28px;right:auto;width:3px;height:100%;background:linear-gradient(to bottom,var(--primary),rgba(4,78,160,0.2));}
+      .timeline-step{display:flex;align-items:center;gap:1.5rem;text-align:left;margin-bottom:2rem;}
+      .tl-dot{flex-shrink:0;}
+    }
+
+    /* ============================================================
+       WHY GENOIN
+    ============================================================ */
+    .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+    @media(max-width:900px){ .why-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:520px){ .why-grid{grid-template-columns:1fr;} }
+    .why-card {
+      border-radius:var(--radius-lg); padding:1.8rem;
+      background:var(--glass); border:1px solid var(--glass-border); backdrop-filter:blur(16px);
+      transition:var(--transition); cursor:pointer; text-align:center;
+    }
+    .why-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--primary); }
+    .why-icon { width:64px; height:64px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin:0 auto 1.1rem; transition:transform 0.3s; }
+    .why-card:hover .why-icon { transform:scale(1.15) rotate(-5deg); }
+    .why-title { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; }
+    .why-desc  { font-size:0.82rem; color:var(--muted); line-height:1.7; }
+
+    /* ============================================================
+       SOLUTIONS BENTO
+    ============================================================ */
+    .solutions-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:220px; gap:1.25rem; }
+    .sol-card {
+      border-radius:var(--radius-lg); padding:1.8rem;
+      border:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(16px);
+      transition:var(--transition); cursor:pointer; overflow:hidden; position:relative;
+    }
+    .sol-card::after {
+      content:''; position:absolute; inset:0; border-radius:inherit;
+      background:linear-gradient(135deg,var(--primary),var(--accent)); opacity:0; transition:opacity 0.4s;
+    }
+    .sol-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+    .sol-card:hover::after { opacity:0.08; }
+    .sol-card > * { position:relative; z-index:1; }
+    .sol-icon  { font-size:2rem; margin-bottom:0.9rem; display:block; }
+    .sol-title { font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.4rem; }
+    .sol-desc  { font-size:0.8rem; color:var(--muted); line-height:1.65; }
+    .sol-span-2 { grid-column:span 2; }
+    @media(max-width:900px){ .solutions-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto;} .sol-span-2{grid-column:span 1;} }
+    @media(max-width:540px){ .solutions-grid{grid-template-columns:1fr;} }
+
+    /* ============================================================
+       LIVE METRICS
+    ============================================================ */
+    #metrics { position:relative; overflow:hidden; }
+    #metrics .bg-overlay { position:absolute; inset:0; background:linear-gradient(135deg,var(--primary),#033880); z-index:0; }
+    #metrics > .container { position:relative; z-index:1; }
+    .metric-card { text-align:center; padding:2rem 1rem; }
+    .metric-num   { font-size:clamp(2.2rem,4vw,3.2rem); font-weight:900; color:#fff; letter-spacing:-1px; line-height:1; }
+    .metric-suffix { color:var(--accent); }
+    .metric-label  { color:rgba(255,255,255,0.65); font-size:0.9rem; margin-top:0.5rem; font-weight:500; }
+    .metric-divider { width:1px; background:rgba(255,255,255,0.15); }
+    @media(max-width:768px){ .metric-divider{display:none;} .metric-card{padding:1.2rem 0.5rem;} }
+
+    /* ============================================================
+       PROCESS TIMELINE (VERTICAL)
+    ============================================================ */
+    .process-list { max-width:700px; margin:0 auto; }
+    .process-item { display:flex; gap:2rem; align-items:flex-start; padding-bottom:3rem; position:relative; }
+    .process-item::before {
+      content:''; position:absolute; left:32px; top:64px; width:2px; bottom:0;
+      background:linear-gradient(to bottom,var(--primary),rgba(4,78,160,0.1));
+    }
+    .process-item:last-child::before { display:none; }
+    .process-num {
+      width:64px; height:64px; border-radius:50%; flex-shrink:0;
+      background:linear-gradient(135deg,var(--primary),#1a6dd4);
+      display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.4rem;
+      box-shadow:var(--shadow-md); transition:var(--transition);
+    }
+    .process-item:hover .process-num { transform:scale(1.1); box-shadow:var(--shadow-glow); }
+    .process-content { padding-top:0.75rem; }
+    .process-title { font-size:1.15rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; }
+    .process-desc  { font-size:0.9rem; color:var(--muted); line-height:1.75; }
+
+    /* ============================================================
+       TESTIMONIALS SLIDER
+    ============================================================ */
+    .testimonial-slider { position:relative; overflow:hidden; }
+    .testimonial-track { display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .testimonial-card { min-width:100%; padding:0 1rem; }
+    .t-card-inner {
+      border-radius:var(--radius-xl); padding:2.5rem;
+      background:var(--glass); border:1px solid var(--glass-border);
+      backdrop-filter:blur(16px); box-shadow:var(--shadow-md); max-width:860px; margin:0 auto;
+    }
+    .t-quote  { font-size:0.95rem; color:var(--text); line-height:1.85; margin-bottom:1.5rem; font-style:italic; }
+    .t-author { display:flex; align-items:center; gap:1rem; }
+    .t-avatar { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; font-weight:800; color:#fff; }
+    .t-name   { font-weight:700; color:var(--text); font-size:0.95rem; }
+    .t-role   { font-size:0.78rem; color:var(--muted); margin-top:2px; }
+    .t-stars  { color:var(--accent); font-size:0.85rem; margin-bottom:1rem; }
+    .slider-btn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; border-radius:50%;
+      background:var(--glass); border:1px solid var(--glass-border);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:var(--transition); font-size:1rem;
+      backdrop-filter:blur(12px); z-index:2;
+    }
+    .slider-btn:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .slider-prev { left:0; }
+    .slider-next { right:0; }
+    .slider-dots { display:flex; justify-content:center; gap:8px; margin-top:1.5rem; }
+    .slider-dot { width:8px; height:8px; border-radius:50%; background:var(--border); transition:var(--transition); cursor:pointer; }
+    .slider-dot.active { background:var(--primary); width:24px; border-radius:8px; }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq-item {
+      border-radius:var(--radius); margin-bottom:0.75rem;
+      background:var(--glass); border:1px solid var(--glass-border);
+      backdrop-filter:blur(12px); overflow:hidden; transition:var(--transition);
+    }
+    .faq-item:hover { border-color:rgba(4,78,160,0.25); }
+    .faq-q {
+      padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between;
+      cursor:pointer; font-weight:600; font-size:0.95rem; color:var(--text); transition:color 0.3s;
+    }
+    .faq-q:hover { color:var(--primary); }
+    .faq-icon { font-size:1rem; color:var(--muted); transition:transform 0.3s; flex-shrink:0; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); color:var(--primary); }
+    .faq-item.open .faq-q { color:var(--primary); }
+    .faq-a {
+      max-height:0; overflow:hidden;
+      transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+      padding:0 1.5rem; color:var(--muted); font-size:0.9rem; line-height:1.75;
+    }
+    .faq-item.open .faq-a { max-height:300px; padding:0 1.5rem 1.25rem; }
+
+    /* ============================================================
+       CTA
+    ============================================================ */
+    .cta-inner {
+      border-radius:var(--radius-xl); padding:5rem 3rem;
+      background:linear-gradient(135deg,#044EA0,#033880,#0f172a);
+      border:1px solid rgba(255,255,255,0.08);
+      position:relative; overflow:hidden; text-align:center;
+    }
+    .cta-blob-1 { position:absolute; width:400px; height:400px; border-radius:50%; background:rgba(250,184,20,0.12); filter:blur(70px); top:-100px; right:-100px; }
+    .cta-blob-2 { position:absolute; width:300px; height:300px; border-radius:50%; background:rgba(4,78,160,0.25); filter:blur(60px); bottom:-80px; left:-80px; }
+    .cta-title { font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; color:#fff; letter-spacing:-1px; }
+    .cta-sub { color:rgba(255,255,255,0.65); font-size:1.05rem; max-width:560px; margin:1rem auto 2.5rem; }
+    @media(max-width:600px){ .cta-inner{padding:3rem 1.5rem;} }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { background:var(--dark); color:rgba(255,255,255,0.8); padding:80px 0 0; border-top:1px solid rgba(255,255,255,0.07); }
+    .footer-logo {
+      font-size:1.5rem; font-weight:900; letter-spacing:-0.5px;
+      background:linear-gradient(135deg,#fff,var(--accent));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .footer-tagline { color:rgba(255,255,255,0.4); font-size:0.82rem; margin-top:0.4rem; }
+    .footer-desc { color:rgba(255,255,255,0.45); font-size:0.85rem; line-height:1.75; margin-top:1rem; max-width:260px; }
+    .footer-heading { font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:1.2rem; }
+    .footer-link { display:block; color:rgba(255,255,255,0.6); font-size:0.875rem; margin-bottom:0.65rem; transition:var(--transition); }
+    .footer-link:hover { color:var(--accent); transform:translateX(4px); }
+    .footer-social { display:flex; gap:0.75rem; margin-top:1.5rem; }
+    .social-btn {
+      width:38px; height:38px; border-radius:10px;
+      background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,0.6); font-size:0.95rem; transition:var(--transition); cursor:pointer;
+    }
+    .social-btn:hover { background:var(--primary); color:#fff; border-color:var(--primary); transform:translateY(-3px); }
+    .footer-newsletter { margin-top:1.5rem; display:flex; gap:0; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.12); }
+    .newsletter-input { flex:1; padding:11px 16px; background:rgba(255,255,255,0.06); border:none; outline:none; color:#fff; font-size:0.85rem; font-family:var(--font); }
+    .newsletter-input::placeholder { color:rgba(255,255,255,0.35); }
+    .newsletter-btn { padding:11px 18px; background:var(--primary); border:none; cursor:pointer; color:#fff; font-size:0.85rem; font-weight:600; transition:var(--transition); }
+    .newsletter-btn:hover { background:#1a6dd4; }
+    .footer-bottom { margin-top:4rem; padding:1.5rem 0; border-top:1px solid rgba(255,255,255,0.07); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    .footer-copy { font-size:0.82rem; color:rgba(255,255,255,0.35); }
+    .back-to-top { width:42px; height:42px; border-radius:12px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition); font-size:1rem; border:none; }
+    .back-to-top:hover { background:#1a6dd4; transform:translateY(-3px); }
+
+    /* ============================================================
+       SEARCH OVERLAY
+    ============================================================ */
+    #search-overlay {
+      position:fixed; inset:0; z-index:99996;
+      background:rgba(15,23,42,0.85); backdrop-filter:blur(16px);
+      display:flex; align-items:flex-start; justify-content:center; padding-top:15vh;
+      opacity:0; pointer-events:none; transition:opacity 0.3s;
+    }
+    #search-overlay.open { opacity:1; pointer-events:all; }
+    .search-box { width:100%; max-width:600px; border-radius:20px; background:rgba(255,255,255,0.95); padding:1.5rem; box-shadow:var(--shadow-lg); }
+    .search-input { width:100%; border:none; outline:none; font-size:1.3rem; font-family:var(--font); color:var(--text); background:transparent; padding:0.5rem 0; }
+    .search-divider { height:1px; background:var(--border); margin:1rem 0; }
+    .search-hints { display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .search-hint-tag { padding:4px 12px; border-radius:50px; background:rgba(4,78,160,0.08); color:var(--primary); font-size:0.78rem; font-weight:600; cursor:pointer; transition:var(--transition); }
+    .search-hint-tag:hover { background:var(--primary); color:#fff; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media(max-width:991px){
+      #home .row { flex-direction:column; text-align:center; }
+      .hero-desc { margin:1rem auto 0; }
+      .hero-stats { justify-content:center; }
+      .eco-illustration { height:380px; }
+      .eco-orbit-1{width:240px;height:240px;}
+      .eco-orbit-2{width:330px;height:330px;}
+      .eco-orbit-3{width:430px;height:430px;}
+      .eco-core{width:90px;height:90px;font-size:2rem;}
+    }
+    @media(max-width:767px){
+      .section-pad{padding:70px 0;}
+      .hero-title{font-size:2.3rem;}
+      .dash-grid{grid-template-columns:repeat(2,1fr);}
+      .dash-chart-row{grid-template-columns:1fr;}
+    }
+    @media(max-width:500px){
+      .eco-illustration{height:300px;}
+      .eco-float-card,.notif-card{display:none;}
+    }
+    body.keyboard-nav *:focus { outline:3px solid var(--accent) !important; outline-offset:3px !important; }
+    body:not(.keyboard-nav) *:focus { outline:none; }
+  </style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============================================================
+     1. PRELOADER
+============================================================ -->
+<div id="preloader" role="status" aria-label="Loading GENOIN HORIZON ECOSYSTEM">
+  <div class="preloader-logo">GENOIN</div>
+  <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+  <div class="preloader-tagline">The Genius of Innovation</div>
+</div>
+
+<!-- ============================================================
+     ANIMATED BACKGROUND
+============================================================ -->
+<div id="bg-canvas" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+  <div class="bg-blob bg-blob-4"></div>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div id="search-overlay" role="dialog" aria-label="Search" aria-modal="true">
+  <div class="search-box">
+    <input type="text" class="search-input" id="search-input" placeholder="Search GENOIN Horizon…" aria-label="Search" autocomplete="off" />
+    <div class="search-divider"></div>
+    <div class="search-hints">
+      <span class="search-hint-tag">AI Platform</span>
+      <span class="search-hint-tag">Cloud</span>
+      <span class="search-hint-tag">Payments</span>
+      <span class="search-hint-tag">Developers</span>
+      <span class="search-hint-tag">Commerce</span>
+      <span class="search-hint-tag">Pricing</span>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+  <a href="#home" class="nav-link-g" onclick="closeMobileMenu()">Home</a>
+  <a href="#ecosystem" class="nav-link-g" onclick="closeMobileMenu()">Ecosystem</a>
+  <a href="#platform" class="nav-link-g" onclick="closeMobileMenu()">Platform</a>
+  <a href="#solutions" class="nav-link-g" onclick="closeMobileMenu()">Solutions</a>
+  <a href="#technology" class="nav-link-g" onclick="closeMobileMenu()">Technology</a>
+  <a href="#vision" class="nav-link-g" onclick="closeMobileMenu()">Vision</a>
+  <a href="#contact" class="nav-link-g" onclick="closeMobileMenu()">Contact</a>
+  <button class="btn-primary-g ripple-btn mt-3" onclick="closeMobileMenu()">Get Started</button>
+</nav>
+
+<!-- ============================================================
+     4. NAVIGATION
+============================================================ -->
+<header id="navbar" role="banner">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="#home" class="nav-logo" aria-label="GENOIN Horizon">GENOIN<span style="-webkit-text-fill-color:var(--accent);">.</span></a>
+      <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Desktop Navigation">
+        <a href="#home" class="nav-link-g">Home</a>
+        <a href="#ecosystem" class="nav-link-g">Ecosystem</a>
+        <a href="#platform" class="nav-link-g">Platform</a>
+        <a href="#solutions" class="nav-link-g">Solutions</a>
+        <a href="#technology" class="nav-link-g">Technology</a>
+        <a href="#vision" class="nav-link-g">Vision</a>
+        <a href="#contact" class="nav-link-g">Contact</a>
+      </nav>
+      <div class="d-flex align-items-center gap-2">
+        <button id="search-btn" aria-label="Search"><i class="bi bi-search"></i></button>
+        <button id="theme-toggle" aria-label="Toggle Theme"><i class="bi bi-moon-fill" id="theme-icon"></i></button>
+        <button class="nav-btn-login d-none d-md-flex" aria-label="Login">Login</button>
+        <button class="nav-btn-start ripple-btn d-none d-md-flex" aria-label="Get Started">Get Started</button>
+        <button id="menu-toggle" class="d-lg-none" aria-label="Mobile Menu" aria-expanded="false">
+          <i class="bi bi-list" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     5. HERO SECTION
+============================================================ -->
+<section id="home" style="position:relative;z-index:1;">
+  <div style="min-height:100vh;padding-top:100px;display:flex;align-items:center;position:relative;overflow:hidden;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- LEFT -->
+        <div class="col-lg-6 reveal">
+          <div class="badge-pill mb-4"><span class="dot"></span>Future Digital Platform</div>
+          <h1 class="hero-title">
+            Building the Future of<br/>
+            <span class="gradient-text">Connected Digital</span><br/>
+            Innovation
+          </h1>
+          <p class="hero-desc">
+            <strong class="gradient-text" style="font-style:normal;">GENOIN HORIZON</strong> is the all-in-one intelligent ecosystem where businesses, developers, AI services, cloud infrastructure, commerce, identity, payments, and automation work together seamlessly — through one unified platform.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#ecosystem" class="btn-primary-g ripple-btn"><i class="bi bi-grid-3x3-gap me-1"></i> Explore Ecosystem</a>
+            <a href="#platform" class="btn-ghost-g"><i class="bi bi-play-circle me-1"></i> Watch Demo</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div style="display:flex;align-items:baseline;gap:2px;">
+                <span class="stat-num" data-count="100">0</span><span class="stat-num">K+</span>
+              </div>
+              <span class="stat-label">Businesses</span>
+            </div>
+            <div class="stat-item">
+              <div style="display:flex;align-items:baseline;gap:2px;">
+                <span class="stat-num" data-count="1">0</span><span class="stat-num">M+</span>
+              </div>
+              <span class="stat-label">Users</span>
+            </div>
+            <div class="stat-item">
+              <div style="display:flex;align-items:baseline;gap:2px;">
+                <span class="stat-num" data-count="50">0</span><span class="stat-num">+</span>
+              </div>
+              <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" style="font-size:1.3rem;">99.99%</span>
+              <span class="stat-label">Uptime</span>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: Ecosystem Illustration -->
+        <div class="col-lg-6 reveal" style="transition-delay:0.2s;">
+          <div class="eco-illustration">
+            <div class="eco-orbit eco-orbit-1"></div>
+            <div class="eco-orbit eco-orbit-2"></div>
+            <div class="eco-orbit eco-orbit-3"></div>
+            <!-- Glow rings -->
+            <div class="glow-ring" style="width:160px;height:160px;border-color:rgba(4,78,160,0.4);animation-delay:0s;"></div>
+            <div class="glow-ring" style="width:220px;height:220px;border-color:rgba(250,184,20,0.25);animation-delay:-1.5s;"></div>
+            <!-- Core -->
+            <div class="eco-core">G</div>
+            <!-- Orbit nodes -->
+            <div class="orbit-node float-anim" style="background:linear-gradient(135deg,#3B82F6,#1d4ed8);top:calc(50% - 180px);left:calc(50% - 26px);">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <div class="orbit-node float-anim-2" style="background:linear-gradient(135deg,#16A34A,#15803d);top:calc(50% - 26px);left:calc(50% - 206px);">
+              <i class="bi bi-cloud-fill"></i>
+            </div>
+            <div class="orbit-node float-anim-3" style="background:linear-gradient(135deg,#FAB814,#d97706);top:calc(50% + 128px);left:calc(50% - 26px);">
+              <i class="bi bi-credit-card-fill"></i>
+            </div>
+            <div class="orbit-node float-anim" style="background:linear-gradient(135deg,#DC2626,#b91c1c);top:calc(50% - 26px);left:calc(50% + 154px);">
+              <i class="bi bi-shield-lock-fill"></i>
+            </div>
+            <!-- Floating cards -->
+            <div class="eco-float-card float-anim" style="background:var(--glass);top:30px;right:60px;width:200px;box-shadow:var(--shadow-md);">
+              <div style="font-size:0.72rem;color:var(--muted);font-weight:600;">REVENUE</div>
+              <div style="font-size:1.3rem;font-weight:800;color:var(--text);">$2.4M</div>
+              <div style="display:flex;align-items:flex-end;gap:4px;height:36px;margin-top:8px;">
+                <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--primary),rgba(4,78,160,0.4));height:55%;"></div>
+                <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--primary),rgba(4,78,160,0.4));height:70%;"></div>
+                <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--primary),rgba(4,78,160,0.4));height:60%;"></div>
+                <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--accent),rgba(250,184,20,0.4));height:90%;"></div>
+                <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--primary),rgba(4,78,160,0.4));height:75%;"></div>
+                <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--accent),rgba(250,184,20,0.4));height:100%;"></div>
+              </div>
+              <div style="font-size:0.7rem;color:#16A34A;font-weight:600;margin-top:6px;">↑ +18.4% this month</div>
+            </div>
+            <div class="eco-float-card float-anim-2" style="background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;bottom:60px;left:20px;width:190px;box-shadow:var(--shadow-lg);">
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:8px;">AI INTELLIGENCE</div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#1d4ed8);display:flex;align-items:center;justify-content:center;"><i class="bi bi-robot" style="color:#fff;font-size:0.8rem;"></i></div>
+                <div>
+                  <div style="font-size:0.8rem;font-weight:700;color:#fff;">GPT-Horizon</div>
+                  <div style="font-size:0.66rem;color:rgba(255,255,255,0.45);">98.7% accuracy</div>
+                </div>
+              </div>
+              <div style="margin-top:10px;height:4px;background:rgba(255,255,255,0.12);border-radius:4px;">
+                <div style="width:87%;height:100%;background:linear-gradient(90deg,#3B82F6,#60a5fa);border-radius:4px;"></div>
+              </div>
+            </div>
+            <div class="eco-float-card float-anim-3" style="background:var(--glass);bottom:40px;right:40px;width:180px;box-shadow:var(--shadow-md);">
+              <div style="font-size:0.72rem;color:var(--muted);font-weight:600;">CLOUD STATUS</div>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:6px;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#16A34A;animation:pulse 2s infinite;"></div>
+                <span style="font-size:0.8rem;font-weight:600;color:var(--text);">All systems operational</span>
+              </div>
+              <div style="font-size:0.72rem;color:var(--muted);margin-top:4px;">Latency: 12ms · 99.99% uptime</div>
+            </div>
+            <div class="eco-float-card float-anim" style="background:rgba(4,78,160,0.08);border:1px solid rgba(4,78,160,0.25);top:80px;left:20px;width:175px;">
+              <div style="font-size:0.72rem;color:var(--primary);font-weight:700;margin-bottom:6px;">DEVELOPER API</div>
+              <div style="font-size:0.75rem;color:var(--text);font-family:monospace;background:rgba(4,78,160,0.06);padding:6px 8px;border-radius:8px;">
+                POST /api/v2/genoin<br/>200 OK &middot; 9ms
+              </div>
+            </div>
+            <!-- Notifications -->
+            <div class="notif-card" style="top:15%;left:-10px;animation-delay:0.5s;">
+              <div class="notif-dot" style="background:#16A34A;"></div>
+              <span style="color:var(--text);font-weight:600;">New payment processed</span>
+            </div>
+            <div class="notif-card" style="bottom:20%;right:-10px;animation-delay:1.5s;">
+              <div class="notif-dot" style="background:#3B82F6;"></div>
+              <span style="color:var(--text);font-weight:600;">AI model deployed ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. TRUSTED BY
+============================================================ -->
+<section id="trusted" aria-label="Trusted By">
+  <div class="container mb-4">
+    <p class="text-center section-label">Trusted by industry leaders worldwide</p>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-logo"><i class="bi bi-building"></i> GovTech Alliance</div>
+      <div class="marquee-logo"><i class="bi bi-mortarboard-fill"></i> EduNation</div>
+      <div class="marquee-logo"><i class="bi bi-briefcase-fill"></i> EnterprisePro</div>
+      <div class="marquee-logo"><i class="bi bi-cart4"></i> RetailMax</div>
+      <div class="marquee-logo"><i class="bi bi-heart-pulse-fill"></i> HealthCore</div>
+      <div class="marquee-logo"><i class="bi bi-bank2"></i> FinanceHub</div>
+      <div class="marquee-logo"><i class="bi bi-rocket-fill"></i> StartupBoost</div>
+      <div class="marquee-logo"><i class="bi bi-cloud-fill"></i> CloudNexa</div>
+      <div class="marquee-logo"><i class="bi bi-globe2"></i> GlobalLogistics</div>
+      <div class="marquee-logo"><i class="bi bi-shield-fill"></i> SecureNation</div>
+      <div class="marquee-logo"><i class="bi bi-cpu-fill"></i> TechMatrix</div>
+      <div class="marquee-logo"><i class="bi bi-graph-up-arrow"></i> GrowthEngine</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee-logo"><i class="bi bi-building"></i> GovTech Alliance</div>
+      <div class="marquee-logo"><i class="bi bi-mortarboard-fill"></i> EduNation</div>
+      <div class="marquee-logo"><i class="bi bi-briefcase-fill"></i> EnterprisePro</div>
+      <div class="marquee-logo"><i class="bi bi-cart4"></i> RetailMax</div>
+      <div class="marquee-logo"><i class="bi bi-heart-pulse-fill"></i> HealthCore</div>
+      <div class="marquee-logo"><i class="bi bi-bank2"></i> FinanceHub</div>
+      <div class="marquee-logo"><i class="bi bi-rocket-fill"></i> StartupBoost</div>
+      <div class="marquee-logo"><i class="bi bi-cloud-fill"></i> CloudNexa</div>
+      <div class="marquee-logo"><i class="bi bi-globe2"></i> GlobalLogistics</div>
+      <div class="marquee-logo"><i class="bi bi-shield-fill"></i> SecureNation</div>
+      <div class="marquee-logo"><i class="bi bi-cpu-fill"></i> TechMatrix</div>
+      <div class="marquee-logo"><i class="bi bi-graph-up-arrow"></i> GrowthEngine</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. ECOSYSTEM GRID
+============================================================ -->
+<section id="ecosystem" class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">The Ecosystem</p>
+      <h2 class="section-title">One Platform,<br/><span class="gradient-text">Infinite Possibilities</span></h2>
+      <p class="section-sub mx-auto mt-3">Every service, tool, and integration your business needs — unified under one intelligent platform designed for the future.</p>
+    </div>
+    <div class="eco-grid reveal" style="transition-delay:0.15s;">
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="AI Intelligence">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(29,78,216,0.15));">🤖</div>
+        <div class="eco-card-title">AI Intelligence</div>
+        <div class="eco-card-desc">GPT-powered models, NLP processing, computer vision, and intelligent automation built natively into your workflow.</div>
+        <span class="eco-tag" style="background:rgba(59,130,246,0.12);color:#3B82F6;">Cutting-Edge AI</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Smart Commerce">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(250,184,20,0.15),rgba(217,119,6,0.15));">🛒</div>
+        <div class="eco-card-title">Smart Commerce</div>
+        <div class="eco-card-desc">Build omnichannel storefronts, manage inventory, and deliver seamless buyer experiences across every touchpoint.</div>
+        <span class="eco-tag" style="background:rgba(250,184,20,0.12);color:#d97706;">Omnichannel</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Cloud Infrastructure">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(22,163,74,0.15),rgba(21,128,61,0.15));">☁️</div>
+        <div class="eco-card-title">Cloud Infrastructure</div>
+        <div class="eco-card-desc">Elastic, multi-region cloud with automated scaling, edge computing, and enterprise-grade SLA across 50+ countries.</div>
+        <span class="eco-tag" style="background:rgba(22,163,74,0.12);color:#16A34A;">Global Scale</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Identity Management">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(220,38,38,0.12),rgba(185,28,28,0.12));">🔐</div>
+        <div class="eco-card-title">Identity Management</div>
+        <div class="eco-card-desc">Biometric SSO, zero-trust architecture, MFA, and compliance-ready identity for millions of users at once.</div>
+        <span class="eco-tag" style="background:rgba(220,38,38,0.10);color:#DC2626;">Zero Trust</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Payment Gateway">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(4,78,160,0.15),rgba(26,109,212,0.15));">💳</div>
+        <div class="eco-card-title">Payment Gateway</div>
+        <div class="eco-card-desc">Accept payments globally — cards, wallets, crypto, and BNPL — with sub-second processing and fraud prevention.</div>
+        <span class="eco-tag" style="background:rgba(4,78,160,0.12);color:var(--primary);">Global Payments</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Developer APIs">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(91,33,182,0.12));">⚡</div>
+        <div class="eco-card-title">Developer APIs</div>
+        <div class="eco-card-desc">RESTful, GraphQL, and WebSocket APIs with 99.99% uptime SLA, instant SDKs for 20+ languages, and interactive docs.</div>
+        <span class="eco-tag" style="background:rgba(124,58,237,0.10);color:#7c3aed;">Dev-First</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Analytics Engine">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(2,132,199,0.15));">📊</div>
+        <div class="eco-card-title">Analytics Engine</div>
+        <div class="eco-card-desc">Real-time dashboards, predictive analytics, custom KPIs, and AI-generated business insights — all in one view.</div>
+        <span class="eco-tag" style="background:rgba(14,165,233,0.12);color:#0ea5e9;">Real-Time</span>
+      </div>
+      <div class="eco-grid-card glow-border shine-effect" tabindex="0" aria-label="Smart Automation">
+        <div class="eco-icon-wrap" style="background:linear-gradient(135deg,rgba(234,88,12,0.12),rgba(194,65,12,0.12));">🔄</div>
+        <div class="eco-card-title">Smart Automation</div>
+        <div class="eco-card-desc">No-code workflow builder, AI-triggered pipelines, robotic process automation, and smart scheduling across teams.</div>
+        <span class="eco-tag" style="background:rgba(234,88,12,0.10);color:#ea580c;">No-Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. PLATFORM SHOWCASE
+============================================================ -->
+<section id="platform" class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Platform Preview</p>
+      <h2 class="section-title">One Dashboard.<br/><span class="gradient-text">Complete Control.</span></h2>
+      <p class="section-sub mx-auto mt-3">Manage your entire ecosystem from a single, beautifully designed dashboard. Everything you need, always within reach.</p>
+    </div>
+    <div class="dashboard-outer reveal" style="transition-delay:0.15s;">
+      <div class="dashboard-titlebar">
+        <div class="titlebar-dot" style="background:#ef4444;"></div>
+        <div class="titlebar-dot" style="background:#f59e0b;"></div>
+        <div class="titlebar-dot" style="background:#22c55e;"></div>
+        <div style="flex:1;text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.3);">GENOIN HORIZON — Control Center</div>
+      </div>
+      <div class="dashboard-inner">
+        <div class="dash-sidebar d-none d-md-block">
+          <div class="sidebar-logo">GENOIN</div>
+          <div class="sidebar-item active"><i class="bi bi-grid-fill"></i> Dashboard</div>
+          <div class="sidebar-item"><i class="bi bi-robot"></i> AI Engine</div>
+          <div class="sidebar-item"><i class="bi bi-cloud-fill"></i> Cloud</div>
+          <div class="sidebar-item"><i class="bi bi-credit-card-fill"></i> Payments</div>
+          <div class="sidebar-item"><i class="bi bi-cart4"></i> Commerce</div>
+          <div class="sidebar-item"><i class="bi bi-shield-lock-fill"></i> Identity</div>
+          <div class="sidebar-item"><i class="bi bi-graph-up-arrow"></i> Analytics</div>
+          <div class="sidebar-item"><i class="bi bi-gear-fill"></i> Automation</div>
+          <div class="sidebar-item"><i class="bi bi-code-slash"></i> APIs</div>
+          <div style="height:1px;background:rgba(255,255,255,0.06);margin:12px 0;"></div>
+          <div class="sidebar-item"><i class="bi bi-bell-fill"></i> Alerts</div>
+          <div class="sidebar-item"><i class="bi bi-person-fill"></i> Account</div>
+        </div>
+        <div class="dash-main">
+          <div class="dash-grid">
+            <div class="dash-widget"><div class="widget-label">Total Revenue</div><div class="widget-val">$2.4M</div><div class="widget-change up"><i class="bi bi-arrow-up-short"></i>+18.4%</div></div>
+            <div class="dash-widget"><div class="widget-label">Active Users</div><div class="widget-val">1.2M</div><div class="widget-change up"><i class="bi bi-arrow-up-short"></i>+9.1%</div></div>
+            <div class="dash-widget"><div class="widget-label">API Calls</div><div class="widget-val">48.6B</div><div class="widget-change up"><i class="bi bi-arrow-up-short"></i>+32%</div></div>
+            <div class="dash-widget"><div class="widget-label">Transactions</div><div class="widget-val">8.3M</div><div class="widget-change down"><i class="bi bi-arrow-down-short"></i>-1.2%</div></div>
+            <div class="dash-widget"><div class="widget-label">Cloud Storage</div><div class="widget-val">6.4 PB</div><div class="widget-change up"><i class="bi bi-arrow-up-short"></i>+5.8%</div></div>
+            <div class="dash-widget"><div class="widget-label">AI Inferences</div><div class="widget-val">12.9B</div><div class="widget-change up"><i class="bi bi-arrow-up-short"></i>+44%</div></div>
+          </div>
+          <div class="dash-chart-row">
+            <div class="dash-chart">
+              <div style="font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.55);">Monthly Revenue</div>
+              <div class="chart-bars">
+                <div class="chart-bar" style="height:55%;"></div>
+                <div class="chart-bar" style="height:70%;"></div>
+                <div class="chart-bar" style="height:60%;"></div>
+                <div class="chart-bar" style="height:85%;"></div>
+                <div class="chart-bar accent" style="height:75%;"></div>
+                <div class="chart-bar" style="height:90%;"></div>
+                <div class="chart-bar" style="height:68%;"></div>
+                <div class="chart-bar accent" style="height:100%;"></div>
+                <div class="chart-bar" style="height:82%;"></div>
+                <div class="chart-bar" style="height:78%;"></div>
+                <div class="chart-bar accent" style="height:95%;"></div>
+                <div class="chart-bar" style="height:88%;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                <span style="font-size:0.65rem;color:rgba(255,255,255,0.3);">Jan</span>
+                <span style="font-size:0.65rem;color:rgba(255,255,255,0.3);">Jun</span>
+                <span style="font-size:0.65rem;color:rgba(255,255,255,0.3);">Dec</span>
+              </div>
+            </div>
+            <div class="dash-chart">
+              <div style="font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.55);margin-bottom:8px;">Traffic Sources</div>
+              <div class="pie-wrap"><div class="pie-chart"></div></div>
+              <div style="margin-top:12px;">
+                <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:rgba(255,255,255,0.5);margin-bottom:4px;"><span><i class="bi bi-circle-fill" style="color:#044EA0;font-size:0.5rem;"></i> API</span><span>45%</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:rgba(255,255,255,0.5);margin-bottom:4px;"><span><i class="bi bi-circle-fill" style="color:#FAB814;font-size:0.5rem;"></i> Web</span><span>25%</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:rgba(255,255,255,0.5);margin-bottom:4px;"><span><i class="bi bi-circle-fill" style="color:#16A34A;font-size:0.5rem;"></i> Mobile</span><span>18%</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:rgba(255,255,255,0.5);"><span><i class="bi bi-circle-fill" style="color:#3B82F6;font-size:0.5rem;"></i> SDK</span><span>12%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-chart" style="margin-top:14px;">
+            <div style="font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.55);margin-bottom:4px;">Live Activity</div>
+            <div class="activity-feed">
+              <div class="feed-item"><div class="feed-dot" style="background:#16A34A;"></div>Payment received &middot; $4,820 from RetailMax<span class="feed-time">2s ago</span></div>
+              <div class="feed-item"><div class="feed-dot" style="background:#3B82F6;"></div>AI model training completed &middot; 98.7% accuracy<span class="feed-time">14s ago</span></div>
+              <div class="feed-item"><div class="feed-dot" style="background:#FAB814;"></div>New user onboarded &middot; health@startup.io<span class="feed-time">42s ago</span></div>
+              <div class="feed-item"><div class="feed-dot" style="background:#044EA0;"></div>Cloud auto-scaled &middot; 8 → 24 instances<span class="feed-time">1m ago</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. FEATURES — BENTO GRID
+============================================================ -->
+<section id="technology" class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">Everything You Need<br/>to <span class="gradient-text">Scale Infinitely</span></h2>
+    </div>
+    <div class="bento-grid reveal" style="transition-delay:0.1s;">
+      <div class="bento-cell b-span-6 b-row-2" style="background:linear-gradient(135deg,rgba(4,78,160,0.12),rgba(26,109,212,0.06));">
+        <span class="bento-icon">🤖</span>
+        <div class="bento-title" style="font-size:1.25rem;">AI Engine</div>
+        <div class="bento-desc">Multimodal AI inference, fine-tuned LLMs, computer vision pipelines, and real-time NLP for every workload at planet scale.</div>
+        <div style="margin-top:1rem;padding:0.75rem;background:rgba(4,78,160,0.08);border-radius:10px;font-size:0.78rem;font-family:monospace;color:var(--primary);">GET /ai/infer → 200 OK (9ms)</div>
+      </div>
+      <div class="bento-cell b-span-3"><span class="bento-icon">🛒</span><div class="bento-title">Smart Commerce</div><div class="bento-desc">Full omnichannel: storefront, inventory, fulfillment, and AI recommendations.</div></div>
+      <div class="bento-cell b-span-3"><span class="bento-icon">🔐</span><div class="bento-title">Identity</div><div class="bento-desc">Zero-trust, SSO, biometrics, and compliance-ready for enterprise.</div></div>
+      <div class="bento-cell b-span-3"><span class="bento-icon">💳</span><div class="bento-title">Payments</div><div class="bento-desc">Global card, wallet, crypto, BNPL with advanced fraud prevention.</div></div>
+      <div class="bento-cell b-span-3"><span class="bento-icon">⚡</span><div class="bento-title">Developer APIs</div><div class="bento-desc">REST, GraphQL, WebSocket — SDKs for 20+ languages, instant docs.</div></div>
+      <div class="bento-cell b-span-4"><span class="bento-icon">🏪</span><div class="bento-title">App Marketplace</div><div class="bento-desc">5,000+ integrations. One-click install. Extend GENOIN with the world's best apps and tools.</div></div>
+      <div class="bento-cell b-span-4"><span class="bento-icon">☁️</span><div class="bento-title">Cloud Storage</div><div class="bento-desc">Multi-region object storage, CDN delivery, and edge caching with AES-256 encryption at rest and in transit.</div></div>
+      <div class="bento-cell b-span-4"><span class="bento-icon">🔄</span><div class="bento-title">Automation</div><div class="bento-desc">Drag-and-drop workflow builder, AI-triggered pipelines, and RPA with zero code required.</div></div>
+      <div class="bento-cell b-span-6"><span class="bento-icon">📊</span><div class="bento-title">Analytics &amp; Insights</div><div class="bento-desc" style="max-width:400px;">Real-time event streams, predictive modeling, custom dashboards, and AI-generated business intelligence reports.</div></div>
+      <div class="bento-cell b-span-3"><span class="bento-icon">🛡️</span><div class="bento-title">Security</div><div class="bento-desc">SOC2 Type II, ISO 27001, GDPR, CCPA compliant. End-to-end encrypted.</div></div>
+      <div class="bento-cell b-span-3"><span class="bento-icon">🔔</span><div class="bento-title">Notifications</div><div class="bento-desc">Push, email, SMS, webhook, and in-app alerts with smart delivery.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. TIMELINE ROADMAP
+============================================================ -->
+<section class="section-pad" id="vision" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Your Journey</p>
+      <h2 class="section-title">From Zero to<br/><span class="gradient-text">Global Scale</span></h2>
+    </div>
+    <div class="timeline-h reveal" style="transition-delay:0.1s;">
+      <div class="timeline-step">
+        <div class="tl-dot"><i class="bi bi-search"></i></div>
+        <div class="tl-label">Discover</div>
+        <div class="tl-sub">Explore the platform<br/>and your use case</div>
+      </div>
+      <div class="timeline-step">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#FAB814,#d97706);"><i class="bi bi-layers-fill"></i></div>
+        <div class="tl-label">Build</div>
+        <div class="tl-sub">Scaffold your app<br/>with powerful APIs</div>
+      </div>
+      <div class="timeline-step">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#16A34A,#15803d);"><i class="bi bi-cloud-upload-fill"></i></div>
+        <div class="tl-label">Deploy</div>
+        <div class="tl-sub">One-click to global<br/>multi-region cloud</div>
+      </div>
+      <div class="timeline-step">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#3B82F6,#1d4ed8);"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="tl-label">Scale</div>
+        <div class="tl-sub">Auto-scale to millions<br/>without extra config</div>
+      </div>
+      <div class="timeline-step">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);"><i class="bi bi-globe2"></i></div>
+        <div class="tl-label">Grow</div>
+        <div class="tl-sub">Expand globally with<br/>AI-driven insights</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11. WHY GENOIN
+============================================================ -->
+<section class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title">Built Different.<br/><span class="gradient-text">Designed to Win.</span></h2>
+    </div>
+    <div class="why-grid reveal" style="transition-delay:0.1s;">
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(29,78,216,0.15));">🤖</div><div class="why-title">AI First</div><div class="why-desc">Every feature is powered by machine learning and intelligent automation from day one.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(250,184,20,0.15),rgba(217,119,6,0.15));">⚡</div><div class="why-title">Blazing Fast</div><div class="why-desc">Sub-10ms API latency globally with our intelligent edge network and CDN.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(22,163,74,0.15),rgba(21,128,61,0.15));">☁️</div><div class="why-title">Cloud Native</div><div class="why-desc">Built on containers, serverless, and microservices — ready for any cloud provider.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(4,78,160,0.15),rgba(26,109,212,0.15));">📈</div><div class="why-title">Infinitely Scalable</div><div class="why-desc">From a 10-person startup to a Fortune 500 enterprise — GENOIN scales with you.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(91,33,182,0.12));">👩‍💻</div><div class="why-title">Dev Friendly</div><div class="why-desc">Beautiful docs, 20+ SDKs, instant sandboxes, and a community of 200K+ developers.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(220,38,38,0.12),rgba(185,28,28,0.12));">🛡️</div><div class="why-title">Bank-Grade Secure</div><div class="why-desc">SOC2, ISO 27001, GDPR, CCPA. Your data is always encrypted, always protected.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(2,132,199,0.15));">🌍</div><div class="why-title">Truly Global</div><div class="why-desc">Deployed across 50+ countries with local compliance, local currencies, local languages.</div></div>
+      <div class="why-card"><div class="why-icon" style="background:linear-gradient(135deg,rgba(234,88,12,0.12),rgba(194,65,12,0.12));">✨</div><div class="why-title">Modern UX</div><div class="why-desc">Obsessively crafted interfaces that make complex workflows feel effortless and intuitive.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12. SOLUTIONS BENTO
+============================================================ -->
+<section id="solutions" class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Solutions</p>
+      <h2 class="section-title">Built for Every<br/><span class="gradient-text">Industry &amp; Scale</span></h2>
+      <p class="section-sub mx-auto mt-3">Whether you're a government agency, healthcare provider, or ambitious startup — GENOIN Horizon has the solution you need.</p>
+    </div>
+    <div class="solutions-grid reveal" style="transition-delay:0.1s;">
+      <div class="sol-card sol-span-2" style="grid-row:span 1;"><span class="sol-icon">🏢</span><div class="sol-title">Enterprise</div><div class="sol-desc">End-to-end digital transformation with custom SLAs, dedicated infrastructure, and 24/7 white-glove support for the world's largest organizations.</div></div>
+      <div class="sol-card"><span class="sol-icon">🏛️</span><div class="sol-title">Government</div><div class="sol-desc">Sovereign-ready cloud, e-Gov services, and citizen identity with full regulatory compliance.</div></div>
+      <div class="sol-card"><span class="sol-icon">🛍️</span><div class="sol-title">Retail</div><div class="sol-desc">Unified commerce platform for in-store, online, and mobile with AI-driven personalization.</div></div>
+      <div class="sol-card"><span class="sol-icon">🏥</span><div class="sol-title">Healthcare</div><div class="sol-desc">HIPAA-compliant patient data, telemedicine, AI diagnostics, and health record management.</div></div>
+      <div class="sol-card"><span class="sol-icon">🎓</span><div class="sol-title">Education</div><div class="sol-desc">LMS, student identity, smart assessments, and AI tutoring for institutions of all sizes.</div></div>
+      <div class="sol-card"><span class="sol-icon">🚛</span><div class="sol-title">Logistics</div><div class="sol-desc">Real-time fleet tracking, warehouse automation, and end-to-end supply chain visibility.</div></div>
+      <div class="sol-card"><span class="sol-icon">🏦</span><div class="sol-title">Banking &amp; Finance</div><div class="sol-desc">Core banking APIs, open finance, KYC/AML compliance, and embedded payment orchestration.</div></div>
+      <div class="sol-card"><span class="sol-icon">🏭</span><div class="sol-title">Manufacturing</div><div class="sol-desc">IoT integration, predictive maintenance, digital twins, and smart factory automation.</div></div>
+      <div class="sol-card"><span class="sol-icon">🏙️</span><div class="sol-title">Smart City</div><div class="sol-desc">Integrated urban services, traffic management, citizen portals, and IoT infrastructure at city scale.</div></div>
+      <div class="sol-card"><span class="sol-icon">🚀</span><div class="sol-title">Startup</div><div class="sol-desc">Everything a startup needs to launch, grow, and scale — at startup pricing with enterprise power.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13. LIVE METRICS
+============================================================ -->
+<section id="metrics" class="section-pad-sm">
+  <div class="bg-overlay"></div>
+  <div class="container">
+    <div class="text-center mb-5 reveal" style="position:relative;z-index:1;">
+      <p class="section-label" style="color:rgba(255,255,255,0.5);">By The Numbers</p>
+      <h2 class="section-title" style="color:#fff;">GENOIN at a <span style="color:var(--accent);">Glance</span></h2>
+    </div>
+    <div class="row align-items-center justify-content-center reveal" style="transition-delay:0.1s;">
+      <div class="col-6 col-md-2 metric-card"><div class="metric-num"><span class="counter-num" data-target="2400">0</span><span class="metric-suffix">M+</span></div><div class="metric-label">Revenue Processed</div></div>
+      <div class="col-12 col-md-1 metric-divider d-none d-md-block" style="height:80px;"></div>
+      <div class="col-6 col-md-2 metric-card"><div class="metric-num"><span class="counter-num" data-target="50">0</span><span class="metric-suffix">M+</span></div><div class="metric-label">Downloads</div></div>
+      <div class="col-12 col-md-1 metric-divider d-none d-md-block" style="height:80px;"></div>
+      <div class="col-6 col-md-2 metric-card"><div class="metric-num"><span class="counter-num" data-target="100">0</span><span class="metric-suffix">K+</span></div><div class="metric-label">Businesses</div></div>
+      <div class="col-12 col-md-1 metric-divider d-none d-md-block" style="height:80px;"></div>
+      <div class="col-6 col-md-2 metric-card"><div class="metric-num"><span class="counter-num" data-target="1200">0</span><span class="metric-suffix">K+</span></div><div class="metric-label">Active Users</div></div>
+      <div class="col-12 col-md-1 metric-divider d-none d-md-block" style="height:80px;"></div>
+      <div class="col-6 col-md-2 metric-card"><div class="metric-num"><span class="counter-num" data-target="50">0</span><span class="metric-suffix">+</span></div><div class="metric-label">Countries</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     14. PROCESS
+============================================================ -->
+<section class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Launch in Days,<br/><span class="gradient-text">Not Months</span></h2>
+    </div>
+    <div class="process-list reveal" style="transition-delay:0.1s;">
+      <div class="process-item">
+        <div class="process-num"><i class="bi bi-search"></i></div>
+        <div class="process-content">
+          <div class="process-title">Discover Your Use Case</div>
+          <div class="process-desc">Talk to our solutions team or explore self-serve demos. We map the right GENOIN modules to your exact business challenge — from AI to payments to cloud infrastructure.</div>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num" style="background:linear-gradient(135deg,#FAB814,#d97706);"><i class="bi bi-pencil-fill"></i></div>
+        <div class="process-content">
+          <div class="process-title">Design Your Architecture</div>
+          <div class="process-desc">Use our visual architecture builder to design your integration flow. Connect services, set permissions, configure automations — all without writing infrastructure code.</div>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num" style="background:linear-gradient(135deg,#16A34A,#15803d);"><i class="bi bi-code-slash"></i></div>
+        <div class="process-content">
+          <div class="process-title">Develop with Confidence</div>
+          <div class="process-desc">Leverage our beautifully documented APIs, pre-built SDKs for 20+ languages, a sandbox environment, and AI-powered code suggestions to build faster than ever before.</div>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num" style="background:linear-gradient(135deg,#3B82F6,#1d4ed8);"><i class="bi bi-cloud-upload-fill"></i></div>
+        <div class="process-content">
+          <div class="process-title">Launch Globally</div>
+          <div class="process-desc">One-click deploy to our multi-region cloud. Your app is instantly available across 50+ countries with automatic SSL, CDN, and compliance configuration handled for you.</div>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="process-content">
+          <div class="process-title">Scale &amp; Optimize</div>
+          <div class="process-desc">As your business grows, GENOIN Horizon scales automatically. AI-powered analytics identify bottlenecks, suggest optimizations, and keep your costs minimal as traffic surges.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     15. TESTIMONIALS
+============================================================ -->
+<section class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Testimonials</p>
+      <h2 class="section-title">Loved by<br/><span class="gradient-text">Innovators Worldwide</span></h2>
+    </div>
+    <div class="testimonial-slider reveal" style="transition-delay:0.1s;">
+      <button class="slider-btn slider-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+      <button class="slider-btn slider-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+      <div class="testimonial-track" id="testimonial-track">
+        <div class="testimonial-card">
+          <div class="t-card-inner">
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-quote">"GENOIN Horizon transformed how we operate. We went from 14 different vendors to one unified platform. Our engineering team's productivity increased by 340%, and we launched three new product lines in the time it used to take to deploy one feature. The AI engine alone paid for itself in the first month."</p>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#044EA0,#1a6dd4);">AR</div>
+              <div><div class="t-name">Alexandra Reyes</div><div class="t-role">CTO, NexusEnterprise · 12,000+ employees</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="t-card-inner">
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-quote">"As a government digital services agency, security and compliance are non-negotiable. GENOIN is the first platform that met every single requirement without compromising on developer experience. We deployed our national citizen portal serving 8 million users — on time, on budget, flawlessly."</p>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#16A34A,#15803d);">DK</div>
+              <div><div class="t-name">Dr. David Kamau</div><div class="t-role">Director of Digital Services, National Government</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="t-card-inner">
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+            <p class="t-quote">"We were a 6-person startup. With GENOIN Horizon, we had our entire payments, identity, and cloud infrastructure running in under 48 hours. Two years later, we've scaled to 500K users and $8M ARR without touching our infrastructure setup. The developer experience is absolutely incredible."</p>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#FAB814,#d97706);">SP</div>
+              <div><div class="t-name">Sarah Park</div><div class="t-role">Co-Founder &amp; CEO, SwiftScale Startup</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <div class="slider-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></div>
+        <div class="slider-dot" onclick="goToSlide(1)" aria-label="Slide 2"></div>
+        <div class="slider-dot" onclick="goToSlide(2)" aria-label="Slide 3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     16. FAQ
+============================================================ -->
+<section class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5 reveal">
+          <p class="section-label">FAQ</p>
+          <h2 class="section-title">Frequently Asked<br/><span class="gradient-text">Questions</span></h2>
+        </div>
+        <div class="reveal" style="transition-delay:0.1s;">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">What is GENOIN HORIZON ECOSYSTEM?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">GENOIN Horizon is a unified intelligent digital platform that brings together AI, cloud infrastructure, smart commerce, identity management, payment gateways, developer APIs, analytics, and automation into a single, seamlessly integrated ecosystem — enabling businesses of all sizes to build, deploy, and scale digital products globally.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">How does GENOIN ensure enterprise-grade security?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">Security is built into every layer of GENOIN Horizon. We maintain SOC2 Type II, ISO 27001, GDPR, CCPA, and HIPAA compliance. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Our zero-trust architecture, biometric identity, and continuous security monitoring ensure your data is always protected.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">What are the pricing models available?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">GENOIN offers flexible pricing: a free Starter tier for developers, a Growth plan for scaling startups, and Enterprise plans with custom pricing for large organizations. You only pay for what you use — no hidden fees. Contact our sales team for volume discounts and custom enterprise packages.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Can I customize and extend the platform?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">Absolutely. GENOIN Horizon is fully extensible. Use our REST, GraphQL, and WebSocket APIs, 20+ language SDKs, and our App Marketplace with 5,000+ integrations. You can build custom modules, white-label the entire platform, and integrate with any existing system via our universal connector framework.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">What support options are available?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">We offer 24/7 technical support across all plans, with dedicated account managers and SLA-backed response times for Enterprise customers. Developer support includes community forums, interactive docs, a sandbox environment, and real-time chat with our engineering team.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Which cloud providers does GENOIN support?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">GENOIN Horizon is cloud-agnostic. It runs natively on AWS, Google Cloud, Microsoft Azure, and our own sovereign cloud infrastructure. You can deploy to any combination of providers simultaneously, or use our fully managed cloud for the simplest experience.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">How does the AI engine work?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">The GENOIN AI Engine is a multimodal inference platform supporting LLMs, computer vision, NLP, and custom ML models. You can use pre-built AI modules or bring your own models. All inference runs on our GPU clusters with less than 10ms latency, and you can fine-tune models on your own data with a single API call.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Is there a free trial or developer sandbox?<i class="bi bi-plus-lg faq-icon"></i></div>
+            <div class="faq-a">Yes. Every developer gets a free sandbox with full access to all GENOIN APIs, including AI inference, payments (test mode), cloud storage, and identity. No credit card required. The free Starter tier includes generous usage limits to take you from idea to MVP without any cost.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     17. CTA
+============================================================ -->
+<section id="contact" class="section-pad" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="cta-blob-1"></div>
+      <div class="cta-blob-2"></div>
+      <div style="position:relative;z-index:1;">
+        <div class="badge-pill mb-4" style="background:rgba(255,255,255,0.10);border-color:rgba(255,255,255,0.20);color:rgba(255,255,255,0.85);display:inline-flex;">
+          <span class="dot"></span>Ready to Transform Your Business?
+        </div>
+        <h2 class="cta-title">Start Building with<br/><span style="color:var(--accent);">GENOIN Horizon</span> Today</h2>
+        <p class="cta-sub">Join 100,000+ businesses that chose GENOIN to power their digital future. Get started free in under 5 minutes — no credit card required.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <button class="btn-accent-g ripple-btn"><i class="bi bi-rocket-fill"></i> Start Now — It's Free</button>
+          <button class="btn-ghost-g" style="border-color:rgba(255,255,255,0.30);color:#fff;"><i class="bi bi-calendar-check"></i> Book a Demo</button>
+          <button class="btn-ghost-g" style="border-color:rgba(255,255,255,0.30);color:#fff;"><i class="bi bi-telephone-fill"></i> Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     18. FOOTER
+============================================================ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-logo">GENOIN<span style="-webkit-text-fill-color:var(--accent);">.</span></div>
+        <div class="footer-tagline">The Genius of Innovation</div>
+        <p class="footer-desc">An intelligent digital ecosystem where businesses, developers, AI, cloud, commerce, identity, payments, and automation work together through one unified platform.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-btn" aria-label="Discord"><i class="bi bi-discord"></i></a>
+        </div>
+        <div class="footer-newsletter mt-4">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" aria-label="Subscribe to newsletter" />
+          <button class="newsletter-btn">Subscribe</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <div class="footer-heading">Products</div>
+        <a href="#" class="footer-link">AI Engine</a>
+        <a href="#" class="footer-link">Smart Commerce</a>
+        <a href="#" class="footer-link">Cloud Infrastructure</a>
+        <a href="#" class="footer-link">Identity Manager</a>
+        <a href="#" class="footer-link">Payment Gateway</a>
+        <a href="#" class="footer-link">Analytics Suite</a>
+        <a href="#" class="footer-link">Automation Hub</a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <div class="footer-heading">Platform</div>
+        <a href="#" class="footer-link">API Reference</a>
+        <a href="#" class="footer-link">Documentation</a>
+        <a href="#" class="footer-link">SDK Downloads</a>
+        <a href="#" class="footer-link">Changelog</a>
+        <a href="#" class="footer-link">Status Page</a>
+        <a href="#" class="footer-link">Marketplace</a>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="row">
+          <div class="col-6">
+            <div class="footer-heading">Company</div>
+            <a href="#" class="footer-link">About Us</a>
+            <a href="#" class="footer-link">Careers</a>
+            <a href="#" class="footer-link">Press &amp; Media</a>
+            <a href="#" class="footer-link">Investors</a>
+            <a href="#" class="footer-link">Contact</a>
+            <a href="#" class="footer-link">Partners</a>
+          </div>
+          <div class="col-6">
+            <div class="footer-heading">Resources</div>
+            <a href="#" class="footer-link">Blog</a>
+            <a href="#" class="footer-link">Case Studies</a>
+            <a href="#" class="footer-link">Webinars</a>
+            <a href="#" class="footer-link">Developer Forum</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 GENOIN HORIZON ECOSYSTEM. All rights reserved. — The Genius of Innovation.</div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="footer-copy">Made with ♥ for the future</span>
+        <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">
+          <i class="bi bi-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap 5.3 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ============================================================
+   JAVASCRIPT — GENOIN HORIZON ECOSYSTEM
+============================================================ */
+
+/* 1. PRELOADER */
+document.body.style.overflow = 'hidden';
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  setTimeout(() => {
+    preloader.classList.add('hidden');
+    document.body.style.overflow = '';
+    initAll();
+  }, 2600);
+});
+
+/* 2. CUSTOM CURSOR */
+(function() {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  (function animRing() {
+    rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+  const hoverEls = 'a,button,[tabindex="0"],.eco-grid-card,.sol-card,.why-card,.bento-cell,.faq-q,.marquee-logo,.sidebar-item';
+  document.querySelectorAll(hoverEls).forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+})();
+
+/* 3. PARTICLES */
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const cols = ['#044EA0','#FAB814','#3B82F6','#16A34A'];
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const s = Math.random() * 3 + 1.5;
+    p.style.cssText = `left:${Math.random()*100}%;width:${s}px;height:${s}px;background:${cols[i%4]};animation-duration:${Math.random()*18+12}s;animation-delay:${Math.random()*14}s;`;
+    canvas.appendChild(p);
+  }
+})();
+
+/* 4. NAVBAR SCROLL */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* 5. MOBILE MENU */
+const mobileMenu = document.getElementById('mobile-menu');
+const menuToggle = document.getElementById('menu-toggle');
+const menuIcon   = document.getElementById('menu-icon');
+let menuOpen = false;
+menuToggle.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('open', menuOpen);
+  menuIcon.className = menuOpen ? 'bi bi-x-lg' : 'bi bi-list';
+  menuToggle.setAttribute('aria-expanded', menuOpen);
+});
+function closeMobileMenu() {
+  menuOpen = false;
+  mobileMenu.classList.remove('open');
+  menuIcon.className = 'bi bi-list';
+  menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+/* 6. THEME TOGGLE */
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon   = document.getElementById('theme-icon');
+let isDark = false;
+themeToggle.addEventListener('click', () => {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  themeIcon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+});
+
+/* 7. SEARCH OVERLAY */
+const searchOverlay = document.getElementById('search-overlay');
+const searchBtn     = document.getElementById('search-btn');
+const searchInput   = document.getElementById('search-input');
+searchBtn.addEventListener('click', () => {
+  searchOverlay.classList.add('open');
+  setTimeout(() => searchInput.focus(), 100);
+});
+searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) searchOverlay.classList.remove('open'); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { searchOverlay.classList.remove('open'); closeMobileMenu(); }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); searchOverlay.classList.add('open'); setTimeout(() => searchInput.focus(), 100); }
+});
+document.querySelectorAll('.search-hint-tag').forEach(tag => {
+  tag.addEventListener('click', () => { searchInput.value = tag.textContent.trim(); searchInput.focus(); });
+});
+
+/* 8. RIPPLE */
+function initRipple() {
+  document.querySelectorAll('.ripple-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple-effect';
+      const sz = Math.max(rect.width, rect.height);
+      ripple.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX-rect.left-sz/2}px;top:${e.clientY-rect.top-sz/2}px;`;
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 700);
+    });
+  });
+}
+
+/* 9. SCROLL REVEAL */
+function initScrollReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+/* 10. COUNTER ANIMATION */
+function initCounters() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const step = target / (2000 / 16);
+        let c = 0;
+        const t = setInterval(() => {
+          c += step;
+          if (c >= target) { c = target; clearInterval(t); }
+          el.textContent = Math.floor(c).toLocaleString();
+        }, 16);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter-num').forEach(c => obs.observe(c));
+}
+
+/* 11. HERO STAT COUNTERS */
+function initHeroStats() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        let c = 0; const step = target / 60;
+        const t = setInterval(() => {
+          c += step; if (c >= target) { c = target; clearInterval(t); }
+          el.textContent = Math.floor(c);
+        }, 22);
+        obs.unobserve(el);
+      }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+}
+
+/* 12. TESTIMONIALS SLIDER */
+let currentSlide = 0;
+const totalSlides = 3;
+let autoSlideTimer;
+function goToSlide(index) {
+  currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+  document.getElementById('testimonial-track').style.transform = `translateX(-${currentSlide * 100}%)`;
+  document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+function initSlider() {
+  document.querySelector('.slider-next').addEventListener('click', () => { goToSlide(currentSlide+1); clearInterval(autoSlideTimer); startAutoSlide(); });
+  document.querySelector('.slider-prev').addEventListener('click', () => { goToSlide(currentSlide-1); clearInterval(autoSlideTimer); startAutoSlide(); });
+  startAutoSlide();
+  const track = document.getElementById('testimonial-track');
+  let tx = 0;
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) { dx < 0 ? goToSlide(currentSlide+1) : goToSlide(currentSlide-1); }
+  });
+}
+function startAutoSlide() { autoSlideTimer = setInterval(() => goToSlide(currentSlide+1), 5500); }
+
+/* 13. FAQ */
+function toggleFaq(qEl) {
+  const item = qEl.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+  if (!wasOpen) { item.classList.add('open'); qEl.setAttribute('aria-expanded','true'); }
+}
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaq(q); } });
+});
+
+/* 14. PARALLAX */
+function initParallax() {
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth  - 0.5) * 18;
+    const y = (e.clientY / window.innerHeight - 0.5) * 18;
+    document.querySelectorAll('.bg-blob').forEach((b, i) => {
+      const f = (i + 1) * 0.35;
+      b.style.transform = `translate(${x*f}px, ${y*f}px)`;
+    });
+  });
+}
+
+/* 15. CARD GLOW */
+function initCardGlow() {
+  document.querySelectorAll('.eco-grid-card,.why-card,.sol-card,.bento-cell').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.background = `radial-gradient(circle at ${e.clientX-r.left}px ${e.clientY-r.top}px, rgba(4,78,160,0.07), transparent 70%), var(--glass)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.background = ''; });
+  });
+}
+
+/* 16. CHART BAR ANIMATION */
+function initChartBars() {
+  document.querySelectorAll('.chart-bar').forEach((bar, i) => {
+    const h = bar.style.height;
+    bar.style.height = '0%';
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setTimeout(() => { bar.style.height = h; }, i * 60);
+        obs.unobserve(bar);
+      }
+    }, { threshold: 0.3 });
+    obs.observe(bar);
+  });
+}
+
+/* 17. NAV SCROLL OFFSET */
+function setNavOffset() {
+  const h = navbar.offsetHeight;
+  document.querySelectorAll('section[id]').forEach(s => { s.style.scrollMarginTop = (h + 20) + 'px'; });
+}
+
+/* 18. KEYBOARD ACCESSIBILITY */
+document.addEventListener('keydown', () => document.body.classList.add('keyboard-nav'));
+document.addEventListener('mousedown', () => document.body.classList.remove('keyboard-nav'));
+
+/* BOOT */
+function initAll() {
+  initScrollReveal();
+  initCounters();
+  initHeroStats();
+  initSlider();
+  initParallax();
+  initCardGlow();
+  initChartBars();
+  initRipple();
+  setNavOffset();
+}
+window.addEventListener('resize', setNavOffset);
+</script>
+</body>
+</html>
