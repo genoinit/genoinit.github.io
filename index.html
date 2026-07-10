@@ -205,6 +205,7 @@ body {
     display: flex;
     align-items: baseline;
     gap: 6px;
+    transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .player-watermark .brand {
     font-size: 24px;
@@ -961,7 +962,7 @@ body {
     <div class="guide-overlay" id="guideOverlay">
         <div class="guide-content">
             <div class="guide-icon">📺</div>
-            <div class="guide-title">Welcome to TV!</div>
+            <div class="guide-title">Welcome to GENOIN HDTV!</div>
             <div class="guide-description">Select any channel to start watching.<br>Enjoy live TV channels!</div>
             <button class="guide-button" id="guideButton">Get Started</button>
         </div>
@@ -1143,6 +1144,7 @@ body {
     let currentChannelIndex = 0, currentCategoryChannels = [];
     let controlsTimeout, loadingTimeout;
     let currentCategory = null, userPaused = false, autoPlayStarted = false;
+    let consecutiveFailures = 0;
 
     // Load timer vars
     let loadTimerInterval = null;
@@ -1227,6 +1229,50 @@ body {
 
     const isMobile = () => window.innerWidth <= 768;
     const isFirstVisit = !localStorage.getItem('nbox_tv_visited');
+
+    function updateWatermarkPosition() {
+        const watermark = document.querySelector('.player-watermark');
+        if (!watermark || !video) return;
+
+        let offsetRight = 24;
+        let offsetBottom = 24;
+
+        if (window.innerWidth <= 480) {
+            offsetRight = 12;
+            offsetBottom = 12;
+        }
+
+        const videoWidth = video.videoWidth;
+        const videoHeight = video.videoHeight;
+        const isCover = reelsMode && video.classList.contains('fill');
+
+        if (!videoWidth || !videoHeight || isCover) {
+            watermark.style.right = offsetRight + 'px';
+            watermark.style.bottom = offsetBottom + 'px';
+            return;
+        }
+
+        const containerRect = videoWrapper.getBoundingClientRect();
+        const W = containerRect.width;
+        const H = containerRect.height;
+
+        const r_v = videoWidth / videoHeight;
+        const r_c = W / H;
+
+        let x = 0;
+        let y = 0;
+
+        if (r_v > r_c) {
+            const h_r = W / r_v;
+            y = (H - h_r) / 2;
+        } else {
+            const w_r = H * r_v;
+            x = (W - w_r) / 2;
+        }
+
+        watermark.style.right = Math.floor(x + offsetRight) + 'px';
+        watermark.style.bottom = Math.floor(y + offsetBottom) + 'px';
+    }
 
     // ---- NEW: Favorites helpers ----
     function getFavs() {
@@ -1390,7 +1436,14 @@ body {
         });
     }
 
-    document.addEventListener('fullscreenchange', () => { if (document.fullscreenElement) showControls(); });
+    document.addEventListener('fullscreenchange', () => {
+        if (document.fullscreenElement) {
+            showControls();
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+        } else {
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+        }
+    });
 
     // ---- REELS MODE ----
     function updateReelsInfo() {
@@ -1407,12 +1460,14 @@ body {
         updateReelsInfo();
         showControls();
         window.scrollTo({ top: 0 });
+        setTimeout(updateWatermarkPosition, 200);
     }
     function exitReels() {
         reelsMode = false;
         document.body.classList.remove('reels-mode');
         video.style.transform = '';
         video.style.opacity = '';
+        setTimeout(updateWatermarkPosition, 200);
     }
     function reelsGo(dir) {
         if (reelsAnimating || !currentCategoryChannels.length) return;
@@ -1442,6 +1497,7 @@ body {
         reelsFit.innerHTML = filled
             ? '<i class="fas fa-down-left-and-up-right-to-center"></i>'
             : '<i class="fas fa-up-right-and-down-left-from-center"></i>';
+        updateWatermarkPosition();
     });
     // ---- END REELS ----
 
@@ -1463,7 +1519,11 @@ body {
     listArrowLeft.addEventListener('click', e => { e.stopPropagation(); scrollList(-1); });
     listArrowRight.addEventListener('click', e => { e.stopPropagation(); scrollList(1); });
     channelListDesktop.addEventListener('scroll', updateListArrows);
-    window.addEventListener('resize', updateListArrows);
+    window.addEventListener('resize', () => {
+        updateListArrows();
+        updateWatermarkPosition();
+    });
+    video.addEventListener('resize', updateWatermarkPosition);
     // ---- END LIST ARROWS ----
 
     // ---- NEW: retry / replay ----
@@ -1474,6 +1534,12 @@ body {
     function handleChannelFailure() {
         stopLoadTimer();
         loadingOverlay.classList.remove('show');
+        
+        if (!navigator.onLine) {
+            errorSubtext.textContent = 'No internet connection detected.';
+            errorOverlay.classList.add('show');
+            return;
+        }
         
         if (currentChannel && currentChannel.urls && currentChannel.urls.length > 1 && currentChannel.currentUrlIndex < currentChannel.urls.length - 1) {
             // Try next server/link for this channel
@@ -1489,6 +1555,16 @@ body {
                 playChannel(currentChannel, currentCategory, activeCard(), true);
             }, 1500);
         } else {
+            // All servers failed for this channel
+            consecutiveFailures++;
+            const maxFailures = currentCategoryChannels.length || 5;
+            if (consecutiveFailures >= maxFailures) {
+                consecutiveFailures = 0;
+                errorSubtext.textContent = 'Playback failed. Please check your connection.';
+                errorOverlay.classList.add('show');
+                return;
+            }
+            
             // All servers failed, go to the next channel
             errorSubtext.textContent = 'Switching channel...';
             errorOverlay.classList.add('show');
@@ -1504,6 +1580,7 @@ body {
         userPaused = false;
         
         if (!isRetry) {
+            consecutiveFailures = 0;
             if (channel.urls) {
                 channel.currentUrlIndex = 0;
             }
@@ -1657,6 +1734,82 @@ body {
         playChannel(ch, searchMode ? 'Search' : currentCategory, card);
     }
 
+    function normalizeChannel(ch) {
+        if (!ch || typeof ch !== 'object') return null;
+        const name = ch.channel_name || ch.name || ch.title || 'Live Channel';
+        const image = ch.image || ch.logo || ch.icon || '';
+        const url = ch.url || ch.link || ch.stream || '';
+        const urls = Array.isArray(ch.urls) ? ch.urls : (url ? [url] : []);
+        const category = ch.category || ch.group || 'General';
+        const isAPK = !!ch.isAPK;
+        return {
+            channel_name: name,
+            image: image,
+            url: url || (urls.length > 0 ? urls[0] : ''),
+            urls: urls,
+            currentUrlIndex: ch.currentUrlIndex || 0,
+            category: category,
+            isAPK: isAPK
+        };
+    }
+
+    function formatJSONPlaylist(jsonData) {
+        if (!jsonData) return {};
+        
+        // Case 1: Raw Array of channels
+        if (Array.isArray(jsonData)) {
+            const grouped = {};
+            jsonData.forEach(item => {
+                const ch = normalizeChannel(item);
+                if (ch) {
+                    const cat = ch.category;
+                    if (!grouped[cat]) grouped[cat] = [];
+                    grouped[cat].push(ch);
+                }
+            });
+            return grouped;
+        }
+        
+        // Case 2: Object format
+        if (typeof jsonData === 'object') {
+            const keys = Object.keys(jsonData);
+            const arrayKeys = keys.filter(k => Array.isArray(jsonData[k]));
+            const grouped = {};
+            const genericWrappers = ['channels', 'playlist', 'playlists', 'data', 'list', 'items', 'results', 'records', 'response'];
+            
+            if (arrayKeys.length > 0) {
+                arrayKeys.forEach(key => {
+                    const arr = jsonData[key];
+                    const isWrapper = genericWrappers.includes(key.toLowerCase());
+                    
+                    arr.forEach(item => {
+                        const ch = normalizeChannel(item);
+                        if (ch) {
+                            // If the key is a generic wrapper, we group by the channel's defined category (defaulting to "General").
+                            // Otherwise, the key itself is the category (unless the channel explicitly defines its own category).
+                            const cat = isWrapper ? ch.category : (item.category || item.group || key);
+                            
+                            // Normalize the channel's category property
+                            ch.category = cat;
+                            
+                            if (!grouped[cat]) grouped[cat] = [];
+                            grouped[cat].push(ch);
+                        }
+                    });
+                });
+                return grouped;
+            } else {
+                // Fallback for a single channel object
+                const ch = normalizeChannel(jsonData);
+                if (ch && ch.url) {
+                    return { "General": [ch] };
+                }
+            }
+        }
+        
+        return {};
+    }
+
     // Parse .m3u text format to the app's channel JSON structure
     function parseM3U(m3uText) {
         const lines = m3uText.split(/\r?\n/);
@@ -1712,19 +1865,28 @@ body {
     }
 
     function processPlaylistData(data, isM3U) {
-        let parsedData = isM3U ? parseM3U(data) : (typeof data === 'string' ? JSON.parse(data) : data);
+        let parsedData;
+        let finalIsM3U = isM3U;
         
-        // Normalize JSON data so every channel has a urls array
-        if (!isM3U) {
-            Object.keys(parsedData).forEach(cat => {
-                parsedData[cat] = (parsedData[cat] || []).map(ch => {
-                    if (!ch.urls) {
-                        ch.urls = [ch.url];
-                        ch.currentUrlIndex = 0;
-                    }
-                    return ch;
-                });
-            });
+        if (typeof data === 'string') {
+            const trimmed = data.trim();
+            if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+                try {
+                    parsedData = JSON.parse(trimmed);
+                    finalIsM3U = false;
+                } catch (e) {
+                    parsedData = isM3U ? parseM3U(data) : {};
+                }
+            } else {
+                parsedData = isM3U ? parseM3U(data) : {};
+            }
+        } else {
+            parsedData = data;
+            finalIsM3U = false;
+        }
+        
+        if (!finalIsM3U) {
+            parsedData = formatJSONPlaylist(parsedData);
         }
         channelsData = parsedData;
         
@@ -1805,6 +1967,14 @@ body {
         }
 
         const isM3U = playlist.type === 'm3u' || playlist.url.includes('.m3u') || playlist.url.includes('.m3u8') && !playlist.type;
+        
+        if (!navigator.onLine) {
+            showAppToast('⚠️ Offline: Cannot load playlist', '#ef4444');
+            channelsData = {};
+            renderCategories();
+            renderChannelList([], 'Offline');
+            return;
+        }
         
         fetch(playlist.url)
             .then(r => isM3U ? r.text() : r.json())
@@ -2226,17 +2396,45 @@ body {
     video.addEventListener('play', () => { playBtn.innerHTML = '<i class="fas fa-pause"></i>'; });
     video.addEventListener('pause', () => { playBtn.innerHTML = '<i class="fas fa-play"></i>'; });
     muteBtn.addEventListener('click', e => { e.stopPropagation(); video.muted = !video.muted; updateVolumeUI(); });
-    volumeSlider.addEventListener('click', e => {
-        e.stopPropagation();
+    let isDraggingVolume = false;
+    function updateVolumeFromEvent(e) {
         const r = volumeSlider.getBoundingClientRect();
-        video.volume = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
-        video.muted = false; updateVolumeUI();
+        const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
+        video.volume = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+        video.muted = false;
+        updateVolumeUI();
+    }
+    volumeSlider.addEventListener('mousedown', e => {
+        e.stopPropagation();
+        isDraggingVolume = true;
+        updateVolumeFromEvent(e);
+    });
+    volumeSlider.addEventListener('touchstart', e => {
+        e.stopPropagation();
+        isDraggingVolume = true;
+        updateVolumeFromEvent(e);
+    }, { passive: true });
+    document.addEventListener('mousemove', e => {
+        if (isDraggingVolume) {
+            updateVolumeFromEvent(e);
+        }
+    });
+    document.addEventListener('touchmove', e => {
+        if (isDraggingVolume) {
+            updateVolumeFromEvent(e);
+        }
+    }, { passive: true });
+    document.addEventListener('mouseup', () => {
+        isDraggingVolume = false;
+    });
+    document.addEventListener('touchend', () => {
+        isDraggingVolume = false;
     });
     video.addEventListener('volumechange', updateVolumeUI);
     fullscreenBtn.addEventListener('click', e => {
         e.stopPropagation();
-        if (!document.fullscreenElement) { videoWrapper.requestFullscreen(); fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>'; }
-        else { document.exitFullscreen(); fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>'; }
+        if (!document.fullscreenElement) { videoWrapper.requestFullscreen(); }
+        else { document.exitFullscreen(); }
     });
     prevBtn.addEventListener('click', e => { e.stopPropagation(); playPreviousChannel(); });
     nextBtn.addEventListener('click', e => { e.stopPropagation(); playNextChannel(); });
@@ -2265,6 +2463,7 @@ body {
         stopLoadTimer();
         loadingOverlay.classList.remove('show');
         errorOverlay.classList.remove('show');
+        consecutiveFailures = 0;
         if (loadStartTime) {
             showLoadToast(Date.now() - loadStartTime);
             loadStartTime = null;
@@ -2455,6 +2654,20 @@ body {
             });
             showAppToast('✅ Server added successfully', '#10b981');
             closeAddServerModal();
+        }
+    });
+
+    window.addEventListener('offline', () => {
+        showAppToast('🔌 Disconnected from internet', '#ef4444');
+        errorSubtext.textContent = 'No internet connection detected.';
+        errorOverlay.classList.add('show');
+    });
+
+    window.addEventListener('online', () => {
+        showAppToast('🌐 Reconnected to internet', '#10b981');
+        errorOverlay.classList.remove('show');
+        if (currentChannel) {
+            playChannel(currentChannel, currentCategory, activeCard(), false);
         }
     });
     </script>
