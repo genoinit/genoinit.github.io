@@ -953,6 +953,9 @@ body {
 .delete-playlist-btn:hover {
     color: #ef4444 !important;
 }
+.hide-cursor {
+    cursor: none !important;
+}
 /* ---- END ADD SERVER MODAL STYLES ---- */
     </style>
 </head>
@@ -1390,11 +1393,13 @@ body {
     function showControls() {
         videoControls.classList.add('show');
         if (!isMobile() || document.fullscreenElement) channelNav.classList.add('show');
+        videoSection.classList.remove('hide-cursor');
         clearTimeout(controlsTimeout);
         controlsTimeout = setTimeout(() => {
             if (!video.paused && !channelPanelDesktop.classList.contains('show')) {
                 videoControls.classList.remove('show');
                 if (!isMobile() || !document.fullscreenElement) channelNav.classList.remove('show');
+                videoSection.classList.add('hide-cursor');
             }
         }, isMobile() ? 4000 : 2500);
     }
