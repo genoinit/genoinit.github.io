@@ -12,13 +12,14 @@
 		
     // Fallback 
     window.APP_CONFIG = window.APP_CONFIG || {};
-    window.APP_CONFIG.TV_SERVER_URL = window.APP_CONFIG.TV_SERVER_URL || 'http://10.20.30.40/tv-server';
+    window.APP_CONFIG.TV_SERVER_URL = window.APP_CONFIG.TV_SERVER_URL || 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/ftp.json';
     window.APP_CONFIG.APK_DOWNLOAD_URL = window.APP_CONFIG.APK_DOWNLOAD_URL || 'https://github.com/genoinit/genoinit.github.io/raw/refs/heads/main/Apk/genoin_hdtv_v1.0.apk';
 	
     window.APP_CONFIG.playlists = window.APP_CONFIG.playlists || [
-	{ name: 'Genoin', url: 'https://genoin.com/playlist/genoin.m3u', type: 'm3u' },
-		{ name: 'Bangla', url: 'https://tv.shajon.dev/playlist/bangla.json', type: 'json' },
-        { name: 'FTP FIFA', url: 'http://10.20.30.40/tv-server', type: 'json' }
+	{ name: 'Genoin', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u', type: 'm3u' },
+		{ name: 'Bangla', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/bangla.json', type: 'json' },
+        { name: 'Sports', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/sports.json', type: 'json' },
+		 { name: 'FTP', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/ftp.json', type: 'json' }
     ];
     </script>
 	
