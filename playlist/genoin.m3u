@@ -1,4 +1,4 @@
-﻿#EXTM3U
+#EXTM3U
 
 # ==========================================
 # ðŸ‡§ðŸ‡© NATIONAL CHANNELS
@@ -1043,1015 +1043,1015 @@ https://mflixott.com/tv/toffee-by-maruf/live.php?id=cnn&e=.m3u8
 https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
 
 # --- BTV National ---
-#EXTINF:-1 tvg-id="BTVNational" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", BTV National
+#EXTINF:-1 tvg-id="BTVNational" tvg-logo="" group-title="News", BTV National
 https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
 
 # --- Caze TV Brazil ---
-#EXTINF:-1 tvg-id="CazeTVBrazil" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Caze TV Brazil
+#EXTINF:-1 tvg-id="CazeTVBrazil" tvg-logo="" group-title="Others & Local Cable", Caze TV Brazil
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
 
 # --- Channel 1 ---
-#EXTINF:-1 tvg-id="Channel1" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Channel 1
+#EXTINF:-1 tvg-id="Channel1" tvg-logo="" group-title="News", Channel 1
 https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
 
 # --- DBC News HD ---
-#EXTINF:-1 tvg-id="DBCNewsHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", DBC News HD
+#EXTINF:-1 tvg-id="DBCNewsHD" tvg-logo="" group-title="News", DBC News HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/index.m3u8
 
 # --- Ekattor HD ---
-#EXTINF:-1 tvg-id="EkattorHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Ekattor HD
+#EXTINF:-1 tvg-id="EkattorHD" tvg-logo="" group-title="News", Ekattor HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/index.m3u8
 
 # --- Channel 24 HD ---
-#EXTINF:-1 tvg-id="Channel24HD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Channel 24 HD
+#EXTINF:-1 tvg-id="Channel24HD" tvg-logo="" group-title="News", Channel 24 HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8
 
 # --- News 24 HD ---
-#EXTINF:-1 tvg-id="News24HD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", News 24 HD
+#EXTINF:-1 tvg-id="News24HD" tvg-logo="" group-title="News", News 24 HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8
 
 # --- Deepto TV HD ---
-#EXTINF:-1 tvg-id="DeeptoTVHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Deepto TV HD
+#EXTINF:-1 tvg-id="DeeptoTVHD" tvg-logo="" group-title="Others & Local Cable", Deepto TV HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8
 
 # --- Channel 9 HD ---
-#EXTINF:-1 tvg-id="Channel9HD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Channel 9 HD
+#EXTINF:-1 tvg-id="Channel9HD" tvg-logo="" group-title="Others & Local Cable", Channel 9 HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8
 
 # --- Channel I HD ---
-#EXTINF:-1 tvg-id="ChannelIHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Channel I HD
+#EXTINF:-1 tvg-id="ChannelIHD" tvg-logo="" group-title="Others & Local Cable", Channel I HD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8
 
 # --- Channel S UK ---
-#EXTINF:-1 tvg-id="ChannelSUK" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Channel S UK
+#EXTINF:-1 tvg-id="ChannelSUK" tvg-logo="" group-title="Others & Local Cable", Channel S UK
 https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/chsukoff.stream/playlist.m3u8
 
 # --- Deshi TV ---
-#EXTINF:-1 tvg-id="DeshiTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Deshi TV
+#EXTINF:-1 tvg-id="DeshiTV" tvg-logo="" group-title="Others & Local Cable", Deshi TV
 https://deshitv.deshitv24.net/live/myStream/playlist.m3u8
 
 # --- ZB Cartun TV ---
-#EXTINF:-1 tvg-id="ZBCartunTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Cartoon & Kids", ZB Cartun TV
+#EXTINF:-1 tvg-id="ZBCartunTV" tvg-logo="" group-title="Cartoon & Kids", ZB Cartun TV
 https://server.zillarbarta.com/zbcatun/video.m3u8
 
 # --- Saudi Quran ---
-#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Saudi Quran
+#EXTINF:-1 tvg-id="SaudiQuran" tvg-logo="" group-title="Others & Local Cable", Saudi Quran
 https://cdn-globecast.akamaized.net/live/eds/saudi_quran/hls_roku/index.m3u8
 
 # --- beIN sports Xtra HD ---
-#EXTINF:-1 tvg-id="beINsportsXtraHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", beIN sports Xtra HD
+#EXTINF:-1 tvg-id="beINsportsXtraHD" tvg-logo="" group-title="Sports", beIN sports Xtra HD
 https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
 
 # --- beIN sports Xtra ---
-#EXTINF:-1 tvg-id="beINsportsXtra" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", beIN sports Xtra
+#EXTINF:-1 tvg-id="beINsportsXtra" tvg-logo="" group-title="Sports", beIN sports Xtra
 https://bein-esp-xumo.amagi.tv/playlistR720P.m3u8
 
 # --- Sports Range ---
-#EXTINF:-1 tvg-id="SportsRange" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Sports Range
+#EXTINF:-1 tvg-id="SportsRange" tvg-logo="" group-title="Sports", Sports Range
 https://nomawnoijl.gpcdn.net/akash/sportrange/playlist.m3u8
 
 # --- Fighters ---
-#EXTINF:-1 tvg-id="Fighters" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Fighters
+#EXTINF:-1 tvg-id="Fighters" tvg-logo="" group-title="Sports", Fighters
 https://nomawnoijl.gpcdn.net/akash/fighter/playlist.m3u8
 
 # --- Crazy Ex ---
-#EXTINF:-1 tvg-id="CrazyEx" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Crazy Ex
+#EXTINF:-1 tvg-id="CrazyEx" tvg-logo="" group-title="Others & Local Cable", Crazy Ex
 https://nomawnoijl.gpcdn.net/akash/crazy_ex/playlist.m3u8
 
 # --- Delicious ---
-#EXTINF:-1 tvg-id="Delicious" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Delicious
+#EXTINF:-1 tvg-id="Delicious" tvg-logo="" group-title="Others & Local Cable", Delicious
 https://nomawnoijl.gpcdn.net/akash/delicious/playlist.m3u8
 
 # --- Program Promo ---
-#EXTINF:-1 tvg-id="ProgramPromo" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Program Promo
+#EXTINF:-1 tvg-id="ProgramPromo" tvg-logo="" group-title="Others & Local Cable", Program Promo
 https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/index.m3u8
 
 # --- Enter10 Bangla HD ---
-#EXTINF:-1 tvg-id="Enter10BanglaHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Enter10 Bangla HD
+#EXTINF:-1 tvg-id="Enter10BanglaHD" tvg-logo="" group-title="Others & Local Cable", Enter10 Bangla HD
 https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_240p/chunks.m3u8
 
 # --- IN R Plus News ---
-#EXTINF:-1 tvg-id="INRPlusNews" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", IN R Plus News
+#EXTINF:-1 tvg-id="INRPlusNews" tvg-logo="" group-title="News", IN R Plus News
 https://thelegitpro.in/pntv/rplusnews24x7/index.m3u8
 
 # --- IN Republic Bangla ---
-#EXTINF:-1 tvg-id="INRepublicBangla" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", IN Republic Bangla
+#EXTINF:-1 tvg-id="INRepublicBangla" tvg-logo="" group-title="News", IN Republic Bangla
 https://vg-republictvyupp.akamaized.net/ptnr-yuppt/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-613605/93d674ab-f7a0-404e-88b2-b4f163373dbe/0.m3u8
 
 # --- ENT Dangal TV ---
-#EXTINF:-1 tvg-id="ENTDangalTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ENT Dangal TV
+#EXTINF:-1 tvg-id="ENTDangalTV" tvg-logo="" group-title="Others & Local Cable", ENT Dangal TV
 https://live-dangal.akamaized.net/liveabr/pub-iodang10p4al/live_720p/chunks.m3u8
 
 # --- ENT DANGAL2 ---
-#EXTINF:-1 tvg-id="ENTDANGAL2" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ENT DANGAL2
+#EXTINF:-1 tvg-id="ENTDANGAL2" tvg-logo="" group-title="Others & Local Cable", ENT DANGAL2
 https://live-dangal2.akamaized.net/liveabr/playlist.m3u8
 
 # --- ENT DD Bharati ---
-#EXTINF:-1 tvg-id="ENTDDBharati" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ENT DD Bharati
+#EXTINF:-1 tvg-id="ENTDDBharati" tvg-logo="" group-title="Others & Local Cable", ENT DD Bharati
 https://d2lk5u59tns74c.cloudfront.net/out/v1/67cec794d8b14f9ba21f73924ac65797/index.m3u8
 
 # --- ENT DD National HD ---
-#EXTINF:-1 tvg-id="ENTDDNationalHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ENT DD National HD
+#EXTINF:-1 tvg-id="ENTDDNationalHD" tvg-logo="" group-title="Others & Local Cable", ENT DD National HD
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/40492a64c1db4a1385ba1a397d357d3a/index.m3u8
 
 # --- ENT DD URDU ---
-#EXTINF:-1 tvg-id="ENTDDURDU" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ENT DD URDU
+#EXTINF:-1 tvg-id="ENTDDURDU" tvg-logo="" group-title="Others & Local Cable", ENT DD URDU
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/9b91e9007e754db39a8b32c6bfc5b24a/index.m3u8
 
 # --- NEWS Aaj Tak HD ---
-#EXTINF:-1 tvg-id="NEWSAajTakHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS Aaj Tak HD
+#EXTINF:-1 tvg-id="NEWSAajTakHD" tvg-logo="" group-title="News", NEWS Aaj Tak HD
 https://aajtaklive-amd.akamaized.net/hls/live/2014416/aajtak/aajtaklive/live_720p/chunks.m3u8
 
 # --- NEWS Aap Ki Adalat ---
-#EXTINF:-1 tvg-id="NEWSAapKiAdalat" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS Aap Ki Adalat
+#EXTINF:-1 tvg-id="NEWSAapKiAdalat" tvg-logo="" group-title="News", NEWS Aap Ki Adalat
 https://amg01550-indiatv-indiatv-aapkiadalat-mi-xiaomi-n5tuk.amagi.tv/playlist/amg01550-indiatv-indiatv-aapkiadalat-mi-xiaomi/playlist.m3u8
 
 # --- NEWS India Today ---
-#EXTINF:-1 tvg-id="NEWSIndiaToday" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS India Today
+#EXTINF:-1 tvg-id="NEWSIndiaToday" tvg-logo="" group-title="News", NEWS India Today
 https://d2lk5u59tns74c.cloudfront.net/out/v1/d4435039c7d1433d9b9d0b6cdc9dd4ff/index.m3u8
 
 # --- NEWS India TV ---
-#EXTINF:-1 tvg-id="NEWSIndiaTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS India TV
+#EXTINF:-1 tvg-id="NEWSIndiaTV" tvg-logo="" group-title="News", NEWS India TV
 https://pl-indiatvnews.akamaized.net/out/v1/db79179b608641ceaa5a4d0dd0dca8da/index.m3u8
 
 # --- NEWS NDTV English ---
-#EXTINF:-1 tvg-id="NEWSNDTVEnglish" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS NDTV English
+#EXTINF:-1 tvg-id="NEWSNDTVEnglish" tvg-logo="" group-title="News", NEWS NDTV English
 https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678-b/ndtv24x7/master.m3u8
 
 # --- NEWS NDTV Hindi ---
-#EXTINF:-1 tvg-id="NEWSNDTVHindi" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS NDTV Hindi
+#EXTINF:-1 tvg-id="NEWSNDTVHindi" tvg-logo="" group-title="News", NEWS NDTV Hindi
 https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679-b/ndtvindia/master.m3u8
 
 # --- NEWS News Nation ---
-#EXTINF:-1 tvg-id="NEWSNewsNation" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS News Nation
+#EXTINF:-1 tvg-id="NEWSNewsNation" tvg-logo="" group-title="News", NEWS News Nation
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8
 
 # --- NEWS News24 ---
-#EXTINF:-1 tvg-id="NEWSNews24" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS News24
+#EXTINF:-1 tvg-id="NEWSNews24" tvg-logo="" group-title="News", NEWS News24
 https://amg13643-amg13643c1-amgplt0016.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg13643-amg13643c1-amgplt0016/playlist.m3u8
 
 # --- NEWS Republic TV ---
-#EXTINF:-1 tvg-id="NEWSRepublicTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS Republic TV
+#EXTINF:-1 tvg-id="NEWSRepublicTV" tvg-logo="" group-title="News", NEWS Republic TV
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2e31d831f08640ff92f65003bdc89991/index.m3u8
 
 # --- NEWS ZEE BUSINESS ---
-#EXTINF:-1 tvg-id="NEWSZEEBUSINESS" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NEWS ZEE BUSINESS
+#EXTINF:-1 tvg-id="NEWSZEEBUSINESS" tvg-logo="" group-title="News", NEWS ZEE BUSINESS
 https://dwby15d04agvq.cloudfront.net/index_1.m3u8
 
 # --- BBC Bangla ---
-#EXTINF:-1 tvg-id="BBCBangla" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", BBC Bangla
+#EXTINF:-1 tvg-id="BBCBangla" tvg-logo="" group-title="English News", BBC Bangla
 https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/nonuk/cellular_main_sd_abr_v2/cfs/bbc_world_service.mpd
 
 # --- Sananda TV ---
-#EXTINF:-1 tvg-id="SanandaTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Sananda TV
+#EXTINF:-1 tvg-id="SanandaTV" tvg-logo="" group-title="Others & Local Cable", Sananda TV
 https://live.sanandatelevision.in/sananda/index.m3u8
 
 # --- Dw News ---
-#EXTINF:-1 tvg-id="DwNews" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", Dw News
+#EXTINF:-1 tvg-id="DwNews" tvg-logo="" group-title="English News", Dw News
 https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
 
 # --- Zee 24 Ghanta ---
-#EXTINF:-1 tvg-id="Zee24Ghanta" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee 24 Ghanta
+#EXTINF:-1 tvg-id="Zee24Ghanta" tvg-logo="" group-title="News", Zee 24 Ghanta
 https://d2dsoyvkr33m05.cloudfront.net/index_1.m3u8
 
 # --- Rongeen TV ---
-#EXTINF:-1 tvg-id="RongeenTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Rongeen TV
+#EXTINF:-1 tvg-id="RongeenTV" tvg-logo="" group-title="Others & Local Cable", Rongeen TV
 https://server.thelegitpro.in/rongeentv/rongeentv/tracks-v1a1/mono.m3u8
 
 # --- Dangal ---
-#EXTINF:-1 tvg-id="Dangal" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Dangal
+#EXTINF:-1 tvg-id="Dangal" tvg-logo="" group-title="Others & Local Cable", Dangal
 https://live-dangal.akamaized.net/liveabr/playlist.m3u8
 
 # --- Cycling Day 5 - Langenlois Live LIDL Tour of Austria 75 - 2026 ---
-#EXTINF:-1 tvg-id="CyclingDay5LangenloisLiveLIDLTourofAustria752026" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Cycling Day 5 - Langenlois Live LIDL Tour of Austria 75 - 2026
+#EXTINF:-1 tvg-id="CyclingDay5LangenloisLiveLIDLTourofAustria752026" tvg-logo="" group-title="Sports", Cycling Day 5 - Langenlois Live LIDL Tour of Austria 75 - 2026
 https://bpl24middleeast.akamaized.net/hls/live/2109311/tapeuropa27/master.m3u8
 
 # --- Stream 14 ---
-#EXTINF:-1 tvg-id="Stream14" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 14
+#EXTINF:-1 tvg-id="Stream14" tvg-logo="" group-title="Others & Local Cable", Stream 14
 https://andro.226503.xyz/checklist/androstreamlivebs1.m3u8
 
 # --- Stream 17 ---
-#EXTINF:-1 tvg-id="Stream17" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 17
+#EXTINF:-1 tvg-id="Stream17" tvg-logo="" group-title="Others & Local Cable", Stream 17
 https://daffodil.thelistener.pk/tele.m3u8
 
 # --- Stream 19 ---
-#EXTINF:-1 tvg-id="Stream19" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 19
+#EXTINF:-1 tvg-id="Stream19" tvg-logo="" group-title="Others & Local Cable", Stream 19
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/Zeebanglahd.m3u8
 
 # --- Stream 20 ---
-#EXTINF:-1 tvg-id="Stream20" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 20
+#EXTINF:-1 tvg-id="Stream20" tvg-logo="" group-title="Others & Local Cable", Stream 20
 https://andro.226503.xyz/checklist/androstreamlivebs2.m3u8
 
 # --- Stream 21 ---
-#EXTINF:-1 tvg-id="Stream21" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 21
+#EXTINF:-1 tvg-id="Stream21" tvg-logo="" group-title="Others & Local Cable", Stream 21
 https://andro.226503.xyz/checklist/androstreamlivebs3.m3u8
 
 # --- Stream 22 ---
-#EXTINF:-1 tvg-id="Stream22" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 22
+#EXTINF:-1 tvg-id="Stream22" tvg-logo="" group-title="Others & Local Cable", Stream 22
 https://andro.226503.xyz/checklist/androstreamlivebs4.m3u8
 
 # --- Stream 25 ---
-#EXTINF:-1 tvg-id="Stream25" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 25
+#EXTINF:-1 tvg-id="Stream25" tvg-logo="" group-title="Others & Local Cable", Stream 25
 https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports.m3u8
 
 # --- Stream 45 ---
-#EXTINF:-1 tvg-id="Stream45" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 45
+#EXTINF:-1 tvg-id="Stream45" tvg-logo="" group-title="Others & Local Cable", Stream 45
 https://d1m1xk35ma8qfl.cloudfront.net/master.m3u8
 
 # --- Stream 59 ---
-#EXTINF:-1 tvg-id="Stream59" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 59
+#EXTINF:-1 tvg-id="Stream59" tvg-logo="" group-title="Others & Local Cable", Stream 59
 https://stream.ottplus.bd/live/euro_sports_hd_abr/live/euro_sports_hd/chunks.m3u8
 
 # --- Stream 72 ---
-#EXTINF:-1 tvg-id="Stream72" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 72
+#EXTINF:-1 tvg-id="Stream72" tvg-logo="" group-title="Others & Local Cable", Stream 72
 https://vods2.aynaott.com/hindimovies/index.m3u8
 
 # --- Stream 79 ---
-#EXTINF:-1 tvg-id="Stream79" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 79
+#EXTINF:-1 tvg-id="Stream79" tvg-logo="" group-title="Others & Local Cable", Stream 79
 https://nomawnoijl.gpcdn.net/akash/partyuniverse/chunks.m3u8
 
 # --- Stream 93 ---
-#EXTINF:-1 tvg-id="Stream93" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 93
+#EXTINF:-1 tvg-id="Stream93" tvg-logo="" group-title="Others & Local Cable", Stream 93
 https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/1715-audio_113452_eng=113200-video=1181200.m3u8
 
 # --- Stream 100 ---
-#EXTINF:-1 tvg-id="Stream100" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 100
+#EXTINF:-1 tvg-id="Stream100" tvg-logo="" group-title="Others & Local Cable", Stream 100
 https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/1703-audio_113332_eng=113200-video=2202800.m3u8
 
 # --- Stream 101 ---
-#EXTINF:-1 tvg-id="Stream101" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 101
+#EXTINF:-1 tvg-id="Stream101" tvg-logo="" group-title="Others & Local Cable", Stream 101
 https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/1729-audio_113592_eng=113200-video=1181200.m3u8
 
 # --- Stream 107 ---
-#EXTINF:-1 tvg-id="Stream107" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 107
+#EXTINF:-1 tvg-id="Stream107" tvg-logo="" group-title="Others & Local Cable", Stream 107
 https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8
 
 # --- Stream 112 ---
-#EXTINF:-1 tvg-id="Stream112" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 112
+#EXTINF:-1 tvg-id="Stream112" tvg-logo="" group-title="Others & Local Cable", Stream 112
 https://app.ncare.live/live-orgin/jagonews24.stream/live-orgin/jagonews24.stream/chunks.m3u8
 
 # --- Stream 114 ---
-#EXTINF:-1 tvg-id="Stream114" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 114
+#EXTINF:-1 tvg-id="Stream114" tvg-logo="" group-title="Others & Local Cable", Stream 114
 https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/1722.m3u8
 
 # --- Stream 120 ---
-#EXTINF:-1 tvg-id="Stream120" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 120
+#EXTINF:-1 tvg-id="Stream120" tvg-logo="" group-title="Others & Local Cable", Stream 120
 https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/1716-audio_113462_eng=113200-video=1181200.m3u8
 
 # --- Stream 123 ---
-#EXTINF:-1 tvg-id="Stream123" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 123
+#EXTINF:-1 tvg-id="Stream123" tvg-logo="" group-title="Others & Local Cable", Stream 123
 https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/1710-audio_113402_eng=113200-video=1181200.m3u8
 
 # --- Stream 126 ---
-#EXTINF:-1 tvg-id="Stream126" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 126
+#EXTINF:-1 tvg-id="Stream126" tvg-logo="" group-title="Others & Local Cable", Stream 126
 https://vg-republictvlive.akamaized.net/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/06e5afc2-a022-4e51-9131-4e33a6207c5c/1.m3u8
 
 # --- Stream 134 ---
-#EXTINF:-1 tvg-id="Stream134" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 134
+#EXTINF:-1 tvg-id="Stream134" tvg-logo="" group-title="Others & Local Cable", Stream 134
 https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8
 
 # --- Stream 139 ---
-#EXTINF:-1 tvg-id="Stream139" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 139
+#EXTINF:-1 tvg-id="Stream139" tvg-logo="" group-title="Others & Local Cable", Stream 139
 https://dc1644a9jazgj.cloudfront.net/beIN_Sports_Xtra_Espanol.m3u8
 
 # --- Stream 140 ---
-#EXTINF:-1 tvg-id="Stream140" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 140
+#EXTINF:-1 tvg-id="Stream140" tvg-logo="" group-title="Others & Local Cable", Stream 140
 https://d3b6q2ou5kp8ke.cloudfront.net/ESPNTheOcho.m3u8
 
 # --- Stream 157 ---
-#EXTINF:-1 tvg-id="Stream157" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 157
+#EXTINF:-1 tvg-id="Stream157" tvg-logo="" group-title="Others & Local Cable", Stream 157
 https://cdn-us-east-prod-ingest-infra-dacast-com.akamaized.net/624ff8f9-db18-da92-4d42-896fa2ff3eb3/source/index.m3u8
 
 # --- Stream 1 ---
-#EXTINF:-1 tvg-id="Stream1" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 1
+#EXTINF:-1 tvg-id="Stream1" tvg-logo="" group-title="Others & Local Cable", Stream 1
 https://bdixserver.tvhunter.top/ant1009/tracks-v1a1/mono.m3u8
 
 # --- Stream 2 ---
-#EXTINF:-1 tvg-id="Stream2" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 2
+#EXTINF:-1 tvg-id="Stream2" tvg-logo="" group-title="Others & Local Cable", Stream 2
 https://andro.evrenesoglu57.click/checklist/androstreamliveexn1.m3u8
 
 # --- Stream 4 ---
-#EXTINF:-1 tvg-id="Stream4" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 4
+#EXTINF:-1 tvg-id="Stream4" tvg-logo="" group-title="Others & Local Cable", Stream 4
 https://andro.evrenesoglu57.click/checklist/androstreamliveexn4.m3u8
 
 # --- Stream 5 ---
-#EXTINF:-1 tvg-id="Stream5" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 5
+#EXTINF:-1 tvg-id="Stream5" tvg-logo="" group-title="Others & Local Cable", Stream 5
 https://andro.okan11gote12sokan.cfd/checklist/androstreamlivebs2.m3u8
 
 # --- Stream 13 ---
-#EXTINF:-1 tvg-id="Stream13" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 13
+#EXTINF:-1 tvg-id="Stream13" tvg-logo="" group-title="Others & Local Cable", Stream 13
 https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist540p.m3u8
 
 # --- Stream 15 ---
-#EXTINF:-1 tvg-id="Stream15" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Stream 15
+#EXTINF:-1 tvg-id="Stream15" tvg-logo="" group-title="Others & Local Cable", Stream 15
 https://stream.ottplus.bd/live/id_hd_abr/live/id_hd/chunks.m3u8
 
 # --- Al Jazeera (1080p) ---
-#EXTINF:-1 tvg-id="AlJazeera1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", Al Jazeera (1080p)
+#EXTINF:-1 tvg-id="AlJazeera1080p" tvg-logo="" group-title="English News", Al Jazeera (1080p)
 https://live-hls-apps-aja-fa.getaj.net/AJA/01.m3u8
 
 # --- Al Jazeera 2 (1080p) ---
-#EXTINF:-1 tvg-id="AlJazeera21080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", Al Jazeera 2 (1080p)
+#EXTINF:-1 tvg-id="AlJazeera21080p" tvg-logo="" group-title="English News", Al Jazeera 2 (1080p)
 https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8
 
 # --- Al Jazeera English (1080p) ---
-#EXTINF:-1 tvg-id="AlJazeeraEnglish1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", Al Jazeera English (1080p)
+#EXTINF:-1 tvg-id="AlJazeeraEnglish1080p" tvg-logo="" group-title="English News", Al Jazeera English (1080p)
 https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
 
 # --- Al Jazeera Mubasher (1080p) ---
-#EXTINF:-1 tvg-id="AlJazeeraMubasher1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", Al Jazeera Mubasher (1080p)
+#EXTINF:-1 tvg-id="AlJazeeraMubasher1080p" tvg-logo="" group-title="English News", Al Jazeera Mubasher (1080p)
 https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8
 
 # --- Al Jazeera Mubasher Broadcast 2 (1080p) ---
-#EXTINF:-1 tvg-id="AlJazeeraMubasherBroadcast21080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", Al Jazeera Mubasher Broadcast 2 (1080p)
+#EXTINF:-1 tvg-id="AlJazeeraMubasherBroadcast21080p" tvg-logo="" group-title="English News", Al Jazeera Mubasher Broadcast 2 (1080p)
 https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8
 
 # --- Omroep Zeeland (1080p) ---
-#EXTINF:-1 tvg-id="OmroepZeeland1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Omroep Zeeland (1080p)
+#EXTINF:-1 tvg-id="OmroepZeeland1080p" tvg-logo="" group-title="News", Omroep Zeeland (1080p)
 https://d3isaxd2t6q8zm.cloudfront.net/live/omroepzeeland/tv/index.m3u8
 
 # --- Sony KAL Hindi (1080p) ---
-#EXTINF:-1 tvg-id="SonyKALHindi1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Sony KAL Hindi (1080p)
+#EXTINF:-1 tvg-id="SonyKALHindi1080p" tvg-logo="" group-title="Others & Local Cable", Sony KAL Hindi (1080p)
 https://wurlsonypicturestv.global.transmit.live/hls/68deeb1c0238cda82df543dd/v1/spt_sonykal_1/lg_us/latest/main/hls/playlist.m3u8
 
 # --- Tehzeeb TV (720p) ---
-#EXTINF:-1 tvg-id="TehzeebTV720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Tehzeeb TV (720p)
+#EXTINF:-1 tvg-id="TehzeebTV720p" tvg-logo="" group-title="Others & Local Cable", Tehzeeb TV (720p)
 https://cdn-4.pishow.tv/live/239/master.m3u8
 
 # --- Zee 24 Kalak (720p) ---
-#EXTINF:-1 tvg-id="Zee24Kalak720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee 24 Kalak (720p)
+#EXTINF:-1 tvg-id="Zee24Kalak720p" tvg-logo="" group-title="News", Zee 24 Kalak (720p)
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee24kalak/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/497f7199-758d-495d-9d2f-a5489231c428/14b7c8ec-16da-47f2-8d7e-5bbaec67b3e2/3.m3u8
 
 # --- Zee 24 Taas (720p) ---
-#EXTINF:-1 tvg-id="Zee24Taas720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee 24 Taas (720p)
+#EXTINF:-1 tvg-id="Zee24Taas720p" tvg-logo="" group-title="News", Zee 24 Taas (720p)
 https://dgrvlduwztkd4.cloudfront.net/index_5.m3u8
 
 # --- Zee Bangla Sonar (576p) ---
-#EXTINF:-1 tvg-id="ZeeBanglaSonar576p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Zee Bangla Sonar (576p)
+#EXTINF:-1 tvg-id="ZeeBanglaSonar576p" tvg-logo="" group-title="Others & Local Cable", Zee Bangla Sonar (576p)
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8
 
 # --- Zee Bharat (720p) ---
-#EXTINF:-1 tvg-id="ZeeBharat720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Bharat (720p)
+#EXTINF:-1 tvg-id="ZeeBharat720p" tvg-logo="" group-title="News", Zee Bharat (720p)
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeehindustan/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/96bbab12-582e-4540-af70-510ab6824581/main.m3u8
 
 # --- Zee Business (720p) ---
-#EXTINF:-1 tvg-id="ZeeBusiness720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Business (720p)
+#EXTINF:-1 tvg-id="ZeeBusiness720p" tvg-logo="" group-title="News", Zee Business (720p)
 https://dwby15d04agvq.cloudfront.net/index_5.m3u8
 
 # --- Zee Delhi NCR Haryana (720p) ---
-#EXTINF:-1 tvg-id="ZeeDelhiNCRHaryana720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Delhi NCR Haryana (720p)
+#EXTINF:-1 tvg-id="ZeeDelhiNCRHaryana720p" tvg-logo="" group-title="News", Zee Delhi NCR Haryana (720p)
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeedelhincr/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/cc483a15-1b39-4642-872d-5d08d362ed01/main.m3u8
 
 # --- Zee Kannada News (720p) ---
-#EXTINF:-1 tvg-id="ZeeKannadaNews720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Kannada News (720p)
+#EXTINF:-1 tvg-id="ZeeKannadaNews720p" tvg-logo="" group-title="News", Zee Kannada News (720p)
 https://d3vzwoqcbpfm8p.cloudfront.net/index_4.m3u8
 
 # --- Zee Madhya Pradesh Chhattisgarh (720p) ---
-#EXTINF:-1 tvg-id="ZeeMadhyaPradeshChhattisgarh720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Madhya Pradesh Chhattisgarh (720p)
+#EXTINF:-1 tvg-id="ZeeMadhyaPradeshChhattisgarh720p" tvg-logo="" group-title="News", Zee Madhya Pradesh Chhattisgarh (720p)
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeemadhyachhattisgarh/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/2ab17056-6187-4f0e-a34d-f436ac479d6c/main.m3u8
 
 # --- Zee Malayalam News (720p) ---
-#EXTINF:-1 tvg-id="ZeeMalayalamNews720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Malayalam News (720p)
+#EXTINF:-1 tvg-id="ZeeMalayalamNews720p" tvg-logo="" group-title="News", Zee Malayalam News (720p)
 https://d1ty2af03alkwd.cloudfront.net/index_4.m3u8
 
 # --- Zee News (1080p) ---
-#EXTINF:-1 tvg-id="ZeeNews1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee News (1080p)
+#EXTINF:-1 tvg-id="ZeeNews1080p" tvg-logo="" group-title="News", Zee News (1080p)
 https://dknttpxmr0dwf.cloudfront.net/index_57.m3u8
 
 # --- Zee One (1080p) ---
-#EXTINF:-1 tvg-id="ZeeOne1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Zee One (1080p)
+#EXTINF:-1 tvg-id="ZeeOne1080p" tvg-logo="" group-title="Others & Local Cable", Zee One (1080p)
 https://amg17931-zee-amg17931c6-samsung-au-8872.playouts.now.amagi.tv/playlist/amg17931-asiatvusaltdfast-zeeworld-samsungau/playlist.m3u8
 
 # --- Zee Punjab Haryana Himachal (720p) ---
-#EXTINF:-1 tvg-id="ZeePunjabHaryanaHimachal720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Punjab Haryana Himachal (720p)
+#EXTINF:-1 tvg-id="ZeePunjabHaryanaHimachal720p" tvg-logo="" group-title="News", Zee Punjab Haryana Himachal (720p)
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeepunjabharyanahima/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/65eed269-2f3a-4dd0-ac89-d18959af28e3/main.m3u8
 
 # --- Zee Rajasthan (720p) ---
-#EXTINF:-1 tvg-id="ZeeRajasthan720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Rajasthan (720p)
+#EXTINF:-1 tvg-id="ZeeRajasthan720p" tvg-logo="" group-title="News", Zee Rajasthan (720p)
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeerajashthannews/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/8e864b9a-1681-41a0-99a6-387490bc5b24/main.m3u8
 
 # --- Zee Telugu News (720p) ---
-#EXTINF:-1 tvg-id="ZeeTeluguNews720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Telugu News (720p)
+#EXTINF:-1 tvg-id="ZeeTeluguNews720p" tvg-logo="" group-title="News", Zee Telugu News (720p)
 https://d116gfrn8orazi.cloudfront.net/index.m3u8
 
 # --- Zee Uttar Pradesh-Uttarakhand (720p) ---
-#EXTINF:-1 tvg-id="ZeeUttarPradeshUttarakhand720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Uttar Pradesh-Uttarakhand (720p)
+#EXTINF:-1 tvg-id="ZeeUttarPradeshUttarakhand720p" tvg-logo="" group-title="News", Zee Uttar Pradesh-Uttarakhand (720p)
 https://duw35ict5q7th.cloudfront.net/index_3.m3u8
 
 # --- Zee News ---
-#EXTINF:-1 tvg-id="ZeeNews" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee News
+#EXTINF:-1 tvg-id="ZeeNews" tvg-logo="" group-title="News", Zee News
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeenews/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/8744f9fb-d696-4204-9795-5215ad930c39/main.m3u8
 
 # --- Zee UP UK ---
-#EXTINF:-1 tvg-id="ZeeUPUK" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee UP UK
+#EXTINF:-1 tvg-id="ZeeUPUK" tvg-logo="" group-title="News", Zee UP UK
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeeupuk/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a8c57b70-538f-49ae-af12-2fc2acaa4ff1/main.m3u8
 
 # --- Zee Business ---
-#EXTINF:-1 tvg-id="ZeeBusiness" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee Business
+#EXTINF:-1 tvg-id="ZeeBusiness" tvg-logo="" group-title="News", Zee Business
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee_business/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/af1b3fa3-f56d-4741-9c63-78409a798988/main.m3u8
 
 # --- Zee News Telugu ---
-#EXTINF:-1 tvg-id="ZeeNewsTelugu" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee News Telugu
+#EXTINF:-1 tvg-id="ZeeNewsTelugu" tvg-logo="" group-title="News", Zee News Telugu
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeetelugunews/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/17fe98f0-d496-4c26-beeb-96b466d01162/main.m3u8
 
 # --- Zee 24 Kalak ---
-#EXTINF:-1 tvg-id="Zee24Kalak" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Zee 24 Kalak
+#EXTINF:-1 tvg-id="Zee24Kalak" tvg-logo="" group-title="News", Zee 24 Kalak
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zee24kalak/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/497f7199-758d-495d-9d2f-a5489231c428/main.m3u8
 
 # --- Zee Salaam ---
-#EXTINF:-1 tvg-id="ZeeSalaam" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Zee Salaam
+#EXTINF:-1 tvg-id="ZeeSalaam" tvg-logo="" group-title="Others & Local Cable", Zee Salaam
 https://vg-zeefta.akamaized.net/ptnr-yupptv/title-zeesalaam/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/426c6db7-595e-4aa8-859c-7e86ed2811d0/main.m3u8
 
 # --- Cine Sony (720p) ---
-#EXTINF:-1 tvg-id="CineSony720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Cine Sony (720p)
+#EXTINF:-1 tvg-id="CineSony720p" tvg-logo="" group-title="Others & Local Cable", Cine Sony (720p)
 https://a-cdn.klowdtv.com/live1/cine_720p/playlist.m3u8
 
 # --- Bollywood 4U (1080p) ---
-#EXTINF:-1 tvg-id="Bollywood4U1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Bollywood 4U (1080p)
+#EXTINF:-1 tvg-id="Bollywood4U1080p" tvg-logo="" group-title="Others & Local Cable", Bollywood 4U (1080p)
 https://streams2.sofast.tv/umaxx/v1/0196d96223231ea506ec2e7986613e/0196d96312d71ebd416a37ff7b3317/playlist.m3u8
 
 # --- Bollywood HD Russia (576p) ---
-#EXTINF:-1 tvg-id="BollywoodHDRussia576p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Bollywood HD Russia (576p)
+#EXTINF:-1 tvg-id="BollywoodHDRussia576p" tvg-logo="" group-title="Others & Local Cable", Bollywood HD Russia (576p)
 https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8
 
 # --- Bollywood Masala (1080p) ---
-#EXTINF:-1 tvg-id="BollywoodMasala1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Bollywood Masala (1080p)
+#EXTINF:-1 tvg-id="BollywoodMasala1080p" tvg-logo="" group-title="Others & Local Cable", Bollywood Masala (1080p)
 https://streams2.sofast.tv/vglive-sk-373192/index.m3u8
 
 # --- Hindi Khabar ---
-#EXTINF:-1 tvg-id="HindiKhabar" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Hindi Khabar
+#EXTINF:-1 tvg-id="HindiKhabar" tvg-logo="" group-title="News", Hindi Khabar
 https://d1msejlow1t3l4.cloudfront.net/fta/hindikhabar/playlist.m3u8
 
 # --- Bollywood 4U ---
-#EXTINF:-1 tvg-id="Bollywood4U" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Bollywood 4U
+#EXTINF:-1 tvg-id="Bollywood4U" tvg-logo="" group-title="Others & Local Cable", Bollywood 4U
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/22d13e33-8705-40e8-9809-4e80aa795f15/manifest.m3u8
 
 # --- Hosanna TV Hindi ---
-#EXTINF:-1 tvg-id="HosannaTVHindi" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Hosanna TV Hindi
+#EXTINF:-1 tvg-id="HosannaTVHindi" tvg-logo="" group-title="Others & Local Cable", Hosanna TV Hindi
 https://ktismaservers.in:3466/live/hosannattvhindhilive.m3u8
 
 # --- 8NTV (1080p) ---
-#EXTINF:-1 tvg-id="8NTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", 8NTV (1080p)
+#EXTINF:-1 tvg-id="8NTV1080p" tvg-logo="" group-title="News", 8NTV (1080p)
 https://60417ddeaf0d9.streamlock.net/ntv/videontv/playlist.m3u8
 
 # --- Aamar Bangla (720p) ---
-#EXTINF:-1 tvg-id="AamarBangla720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Aamar Bangla (720p)
+#EXTINF:-1 tvg-id="AamarBangla720p" tvg-logo="" group-title="Others & Local Cable", Aamar Bangla (720p)
 https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/amarbanglatv.stream/playlist.m3u8
 
 # --- ATN News (1080p) ---
-#EXTINF:-1 tvg-id="ATNNews1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", ATN News (1080p)
+#EXTINF:-1 tvg-id="ATNNews1080p" tvg-logo="" group-title="News", ATN News (1080p)
 https://bozztv.com/rongo/rongo-ATNNews/index.m3u8
 
 # --- CGNTV Chinese (1080p) ---
-#EXTINF:-1 tvg-id="CGNTVChinese1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", CGNTV Chinese (1080p)
+#EXTINF:-1 tvg-id="CGNTVChinese1080p" tvg-logo="" group-title="Others & Local Cable", CGNTV Chinese (1080p)
 https://d3e05csss9c272.cloudfront.net/out/v1/f0bf71c57581470fb9379f603e8f5d83/CGNWebLiveCN.m3u8
 
 # --- CGNTV Japan (1080p) ---
-#EXTINF:-1 tvg-id="CGNTVJapan1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", CGNTV Japan (1080p)
+#EXTINF:-1 tvg-id="CGNTVJapan1080p" tvg-logo="" group-title="Others & Local Cable", CGNTV Japan (1080p)
 https://d2p4mrcwl6ly4.cloudfront.net/out/v1/8d50f69fdbbf411a8d302743e4263716/CGNWebLiveJP.m3u8
 
 # --- EmanTv (1080p) ---
-#EXTINF:-1 tvg-id="EmanTv1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", EmanTv (1080p)
+#EXTINF:-1 tvg-id="EmanTv1080p" tvg-logo="" group-title="Others & Local Cable", EmanTv (1080p)
 https://avr.host247.net/live/emantv/playlist.m3u8
 
 # --- Enterr 10 Bangla (720p) [Not 24/7] ---
-#EXTINF:-1 tvg-id="Enterr10Bangla720pNot247" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Enterr 10 Bangla (720p) [Not 24/7]
+#EXTINF:-1 tvg-id="Enterr10Bangla720pNot247" tvg-logo="" group-title="Others & Local Cable", Enterr 10 Bangla (720p) [Not 24/7]
 https://live-bangla.akamaized.net/liveabr/playlist.m3u8
 
 # --- FashionTV Paris L'Original (1080p) ---
-#EXTINF:-1 tvg-id="FashionTVParisLOriginal1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", FashionTV Paris L'Original (1080p)
+#EXTINF:-1 tvg-id="FashionTVParisLOriginal1080p" tvg-logo="" group-title="Others & Local Cable", FashionTV Paris L'Original (1080p)
 https://edge-fast3.evrideo.tv/bfdbb576-83f7-11f0-9f89-0200170e3e04_1000028043_HLS/manifest.m3u8
 
 # --- Khushboo Bangla (720p) ---
-#EXTINF:-1 tvg-id="KhushbooBangla720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Khushboo Bangla (720p)
+#EXTINF:-1 tvg-id="KhushbooBangla720p" tvg-logo="" group-title="Others & Local Cable", Khushboo Bangla (720p)
 https://cdn-4.pishow.tv/live/1473/master.m3u8
 
 # --- KTV Bangla (720p) ---
-#EXTINF:-1 tvg-id="KTVBangla720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", KTV Bangla (720p)
+#EXTINF:-1 tvg-id="KTVBangla720p" tvg-logo="" group-title="Others & Local Cable", KTV Bangla (720p)
 https://server.livelegitpro.in:9899/tribetv/tribetv/index.m3u8
 
 # --- MNTV (1080p) ---
-#EXTINF:-1 tvg-id="MNTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", MNTV (1080p)
+#EXTINF:-1 tvg-id="MNTV1080p" tvg-logo="" group-title="News", MNTV (1080p)
 https://mntv.livebox.co.in/mntvhls/live.m3u8
 
 # --- News18 Bangla (1080p) ---
-#EXTINF:-1 tvg-id="News18Bangla1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", News18 Bangla (1080p)
+#EXTINF:-1 tvg-id="News18Bangla1080p" tvg-logo="" group-title="News", News18 Bangla (1080p)
 https://n18syndication.akamaized.net/bpk-tv/News18_Bangla_NW18_MOB/output01/master.m3u8
 
 # --- ntv (720p) ---
-#EXTINF:-1 tvg-id="ntv720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", ntv (720p)
+#EXTINF:-1 tvg-id="ntv720p" tvg-logo="" group-title="News", ntv (720p)
 https://protokolldns.xyz/ntv.l.i.v.e5547892023/index.m3u8
 
 # --- NTV (1080p) ---
-#EXTINF:-1 tvg-id="NTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NTV (1080p)
+#EXTINF:-1 tvg-id="NTV1080p" tvg-logo="" group-title="News", NTV (1080p)
 https://cdn4.skygo.mn/live/disk1/NTVHD/DASH-FTA/NTVHD.mpd
 
 # --- NTV Afrique (1080p) [Not 24/7] ---
-#EXTINF:-1 tvg-id="NTVAfrique1080pNot247" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NTV Afrique (1080p) [Not 24/7]
+#EXTINF:-1 tvg-id="NTVAfrique1080pNot247" tvg-logo="" group-title="News", NTV Afrique (1080p) [Not 24/7]
 https://strhlslb01.streamakaci.tv/str_ntv_ntv/str_ntv_ntv_multi/playlist.m3u8
 
 # --- NTV IC Kakanj (720p) ---
-#EXTINF:-1 tvg-id="NTVICKakanj720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NTV IC Kakanj (720p)
+#EXTINF:-1 tvg-id="NTVICKakanj720p" tvg-logo="" group-title="News", NTV IC Kakanj (720p)
 https://lon.rtsp.me/dEqnY-myGj84bKrieCIPfA/1743271667/hls/3dH3YAD6.m3u8
 
 # --- NTV Telugu (1080p) ---
-#EXTINF:-1 tvg-id="NTVTelugu1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NTV Telugu (1080p)
+#EXTINF:-1 tvg-id="NTVTelugu1080p" tvg-logo="" group-title="News", NTV Telugu (1080p)
 https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8
 
 # --- ONTV (1080p) ---
-#EXTINF:-1 tvg-id="ONTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ONTV (1080p)
+#EXTINF:-1 tvg-id="ONTV1080p" tvg-logo="" group-title="Others & Local Cable", ONTV (1080p)
 https://cdn4.skygo.mn/live/disk1/ONTV/DASH-FTA/ONTV.mpd
 
 # --- Orange Bangla TV (720p) ---
-#EXTINF:-1 tvg-id="OrangeBanglaTV720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Orange Bangla TV (720p)
+#EXTINF:-1 tvg-id="OrangeBanglaTV720p" tvg-logo="" group-title="Others & Local Cable", Orange Bangla TV (720p)
 https://cdn-4.pishow.tv/live/1499/master.m3u8
 
 # --- Peace TV Bangla (1080p) ---
-#EXTINF:-1 tvg-id="PeaceTVBangla1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Peace TV Bangla (1080p)
+#EXTINF:-1 tvg-id="PeaceTVBangla1080p" tvg-logo="" group-title="Others & Local Cable", Peace TV Bangla (1080p)
 https://dzkyvlfyge.erbvr.com/PeaceTvBangla/index.m3u8
 
 # --- Republic Bangla (1080p) ---
-#EXTINF:-1 tvg-id="RepublicBangla1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Republic Bangla (1080p)
+#EXTINF:-1 tvg-id="RepublicBangla1080p" tvg-logo="" group-title="News", Republic Bangla (1080p)
 https://vg-republictvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-456368/main.m3u8
 
 # --- Rupashi Bangla TV (720p) ---
-#EXTINF:-1 tvg-id="RupashiBanglaTV720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Rupashi Bangla TV (720p)
+#EXTINF:-1 tvg-id="RupashiBanglaTV720p" tvg-logo="" group-title="Others & Local Cable", Rupashi Bangla TV (720p)
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8
 
 # --- Sangeet Bangla (720p) ---
-#EXTINF:-1 tvg-id="SangeetBangla720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Music", Sangeet Bangla (720p)
+#EXTINF:-1 tvg-id="SangeetBangla720p" tvg-logo="" group-title="Music", Sangeet Bangla (720p)
 https://cdn-4.pishow.tv/live/1143/master.m3u8
 
 # --- TV9 Bangla (720p) ---
-#EXTINF:-1 tvg-id="TV9Bangla720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", TV9 Bangla (720p)
+#EXTINF:-1 tvg-id="TV9Bangla720p" tvg-logo="" group-title="News", TV9 Bangla (720p)
 https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8
 
 # --- ACI Sport TV (1080p) ---
-#EXTINF:-1 tvg-id="ACISportTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", ACI Sport TV (1080p)
+#EXTINF:-1 tvg-id="ACISportTV1080p" tvg-logo="" group-title="Sports", ACI Sport TV (1080p)
 https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8
 
 # --- Al Iraqia Sport (720p) ---
-#EXTINF:-1 tvg-id="AlIraqiaSport720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Al Iraqia Sport (720p)
+#EXTINF:-1 tvg-id="AlIraqiaSport720p" tvg-logo="" group-title="Sports", Al Iraqia Sport (720p)
 https://imn-live.esite-lab.com/hls/iraqia-sports-1.m3u8
 
 # --- AS3 Sport TV (1080p) ---
-#EXTINF:-1 tvg-id="AS3SportTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", AS3 Sport TV (1080p)
+#EXTINF:-1 tvg-id="AS3SportTV1080p" tvg-logo="" group-title="Sports", AS3 Sport TV (1080p)
 https://streamtv.as3sport.online:3394/hybrid/play.m3u8
 
 # --- Bahrain Sports 1 (720p) [Not 24/7] ---
-#EXTINF:-1 tvg-id="BahrainSports1720pNot247" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Bahrain Sports 1 (720p) [Not 24/7]
+#EXTINF:-1 tvg-id="BahrainSports1720pNot247" tvg-logo="" group-title="Sports", Bahrain Sports 1 (720p) [Not 24/7]
 https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/playlist.m3u8
 
 # --- Bahrain Sports 2 (720p) [Not 24/7] ---
-#EXTINF:-1 tvg-id="BahrainSports2720pNot247" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Bahrain Sports 2 (720p) [Not 24/7]
+#EXTINF:-1 tvg-id="BahrainSports2720pNot247" tvg-logo="" group-title="Sports", Bahrain Sports 2 (720p) [Not 24/7]
 https://5c7b683162943.streamlock.net/live/ngrp:bahrainsportstwo_all/playlist.m3u8
 
 # --- BEK TV Sports West (720p) ---
-#EXTINF:-1 tvg-id="BEKTVSportsWest720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", BEK TV Sports West (720p)
+#EXTINF:-1 tvg-id="BEKTVSportsWest720p" tvg-logo="" group-title="Sports", BEK TV Sports West (720p)
 https://cdn3.wowza.com/5/ZWQ1K2NYTmpFbGsr/BEK-WOWZA-1/smil:BEKPRIMEW.smil/playlist.m3u8
 
 # --- DD Sports SD (1080p) ---
-#EXTINF:-1 tvg-id="DDSportsSD1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", DD Sports SD (1080p)
+#EXTINF:-1 tvg-id="DDSportsSD1080p" tvg-logo="" group-title="Sports", DD Sports SD (1080p)
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
 
 # --- EchoSports (720p) ---
-#EXTINF:-1 tvg-id="EchoSports720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", EchoSports (720p)
+#EXTINF:-1 tvg-id="EchoSports720p" tvg-logo="" group-title="Sports", EchoSports (720p)
 https://a-cdn.klowdtv.com/live2/echosports_720p/playlist.m3u8
 
 # --- Esport3 (1080p) [Not 24/7] ---
-#EXTINF:-1 tvg-id="Esport31080pNot247" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Esport3 (1080p) [Not 24/7]
+#EXTINF:-1 tvg-id="Esport31080pNot247" tvg-logo="" group-title="Sports", Esport3 (1080p) [Not 24/7]
 https://directes-tv-int.3catdirectes.cat/live-content/esport3-hls/master.m3u8
 
 # --- FTF Sports (720p) ---
-#EXTINF:-1 tvg-id="FTFSports720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", FTF Sports (720p)
+#EXTINF:-1 tvg-id="FTFSports720p" tvg-logo="" group-title="Sports", FTF Sports (720p)
 https://1657061170.rsc.cdn77.org/HLS/FTF-LINEAR.m3u8
 
 # --- KTV Sport (1080p) ---
-#EXTINF:-1 tvg-id="KTVSport1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", KTV Sport (1080p)
+#EXTINF:-1 tvg-id="KTVSport1080p" tvg-logo="" group-title="Sports", KTV Sport (1080p)
 https://kwtspta.cdn.mangomolo.com/sp/smil:sp.stream.smil/chunklist.m3u8
 
 # --- KTV Sport Plus (1080p) ---
-#EXTINF:-1 tvg-id="KTVSportPlus1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", KTV Sport Plus (1080p)
+#EXTINF:-1 tvg-id="KTVSportPlus1080p" tvg-logo="" group-title="Sports", KTV Sport Plus (1080p)
 https://kwtsplta.cdn.mangomolo.com/spl/smil:spl.stream.smil/chunklist.m3u8
 
 # --- Midpen Media Center Youth Education and Sports Channel 28 (720p) ---
-#EXTINF:-1 tvg-id="MidpenMediaCenterYouthEducationandSportsChannel28720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Midpen Media Center Youth Education and Sports Channel 28 (720p)
+#EXTINF:-1 tvg-id="MidpenMediaCenterYouthEducationandSportsChannel28720p" tvg-logo="" group-title="Sports", Midpen Media Center Youth Education and Sports Channel 28 (720p)
 https://5c2974786200d.streamlock.net/live-chan28/ngrp:ch28_all/playlist.m3u8
 
 # --- MNB Sport (1080p) ---
-#EXTINF:-1 tvg-id="MNBSport1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", MNB Sport (1080p)
+#EXTINF:-1 tvg-id="MNBSport1080p" tvg-logo="" group-title="Sports", MNB Sport (1080p)
 https://live.mnb.mn/hls/mnb_sport.stream.m3u8
 
 # --- More Than Sports TV (1080p) ---
-#EXTINF:-1 tvg-id="MoreThanSportsTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", More Than Sports TV (1080p)
+#EXTINF:-1 tvg-id="MoreThanSportsTV1080p" tvg-logo="" group-title="Sports", More Than Sports TV (1080p)
 https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8
 
 # --- MSG SportsZone (720p) ---
-#EXTINF:-1 tvg-id="MSGSportsZone720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", MSG SportsZone (720p)
+#EXTINF:-1 tvg-id="MSGSportsZone720p" tvg-logo="" group-title="Sports", MSG SportsZone (720p)
 https://d2a31kzot4f8t3.cloudfront.net/v1/amc_msgsportszone_1/samsungheadend_us/latest/main/hls/playlist.m3u8
 
 # --- Oman Sports TV (1080p) [Not 24/7] ---
-#EXTINF:-1 tvg-id="OmanSportsTV1080pNot247" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Oman Sports TV (1080p) [Not 24/7]
+#EXTINF:-1 tvg-id="OmanSportsTV1080pNot247" tvg-logo="" group-title="Sports", Oman Sports TV (1080p) [Not 24/7]
 https://partneta.cdn.mgmlcdn.com/omsport/smil:omsport.stream.smil/chunklist.m3u8
 
 # --- PK Sports (720p) ---
-#EXTINF:-1 tvg-id="PKSports720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", PK Sports (720p)
+#EXTINF:-1 tvg-id="PKSports720p" tvg-logo="" group-title="Sports", PK Sports (720p)
 https://lbgo.bozztv.com/ssh101/ssh101/pksportshd/playlist.m3u8
 
 # --- Roku Sports Channel (1080p) ---
-#EXTINF:-1 tvg-id="RokuSportsChannel1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Roku Sports Channel (1080p)
+#EXTINF:-1 tvg-id="RokuSportsChannel1080p" tvg-logo="" group-title="Sports", Roku Sports Channel (1080p)
 https://d3ialx0k0mla2a.cloudfront.net/Roku_Sports_Channel.m3u8
 
 # --- San Marino RTV Sport (720p) ---
-#EXTINF:-1 tvg-id="SanMarinoRTVSport720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", San Marino RTV Sport (720p)
+#EXTINF:-1 tvg-id="SanMarinoRTVSport720p" tvg-logo="" group-title="Sports", San Marino RTV Sport (720p)
 https://d2hrvno5bw6tg2.cloudfront.net/smrtv-ch02/smil:ch-02.smil/master.m3u8
 
 # --- Shooting Sports Life (1080p) ---
-#EXTINF:-1 tvg-id="ShootingSportsLife1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Shooting Sports Life (1080p)
+#EXTINF:-1 tvg-id="ShootingSportsLife1080p" tvg-logo="" group-title="Sports", Shooting Sports Life (1080p)
 https://linear-1312.frequency.stream/dist/stirr/1312/hls/master/playlist.m3u8
 
 # --- Shooting Sports Life (720p) ---
-#EXTINF:-1 tvg-id="ShootingSportsLife720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Shooting Sports Life (720p)
+#EXTINF:-1 tvg-id="ShootingSportsLife720p" tvg-logo="" group-title="Sports", Shooting Sports Life (720p)
 https://a-cdn.klowdtv.com/live2/ssl_720p/playlist.m3u8
 
 # --- Speed Sport 1 (1080p) ---
-#EXTINF:-1 tvg-id="SpeedSport11080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Speed Sport 1 (1080p)
+#EXTINF:-1 tvg-id="SpeedSport11080p" tvg-logo="" group-title="Sports", Speed Sport 1 (1080p)
 https://linear-599.frequency.stream/dist/stirr/599/hls/master/playlist.m3u8
 
 # --- Sport Fishing TV (1080p) ---
-#EXTINF:-1 tvg-id="SportFishingTV1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Sport Fishing TV (1080p)
+#EXTINF:-1 tvg-id="SportFishingTV1080p" tvg-logo="" group-title="Sports", Sport Fishing TV (1080p)
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/eea68b79-bfe2-451e-a227-d637a5b9548a/manifest.m3u8
 
 # --- Sportitalia (1080p) ---
-#EXTINF:-1 tvg-id="Sportitalia1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Sportitalia (1080p)
+#EXTINF:-1 tvg-id="Sportitalia1080p" tvg-logo="" group-title="Sports", Sportitalia (1080p)
 https://edge-001.streamup.eu/sportitalia/sihd_abr/playlist.m3u8
 
 # --- Sportivnyy (1080p) ---
-#EXTINF:-1 tvg-id="Sportivnyy1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Sportivnyy (1080p)
+#EXTINF:-1 tvg-id="Sportivnyy1080p" tvg-logo="" group-title="Sports", Sportivnyy (1080p)
 https://live-3.otcnet.ru/sportivny/index.m3u8
 
 # --- Trace Sport Stars (1080p) ---
-#EXTINF:-1 tvg-id="TraceSportStars1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Trace Sport Stars (1080p)
+#EXTINF:-1 tvg-id="TraceSportStars1080p" tvg-logo="" group-title="Sports", Trace Sport Stars (1080p)
 https://channels.trace.plus/Traceprod/TRACE_SPORT_STARS_hd/index.m3u8
 
 # --- Trace Sport Stars Russia (720p) ---
-#EXTINF:-1 tvg-id="TraceSportStarsRussia720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Trace Sport Stars Russia (720p)
+#EXTINF:-1 tvg-id="TraceSportStarsRussia720p" tvg-logo="" group-title="Sports", Trace Sport Stars Russia (720p)
 https://stream8.cinerama.uz/1274/tracks-v1a1/mono.m3u8
 
 # --- TyC Sports (1080p) ---
-#EXTINF:-1 tvg-id="TyCSports1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", TyC Sports (1080p)
+#EXTINF:-1 tvg-id="TyCSports1080p" tvg-logo="" group-title="Sports", TyC Sports (1080p)
 https://amg26268-amg26268c14-freelivesports-emea-10267.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg26268-sportsstudio-tycsports-freelivesportsemea/playlist.m3u8
 
 # --- Willow Sports (1080p) ---
-#EXTINF:-1 tvg-id="WillowSports1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Willow Sports (1080p)
+#EXTINF:-1 tvg-id="WillowSports1080p" tvg-logo="" group-title="Sports", Willow Sports (1080p)
 https://d36r8jifhgsk5j.cloudfront.net/Willow_TV1080p.m3u8
 
 # --- Women's Sports Network (1080p) ---
-#EXTINF:-1 tvg-id="WomensSportsNetwork1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Women's Sports Network (1080p)
+#EXTINF:-1 tvg-id="WomensSportsNetwork1080p" tvg-logo="" group-title="Sports", Women's Sports Network (1080p)
 https://d39accvx65hq9o.cloudfront.net/Womens_Sports_Network.m3u8
 
 # --- Xtrem Sports (1080p) ---
-#EXTINF:-1 tvg-id="XtremSports1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Xtrem Sports (1080p)
+#EXTINF:-1 tvg-id="XtremSports1080p" tvg-logo="" group-title="Sports", Xtrem Sports (1080p)
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e0b81a5c-6ab5-48cd-aaa9-f82de4ab5bf9/manifest.m3u8
 
 # --- Yahoo! Sports Network (1080p) ---
-#EXTINF:-1 tvg-id="YahooSportsNetwork1080p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Yahoo! Sports Network (1080p)
+#EXTINF:-1 tvg-id="YahooSportsNetwork1080p" tvg-logo="" group-title="Sports", Yahoo! Sports Network (1080p)
 https://d7vulbd7rxo7j.cloudfront.net/Yahoo_Sports_Network.m3u8
 
 # --- Астрахань.Ru Sport (720p) ---
-#EXTINF:-1 tvg-id="АстраханьRuSport720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Астрахань.Ru Sport (720p)
+#EXTINF:-1 tvg-id="АстраханьRuSport720p" tvg-logo="" group-title="Sports", Астрахань.Ru Sport (720p)
 https://streaming.astrakhan.ru/astrakhanrusporthd/playlist.m3u8
 
 # --- Adventure Sports TV ---
-#EXTINF:-1 tvg-id="AdventureSportsTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Adventure Sports TV
+#EXTINF:-1 tvg-id="AdventureSportsTV" tvg-logo="" group-title="Sports", Adventure Sports TV
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/dbac0562-cc83-4443-a546-44c04912102a/manifest.m3u8
 
 # --- Swerve Sports (720p) ---
-#EXTINF:-1 tvg-id="SwerveSports720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Swerve Sports (720p)
+#EXTINF:-1 tvg-id="SwerveSports720p" tvg-logo="" group-title="Sports", Swerve Sports (720p)
 https://a-cdn.klowdtv.com/live3/swervewomenssports_720p/playlist.m3u8
 
 # --- TOFFEE 1 ---
-#EXTINF:-1 tvg-id="TOFFEE1" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", TOFFEE 1
+#EXTINF:-1 tvg-id="TOFFEE1" tvg-logo="" group-title="Others & Local Cable", TOFFEE 1
 https://cdn-spotixa.pages.dev/ch1.m3u8
 
 # --- TOFFEE 2 ---
-#EXTINF:-1 tvg-id="TOFFEE2" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", TOFFEE 2
+#EXTINF:-1 tvg-id="TOFFEE2" tvg-logo="" group-title="Others & Local Cable", TOFFEE 2
 https://cdn-spotixa.pages.dev/ch2.m3u8
 
 # --- TOFFEE 3 ---
-#EXTINF:-1 tvg-id="TOFFEE3" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", TOFFEE 3
+#EXTINF:-1 tvg-id="TOFFEE3" tvg-logo="" group-title="Others & Local Cable", TOFFEE 3
 https://cdn-spotixa.pages.dev/ch3.m3u8
 
 # --- ISCREEN BD - AQ ---
-#EXTINF:-1 tvg-id="ISCREENBDAQ" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", ISCREEN BD - AQ
+#EXTINF:-1 tvg-id="ISCREENBDAQ" tvg-logo="" group-title="Others & Local Cable", ISCREEN BD - AQ
 https://m3u-tvb.pages.dev/ics.m3u8
 
 # --- Jagonews 24 ---
-#EXTINF:-1 tvg-id="Jagonews24" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Jagonews 24
+#EXTINF:-1 tvg-id="Jagonews24" tvg-logo="" group-title="News", Jagonews 24
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/jagonews24.stream/playlist.m3u8
 
 # --- Ayna TV ---
-#EXTINF:-1 tvg-id="AynaTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Ayna TV
+#EXTINF:-1 tvg-id="AynaTV" tvg-logo="" group-title="Others & Local Cable", Ayna TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ayna.stream/index.m3u8
 
 # --- Sony TV ---
-#EXTINF:-1 tvg-id="SonyTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Sony TV
+#EXTINF:-1 tvg-id="SonyTV" tvg-logo="" group-title="Others & Local Cable", Sony TV
 https://stream.ottplus.live/live/sony_ent_sd_abr/index.m3u8
 
 # --- Sony HD ---
-#EXTINF:-1 tvg-id="SonyHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Sony HD
+#EXTINF:-1 tvg-id="SonyHD" tvg-logo="" group-title="Others & Local Cable", Sony HD
 https://stream.ottplus.live/live/sony_ent_hd_abr/index.m3u8
 
 # --- Super Hungama ---
-#EXTINF:-1 tvg-id="SuperHungama" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Cartoon & Kids", Super Hungama
+#EXTINF:-1 tvg-id="SuperHungama" tvg-logo="" group-title="Cartoon & Kids", Super Hungama
 https://stream.ottplus.live/live/sony_yay_abr/index.m3u8
 
 # --- Discovery ---
-#EXTINF:-1 tvg-id="Discovery" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", Discovery
+#EXTINF:-1 tvg-id="Discovery" tvg-logo="" group-title="Education & Baby", Discovery
 https://stream.ottplus.bd/live/discovery_sd_abr/index.m3u8
 
 # --- Investigation Discovery ---
-#EXTINF:-1 tvg-id="InvestigationDiscovery" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", Investigation Discovery
+#EXTINF:-1 tvg-id="InvestigationDiscovery" tvg-logo="" group-title="Education & Baby", Investigation Discovery
 https://stream.ottplus.live/live/id_hd_abr/index.m3u8
 
 # --- Sony BBC Earth HD ---
-#EXTINF:-1 tvg-id="SonyBBCEarthHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", Sony BBC Earth HD
+#EXTINF:-1 tvg-id="SonyBBCEarthHD" tvg-logo="" group-title="Education & Baby", Sony BBC Earth HD
 https://stream.ottplus.live/live/bbc_earth_hd_abr/index.m3u8
 
 # --- B4U KADAK ---
-#EXTINF:-1 tvg-id="B4UKADAK" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", B4U KADAK
+#EXTINF:-1 tvg-id="B4UKADAK" tvg-logo="" group-title="Others & Local Cable", B4U KADAK
 https://cdn-2.pishow.tv/live/227/master.m3u8
 
 # --- Channel 1 News HD ---
-#EXTINF:-1 tvg-id="Channel1NewsHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Channel 1 News HD
+#EXTINF:-1 tvg-id="Channel1NewsHD" tvg-logo="" group-title="News", Channel 1 News HD
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channel1bd.stream/tracks-v1a1/mono.m3u8
 
 # --- Discovery_Asia HD ---
-#EXTINF:-1 tvg-id="Discovery_AsiaHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", Discovery_Asia HD
+#EXTINF:-1 tvg-id="Discovery_AsiaHD" tvg-logo="" group-title="Education & Baby", Discovery_Asia HD
 https://cdn4.skygo.mn/live/disk1/Discovery_Asia/HLSv3-FTA/Discovery_Asia-avc1_3000000=67-mp4a_256000_eng=12.m3u8
 
 # --- Live Quran TV ---
-#EXTINF:-1 tvg-id="LiveQuranTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Live Quran TV
+#EXTINF:-1 tvg-id="LiveQuranTV" tvg-logo="" group-title="Others & Local Cable", Live Quran TV
 https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8
 
 # --- Fancode 1 Live ---
-#EXTINF:-1 tvg-id="Fancode1Live" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Fancode 1 Live
+#EXTINF:-1 tvg-id="Fancode1Live" tvg-logo="" group-title="Sports", Fancode 1 Live
 https://otte.live.fly.ww.aiv-cdn.net/sin-nitro/live/clients/dash-sd/enc/v8g0dlo4z8/out/v1/946019f85dc64ae99ff9ce64a9727a62/cenc-sd.mpd
 
 # --- DAZN FAST ---
-#EXTINF:-1 tvg-id="DAZNFAST" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", DAZN FAST
+#EXTINF:-1 tvg-id="DAZNFAST" tvg-logo="" group-title="Sports", DAZN FAST
 https://ac-003.live.p7s1video.net/63f8995e/t_003/dazn-fast-hd/cenc-default.mpd
 
 # --- DD SPORTS ---
-#EXTINF:-1 tvg-id="DDSPORTS" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", DD SPORTS
+#EXTINF:-1 tvg-id="DDSPORTS" tvg-logo="" group-title="Sports", DD SPORTS
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index_3.m3u8
 
 # --- Redbull TV ---
-#EXTINF:-1 tvg-id="RedbullTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Redbull TV
+#EXTINF:-1 tvg-id="RedbullTV" tvg-logo="" group-title="Sports", Redbull TV
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_3360.m3u8
 
 # --- Motor Vision ---
-#EXTINF:-1 tvg-id="MotorVision" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Motor Vision
+#EXTINF:-1 tvg-id="MotorVision" tvg-logo="" group-title="Sports", Motor Vision
 https://mvg-mv-xumo.otteravision.com/mvg/mv/mv.m3u8
 
 # --- Real Madrid tv Football ---
-#EXTINF:-1 tvg-id="RealMadridtvFootball" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Sports", Real Madrid tv Football
+#EXTINF:-1 tvg-id="RealMadridtvFootball" tvg-logo="" group-title="Sports", Real Madrid tv Football
 https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8
 
 # --- Movies Now HD ---
-#EXTINF:-1 tvg-id="MoviesNowHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Movies Now HD
+#EXTINF:-1 tvg-id="MoviesNowHD" tvg-logo="" group-title="Others & Local Cable", Movies Now HD
 https://times-ott-live.akamaized.net/moviesnow_wv_drm/index.mpd
 
 # --- MN+ ---
-#EXTINF:-1 tvg-id="MN" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", MN+
+#EXTINF:-1 tvg-id="MN" tvg-logo="" group-title="Others & Local Cable", MN+
 https://times-ott-live.akamaized.net/mnplus_wv_drm/index.mpd
 
 # --- Romedy Now ---
-#EXTINF:-1 tvg-id="RomedyNow" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Romedy Now
+#EXTINF:-1 tvg-id="RomedyNow" tvg-logo="" group-title="Others & Local Cable", Romedy Now
 https://times-ott-live.akamaized.net/romedynow_wv_drm/index.mpd
 
 # --- TNT4 International ---
-#EXTINF:-1 tvg-id="TNT4International" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", TNT4 International
+#EXTINF:-1 tvg-id="TNT4International" tvg-logo="" group-title="Others & Local Cable", TNT4 International
 https://cdn4.skygo.mn/live/disk1/TNT4/HLSv3-FTA/TNT4.m3u8
 
 # --- TNT International ---
-#EXTINF:-1 tvg-id="TNTInternational" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", TNT International
+#EXTINF:-1 tvg-id="TNTInternational" tvg-logo="" group-title="Others & Local Cable", TNT International
 https://cdn4.skygo.mn/live/disk1/THT/HLSv3-FTA/THT.m3u8
 
 # --- Akash DTH 1 ---
-#EXTINF:-1 tvg-id="AkashDTH1" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Akash DTH 1
+#EXTINF:-1 tvg-id="AkashDTH1" tvg-logo="" group-title="Others & Local Cable", Akash DTH 1
 https://owrcovcrpy.gpcdn.net/bpk-tv/1730/output/master.m3u8
 
 # --- Akash DTH 2 ---
-#EXTINF:-1 tvg-id="AkashDTH2" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Akash DTH 2
+#EXTINF:-1 tvg-id="AkashDTH2" tvg-logo="" group-title="Others & Local Cable", Akash DTH 2
 https://owrcovcrpy.gpcdn.net/bpk-tv/1731/output/master.m3u8
 
 # --- Jumuna TV ---
-#EXTINF:-1 tvg-id="JumunaTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Jumuna TV
+#EXTINF:-1 tvg-id="JumunaTV" tvg-logo="" group-title="News", Jumuna TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/1701-audio_113312_eng=113200-video=1692000.m3u8
 
 # --- Ekattor HD 71 ---
-#EXTINF:-1 tvg-id="EkattorHD71" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Ekattor HD 71
+#EXTINF:-1 tvg-id="EkattorHD71" tvg-logo="" group-title="News", Ekattor HD 71
 https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705-audio_113352_eng=113200-video=1692000.m3u8
 
 # --- Bangla Vision TV ---
-#EXTINF:-1 tvg-id="BanglaVisionTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Bangla Vision TV
+#EXTINF:-1 tvg-id="BanglaVisionTV" tvg-logo="" group-title="Others & Local Cable", Bangla Vision TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/1715-audio_113452_eng=113200-video=1692000.m3u8
 
 # --- Dipto TV ---
-#EXTINF:-1 tvg-id="DiptoTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Dipto TV
+#EXTINF:-1 tvg-id="DiptoTV" tvg-logo="" group-title="Others & Local Cable", Dipto TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/1711-audio_113412_eng=113200-video=1692000.m3u8
 
 # --- pcv ---
-#EXTINF:-1 tvg-id="pcv" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", pcv
+#EXTINF:-1 tvg-id="pcv" tvg-logo="" group-title="Others & Local Cable", pcv
 https://padmaonline.duckdns.org:8088/pcv/index.m3u8
 
 # --- 9XM TV ---
-#EXTINF:-1 tvg-id="9XMTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Music", 9XM TV
+#EXTINF:-1 tvg-id="9XMTV" tvg-logo="" group-title="Music", 9XM TV
 https://wiselp.wiseplayout.com/9XM/HD1080/HD1080.m3u8
 
 # --- BBC Cbeebies ---
-#EXTINF:-1 tvg-id="BBCCbeebies" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Cartoon & Kids", BBC Cbeebies
+#EXTINF:-1 tvg-id="BBCCbeebies" tvg-logo="" group-title="Cartoon & Kids", BBC Cbeebies
 https://live20.bozztv.com/giatvplayout7/giatv-209622/index.m3u8
 
 # --- Madina live ---
-#EXTINF:-1 tvg-id="Madinalive" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Madina live
+#EXTINF:-1 tvg-id="Madinalive" tvg-logo="" group-title="Others & Local Cable", Madina live
 https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8
 
 # --- Peace tv Bangla ---
-#EXTINF:-1 tvg-id="PeacetvBangla" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Peace tv Bangla
+#EXTINF:-1 tvg-id="PeacetvBangla" tvg-logo="" group-title="Others & Local Cable", Peace tv Bangla
 https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8
 
 # --- Noor Tv ---
-#EXTINF:-1 tvg-id="NoorTv" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Noor Tv
+#EXTINF:-1 tvg-id="NoorTv" tvg-logo="" group-title="Others & Local Cable", Noor Tv
 https://cdn.bestream.io:19360/elfaro4/elfaro4.m3u8
 
 # --- Peace Tv English ---
-#EXTINF:-1 tvg-id="PeaceTvEnglish" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Peace Tv English
+#EXTINF:-1 tvg-id="PeaceTvEnglish" tvg-logo="" group-title="Others & Local Cable", Peace Tv English
 https://dzkyvlfyge.erbvr.com/PeaceTvEnglish/index.m3u8
 
 # --- BAHRAIN QURAN ---
-#EXTINF:-1 tvg-id="BAHRAINQURAN" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", BAHRAIN QURAN
+#EXTINF:-1 tvg-id="BAHRAINQURAN" tvg-logo="" group-title="Others & Local Cable", BAHRAIN QURAN
 https://5c7b683162943.streamlock.net/live/ngrp:bahrainquran_all/playlist.m3u8
 
 # --- AL QAMAR ---
-#EXTINF:-1 tvg-id="ALQAMAR" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", AL QAMAR
+#EXTINF:-1 tvg-id="ALQAMAR" tvg-logo="" group-title="Others & Local Cable", AL QAMAR
 https://streamer3.premio.link/alqamar/playlist.m3u8
 
 # --- AL EKHBARIA ---
-#EXTINF:-1 tvg-id="ALEKHBARIA" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", AL EKHBARIA
+#EXTINF:-1 tvg-id="ALEKHBARIA" tvg-logo="" group-title="News", AL EKHBARIA
 https://al-ekhbaria-prod-dub.shahid.net/out/v1/d443f3203b444032896e3233cb6eaa84/index.m3u8
 
 # --- QURAN KAREEM TV ---
-#EXTINF:-1 tvg-id="QURANKAREEMTV" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", QURAN KAREEM TV
+#EXTINF:-1 tvg-id="QURANKAREEMTV" tvg-logo="" group-title="Others & Local Cable", QURAN KAREEM TV
 https://al-ekhbaria-prod-dub.shahid.net/out/v1/9885cab0a3ec4008b53bae57a27ca76b/index.m3u8
 
 # --- AL RESALAH ---
-#EXTINF:-1 tvg-id="ALRESALAH" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", AL RESALAH
+#EXTINF:-1 tvg-id="ALRESALAH" tvg-logo="" group-title="Others & Local Cable", AL RESALAH
 https://rotana.hibridcdn.net/rotananet/risala_net-7Y83PP5adWixDF93/playlist.m3u8
 
 # --- AL ISTIQAMA ---
-#EXTINF:-1 tvg-id="ALISTIQAMA" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", AL ISTIQAMA
+#EXTINF:-1 tvg-id="ALISTIQAMA" tvg-logo="" group-title="Others & Local Cable", AL ISTIQAMA
 https://jmc-live.ercdn.net/alistiqama/alistiqama.m3u8
 
 # --- TLC HD ---
-#EXTINF:-1 tvg-id="TLCHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", TLC HD
+#EXTINF:-1 tvg-id="TLCHD" tvg-logo="" group-title="Education & Baby", TLC HD
 https://travelxp-travelxp-1-nz.samsung.wurl.tv/1200.m3u8
 
 # --- TLC ---
-#EXTINF:-1 tvg-id="TLC" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", TLC
+#EXTINF:-1 tvg-id="TLC" tvg-logo="" group-title="Education & Baby", TLC
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Tlc2/default/manifest.mpd
 
 # --- Discovery HD ---
-#EXTINF:-1 tvg-id="DiscoveryHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", Discovery HD
+#EXTINF:-1 tvg-id="DiscoveryHD" tvg-logo="" group-title="Education & Baby", Discovery HD
 https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
 
 # --- Wild Life ---
-#EXTINF:-1 tvg-id="WildLife" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", Wild Life
+#EXTINF:-1 tvg-id="WildLife" tvg-logo="" group-title="Education & Baby", Wild Life
 https://wildearth-plex.amagi.tv/master.m3u8
 
 # --- BBC Earth US ---
-#EXTINF:-1 tvg-id="BBCEarthUS" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", BBC Earth US
+#EXTINF:-1 tvg-id="BBCEarthUS" tvg-logo="" group-title="Education & Baby", BBC Earth US
 https://amg00793-bbcstudios-amg00793c3-lg-us-2528.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
 
 # --- Travel XP English ---
-#EXTINF:-1 tvg-id="TravelXPEnglish" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Travel XP English
+#EXTINF:-1 tvg-id="TravelXPEnglish" tvg-logo="" group-title="Others & Local Cable", Travel XP English
 https://travelxp-travelxp-1-eu.rakuten.wurl.tv/playlist.m3u8
 
 # --- Travel XP English NZ ---
-#EXTINF:-1 tvg-id="TravelXPEnglishNZ" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Travel XP English NZ
+#EXTINF:-1 tvg-id="TravelXPEnglishNZ" tvg-logo="" group-title="Others & Local Cable", Travel XP English NZ
 https://travelxp-travelxp-1-nz.samsung.wurl.tv/playlist.m3u8
 
 # --- Amazon SAT ---
-#EXTINF:-1 tvg-id="AmazonSAT" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Amazon SAT
+#EXTINF:-1 tvg-id="AmazonSAT" tvg-logo="" group-title="Others & Local Cable", Amazon SAT
 https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8
 
 # --- HISTORY HD ---
-#EXTINF:-1 tvg-id="HISTORYHD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", HISTORY HD
+#EXTINF:-1 tvg-id="HISTORYHD" tvg-logo="" group-title="Education & Baby", HISTORY HD
 https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_historyhd.mpd
 
 # --- OUTDOOR CHANNEL ---
-#EXTINF:-1 tvg-id="OUTDOORCHANNEL" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Education & Baby", OUTDOOR CHANNEL
+#EXTINF:-1 tvg-id="OUTDOORCHANNEL" tvg-logo="" group-title="Education & Baby", OUTDOOR CHANNEL
 https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00718-outdoorchannela-outdoortvnz-samsungnz/playlist.m3u8
 
 # --- FASHION ONE ---
-#EXTINF:-1 tvg-id="FASHIONONE" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", FASHION ONE
+#EXTINF:-1 tvg-id="FASHIONONE" tvg-logo="" group-title="Others & Local Cable", FASHION ONE
 https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2ee6997cb_1/playlist.m3u8
 
 # --- Times Of India ---
-#EXTINF:-1 tvg-id="TimesOfIndia" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Times Of India
+#EXTINF:-1 tvg-id="TimesOfIndia" tvg-logo="" group-title="News", Times Of India
 https://live.sli.ke/live/npnhm84gz9/master.m3u8
 
 # --- Wion News ---
-#EXTINF:-1 tvg-id="WionNews" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Wion News
+#EXTINF:-1 tvg-id="WionNews" tvg-logo="" group-title="News", Wion News
 https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
 
 # --- TRT WORLD ---
-#EXTINF:-1 tvg-id="TRTWORLD" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", TRT WORLD
+#EXTINF:-1 tvg-id="TRTWORLD" tvg-logo="" group-title="English News", TRT WORLD
 https://tv-trtworld.medya.trt.com.tr/master.m3u8
 
 # --- Press TV Iran ---
-#EXTINF:-1 tvg-id="PressTVIran" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Press TV Iran
+#EXTINF:-1 tvg-id="PressTVIran" tvg-logo="" group-title="News", Press TV Iran
 https://live.presstv.ir/hls/presstv_5_482/index.m3u8
 
 # --- France News 24 ---
-#EXTINF:-1 tvg-id="FranceNews24" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", France News 24
+#EXTINF:-1 tvg-id="FranceNews24" tvg-logo="" group-title="News", France News 24
 https://live.france24.com/hls/live/2037179/F24_FR_HI_HLS/master_5000.m3u8
 
 # --- France 24 English (720p) ---
-#EXTINF:-1 tvg-id="France24English720p" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", France 24 English (720p)
+#EXTINF:-1 tvg-id="France24English720p" tvg-logo="" group-title="English News", France 24 English (720p)
 https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_2300.m3u8
 
 # --- CNN NEWS ---
-#EXTINF:-1 tvg-id="CNNNEWS" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", CNN NEWS
+#EXTINF:-1 tvg-id="CNNNEWS" tvg-logo="" group-title="English News", CNN NEWS
 https://amg01448-samsungin-cnnnow-samsungin-4npqg.amagi.tv/playlist/amg01448-samsungin-cnnnow-samsungin/playlist.m3u8
 
 # --- T Global News (Canada) ---
-#EXTINF:-1 tvg-id="TGlobalNewsCanada" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", T Global News (Canada)
+#EXTINF:-1 tvg-id="TGlobalNewsCanada" tvg-logo="" group-title="News", T Global News (Canada)
 https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/master.m3u8
 
 # --- FOX News (AU) ---
-#EXTINF:-1 tvg-id="FOXNewsAU" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", FOX News (AU)
+#EXTINF:-1 tvg-id="FOXNewsAU" tvg-logo="" group-title="News", FOX News (AU)
 https://fox-foxnewsnow-samsungus.amagi.tv/playlist720p.m3u8
 
 # --- RT News (EN) ---
-#EXTINF:-1 tvg-id="RTNewsEN" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", RT News (EN)
+#EXTINF:-1 tvg-id="RTNewsEN" tvg-logo="" group-title="English News", RT News (EN)
 https://rt-glb.rttv.com/live/rtnews/playlist.m3u8
 
 # --- RTNEWS GLOBAL ---
-#EXTINF:-1 tvg-id="RTNEWSGLOBAL" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", RTNEWS GLOBAL
+#EXTINF:-1 tvg-id="RTNEWSGLOBAL" tvg-logo="" group-title="English News", RTNEWS GLOBAL
 https://rt-rtd.rttv.com/dvr/rtdoc/playlist.m3u8
 
 # --- Iran International (EN) ---
-#EXTINF:-1 tvg-id="IranInternationalEN" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Iran International (EN)
+#EXTINF:-1 tvg-id="IranInternationalEN" tvg-logo="" group-title="News", Iran International (EN)
 https://dev-live.livetvstream.co.uk/LS-63503-4/chunklist_b1196000.m3u8
 
 # --- CNA News ---
-#EXTINF:-1 tvg-id="CNANews" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", CNA News
+#EXTINF:-1 tvg-id="CNANews" tvg-logo="" group-title="News", CNA News
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
 
 # --- CNN (US) ---
-#EXTINF:-1 tvg-id="CNNUS" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="English News", CNN (US)
+#EXTINF:-1 tvg-id="CNNUS" tvg-logo="" group-title="English News", CNN (US)
 https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
 
 # --- Global News (US) ---
-#EXTINF:-1 tvg-id="GlobalNewsUS" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", Global News (US)
+#EXTINF:-1 tvg-id="GlobalNewsUS" tvg-logo="" group-title="News", Global News (US)
 https://live.corusdigitaldev.com/groupb/live/3062d0e3-ed4c-4f47-8482-95648250f4b8/live.isml/.m3u8
 
 # --- India Today ---
-#EXTINF:-1 tvg-id="IndiaToday" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", India Today
+#EXTINF:-1 tvg-id="IndiaToday" tvg-logo="" group-title="News", India Today
 https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/playlist.m3u8
 
 # --- NDTV English ---
-#EXTINF:-1 tvg-id="NDTVEnglish" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NDTV English
+#EXTINF:-1 tvg-id="NDTVEnglish" tvg-logo="" group-title="News", NDTV English
 https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
 
 # --- NDTV Hindi ---
-#EXTINF:-1 tvg-id="NDTVHindi" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", NDTV Hindi
+#EXTINF:-1 tvg-id="NDTVHindi" tvg-logo="" group-title="News", NDTV Hindi
 https://ndtvindiaelemarchana.akamaized.net/hls/live/2003679/ndtvindia/master.m3u8
 
 # --- News Max 2 ---
-#EXTINF:-1 tvg-id="NewsMax2" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="News", News Max 2
+#EXTINF:-1 tvg-id="NewsMax2" tvg-logo="" group-title="News", News Max 2
 https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
 
 # --- Channel 4 ---
-#EXTINF:-1 tvg-id="Channel4" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", Channel 4
+#EXTINF:-1 tvg-id="Channel4" tvg-logo="" group-title="Others & Local Cable", Channel 4
 https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(c4)/manifest.mpd
 
 # --- E4 ---
-#EXTINF:-1 tvg-id="E4" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", E4
+#EXTINF:-1 tvg-id="E4" tvg-logo="" group-title="Others & Local Cable", E4
 https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(e4)/manifest.mpd
 
 # --- More4 ---
-#EXTINF:-1 tvg-id="More4" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", More4
+#EXTINF:-1 tvg-id="More4" tvg-logo="" group-title="Others & Local Cable", More4
 https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(m4)/manifest.mpd
 
 # --- 4 Film ---
-#EXTINF:-1 tvg-id="4Film" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", 4 Film
+#EXTINF:-1 tvg-id="4Film" tvg-logo="" group-title="Others & Local Cable", 4 Film
 https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(f4)/manifest.mpd
 
 # --- 4seven ---
-#EXTINF:-1 tvg-id="4seven" tvg-logo="https://i.postimg.cc/25Bnz9Wk/aswat-IPTV.png" group-title="Others & Local Cable", 4seven
+#EXTINF:-1 tvg-id="4seven" tvg-logo="" group-title="Others & Local Cable", 4seven
 https://olsp.live.dash.c4assets.com/dash_iso_sp_tl/live/channel(4s)/manifest.mpd
 
 # --- 9X Jalwa ---
