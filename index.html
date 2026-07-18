@@ -352,6 +352,8 @@ body {
     overflow-x: auto; scrollbar-width: none;
     background: rgba(15,15,25,0.9);
     position: sticky; top: 0; z-index: 10;
+    mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent);
 }
 .category-tabs::-webkit-scrollbar { display: none; }
 .category-tab {
@@ -368,6 +370,29 @@ body {
 }
 .category-tab.active { color: #fff; font-weight: 600; }
 .category-tab.active span { border-bottom-color: #667eea; }
+
+.channel-card-desktop:focus,
+.channel-card-mobile:focus,
+.category-tab:focus {
+    outline: none;
+}
+.channel-card-desktop:focus .channel-logo-desktop,
+.channel-card-desktop:focus-visible .channel-logo-desktop {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.6);
+    transform: scale(1.05);
+}
+.channel-card-mobile:focus .channel-logo-mobile,
+.channel-card-mobile:focus-visible .channel-logo-mobile {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.6);
+    transform: scale(1.05);
+}
+.category-tab:focus span,
+.category-tab:focus-visible span {
+    border-bottom-color: #667eea;
+    color: #fff;
+}
 
 .channel-list-desktop {
     display: flex; gap: 10px; padding: 10px 16px;
@@ -1193,6 +1218,7 @@ body {
                             <div class="volume-slider" id="volumeSlider"><div class="volume-fill" id="volumeFill"></div></div>
                         </div>
                         <div class="spacer"></div>
+                        <button class="control-icon" id="pipBtn" title="Picture in Picture" style="display: none;"><i class="fas fa-window-restore"></i></button>
                         <button class="control-icon" id="fullscreenBtn"><i class="fas fa-expand"></i></button>
                     </div>
                 </div>
@@ -1320,6 +1346,7 @@ body {
     let averageLoadTime = 3000; // default 3s load time
     let nativeLoadedMetadataHandler = null;
     let nativeErrorHandler = null;
+    let epgUpdateInterval = null;
 
     // Load timer vars
     let loadTimerInterval = null;
@@ -1372,7 +1399,9 @@ body {
         }
         const programs = xmlDoc.getElementsByTagName('programme');
         const now = new Date();
-        const currentPrograms = {};
+        const minTime = new Date(now.getTime() - 12 * 60 * 60 * 1000); // 12 hours ago
+        const maxTime = new Date(now.getTime() + 36 * 60 * 60 * 1000); // 36 hours from now
+        const epgData = {};
 
         for (let i = 0; i < programs.length; i++) {
             const prog = programs[i];
@@ -1385,15 +1414,23 @@ body {
             const startTime = parseXMLTVDate(startStr);
             const stopTime = parseXMLTVDate(stopStr);
 
-            if (startTime && stopTime && now >= startTime && now <= stopTime) {
+            if (startTime && stopTime && stopTime >= minTime && startTime <= maxTime) {
                 const titleEl = prog.getElementsByTagName('title')[0];
                 const descEl = prog.getElementsByTagName('desc')[0];
                 const title = titleEl ? titleEl.textContent : 'Live Show';
                 const desc = descEl ? descEl.textContent : '';
-                currentPrograms[channelId] = { title, desc, startTime, stopTime };
+                
+                if (!epgData[channelId]) epgData[channelId] = [];
+                epgData[channelId].push({ title, desc, startTime, stopTime });
             }
         }
-        return currentPrograms;
+        
+        // Sort programs for each channel by start time
+        Object.keys(epgData).forEach(chId => {
+            epgData[chId].sort((a, b) => a.startTime - b.startTime);
+        });
+        
+        return epgData;
     }
 
     function formatProgTime(start, stop) {
@@ -1426,19 +1463,24 @@ body {
         const epgText = document.getElementById('epgText');
         const loadChName = document.getElementById('loadChName');
         
+        let activeProg = null;
         if (currentChannel && currentChannel.tvgId && currentEPG[currentChannel.tvgId]) {
-            const prog = currentEPG[currentChannel.tvgId];
-            const timeStr = formatProgTime(prog.startTime, prog.stopTime);
-            const displayStr = `${prog.title} (${timeStr})`;
+            const now = new Date();
+            activeProg = currentEPG[currentChannel.tvgId].find(p => now >= p.startTime && now <= p.stopTime);
+        }
+        
+        if (activeProg) {
+            const timeStr = formatProgTime(activeProg.startTime, activeProg.stopTime);
+            const displayStr = `${activeProg.title} (${timeStr})`;
             
             if (epgText) epgText.textContent = displayStr;
             if (epgRow) epgRow.style.display = 'flex';
             
             if (loadChName) {
-                loadChName.innerHTML = `${currentChannel.channel_name}<div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;">${prog.title}</div>`;
+                loadChName.innerHTML = `${currentChannel.channel_name}<div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;">${activeProg.title}</div>`;
             }
             if (reelsMode) {
-                reelsCat.textContent = prog.title;
+                reelsCat.textContent = activeProg.title;
             }
         } else {
             if (epgRow) epgRow.style.display = 'none';
@@ -1461,6 +1503,12 @@ body {
             }
         });
     }
+
+    if (!epgUpdateInterval) {
+        epgUpdateInterval = setInterval(() => {
+            updateEPGDisplay();
+        }, 30000);
+    }
     // ----
     function updateServerBadge() {
         const badge = document.getElementById('serverBadge');
@@ -1472,6 +1520,20 @@ body {
             updateWatermarkPosition();
         } else {
             badge.classList.remove('active');
+        }
+    }
+
+    function updateMediaSessionMetadata() {
+        if ('mediaSession' in navigator && currentChannel) {
+            const fallbackLogo = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22128%22 height=%22128%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111%22/%3E%3Ctext x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23777%22 font-size=%2242%22%3ETV%3C/text%3E%3C/svg%3E';
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: currentChannel.channel_name,
+                artist: 'GENOIN HDTV',
+                album: currentCategory || 'Live TV',
+                artwork: [
+                    { src: currentChannel.image || fallbackLogo, sizes: '512x512', type: 'image/png' }
+                ]
+            });
         }
     }
 
@@ -1516,7 +1578,7 @@ body {
         const pref = localStorage.getItem('nbox_preferred_quality') || 'Auto';
         
         if (pref === 'Auto') {
-            hls.currentLevel = -1; // Auto level (ABR)
+            hls.nextLevel = -1; // Auto level (ABR)
             return;
         }
         
@@ -1536,7 +1598,7 @@ body {
         }
         
         if (bestLevelIdx !== -1) {
-            hls.currentLevel = bestLevelIdx;
+            hls.nextLevel = bestLevelIdx;
         }
     }
 
@@ -1609,6 +1671,7 @@ body {
     const videoControls = document.getElementById('videoControls');
     const playBtn = document.getElementById('playBtn');
     const muteBtn = document.getElementById('muteBtn');
+    const pipBtn = document.getElementById('pipBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     const volumeSlider = document.getElementById('volumeSlider');
     const volumeFill = document.getElementById('volumeFill');
@@ -2094,6 +2157,7 @@ body {
         if (reelsMode) updateReelsInfo();
         updateEPGDisplay();
         updateServerBadge();
+        updateMediaSessionMetadata();
 
         // Show loading overlay and start timer
         loadStartTime = Date.now();
@@ -2117,6 +2181,7 @@ body {
             hls = new Hls({
                 enableWorker: true, lowLatencyMode: true,
                 maxBufferLength: 10, maxMaxBufferLength: 20,
+                backBufferLength: 10, // Clean up older watched segments from RAM
                 liveSyncDurationCount: 2, liveMaxLatencyDurationCount: 5,
                 manifestLoadingTimeOut: 5000, manifestLoadingMaxRetry: 2,
                 debug: false,
@@ -2800,6 +2865,7 @@ body {
                 const tab = document.createElement('div');
                 tab.className = 'category-tab';
                 tab.dataset.cat = cat;
+                tab.tabIndex = 0; // Make D-pad/keyboard focusable
                 let displayName = cat;
                 if (cat !== FAV_CAT && cat !== RECENT_CAT) {
                     displayName = cat.charAt(0).toUpperCase() + cat.slice(1);
@@ -2876,6 +2942,7 @@ body {
             const mcard = document.createElement('div');
             mcard.className = 'channel-card-mobile';
             mcard.dataset.index = i;
+            mcard.tabIndex = 0; // Make D-pad/keyboard focusable
             mcard.innerHTML = `<div class="channel-logo-mobile">
                 <img src="${ch.image}" loading="lazy" onerror="this.src='${fallback}'">
                 ${ch.isAPK ? '' : `<button class="fav-btn ${fav ? 'active' : ''}" data-fav><i class="${fav ? 'fas' : 'far'} fa-heart"></i></button>`}
@@ -2918,6 +2985,7 @@ body {
                 const card = document.createElement('div');
                 card.className = 'channel-card-desktop';
                 card.dataset.index = i;
+                card.tabIndex = 0; // Make D-pad/keyboard focusable
                 card.innerHTML = `<div class="channel-logo-desktop">
                     <img src="${ch.image}" loading="lazy" onerror="this.src='${fallback}'">
                     ${ch.isAPK ? '' : `<button class="fav-btn ${fav ? 'active' : ''}" data-fav><i class="${fav ? 'fas' : 'far'} fa-heart"></i></button>`}
@@ -3111,8 +3179,35 @@ body {
         e.stopPropagation();
         if (video.paused) { userPaused = false; video.play(); } else { userPaused = true; video.pause(); }
     });
-    video.addEventListener('play', () => { playBtn.innerHTML = '<i class="fas fa-pause"></i>'; });
-    video.addEventListener('pause', () => { playBtn.innerHTML = '<i class="fas fa-play"></i>'; });
+    video.addEventListener('play', () => {
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'playing';
+        }
+    });
+    video.addEventListener('pause', () => {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = 'paused';
+        }
+    });
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', () => {
+            userPaused = false;
+            video.play().catch(() => {});
+        });
+        navigator.mediaSession.setActionHandler('pause', () => {
+            userPaused = true;
+            video.pause();
+        });
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+            playNextChannel();
+        });
+        navigator.mediaSession.setActionHandler('previoustrack', () => {
+            playPreviousChannel();
+        });
+    }
     muteBtn.addEventListener('click', e => { e.stopPropagation(); video.muted = !video.muted; updateVolumeUI(); });
     let isDraggingVolume = false;
     function updateVolumeFromEvent(e) {
@@ -3158,12 +3253,85 @@ body {
         if (!document.fullscreenElement) { videoWrapper.requestFullscreen(); }
         else { document.exitFullscreen(); }
     });
+
+    if (pipBtn) {
+        if (document.pictureInPictureEnabled || (video.requestPictureInPicture && typeof video.requestPictureInPicture === 'function')) {
+            pipBtn.style.display = 'flex';
+            pipBtn.addEventListener('click', async e => {
+                e.stopPropagation();
+                try {
+                    if (document.pictureInPictureElement) {
+                        await document.exitPictureInPicture();
+                    } else {
+                        await video.requestPictureInPicture();
+                    }
+                } catch (err) {
+                    console.error('Picture-in-Picture error:', err);
+                }
+            });
+        }
+    }
     prevBtn.addEventListener('click', e => { e.stopPropagation(); playPreviousChannel(); });
     nextBtn.addEventListener('click', e => { e.stopPropagation(); playNextChannel(); });
 
     document.addEventListener('keydown', e => {
         // don't hijack keys while typing in search
         if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+        
+        const active = document.activeElement;
+        
+        // Enter key click handler on focusable divs
+        if (e.key === 'Enter') {
+            if (active && (active.classList.contains('channel-card-desktop') || active.classList.contains('channel-card-mobile') || active.classList.contains('category-tab'))) {
+                e.preventDefault();
+                active.click();
+                return;
+            }
+        }
+
+        // TV Remote D-Pad Grid navigation
+        if (['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+            const isPanelOpen = channelPanelDesktop.classList.contains('show') || isMobile();
+            if (isPanelOpen && active && (active.classList.contains('category-tab') || active.classList.contains('channel-card-desktop') || active.classList.contains('channel-card-mobile'))) {
+                e.preventDefault();
+                
+                if (active.classList.contains('category-tab')) {
+                    const tabs = Array.from(active.parentElement.querySelectorAll('.category-tab'));
+                    const idx = tabs.indexOf(active);
+                    if (e.key === 'ArrowRight') {
+                        const nextTab = tabs[(idx + 1) % tabs.length];
+                        if (nextTab) nextTab.focus();
+                    } else if (e.key === 'ArrowLeft') {
+                        const prevTab = tabs[(idx - 1 + tabs.length) % tabs.length];
+                        if (prevTab) prevTab.focus();
+                    } else if (e.key === 'ArrowDown') {
+                        const firstCard = document.querySelector('.channel-card-desktop, .channel-card-mobile');
+                        if (firstCard) firstCard.focus();
+                    }
+                } else {
+                    const cards = Array.from(active.parentElement.querySelectorAll('.channel-card-desktop, .channel-card-mobile'));
+                    const idx = cards.indexOf(active);
+                    if (e.key === 'ArrowRight') {
+                        const nextCard = cards[(idx + 1) % cards.length];
+                        if (nextCard) {
+                            nextCard.focus();
+                            nextCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                    } else if (e.key === 'ArrowLeft') {
+                        const prevCard = cards[(idx - 1 + cards.length) % cards.length];
+                        if (prevCard) {
+                            prevCard.focus();
+                            prevCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                    } else if (e.key === 'ArrowUp') {
+                        const activeTab = document.querySelector('.category-tab.active');
+                        if (activeTab) activeTab.focus();
+                    }
+                }
+                return;
+            }
+        }
+
         switch(e.key) {
             case ' ': e.preventDefault(); playBtn.click(); break;
             case 'f': case 'F': fullscreenBtn.click(); break;
