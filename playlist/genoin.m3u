@@ -481,6 +481,9 @@ https://padmaonline.duckdns.org:8088/ColorsBanglaHD/tracks-v1a1/mono.m3u8
 
 # --- Sony Aath ---
 #EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
+https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8
+
+#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
 https://bldcmprod-cdn.toffeelive.com/cdn/live/slang/sonyaath_576/sonyaath_576.m3u8?bitrate=1000000&channel=sonyaath_576&gp_id
 
 #EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
@@ -490,8 +493,7 @@ https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonyaath&e=.m3u8
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/sonyaath/playlist.m3u8
 
-#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
-https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8
+
 
 # --- Sun Bangla ---
 #EXTINF:-1 tvg-id="SunBangla" tvg-logo="https://sund-images.sunnxt.com/194388/300x300_SunBangla_194388_f458f92c-302f-46bd-a528-0463e12a3624.png" group-title="Entertainment", Sun Bangla
