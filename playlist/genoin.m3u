@@ -419,12 +419,7 @@ https://padmaonline.duckdns.org:8088/ColorsBanglaHD/tracks-v1a1/mono.m3u8
 
 # --- Sony Aath ---
 #EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
-https://bldcmprod-cdn.toffeelive.com/cdn/live/slang/sonyaath_576/sonyaath_576.m3u8?bitrate=1000000&channel=sonyaath_576&gp_id
-#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
-https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonyaath&e=.m3u8
-#EXTINF:-1 tvg-id="SonyAath" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg" group-title="Entertainment", Sony Aath
-#EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
-https://bldcmprod-cdn.toffeelive.com/cdn/live/sonyaath/playlist.m3u8
+https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8
 
 
 # --- Sun Bangla ---
