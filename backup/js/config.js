@@ -1,8 +1,8 @@
 const PLAYLISTS = [
-    { name: 'GENOIN', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u' },		
- { name: 'FIFA', url: 'https://iamshajon.com/playlist/fifa.json' },
-    { name: 'BANGLA', url: 'https://iamshajon.com/playlist/bangla.json' },
-     { name: 'SPORTS', url: 'https://iamshajon.com/playlist/sports.json' }
+	{ name: 'Genoin', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/genoin.m3u', type: 'm3u' },
+		{ name: 'Bangla', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/bangla.json', type: 'json' },
+        { name: 'Sports', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/sports.json', type: 'json' },
+		 { name: 'FTP', url: 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/ftp.json', type: 'json' }
 ];
 
 let hlsInstance = null;
