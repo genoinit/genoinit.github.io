@@ -607,7 +607,20 @@ async function fetchAndParseM3U(url) {
 
         if (url.endsWith('.json') || textData.trim().startsWith('[') || textData.trim().startsWith('{')) {
             const data = JSON.parse(textData);
-            const arrayData = Array.isArray(data) ? data : (data.channels || Object.values(data)[0] || []);
+            let arrayData = [];
+            if (Array.isArray(data)) {
+                arrayData = data;
+            } else if (data.channels && Array.isArray(data.channels)) {
+                arrayData = data.channels;
+            } else {
+                Object.values(data).forEach(val => {
+                    if (Array.isArray(val)) {
+                        arrayData.push(...val);
+                    } else if (val && typeof val === 'object' && val.url) {
+                        arrayData.push(val);
+                    }
+                });
+            }
             
             for (const ch of arrayData) {
                 if (!ch.url) continue;
