@@ -14,6 +14,89 @@
     <script src="js/layout.js"></script>
     <!-- Hls.js for playing HLS streams (.m3u8) -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.8/dist/hls.min.js"></script>
+
+    <!-- SECURITY SCRIPT -->
+    <script>
+    (function() {
+        'use strict';
+        let isBlocking = false;
+        let adminMode = false;
+
+        const checkAdminMode = () =>
+            localStorage.getItem('nbox_admin_mode') === 'enabled' ||
+            sessionStorage.getItem('nbox_admin_mode') === 'enabled' || adminMode;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.altKey && e.shiftKey && e.key === 'A') {
+                e.preventDefault();
+                adminMode = true;
+                sessionStorage.setItem('nbox_admin_mode', 'enabled');
+                showToast('✅ Admin Mode Enabled', '#10b981');
+                return;
+            }
+            if (e.ctrlKey && e.altKey && e.shiftKey && e.key === 'D') {
+                e.preventDefault();
+                adminMode = false;
+                sessionStorage.removeItem('nbox_admin_mode');
+                localStorage.removeItem('nbox_admin_mode');
+                showToast('🔒 Admin Mode Disabled', '#ef4444');
+                return;
+            }
+        });
+
+        function showToast(msg, color) {
+            const n = document.createElement('div');
+            n.style.cssText = `position:fixed;top:20px;right:20px;background:${color};color:#fff;padding:12px 20px;border-radius:8px;z-index:999999;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow: 0 10px 25px rgba(0,0,0,0.5);`;
+            n.textContent = msg;
+            document.body.appendChild(n);
+            setTimeout(() => n.remove(), 3000);
+        }
+
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+        const blockAccess = () => {
+            if (checkAdminMode() || isBlocking) return;
+            isBlocking = true;
+            document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:24px;color:#fff;background:#0a0a0f;">Access Denied</div>';
+            setTimeout(() => { window.location.href = 'about:blank'; }, 500);
+        };
+
+        document.addEventListener('contextmenu', e => { if (!checkAdminMode()) { e.preventDefault(); return false; } });
+        document.addEventListener('keydown', e => {
+            if (checkAdminMode()) return;
+            if (e.keyCode === 123 ||
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+                (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+                e.preventDefault(); blockAccess(); return false;
+            }
+        });
+
+        // DevTools size-detection: desktop only. On mobile the keyboard/toolbar
+        // shrinks innerHeight and falsely triggers a block (iOS "Access Denied" fix).
+        if (!isTouchDevice) {
+            setInterval(() => {
+                if (checkAdminMode() || isBlocking) return;
+                if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) blockAccess();
+            }, 2000);
+        }
+
+        // Anti-embed: skip on touch so in-app browsers (FB/Messenger/WhatsApp) don't get blocked.
+        if (window.top !== window.self && !checkAdminMode() && !isTouchDevice) blockAccess();
+
+        document.addEventListener('selectstart', e => { if (!checkAdminMode()) e.preventDefault(); });
+        document.addEventListener('copy', e => { if (!checkAdminMode()) { e.preventDefault(); return false; } });
+
+        const s = document.createElement('style');
+        s.id = 'nbox-sec';
+        s.textContent = '*{-webkit-user-select:none!important;user-select:none!important;}';
+        document.head.appendChild(s);
+
+        setInterval(() => {
+            const el = document.getElementById('nbox-sec');
+            if (el) el.disabled = !!checkAdminMode();
+        }, 1000);
+    })();
+    </script>
 </head>
 <body>
 
