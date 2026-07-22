@@ -185,28 +185,42 @@
 
         @media (max-width: 576px) {
             :root {
-                --nav-height: 120px;
+                --nav-height: 64px;
             }
             .navbar-glass .container {
-                flex-wrap: wrap !important;
-                padding-top: 6px;
-                padding-bottom: 6px;
-                justify-content: space-between;
+                flex-wrap: nowrap !important;
+                padding-top: 0;
+                padding-bottom: 0;
+                gap: 6px !important;
             }
             .navbar-glass .brand-logo {
-                margin-right: 0 !important;
-                font-size: 1.25rem;
+                margin-right: 4px !important;
             }
-            .navbar-glass .dropdown {
-                margin-right: 0 !important;
+            .navbar-glass .brand-title {
+                font-size: 1.15rem !important;
+                letter-spacing: 1px !important;
+            }
+            .navbar-glass .brand-logo-svg {
+                width: 32px !important;
+                height: 32px !important;
+            }
+            .navbar-glass .d-flex.flex-grow-1 {
+                margin-left: 6px !important;
+                margin-right: 6px !important;
             }
             .ai-search-box {
                 width: 100% !important;
                 max-width: 100% !important;
-                order: 3;
-                padding: 0 15px;
-                margin-top: 4px;
-                height: 44px;
+                order: unset !important;
+                padding: 0 10px !important;
+                margin-top: 0 !important;
+                height: 36px !important;
+            }
+            .ai-search-box input {
+                font-size: 0.8rem !important;
+            }
+            .ai-search-box i {
+                font-size: 0.85rem !important;
             }
         }
 
