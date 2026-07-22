@@ -161,8 +161,38 @@ body {
 .control-icon:hover { opacity: 1; }
 .play-icon { font-size: 20px; }
 .volume-control { display: flex; align-items: center; gap: 8px; }
-.volume-slider { width: 70px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; border-top: 10px solid transparent; border-bottom: 10px solid transparent; background-clip: padding-box; }
-.volume-fill { height: 100%; background: #fff; border-radius: 2px; width: 100%; }
+.volume-slider {
+    width: 80px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.volume-slider:hover { background: rgba(255, 255, 255, 0.4); }
+.volume-fill {
+    height: 100%;
+    background: #667eea;
+    border-radius: 3px;
+    width: 100%;
+    position: relative;
+    pointer-events: none;
+}
+.volume-fill::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
 .spacer { flex: 1; }
 
 .channel-nav {
@@ -803,7 +833,6 @@ body {
     }
     .search-row-mobile { margin: 0 0 10px 0; }
     .category-tabs { background: transparent; padding: 0 0 10px; }
-    .is-ios .volume-slider { display: none; }
 }
 
 @media (min-width: 769px) {
