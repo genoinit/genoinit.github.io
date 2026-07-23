@@ -854,15 +854,14 @@
         
         .channel-card:hover {
             transform: scale(1.05);
-            border-top-color: #e8eaed;
-            border-bottom-color: #e8eaed;
+            border-color: rgba(255, 255, 255, 0.4);
             box-shadow: 0 8px 15px rgba(0,0,0,0.5);
             z-index: 2;
         }
         .channel-card.active {
-            border-top-color: var(--accent-primary);
-            border-bottom-color: var(--accent-primary);
-            box-shadow: 0 0 15px rgba(var(--accent-primary-rgb), 0.4);
+            border-color: var(--accent-primary) !important;
+            box-shadow: 0 0 16px var(--glow-color) !important;
+            transform: scale(1.03);
         }
 
         .pip-active {
@@ -1708,6 +1707,10 @@
             .widget-time {
                 font-size: 0.72rem !important;
             }
+            .fav-btn, .sidebar-fav-btn {
+                opacity: 0.85 !important;
+                pointer-events: auto !important;
+            }
         }
 
         @media (max-width: 576px) {
@@ -2383,7 +2386,8 @@
 
     function handleLogoError(img, channelName) {
         img.onerror = null;
-        img.src = generateLetterLogo(channelName);
+        const name = channelName || img.getAttribute('alt') || '?';
+        img.src = generateLetterLogo(name);
     }
 
     function getStableId(name) {
@@ -2393,6 +2397,31 @@
             hash = str.charCodeAt(i) + ((hash << 5) - hash);
         }
         return Math.abs(hash);
+    }
+
+    function showToastNotification(icon, message, duration = 2500) {
+        let toastContainer = document.getElementById('genoin-toast-container');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'genoin-toast-container';
+            toastContainer.style.cssText = 'position:fixed;top:80px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none;';
+            document.body.appendChild(toastContainer);
+        }
+        const toast = document.createElement('div');
+        toast.style.cssText = 'background:rgba(15,16,20,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:8px 16px;border-radius:30px;font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 8px 20px rgba(0,0,0,0.5);opacity:0;transform:translateY(-10px);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);';
+        toast.innerHTML = `<i class="${icon}" style="color:var(--accent-primary);"></i> <span>${message}</span>`;
+        toastContainer.appendChild(toast);
+
+        requestAnimationFrame(() => {
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+        });
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(-10px)';
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
     }
     </script>
 
@@ -2497,9 +2526,14 @@
         const index = favs.findIndex(c => c.id === channelId);
         if (index === -1) {
             const channelObj = allChannelsData.find(c => c.id === channelId);
-            if (channelObj) favs.push({...channelObj});
+            if (channelObj) {
+                favs.push({...channelObj});
+                showToastNotification('bi bi-heart-fill text-danger', `Added "${channelObj.name}" to Favorites`);
+            }
         } else {
+            const removed = favs[index];
             favs.splice(index, 1);
+            showToastNotification('bi bi-heart text-secondary', `Removed "${removed ? removed.name : 'Channel'}" from Favorites`);
         }
         setCurrentFavorites(favs);
         
@@ -2572,13 +2606,14 @@
     function createChannelCardHTML(channel) {
         const isFav = isChannelFavorited(channel.id);
         const channelData = encodeURIComponent(JSON.stringify(channel));
+        const safeName = channel.name.replace(/"/g, '&quot;');
         return `
             <div class="channel-card" id="card-${channel.id}" data-name="${channel.name.toLowerCase()}" onclick="playFromGrid('${channelData}')">
                 <button class="fav-btn ${isFav ? 'active' : ''}" data-id="${channel.id}" onclick="toggleFavorite(event, ${channel.id})">
                     <i class="bi bi-heart-fill"></i>
                 </button>
                 <div class="channel-logo-container">
-                    <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${channel.name}" loading="lazy" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
+                    <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${safeName}" loading="lazy" onerror="handleLogoError(this)">
                 </div>
                 <div class="channel-info position-relative">
                     <div class="channel-title">${channel.name}</div>
@@ -2592,13 +2627,14 @@
     }
 
     function createFavoriteCardHTML(channel, serverName, serverIndex, favIdx) {
+        const safeName = channel.name.replace(/"/g, '&quot;');
         return `
             <div class="channel-card" data-name="${channel.name.toLowerCase()}" onclick="playFromFavorites(${favIdx})">
                 <button class="fav-btn active" data-id="${channel.id}" data-server="${serverIndex}" onclick="removeFavoriteItem(event, ${serverIndex}, ${channel.id})">
                     <i class="bi bi-heart-fill"></i>
                 </button>
                 <div class="channel-logo-container">
-                    <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${channel.name}" loading="lazy" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
+                    <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${safeName}" loading="lazy" onerror="handleLogoError(this)">
                 </div>
                 <div class="channel-info position-relative">
                     <div class="channel-title">${channel.name}</div>
@@ -2619,6 +2655,7 @@
             event.stopPropagation();
         }
         sidebarActiveTab = tabName;
+        try { localStorage.setItem('genoin_sidebar_tab', tabName); } catch (e) {}
         
         const tabAll = document.getElementById('sidebar-tab-all');
         const tabFav = document.getElementById('sidebar-tab-fav');
@@ -2669,13 +2706,14 @@
             const allFavs = getAllFavorites();
             const favIdx = allFavs.findIndex(f => f.channel.id === channel.id);
             const clickAction = favIdx !== -1 ? `playFromFavorites(${favIdx})` : `playFromGrid('${channelData}')`;
+            const safeName = channel.name.replace(/"/g, '&quot;');
             
             return `
                 <div class="sidebar-item ${activeChannel?.id === channel.id ? 'active' : ''}" id="sidebar-card-${channel.id}" onclick="${clickAction}">
                     <button class="sidebar-fav-btn ${isFav ? 'active' : ''}" data-id="${channel.id}" onclick="toggleFavorite(event, ${channel.id})">
                         <i class="bi bi-heart-fill"></i>
                     </button>
-                    <img src="${channel.logo || generateLetterLogo(channel.name)}" onerror="handleLogoError(this, '${channel.name.replace(/'/g, "\\'")}')">
+                    <img src="${channel.logo || generateLetterLogo(channel.name)}" alt="${safeName}" onerror="handleLogoError(this)">
                     <div class="sidebar-item-name">${channel.name}</div>
                     ${serverBadge}
                 </div>
@@ -2816,7 +2854,7 @@
 
         allCards.forEach(card => {
             const channelName = card.getAttribute('data-name');
-            if (channelName.includes(searchTerm)) {
+            if (channelName && channelName.includes(searchTerm)) {
                 card.classList.remove('d-none');
             } else {
                 card.classList.add('d-none');
@@ -2907,6 +2945,20 @@
         const channel = JSON.parse(decodeURIComponent(encodedData));
         activeChannel = channel;
         currentChannelIndex = allChannelsData.findIndex(c => c.id === channel.id);
+        
+        try {
+            localStorage.setItem('genoin_last_channel', JSON.stringify({
+                id: channel.id,
+                name: channel.name,
+                playbackMode: playbackMode,
+                favIndex: currentFavIndex,
+                serverIndex: currentPlaylistIndex
+            }));
+            localStorage.setItem('genoin_last_server', currentPlaylistIndex);
+        } catch (e) {
+            console.warn("Error saving last channel to localStorage:", e);
+        }
+
         const isPip = videoContainer.classList.contains('pip-mode');
 
         if (!isPip) {
@@ -2931,9 +2983,52 @@
 
         document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
         const sidebarItem = document.getElementById(`sidebar-card-${channel.id}`);
-        if (sidebarItem) sidebarItem.classList.add('active');
+        if (sidebarItem) {
+            sidebarItem.classList.add('active');
+            sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        setTimeout(() => {
+            const gridCard = document.getElementById(`card-${channel.id}`);
+            if (gridCard && !videoContainer.classList.contains('is-fullscreen')) {
+                gridCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            }
+        }, 300);
 
         playServer(0);
+    }
+
+    function restoreLastChannel() {
+        try {
+            const savedData = localStorage.getItem('genoin_last_channel');
+            if (!savedData) return;
+            const last = JSON.parse(savedData);
+            if (!last) return;
+
+            if (last.playbackMode === 'favorites') {
+                const allFavs = getAllFavorites();
+                if (allFavs.length > 0) {
+                    let targetFavIdx = last.favIndex;
+                    if (targetFavIdx === undefined || targetFavIdx < 0 || targetFavIdx >= allFavs.length || allFavs[targetFavIdx]?.channel?.id !== last.id) {
+                        targetFavIdx = allFavs.findIndex(f => f.channel.id === last.id);
+                    }
+                    if (targetFavIdx !== -1) {
+                        playFromFavorites(targetFavIdx);
+                        return;
+                    }
+                }
+            }
+
+            if (allChannelsData && allChannelsData.length > 0) {
+                const ch = allChannelsData.find(c => c.id === last.id || (last.name && c.name.toLowerCase() === last.name.toLowerCase()));
+                if (ch) {
+                    const encodedData = encodeURIComponent(JSON.stringify(ch));
+                    playFromGrid(encodedData);
+                }
+            }
+        } catch (e) {
+            console.warn("Could not restore last channel state:", e);
+        }
     }
 
     function playServer(index) {
@@ -3169,6 +3264,62 @@
         }
     });
 
+    // --- Touch Swipe Gestures for Video Player ---
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    videoContainer.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }
+    }, { passive: true });
+
+    videoContainer.addEventListener('touchend', (e) => {
+        if (e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            handleSwipeGesture();
+        }
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        if (Math.abs(deltaX) > 60 && Math.abs(deltaY) < 50) {
+            if (deltaX < 0) {
+                showToastNotification('bi bi-skip-end-fill', 'Next Channel', 1500);
+                playNextChannel();
+            } else {
+                showToastNotification('bi bi-skip-start-fill', 'Previous Channel', 1500);
+                playPrevChannel();
+            }
+        }
+    }
+
+    // --- Network Reconnection Guard ---
+    window.addEventListener('offline', () => {
+        showToastNotification('bi bi-wifi-off text-danger', 'Network Disconnected. Waiting for connection...', 5000);
+        if (videoLoader) {
+            videoLoader.style.display = 'block';
+            if (loadingSpinner) loadingSpinner.style.display = 'inline-block';
+            if (loaderText) {
+                loaderText.innerText = 'Network Disconnected. Reconnecting...';
+                loaderText.classList.add('text-danger');
+            }
+        }
+    });
+
+    window.addEventListener('online', () => {
+        showToastNotification('bi bi-wifi text-success', 'Network Reconnected!', 3000);
+        if (activeChannel) {
+            playServer(activeServerIndex || 0);
+        }
+    });
+
     function resetControlsTimeout() {
         clearTimeout(controlsTimeout);
         if (sidebar.classList.contains('open')) return;
@@ -3189,10 +3340,15 @@
         } else {
             muteBtn.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
         }
+        try {
+            localStorage.setItem('genoin_volume', video.volume);
+            localStorage.setItem('genoin_muted', video.muted ? 'true' : 'false');
+        } catch (e) {}
     }
 
     // --- KEYBOARD SHORTCUTS ---
     document.addEventListener('keydown', (e) => {
+        if (document.body.classList.contains('modal-open')) return;
         const isFullscreen = videoContainer.classList.contains('is-fullscreen');
         const isSidebarOpen = sidebar.classList.contains('open');
         const keyLower = e.key.toLowerCase();
@@ -3236,6 +3392,7 @@
                     video.volume = Math.min(1, video.volume + 0.05);
                     video.muted = false;
                     updateVolumeUI();
+                    showToastNotification(video.muted ? 'bi bi-volume-mute-fill' : 'bi bi-volume-up-fill', `Volume: ${Math.round(video.volume * 100)}%`, 1200);
                 }
                 break;
 
@@ -3247,6 +3404,7 @@
                     video.volume = Math.max(0, video.volume - 0.05);
                     video.muted = false;
                     updateVolumeUI();
+                    showToastNotification(video.muted || video.volume === 0 ? 'bi bi-volume-mute-fill' : 'bi bi-volume-down-fill', `Volume: ${Math.round(video.volume * 100)}%`, 1200);
                 }
                 break;
 
@@ -3285,6 +3443,7 @@
                 e.preventDefault();
                 video.muted = !video.muted;
                 updateVolumeUI();
+                showToastNotification(video.muted ? 'bi bi-volume-mute-fill text-warning' : 'bi bi-volume-up-fill', video.muted ? 'Muted' : `Volume: ${Math.round(video.volume * 100)}%`, 1200);
                 break;
 
             case 'l':
@@ -3342,6 +3501,7 @@
                 video.volume = parseInt(e.key) / 10;
                 video.muted = false;
                 updateVolumeUI();
+                showToastNotification('bi bi-volume-up-fill', `Volume: ${Math.round(video.volume * 100)}%`, 1200);
                 break;
 
             case '?':
@@ -3504,8 +3664,13 @@
         const serverNameDisplay = document.getElementById('current-server-name');
         const sidebarServerNameDisplay = document.getElementById('sidebar-current-server-name');
         
+        const savedServer = parseInt(localStorage.getItem('genoin_last_server'));
+        if (!isNaN(savedServer) && savedServer >= 0 && savedServer < PLAYLISTS.length) {
+            currentPlaylistIndex = savedServer;
+        }
+
         const menuHTML = PLAYLISTS.map((playlist, index) => `
-            <li><a class="dropdown-item ${index === 0 ? 'active' : ''}" href="#" onclick="changeServer(event, ${index})">
+            <li><a class="dropdown-item ${index === currentPlaylistIndex ? 'active' : ''}" href="#" onclick="changeServer(event, ${index})">
                 <i class="bi bi-hdd-network me-2"></i> ${playlist.name}
             </a></li>
         `).join('');
@@ -3517,6 +3682,7 @@
             event.preventDefault();
             event.stopPropagation();
             currentPlaylistIndex = index;
+            try { localStorage.setItem('genoin_last_server', index); } catch (e) {}
             playbackMode = 'server';
             currentFavIndex = -1;
             updatePlaybackModeUI();
@@ -3558,10 +3724,58 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         initPlaylistSelector();
-        fetchAndParseM3U(PLAYLISTS[0].url);
+
+        // Restore Volume and Mute state from localStorage
+        const savedVol = localStorage.getItem('genoin_volume');
+        if (savedVol !== null && !isNaN(parseFloat(savedVol))) {
+            video.volume = Math.max(0, Math.min(1, parseFloat(savedVol)));
+        } else {
+            video.volume = 0.3;
+        }
+
+        const savedMuted = localStorage.getItem('genoin_muted');
+        if (savedMuted !== null) {
+            video.muted = (savedMuted === 'true');
+        }
+        updateVolumeUI();
+
+        // Restore Sidebar tab preference
+        const savedTab = localStorage.getItem('genoin_sidebar_tab');
+        if (savedTab === 'fav' || savedTab === 'all') {
+            sidebarActiveTab = savedTab;
+            const tabAll = document.getElementById('sidebar-tab-all');
+            const tabFav = document.getElementById('sidebar-tab-fav');
+            if (tabAll) tabAll.classList.toggle('active', savedTab === 'all');
+            if (tabFav) tabFav.classList.toggle('active', savedTab === 'fav');
+        }
+
+        // Restore Server index from last play if recorded
+        const savedChannelRaw = localStorage.getItem('genoin_last_channel');
+        let savedChannelInfo = null;
+        if (savedChannelRaw) {
+            try { savedChannelInfo = JSON.parse(savedChannelRaw); } catch(e) {}
+        }
+        if (savedChannelInfo && savedChannelInfo.serverIndex !== undefined &&
+            savedChannelInfo.serverIndex >= 0 && savedChannelInfo.serverIndex < PLAYLISTS.length) {
+            currentPlaylistIndex = savedChannelInfo.serverIndex;
+        }
+
+        // Set UI server display for active server
+        const initialPlaylist = PLAYLISTS[currentPlaylistIndex];
+        const serverNameDisplay = document.getElementById('current-server-name');
+        const sidebarServerNameDisplay = document.getElementById('sidebar-current-server-name');
+        if (serverNameDisplay) serverNameDisplay.textContent = initialPlaylist.name;
+        if (sidebarServerNameDisplay) sidebarServerNameDisplay.textContent = initialPlaylist.name;
+        document.querySelectorAll('#playlist-menu .dropdown-item, #sidebar-playlist-menu .dropdown-item').forEach((el, i) => {
+            if (el.textContent.trim() === initialPlaylist.name) el.classList.add('active');
+            else el.classList.remove('active');
+        });
+
+        fetchAndParseM3U(initialPlaylist.url).then(() => {
+            restoreLastChannel();
+        });
+
         startWidgetClock();
-        
-        video.volume = 0.3;
         
         const favoritesRow = document.getElementById('favorites-row');
         favoritesRow.addEventListener('wheel', (evt) => {
@@ -3676,8 +3890,17 @@
 
         container.style.display = 'inline-block';
 
+        const savedQuality = parseInt(localStorage.getItem('genoin_quality') ?? '-1');
+        if (!isNaN(savedQuality) && savedQuality >= -1 && savedQuality < hlsInstance.levels.length) {
+            if (hlsInstance.loadLevel !== savedQuality) {
+                hlsInstance.currentLevel = savedQuality;
+                hlsInstance.loadLevel = savedQuality;
+            }
+        }
+
+        const currentActiveLevel = hlsInstance.loadLevel;
         const levels = hlsInstance.levels;
-        let html = `<li><a class="dropdown-item ${hlsInstance.loadLevel === -1 ? 'active' : ''}" href="#" onclick="changeQuality(event, -1)">Auto Quality</a></li>`;
+        let html = `<li><a class="dropdown-item ${currentActiveLevel === -1 ? 'active' : ''}" href="#" onclick="changeQuality(event, -1)">Auto Quality</a></li>`;
         
         levels.forEach((level, index) => {
             let name = level.name;
@@ -3691,7 +3914,7 @@
                 }
             }
             
-            html += `<li><a class="dropdown-item ${hlsInstance.loadLevel === index ? 'active' : ''}" id="quality-item-${index}" href="#" onclick="changeQuality(event, ${index})">${name}</a></li>`;
+            html += `<li><a class="dropdown-item ${currentActiveLevel === index ? 'active' : ''}" id="quality-item-${index}" href="#" onclick="changeQuality(event, ${index})">${name}</a></li>`;
         });
 
         qualityMenu.innerHTML = html;
@@ -3706,6 +3929,7 @@
 
         hlsInstance.currentLevel = index;
         hlsInstance.loadLevel = index;
+        try { localStorage.setItem('genoin_quality', index); } catch (e) {}
 
         const qualityMenu = document.getElementById('quality-menu');
         if (qualityMenu) {
