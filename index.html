@@ -178,7 +178,10 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     width: auto; max-width: 90%;
 }
 .video-controls.show { opacity: 1; pointer-events: auto; }
-.controls-row { display: flex; align-items: center; gap: 12px; }
+.controls-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.controls-left, .controls-right { display: flex; align-items: center; gap: 8px; flex: 1; }
+.controls-left { justify-content: flex-start; }
+.controls-right { justify-content: flex-end; }
 .control-icon {
     background: none; border: none; color: var(--text-primary); cursor: pointer;
     font-size: 16px; padding: 8px; opacity: 0.9;
@@ -187,9 +190,9 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 }
 .control-icon:hover { opacity: 1; color: var(--accent); }
 .play-icon { font-size: 18px; }
-.volume-control { display: flex; align-items: center; gap: 8px; }
+.volume-control { display: flex; align-items: center; gap: 6px; }
 .volume-slider {
-    width: 70px; height: 4px;
+    width: 45px; height: 4px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 2px; cursor: pointer; position: relative;
     display: flex; align-items: center; -webkit-tap-highlight-color: transparent;
@@ -313,64 +316,64 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
 /* DESKTOP DRAWER */
 .channel-panel-desktop {
-    display: none; position: absolute; bottom: 84px; left: 16px; right: 16px;
-    transform: none; width: auto; max-width: 1200px; height: 0;
+    display: none; position: absolute; bottom: 96px; left: 16px; right: 16px;
+    transform: none; width: auto; max-width: 960px; height: 0;
     margin: 0 auto;
     background: rgba(12, 10, 9, 0.92); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-    border-radius: 20px;
+    border-radius: 18px;
     transition: height 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease, border-color 0.25s ease; overflow: hidden; flex-direction: column; z-index: 90;
     border: 1px solid transparent;
     opacity: 0;
     pointer-events: none;
 }
-.channel-panel-desktop.show { height: 240px; overflow: visible; border-color: var(--border-subtle); opacity: 1; pointer-events: auto; padding-bottom: 12px; }
+.channel-panel-desktop.show { height: 205px; overflow: visible; border-color: var(--border-subtle); opacity: 1; pointer-events: auto; padding-bottom: 10px; }
 
 /* CATEGORY TABS */
 .category-tabs {
-    display: flex; gap: 20px; padding: 16px 24px; overflow-x: auto; scrollbar-width: none;
+    display: flex; gap: 16px; padding: 8px 20px; overflow-x: auto; scrollbar-width: none;
     background: transparent; position: sticky; top: 0; z-index: 10;
 }
 .category-tabs::-webkit-scrollbar { display: none; }
 .category-tab {
-    padding: 0 0 6px 0; background: transparent; border: none; border-radius: 0; cursor: pointer;
-    font-size: 14px; font-weight: 500; white-space: nowrap; color: var(--text-secondary);
+    padding: 0 0 4px 0; background: transparent; border: none; border-radius: 0; cursor: pointer;
+    font-size: 13.5px; font-weight: 500; white-space: nowrap; color: var(--text-secondary);
     flex-shrink: 0; -webkit-tap-highlight-color: transparent; transition: color 0.2s; display: inline-flex; align-items: center; justify-content: center;
 }
-.category-tab span { border-bottom: 2px solid transparent; padding-bottom: 4px; transition: border-bottom-color 0.2s; }
+.category-tab span { border-bottom: 2px solid transparent; padding-bottom: 3px; transition: border-bottom-color 0.2s; }
 .category-tab.active { color: var(--text-primary); font-weight: 600; }
 .category-tab.active span { border-bottom-color: var(--accent); }
 
 /* CARDS DESKTOP */
 .channel-list-desktop {
-    display: flex; gap: 16px; padding: 10px 24px; overflow-x: auto; overflow-y: hidden; align-items: center;
+    display: flex; gap: 14px; padding: 8px 20px; overflow-x: auto; overflow-y: hidden; align-items: center;
     scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth;
 }
 .channel-list-desktop::-webkit-scrollbar { display: none; }
 .list-wrap { position: relative; }
 .list-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%;
+    position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; font-size: 13px;
     background: var(--bg-card); border: 1px solid var(--border-subtle); color: #fff;
     display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20;
     opacity: 0; pointer-events: none; transition: opacity 0.2s, background 0.2s;
 }
 .list-arrow:hover { background: var(--accent); }
 .list-arrow.show { opacity: 1; pointer-events: auto; }
-.list-arrow-left { left: 6px; }
-.list-arrow-right { right: 6px; }
+.list-arrow-left { left: 4px; }
+.list-arrow-right { right: 4px; }
 
 .channel-card-desktop {
-    display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; flex-shrink: 0; width: 80px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; flex-shrink: 0; width: 74px;
 }
 .channel-logo-desktop {
-    width: 64px; height: 64px; border-radius: 50%; background: #ffffff;
+    width: 56px; height: 56px; border-radius: 50%; background: #ffffff;
     border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center;
-    padding: 6px; transition: border-color 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
+    padding: 5px; transition: border-color 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
 }
 .channel-card-desktop.active .channel-logo-desktop, .channel-card-desktop:hover .channel-logo-desktop {
     border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow);
 }
 .channel-logo-desktop img { width: 100%; height: 100%; border-radius: 50%; object-fit: contain; }
-.channel-name-desktop { font-size: 11px; color: var(--text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
+.channel-name-desktop { font-size: 10.5px; color: var(--text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
 .channel-card-desktop.active .channel-name-desktop { color: var(--accent); font-weight: 600; }
 
 /* MOBILE GRID */
@@ -417,13 +420,13 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 .search-input::placeholder { color: var(--text-muted); }
 .search-clear { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; padding: 2px 4px; display: none; }
 .search-clear.show { display: block; }
-.search-row-desktop { margin: 16px 24px 8px; }
+.search-row-desktop { margin: 12px 20px 6px; padding: 8px 14px; }
 .search-row-mobile { margin: 12px 16px 8px; }
 .search-count { font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(245,158,11,0.1); padding: 2px 8px; border-radius: 10px; display: none; }
 .search-count.show { display: inline-block; }
 .hl { color: var(--accent); font-weight: 700; }
 
-.recent-row { display: none; gap: 8px; flex-wrap: wrap; padding: 0 24px 8px; }
+.recent-row { display: none; gap: 8px; flex-wrap: wrap; padding: 0 16px 6px; }
 .recent-row.show { display: flex; }
 .search-row-mobile + .recent-row { padding: 0 16px 8px; }
 .recent-chip {
@@ -490,17 +493,19 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 .select-trigger .select-arrow { font-size: 10px; color: var(--text-muted); transition: transform 0.2s; }
 .custom-select.open .select-arrow { transform: rotate(180deg); }
 .select-options {
-    position: absolute; top: calc(100% + 14px); left: -12px;
+    position: absolute; top: calc(100% + 8px); bottom: auto; left: -12px;
     background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); min-width: 170px; z-index: 100;
-    opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.2s;
-    overflow-y: auto; max-height: 250px; padding: 8px 0;
+    opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    overflow-y: auto; max-height: 220px; padding: 8px 0;
 }
 .custom-select.open .select-options { opacity: 1; visibility: visible; transform: translateY(0); }
-@media (min-width: 769px) {
-    .channel-panel-desktop .select-options { top: auto; bottom: calc(100% + 14px); transform: translateY(8px); }
-    .channel-panel-desktop .custom-select.open .select-options { transform: translateY(0); }
-}
+
+/* DYNAMIC DROPDOWN DIRECTION (DOWN OR AUTO) */
+.custom-select.drop-down .select-options { top: calc(100% + 8px); bottom: auto; transform: translateY(-8px); }
+.custom-select.drop-up .select-options { bottom: calc(100% + 8px); top: auto; transform: translateY(8px); }
+.custom-select.open.drop-down .select-options,
+.custom-select.open.drop-up .select-options { transform: translateY(0); }
 .select-option { padding: 10px 16px; font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; transition: background 0.2s, color 0.2s; }
 .select-option:hover { background: var(--bg-card-hover); color: var(--text-primary); }
 .select-option.selected { background: rgba(245, 158, 11, 0.1); color: var(--accent); font-weight: 600; }
@@ -577,7 +582,38 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     .category-tabs { padding: 0 0 12px; border: none; }
     .server-select-wrap { margin-right: 8px; margin-left: 0; border-left: none; padding-left: 0; border-right: 1px solid var(--border-subtle); padding-right: 10px; }
     .carousel-track .channel-grid { gap: 14px 12px; padding: 12px 14px; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
+    
+    /* HIDE NEXT/PREV & DESKTOP CHANNEL GRID TOGGLE IN MOBILE MODE */
     .channel-nav { display: none !important; }
+
+    /* RESPONSIVE FLOATING CONTROL BAR FOR MOBILE */
+    .video-controls {
+        bottom: 12px;
+        padding: 6px 12px;
+        max-width: 92%;
+        border-radius: 30px;
+    }
+    .controls-row {
+        gap: 6px;
+        justify-content: space-between;
+    }
+    .controls-left, .controls-right {
+        gap: 6px;
+    }
+    .control-icon {
+        padding: 5px;
+        font-size: 15px;
+    }
+    .play-icon {
+        font-size: 16px;
+    }
+    .volume-control {
+        gap: 4px;
+    }
+    .volume-slider {
+        display: flex;
+        width: 38px;
+    }
 }
 
 @media (min-width: 769px) {
@@ -589,13 +625,16 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     .channel-panel-desktop { display: flex; }
     .channel-panel-mobile { display: none; }
     .channel-nav { display: flex; }
+    .modal-overlay { align-items: center; }
+    .modal-content { border-radius: 24px; border-bottom: 1px solid var(--border-subtle); animation: modalFadeIn 0.25s ease; }
 }
+@keyframes modalFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 .hide-cursor { cursor: none !important; }
     </style>
 </head>
 <body>
 
-    <!-- Banner -->
+    <!-- App Download Promotion Banner (Temporarily Disabled)
     <div class="banner-notification" id="bannerNotification">
         <div class="banner-content">
             <div class="banner-icon">🎬</div>
@@ -610,6 +649,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         </div>
         <button class="banner-close" id="bannerClose"><i class="fas fa-times"></i></button>
     </div>
+    -->
 
     <!-- Guide -->
     <div class="guide-overlay" id="guideOverlay">
@@ -708,13 +748,13 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                         <i class="far fa-clock"></i><span id="epgText">Live</span>
                     </div>
                     <div class="controls-row">
-                        <button class="control-icon play-icon" id="playBtn" title="Play/Pause"><i class="fas fa-play"></i></button>
-                        <div class="volume-control">
-                            <button class="control-icon" id="muteBtn" title="Mute/Unmute"><i class="fas fa-volume-up"></i></button>
-                            <div class="volume-slider" id="volumeSlider"><div class="volume-fill" id="volumeFill"></div></div>
+                        <div class="controls-left">
+                            <button class="control-icon play-icon" id="playBtn" title="Play/Pause"><i class="fas fa-play"></i></button>
+                            <div class="volume-control">
+                                <button class="control-icon" id="muteBtn" title="Mute/Unmute"><i class="fas fa-volume-up"></i></button>
+                                <div class="volume-slider" id="volumeSlider"><div class="volume-fill" id="volumeFill"></div></div>
+                            </div>
                         </div>
-                        
-                        <div class="spacer"></div>
 
                         <div class="channel-nav" id="channelNav">
                             <button class="channel-nav-btn" id="prevBtn" title="Previous Channel"><i class="fas fa-chevron-left"></i></button>
@@ -722,11 +762,11 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                             <button class="channel-nav-btn" id="nextBtn" title="Next Channel"><i class="fas fa-chevron-right"></i></button>
                         </div>
 
-                        <div class="spacer"></div>
-
-                        <button class="control-icon" id="autoSwitchBtn" title="Auto-Switch Channel/Server: ON"><i class="fas fa-toggle-on"></i></button>
-                        <button class="control-icon" id="pipBtn" title="Picture in Picture" style="display: none;"><i class="fas fa-window-restore"></i></button>
-                        <button class="control-icon" id="fullscreenBtn" title="Fullscreen"><i class="fas fa-expand"></i></button>
+                        <div class="controls-right">
+                            <button class="control-icon" id="autoSwitchBtn" title="Auto-Switch Channel/Server: ON"><i class="fas fa-toggle-on"></i></button>
+                            <button class="control-icon" id="pipBtn" title="Picture in Picture" style="display: none;"><i class="fas fa-window-restore"></i></button>
+                            <button class="control-icon" id="fullscreenBtn" title="Fullscreen"><i class="fas fa-expand"></i></button>
+                        </div>
                     </div>
                 </div>
 
@@ -1095,6 +1135,28 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         }
     }
 
+    // SMART AUTO-DIRECTION & DYNAMIC HEIGHT DROPDOWN POSITIONING
+    function adjustDropdownPosition(selectEl) {
+        if (!selectEl) return;
+        const optionsContainer = selectEl.querySelector('.select-options');
+        if (!optionsContainer) return;
+
+        const rect = selectEl.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom - 16;
+        const spaceAbove = rect.top - 16;
+
+        // Pick whichever side has MORE available screen height
+        if (spaceBelow < 180 && spaceAbove > spaceBelow) {
+            selectEl.classList.add('drop-up');
+            selectEl.classList.remove('drop-down');
+            optionsContainer.style.maxHeight = `${Math.min(220, Math.max(100, spaceAbove))}px`;
+        } else {
+            selectEl.classList.add('drop-down');
+            selectEl.classList.remove('drop-up');
+            optionsContainer.style.maxHeight = `${Math.min(220, Math.max(100, spaceBelow))}px`;
+        }
+    }
+
     function initQualitySelects() {
         const pref = localStorage.getItem('nbox_preferred_quality') || 'Auto';
         
@@ -1126,6 +1188,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                 document.querySelectorAll('.custom-select').forEach(cs => {
                     if (cs !== selectEl) cs.classList.remove('open');
                 });
+                adjustDropdownPosition(selectEl);
                 selectEl.classList.toggle('open');
             };
             
@@ -1359,20 +1422,27 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         clearInterval(loadTimerInterval);
     }
 
-    if (!localStorage.getItem('nbox_banner_shown_permanently')) {
+    // App Download Promotion (Temporarily Disabled)
+    /*
+    if (bannerNotification && !localStorage.getItem('nbox_banner_shown_permanently')) {
         setTimeout(() => bannerNotification.classList.add('show'), 2000);
     }
-    bannerClose.addEventListener('click', () => {
-        bannerNotification.classList.remove('show');
-        localStorage.setItem('nbox_banner_shown_permanently', 'true');
-    });
-    downloadBtn.addEventListener('click', () => window.open(window._getAPKURL(), '_blank'));
-    shareBtn.addEventListener('click', async () => {
-        try {
-            if (navigator.share) await navigator.share({ title: 'TV', url: location.href });
-            else { await navigator.clipboard.writeText(location.href); }
-        } catch(e) {}
-    });
+    if (bannerClose) {
+        bannerClose.addEventListener('click', () => {
+            bannerNotification.classList.remove('show');
+            localStorage.setItem('nbox_banner_shown_permanently', 'true');
+        });
+    }
+    if (downloadBtn) downloadBtn.addEventListener('click', () => window.open(window._getAPKURL(), '_blank'));
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            try {
+                if (navigator.share) await navigator.share({ title: 'TV', url: location.href });
+                else { await navigator.clipboard.writeText(location.href); }
+            } catch(e) {}
+        });
+    }
+    */
 
     if (isFirstVisit) guideOverlay.classList.add('show');
     guideButton.addEventListener('click', () => {
@@ -2029,11 +2099,13 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             parsedData = formatJSONPlaylist(parsedData);
         }
         channelsData = parsedData;
+        /*
         channelsData['Download APK'] = [{
             channel_name: 'TV APK',
             image: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Ccircle cx=%2240%22 cy=%2240%22 r=%2240%22 fill=%22%23f59e0b%22/%3E%3Ctext x=%2240%22 y=%2248%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22white%22 text-anchor=%22middle%22%3EAPK%3C/text%3E%3C/svg%3E',
             url: window._getAPKURL(), isAPK: true
         }];
+        */
         
         channelCategoryMap = {};
         Object.keys(channelsData).forEach(cat => {
@@ -2274,6 +2346,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                 document.querySelectorAll('.custom-select').forEach(cs => {
                     if (cs !== selectEl) cs.classList.remove('open');
                 });
+                adjustDropdownPosition(selectEl);
                 const isOpen = selectEl.classList.toggle('open');
                 if (isOpen) {
                     const selectedOpt = optionsContainer.querySelector('.select-option.selected');
@@ -2944,6 +3017,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         document.querySelectorAll('.custom-select').forEach(cs => {
             if (cs !== customFormatSelect) cs.classList.remove('open');
         });
+        adjustDropdownPosition(customFormatSelect);
         customFormatSelect.classList.toggle('open');
     });
 
