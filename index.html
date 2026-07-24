@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -251,23 +252,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
 /* WATERMARK TOP-LEFT */
 .player-watermark {
-    position: absolute; top: 16px; left: 20px; bottom: auto; right: auto;
-    font-style: normal; color: rgba(255, 255, 255, 0.7);
-    pointer-events: none; z-index: 80; user-select: none;
-    display: flex; align-items: baseline; gap: 5px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-    opacity: 0.9;
-    transition: all 0.25s ease;
-}
-.player-watermark .brand {
-    font-weight: 800; font-size: 15px; letter-spacing: 1.2px;
-    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.8));
-}
-.player-watermark .sub {
-    font-size: 10px; font-weight: 700; letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.9);
+    display: none !important;
 }
 
 /* SERVER BADGE TOP-LEFT */
@@ -301,14 +286,14 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 }
 .load-box { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .load-logo {
-    width: 60px; height: 60px; border-radius: 12px; background: var(--bg-card);
+    width: 60px; height: 60px; border-radius: 50%; background: #ffffff;
     border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); position: relative; overflow: hidden;
+    font-size: 11px; font-weight: 600; color: #1c1917; position: relative; overflow: hidden;
 }
-.load-logo img { width: 100%; height: 100%; border-radius: 10px; object-fit: contain; padding: 4px; }
+.load-logo img { width: 100%; height: 100%; border-radius: 50%; object-fit: contain; padding: 4px; }
 .load-logo::after {
-    content: ''; position: absolute; inset: -2px; border-radius: 12px;
-    border: 2px solid transparent; border-top-color: #fff; animation: loadSpin 1s linear infinite;
+    content: ''; position: absolute; inset: -2px; border-radius: 50%;
+    border: 2px solid transparent; border-top-color: var(--accent); animation: loadSpin 1s linear infinite;
 }
 @keyframes loadSpin { to { transform: rotate(360deg); } }
 .load-ch-name { font-size: 14px; font-weight: 600; color: #fff; max-width: 200px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Poppins', sans-serif; }
@@ -377,14 +362,14 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; flex-shrink: 0; width: 80px;
 }
 .channel-logo-desktop {
-    width: 80px; height: 64px; border-radius: 12px; background: var(--bg-card);
+    width: 64px; height: 64px; border-radius: 50%; background: #ffffff;
     border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center;
-    padding: 6px; transition: border-color 0.2s, box-shadow 0.2s; position: relative;
+    padding: 6px; transition: border-color 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
 }
 .channel-card-desktop.active .channel-logo-desktop, .channel-card-desktop:hover .channel-logo-desktop {
     border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow);
 }
-.channel-logo-desktop img { width: 100%; height: 100%; border-radius: 6px; object-fit: contain; }
+.channel-logo-desktop img { width: 100%; height: 100%; border-radius: 50%; object-fit: contain; }
 .channel-name-desktop { font-size: 11px; color: var(--text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
 .channel-card-desktop.active .channel-name-desktop { color: var(--accent); font-weight: 600; }
 
@@ -393,21 +378,22 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 .carousel-track { display: flex; width: 100%; height: 100%; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
 .carousel-track .channel-grid {
     flex-shrink: 0; width: 100%; height: 100%; overflow-y: auto; display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
     grid-auto-rows: max-content;
-    gap: 8px; padding: 10px 12px;
+    gap: 14px 12px; padding: 12px 14px;
+    justify-items: center;
     scrollbar-width: none;
 }
 .carousel-track .channel-grid::-webkit-scrollbar { display: none; }
 
 .channel-card-mobile {
-    display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer;
     background: transparent; border: none; -webkit-tap-highlight-color: transparent;
-    width: 100%;
+    width: 100%; max-width: 56px;
 }
 .channel-logo-mobile {
-    width: 100%; padding-top: 100%; /* force 1:1 square */
-    height: 0; border-radius: 12px; background: var(--bg-card);
+    width: 100%; padding-top: 100%; /* force 1:1 square ratio */
+    height: 0; border-radius: 50%; background: #ffffff;
     border: 1px solid var(--border-subtle);
     position: relative; overflow: hidden;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -415,7 +401,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 .channel-card-mobile.active .channel-logo-mobile { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
 .channel-logo-mobile img {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 60%; height: 60%; object-fit: contain;
+    width: 65%; height: 65%; border-radius: 50%; object-fit: contain;
 }
 .channel-name-mobile { font-size: 10px; color: var(--text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; font-weight: 500; }
 .channel-card-mobile.active .channel-name-mobile { color: var(--accent); font-weight: 600; }
@@ -590,7 +576,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     .search-row-mobile { margin: 0 0 12px 0; }
     .category-tabs { padding: 0 0 12px; border: none; }
     .server-select-wrap { margin-right: 8px; margin-left: 0; border-left: none; padding-left: 0; border-right: 1px solid var(--border-subtle); padding-right: 10px; }
-    .carousel-track .channel-grid { gap: 8px; padding: 10px 12px; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); }
+    .carousel-track .channel-grid { gap: 14px 12px; padding: 12px 14px; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
     .channel-nav { display: none !important; }
 }
 
@@ -696,7 +682,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         <div class="video-section" id="videoSection">
             <div class="video-wrapper" id="videoWrapper">
                 <video id="video" autoplay playsinline muted></video>
-                <!-- <div class="player-watermark"><span class="brand">GENOIN</span> <span class="sub">HDTV</span></div> -->
+                <!-- <div class="player-watermark" id="watermark"><img src="logo.png" alt="Logo"></div> -->
 
                 <div class="loading-overlay" id="loadingOverlay">
                     <div class="load-bar-wrap">
