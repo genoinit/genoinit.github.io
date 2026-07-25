@@ -15,7 +15,7 @@
 
     window.APP_CONFIG = window.APP_CONFIG || {};
     window.APP_CONFIG.TV_SERVER_URL = window.APP_CONFIG.TV_SERVER_URL || `${PROXY_BASE}/ftp`;
- //   window.APP_CONFIG.APK_DOWNLOAD_URL = window.APP_CONFIG.APK_DOWNLOAD_URL || '';
+    window.APP_CONFIG.APK_DOWNLOAD_URL = window.APP_CONFIG.APK_DOWNLOAD_URL || 'https://github.com/genoinit/genoinit.github.io/raw/refs/heads/main/Apk/genoin_hdtv_v1.0.apk';
 	
     window.APP_CONFIG.playlists = window.APP_CONFIG.playlists || [
         { name: 'Genoin', url: `${PROXY_BASE}/genoin`, type: 'm3u' },
@@ -570,14 +570,14 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     .video-section { flex-shrink: 0; z-index: 50; position: relative; }
     .video-wrapper { width: 100%; aspect-ratio: 16/9; height: auto; border-radius: 0; border: none; margin: 0; }
     #video { object-fit: cover; }
-    .channel-panel-mobile { display: block; flex: 1; overflow: hidden; }
+    .channel-panel-mobile { display: flex; flex-direction: column; flex: 1; overflow: hidden; position: relative; }
     .mobile-header-sticky { display: block; background: var(--bg-deep); padding: 12px 16px 4px; }
     .search-row-mobile { margin: 0 0 8px 0; }
     .category-tabs { display: flex !important; padding: 4px 0 8px; border: none; gap: 8px; overflow-x: auto; scrollbar-width: none; }
     .category-tabs::-webkit-scrollbar { display: none; }
     .server-select-wrap { margin-right: 8px; margin-left: 0; border-left: none; padding-left: 0; border-right: 1px solid var(--border-subtle); padding-right: 10px; }
-    .carousel-track { display: block; width: 100%; height: 100%; transform: none !important; }
-    .carousel-track .channel-grid { gap: 14px 12px; padding: 8px 14px; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
+    .carousel-track { display: flex; flex: 1; width: 100%; height: 100%; transform: none !important; overflow: hidden; }
+    .carousel-track .channel-grid { gap: 14px 12px; padding: 8px 14px; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); flex: 1; }
     #channelGridMobilePrev, #channelGridMobileNext { display: none !important; }
     
     /* HIDE NEXT/PREV & DESKTOP CHANNEL GRID TOGGLE IN MOBILE MODE */
@@ -706,6 +706,42 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 }
 @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 .hide-cursor { cursor: none !important; }
+
+/* DEVELOPER CREDITS FOOTER */
+.dev-credits {
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    background: transparent;
+    border-top: 1.5px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    font-family: 'DM Sans', sans-serif;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    z-index: 10;
+}
+.dev-socials {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.dev-socials a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s, transform 0.2s;
+}
+.dev-socials a.fb:hover { color: #1877f2; transform: scale(1.2); }
+.dev-socials a.tg:hover { color: #24a1de; transform: scale(1.2); }
+.dev-socials a.wa:hover { color: #25d366; transform: scale(1.2); }
     </style>
 </head>
 <body>
@@ -856,6 +892,14 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                         <div class="channel-list-desktop" id="channelListDesktop"></div>
                         <button class="list-arrow list-arrow-right" id="listArrowRight"><i class="fas fa-chevron-right"></i></button>
                     </div>
+                    <div class="dev-credits">
+                        <span>Developed By: <strong>Saidur R.</strong></span>
+                        <div class="dev-socials">
+                            <a href="https://www.facebook.com/Thesaidursumon" target="_blank" rel="noopener noreferrer" class="fb" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://t.me/thesaidursumon" target="_blank" rel="noopener noreferrer" class="tg" title="Telegram"><i class="fab fa-telegram"></i></a>
+                            <a href="https://wa.me/8801891965724" target="_blank" rel="noopener noreferrer" class="wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -900,6 +944,14 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                 <div class="channel-grid" id="channelGridMobilePrev"></div>
                 <div class="channel-grid" id="channelGridMobileActive"></div>
                 <div class="channel-grid" id="channelGridMobileNext"></div>
+            </div>
+            <div class="dev-credits">
+                <span>Developed By: <strong>Saidur R.</strong></span>
+                <div class="dev-socials">
+                    <a href="https://www.facebook.com/Thesaidursumon" target="_blank" rel="noopener noreferrer" class="fb" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://t.me/thesaidursumon" target="_blank" rel="noopener noreferrer" class="tg" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/8801891965724" target="_blank" rel="noopener noreferrer" class="wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
     </div>
