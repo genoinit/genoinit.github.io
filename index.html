@@ -2425,10 +2425,89 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
         function refreshPlaylistsList() {
             const customs = getCustomPlaylists();
-            allPlaylists = [...defaults, ...customs];
+            const oldStatusMap = {};
+            allPlaylists.forEach(p => {
+                if (p.url) oldStatusMap[p.url] = p.isWorking;
+            });
+
+            allPlaylists = [...defaults, ...customs].map(pl => {
+                if (oldStatusMap[pl.url] !== undefined) {
+                    pl.isWorking = oldStatusMap[pl.url];
+                }
+                return pl;
+            });
         }
 
         refreshPlaylistsList();
+
+        async function validatePlaylistServer(pl) {
+            if (!pl || !pl.url) return false;
+            const isM3U = pl.type === 'm3u' || (pl.url && (pl.url.includes('.m3u') || pl.url.includes('.m3u8')));
+            const localFileName = (pl.name || '').toLowerCase().trim() + (isM3U ? '.m3u' : '.json');
+
+            const checkUrl = (url) => {
+                return new Promise((resolve) => {
+                    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+                    const tid = setTimeout(() => {
+                        if (controller) controller.abort();
+                        resolve(false);
+                    }, 4000);
+
+                    fetch(url, { signal: controller ? controller.signal : undefined, cache: 'no-cache' })
+                        .then(r => {
+                            clearTimeout(tid);
+                            if (r.ok || r.status === 0) {
+                                return r.text();
+                            }
+                            resolve(false);
+                        })
+                        .then(text => {
+                            if (typeof text === 'string' && text.trim().length > 0) {
+                                resolve(true);
+                            } else {
+                                resolve(false);
+                            }
+                        })
+                        .catch(() => {
+                            clearTimeout(tid);
+                            resolve(false);
+                        });
+                });
+            };
+
+            try {
+                const localOk = await checkUrl('./' + localFileName);
+                if (localOk) return true;
+                return await checkUrl(pl.url);
+            } catch (err) {
+                return false;
+            }
+        }
+
+        function checkServersInBackground() {
+            allPlaylists.forEach(async (pl, idx) => {
+                const isFtp = (pl.name && pl.name.toLowerCase().includes('ftp')) || 
+                              (pl.type && pl.type.toLowerCase().includes('ftp')) ||
+                              (pl.url && pl.url.toLowerCase().includes('ftp')) ||
+                              pl.checkOnline;
+                
+                if (isFtp) {
+                    const working = await validatePlaylistServer(pl);
+                    pl.isWorking = working;
+
+                    renderCustomSelect(customSelectDesktop, selectedPlaylistIdx);
+                    renderCustomSelect(customSelectMobile, selectedPlaylistIdx);
+
+                    if (idx === selectedPlaylistIdx && working === false) {
+                        const firstWorkingIdx = allPlaylists.findIndex(p => p.isWorking !== false);
+                        if (firstWorkingIdx >= 0 && firstWorkingIdx !== selectedPlaylistIdx) {
+                            window.syncPlaylists(firstWorkingIdx);
+                            showAppToast('⚠️ Selected server unavailable, auto-switched', '#f59e0b');
+                        }
+                    }
+                }
+            });
+        }
 
         function renderCustomSelect(selectEl, selectedIndex) {
             if (!selectEl) return;
@@ -2444,6 +2523,10 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             optionsContainer.innerHTML = '';
             
             allPlaylists.forEach((pl, idx) => {
+                if (pl.isWorking === false) {
+                    return;
+                }
+
                 const opt = document.createElement('div');
                 opt.className = `select-option ${idx === selectedIndex ? 'selected' : ''}`;
                 
@@ -2488,8 +2571,9 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
         window.syncPlaylists = function(idx) {
             selectedPlaylistIdx = idx;
-            if (selectedPlaylistIdx >= allPlaylists.length) {
-                selectedPlaylistIdx = 0;
+            if (selectedPlaylistIdx >= allPlaylists.length || allPlaylists[selectedPlaylistIdx]?.isWorking === false) {
+                const firstWorking = allPlaylists.findIndex(p => p.isWorking !== false);
+                selectedPlaylistIdx = firstWorking >= 0 ? firstWorking : 0;
             }
             localStorage.setItem('nbox_selected_playlist_idx', selectedPlaylistIdx);
             renderCustomSelect(customSelectDesktop, selectedPlaylistIdx);
@@ -2526,6 +2610,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             customs.push(playlistObj);
             saveCustomPlaylists(customs);
             refreshPlaylistsList();
+            checkServersInBackground();
             
             window.syncPlaylists(allPlaylists.length - 1);
         }
@@ -2546,6 +2631,8 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         if (allPlaylists.length > 0) {
             loadPlaylist(allPlaylists[selectedPlaylistIdx]);
         }
+
+        checkServersInBackground();
     }
 
     initPlaylists();
