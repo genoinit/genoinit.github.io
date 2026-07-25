@@ -1,9 +1,167 @@
-[
-  {
-    "name": "GTV",
-    "logo": "https://i.ibb.co/pQGXzMP/images-1-removebg-preview.png",
-    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8",
-    "group": "Sports",
-    "useProxy": false
-  }
-]
+{
+    "playlist_name": "Top 20 Live Sports Channels",
+    "updated_at": "2026-07-25",
+    "total_channels": 20,
+    "channels": [
+        {
+            "id": 1,
+            "name": "Red Bull TV (Global)",
+            "url": "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8",
+            "logo": "https://i.imgur.com/vH95tKj.png",
+            "group": "Action Sports",
+            "resolution": "1080p"
+        },
+        {
+            "id": 2,
+            "name": "Fubo Sports Network",
+            "url": "https://fubotv-fubosportsnetwork-1-us.plex.wurl.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/kS9Q6Yf.png",
+            "group": "General Sports",
+            "resolution": "1080p"
+        },
+        {
+            "id": 3,
+            "name": "Unite8 Sports 1",
+            "url": "http://103.114.11.37:8081/UNITEDHINDI/index.m3u8",
+            "logo": "https://i.imgur.com/g0tX81d.png",
+            "group": "Cricket/General",
+            "resolution": "1080p"
+        },
+        {
+            "id": 4,
+            "name": "Star Sports 1 (Server 1)",
+            "url": "http://116.90.120.149:8000/play/a0ba/index.m3u8",
+            "logo": "https://i.imgur.com/E0nQeO9.png",
+            "group": "Sports",
+            "resolution": "720p"
+        },
+        {
+            "id": 5,
+            "name": "Sky Sports Premier League",
+            "url": "https://live20.bozztv.com/trn03/gin-skysportspl/index.m3u8",
+            "logo": "https://i.imgur.com/qL3aM4v.png",
+            "group": "Football",
+            "resolution": "SD"
+        },
+        {
+            "id": 6,
+            "name": "PAC-12 Network (Demo Server)",
+            "url": "https://pac12-pac12p1x-1-us.plex.wurl.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/b9O82B7.png",
+            "group": "College Sports",
+            "resolution": "1080p"
+        },
+        {
+            "id": 7,
+            "name": "Fox Sports Racing",
+            "url": "https://foxsports-racing.amagi.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/G5v3O9x.png",
+            "group": "Racing",
+            "resolution": "720p"
+        },
+        {
+            "id": 8,
+            "name": "TUDN / Univision Deportes",
+            "url": "https://tudn-live.akamaized.net/hls/live/master.m3u8",
+            "logo": "https://i.imgur.com/P4z4D8z.png",
+            "group": "Football/Spanish",
+            "resolution": "1080p"
+        },
+        {
+            "id": 9,
+            "name": "ESPN 2 (Server Alt)",
+            "url": "https://gma2.blab.email/espn2.m3u8",
+            "logo": "https://i.imgur.com/R3a7Y8d.png",
+            "group": "General Sports",
+            "resolution": "720p"
+        },
+        {
+            "id": 10,
+            "name": "ESPN U (College Sports)",
+            "url": "https://gma2.blab.email/espnu.m3u8",
+            "logo": "https://i.imgur.com/L5c4B9c.png",
+            "group": "College Sports",
+            "resolution": "720p"
+        },
+        {
+            "id": 11,
+            "name": "beIN Sports (MENA)",
+            "url": "http://live.bein.net/hls/bein_sports_1.m3u8",
+            "logo": "https://i.imgur.com/Y3a8H7q.png",
+            "group": "Football",
+            "resolution": "1080p"
+        },
+        {
+            "id": 12,
+            "name": "Eurosport 1 UK",
+            "url": "https://eurosport-uk.akamaized.net/hls/live/master.m3u8",
+            "logo": "https://i.imgur.com/F3k6H7b.png",
+            "group": "European Sports",
+            "resolution": "1080p"
+        },
+        {
+            "id": 13,
+            "name": "Willow TV (Cricket)",
+            "url": "https://willowtv-live.amagi.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/W2d5K7n.png",
+            "group": "Cricket",
+            "resolution": "720p"
+        },
+        {
+            "id": 14,
+            "name": "Northeastern Women's Hockey",
+            "url": "https://d15xyumcalkui.cloudfront.net/flash2/_definst_/northeastern/playlist.m3u8",
+            "logo": "https://i.imgur.com/H5v2D8x.png",
+            "group": "Ice Hockey",
+            "resolution": "720p"
+        },
+        {
+            "id": 15,
+            "name": "MotorTrend FAST TV",
+            "url": "https://motortrend-plex.amagi.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/M6b9X2y.png",
+            "group": "Motorsport",
+            "resolution": "1080p"
+        },
+        {
+            "id": 16,
+            "name": "Fight Network",
+            "url": "https://fightnetwork-plex.amagi.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/B9z3K8x.png",
+            "group": "Combat Sports",
+            "resolution": "1080p"
+        },
+        {
+            "id": 17,
+            "name": "WWE Network (Free Tier)",
+            "url": "https://wwe-free.akamaized.net/hls/live/master.m3u8",
+            "logo": "https://i.imgur.com/W7x3P5q.png",
+            "group": "Wrestling",
+            "resolution": "1080p"
+        },
+        {
+            "id": 18,
+            "name": "CBS Sports HQ",
+            "url": "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8",
+            "logo": "https://i.imgur.com/C4z4V8m.png",
+            "group": "Sports News",
+            "resolution": "1080p"
+        },
+        {
+            "id": 19,
+            "name": "NFL Channel",
+            "url": "https://nfl-nfl.amagi.tv/playlist.m3u8",
+            "logo": "https://i.imgur.com/N8v2K9b.png",
+            "group": "American Football",
+            "resolution": "1080p"
+        },
+        {
+            "id": 20,
+            "name": "MLB Network (Free Stream)",
+            "url": "https://mlb-free.akamaized.net/hls/live/master.m3u8",
+            "logo": "https://i.imgur.com/M2x4N7c.png",
+            "group": "Baseball",
+            "resolution": "1080p"
+        }
+    ]
+}
