@@ -1,167 +1,79 @@
 {
-    "playlist_name": "Top 20 Live Sports Channels",
-    "updated_at": "2026-07-25",
-    "total_channels": 20,
-    "channels": [
-        {
-            "id": 1,
-            "name": "Red Bull TV (Global)",
-            "url": "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8",
-            "logo": "https://i.imgur.com/vH95tKj.png",
-            "group": "Action Sports",
-            "resolution": "1080p"
-        },
-        {
-            "id": 2,
-            "name": "Fubo Sports Network",
-            "url": "https://fubotv-fubosportsnetwork-1-us.plex.wurl.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/kS9Q6Yf.png",
-            "group": "General Sports",
-            "resolution": "1080p"
-        },
-        {
-            "id": 3,
-            "name": "Unite8 Sports 1",
-            "url": "http://103.114.11.37:8081/UNITEDHINDI/index.m3u8",
-            "logo": "https://i.imgur.com/g0tX81d.png",
-            "group": "Cricket/General",
-            "resolution": "1080p"
-        },
-        {
-            "id": 4,
-            "name": "Star Sports 1 (Server 1)",
-            "url": "http://116.90.120.149:8000/play/a0ba/index.m3u8",
-            "logo": "https://i.imgur.com/E0nQeO9.png",
-            "group": "Sports",
-            "resolution": "720p"
-        },
-        {
-            "id": 5,
-            "name": "Sky Sports Premier League",
-            "url": "https://live20.bozztv.com/trn03/gin-skysportspl/index.m3u8",
-            "logo": "https://i.imgur.com/qL3aM4v.png",
-            "group": "Football",
-            "resolution": "SD"
-        },
-        {
-            "id": 6,
-            "name": "PAC-12 Network (Demo Server)",
-            "url": "https://pac12-pac12p1x-1-us.plex.wurl.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/b9O82B7.png",
-            "group": "College Sports",
-            "resolution": "1080p"
-        },
-        {
-            "id": 7,
-            "name": "Fox Sports Racing",
-            "url": "https://foxsports-racing.amagi.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/G5v3O9x.png",
-            "group": "Racing",
-            "resolution": "720p"
-        },
-        {
-            "id": 8,
-            "name": "TUDN / Univision Deportes",
-            "url": "https://tudn-live.akamaized.net/hls/live/master.m3u8",
-            "logo": "https://i.imgur.com/P4z4D8z.png",
-            "group": "Football/Spanish",
-            "resolution": "1080p"
-        },
-        {
-            "id": 9,
-            "name": "ESPN 2 (Server Alt)",
-            "url": "https://gma2.blab.email/espn2.m3u8",
-            "logo": "https://i.imgur.com/R3a7Y8d.png",
-            "group": "General Sports",
-            "resolution": "720p"
-        },
-        {
-            "id": 10,
-            "name": "ESPN U (College Sports)",
-            "url": "https://gma2.blab.email/espnu.m3u8",
-            "logo": "https://i.imgur.com/L5c4B9c.png",
-            "group": "College Sports",
-            "resolution": "720p"
-        },
-        {
-            "id": 11,
-            "name": "beIN Sports (MENA)",
-            "url": "http://live.bein.net/hls/bein_sports_1.m3u8",
-            "logo": "https://i.imgur.com/Y3a8H7q.png",
-            "group": "Football",
-            "resolution": "1080p"
-        },
-        {
-            "id": 12,
-            "name": "Eurosport 1 UK",
-            "url": "https://eurosport-uk.akamaized.net/hls/live/master.m3u8",
-            "logo": "https://i.imgur.com/F3k6H7b.png",
-            "group": "European Sports",
-            "resolution": "1080p"
-        },
-        {
-            "id": 13,
-            "name": "Willow TV (Cricket)",
-            "url": "https://willowtv-live.amagi.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/W2d5K7n.png",
-            "group": "Cricket",
-            "resolution": "720p"
-        },
-        {
-            "id": 14,
-            "name": "Northeastern Women's Hockey",
-            "url": "https://d15xyumcalkui.cloudfront.net/flash2/_definst_/northeastern/playlist.m3u8",
-            "logo": "https://i.imgur.com/H5v2D8x.png",
-            "group": "Ice Hockey",
-            "resolution": "720p"
-        },
-        {
-            "id": 15,
-            "name": "MotorTrend FAST TV",
-            "url": "https://motortrend-plex.amagi.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/M6b9X2y.png",
-            "group": "Motorsport",
-            "resolution": "1080p"
-        },
-        {
-            "id": 16,
-            "name": "Fight Network",
-            "url": "https://fightnetwork-plex.amagi.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/B9z3K8x.png",
-            "group": "Combat Sports",
-            "resolution": "1080p"
-        },
-        {
-            "id": 17,
-            "name": "WWE Network (Free Tier)",
-            "url": "https://wwe-free.akamaized.net/hls/live/master.m3u8",
-            "logo": "https://i.imgur.com/W7x3P5q.png",
-            "group": "Wrestling",
-            "resolution": "1080p"
-        },
-        {
-            "id": 18,
-            "name": "CBS Sports HQ",
-            "url": "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8",
-            "logo": "https://i.imgur.com/C4z4V8m.png",
-            "group": "Sports News",
-            "resolution": "1080p"
-        },
-        {
-            "id": 19,
-            "name": "NFL Channel",
-            "url": "https://nfl-nfl.amagi.tv/playlist.m3u8",
-            "logo": "https://i.imgur.com/N8v2K9b.png",
-            "group": "American Football",
-            "resolution": "1080p"
-        },
-        {
-            "id": 20,
-            "name": "MLB Network (Free Stream)",
-            "url": "https://mlb-free.akamaized.net/hls/live/master.m3u8",
-            "logo": "https://i.imgur.com/M2x4N7c.png",
-            "group": "Baseball",
-            "resolution": "1080p"
-        }
-    ]
+  "channels": [
+    {
+      "name": "T sports - FHD server",
+      "logo": "https://i.postimg.cc/rp4WHTQB/1630662269264.jpg",
+      "url": "https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8"
+    },
+    {
+      "name": "T sports - HD server",
+      "logo": "https://i.postimg.cc/rp4WHTQB/1630662269264.jpg",
+      "url": "https://flussonic.deltainfonet.com/02_Tsports_HD/tracks-v1a1/mono.m3u8"
+    },
+    {
+      "name": "TEN Cricket",
+      "logo": "https://images.toffeelive.com/images/program/301891/logo/240x240/mobile_logo_578686001735197654.png",
+      "url": "https://mflixott.com/tv/toffee-by-maruf/live.php?id=ten_cricket&e=.m3u8"
+    },
+    {
+      "name": "SONY SPORTS TEN 1 HD",
+      "logo": "https://images.toffeelive.com/images/program/603/logo/240x240/mobile_logo_237244001666780563.png",
+      "url": "https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_1_hd&e=.m3u8"
+    },
+    {
+      "name": "SONY SPORTS TEN 2 HD",
+      "logo": "https://images.toffeelive.com/images/program/604/logo/240x240/mobile_logo_093449001666780976.png",
+      "url": "https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_2_hd&e=.m3u8"
+    },
+    {
+      "name": "SONY SPORTS TEN 5 HD",
+      "logo": "https://images.toffeelive.com/images/program/606/logo/240x240/mobile_logo_689539001672145843.png",
+      "url": "https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_5_hd&e=.m3u8"
+    },
+    {
+      "name": "Euro Sport HD",
+      "logo": "https://images.toffeelive.com/images/program/4388/logo/240x240/mobile_logo_422191001674119624.png",
+      "url": "https://mflixott.com/tv/toffee-by-maruf/live.php?id=euro_sports_hd&e=.m3u8"
+    },
+    {
+      "name": "Star Sports select 1",
+      "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/200/-/Star_Sports_Select_HD_1.png",
+      "url": "https://cdn1.ctgiptv.com/star-select-1/tracks-v1a1/mono.ts.m3u8"
+    },
+    {
+      "name": "Star Sports select 2",
+      "logo": "https://multireach.in/wp-content/uploads/2020/11/Star-Sports-Select-HD-2-1.png",
+      "url": "https://cdn1.ctgiptv.com/star-select-2/tracks-a1/mono.ts.m3u8"
+    },
+    {
+      "name": "Star Sports 1",
+      "logo": "https://wclegends.uk/wp-content/uploads/2025/07/star-sports-hindi-hd-WCL-2025-Broadcaster.webp",
+      "url": "https://mxonlive.xyz/universal_restream/play/810/stream.m3u8"
+    },
+    {
+      "name": "Star Sports 2",
+      "logo": "https://medianet.mv/media/channel/179x0-icon.png",
+      "url": "https://mxonlive.xyz/universal_restream/play/805/stream.m3u8"
+    },
+    {
+      "name": "A Sports HD",
+      "logo": "https://play-lh.googleusercontent.com/Qhs1jcocO2FenxF7j5DBVn-3lQV3cPhnsJCfeo3fAvEPzdsUx1RCb8Ka956B_ZEhAA8",
+      "url": "https://tvsen6.aynaott.com/asports/tracks-v1a1/mono.ts.m3u8"
+    },
+    {
+      "name": "PTV Sports",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/e/e4/PTV_Sports.png",
+      "url": "https://tvsen5.aynaott.com/PtvSports/playlist.m3u8"
+    },
+    {
+      "name": "Willow",
+      "logo": "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/38-by-xfireflix.png",
+      "url": "https://tvsen5.aynaott.com/willowhd/index.m3u8"
+    },
+    {
+      "name": "Willow HD 2",
+      "logo": "https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/8-by-xfireflix.png",
+      "url": "https://mxonlive.xyz/universal_restream/play/808/stream.m3u8"
+    }
+  ]
 }
