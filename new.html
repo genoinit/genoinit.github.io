@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free TV</title>
+    <!-- Include HLS.js for playing m3u8 streams -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            user-select: none;
+        }
+
+        /* Video element */
+        #tv-player {
+            width: 100vw;
+            height: 100vh;
+            object-fit: fill; 
+            outline: none;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* TV Static Canvas Overlay */
+        #static-canvas {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            display: none; 
+            image-rendering: pixelated; 
+        }
+
+        /* Snapshot Canvas for the Dish TV Freeze Transition */
+        #snapshot-canvas {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: none; 
+            object-fit: fill;
+        }
+
+        .dish-transition {
+            animation: digital-switch 0.4s ease-out forwards;
+        }
+
+        @keyframes digital-switch {
+            0% { filter: brightness(2) contrast(1.5) grayscale(1); transform: scale(1.01); }
+            15% { filter: brightness(0.1) contrast(1); transform: scale(1); }
+            30% { filter: brightness(1.5) contrast(1.2) grayscale(0.2); }
+            100% { filter: brightness(0.7) contrast(1) grayscale(0); }
+        }
+
+        /* Toast notification */
+        #toast {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            pointer-events: none;
+            z-index: 1000;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        #toast.show { opacity: 1; }
+
+        /* --- CHANNEL MENU GRID OVERLAY --- */
+        #channel-menu {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #channel-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .menu-header {
+            padding: 30px 6vw 10px; /* slightly less top padding */
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: bold;
+            color: #00a8ff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .menu-header span { color: #888; font-size: clamp(12px, 1.2vw, 16px); }
+
+        /* Smooth, Responsive Horizontal Scrolling Grid (5 Rows) */
+        .menu-grid {
+            display: grid;
+            grid-template-rows: repeat(5, 1fr); /* Changed to 5 rows */
+            /* Smaller Card Widths */
+            grid-auto-columns: clamp(150px, 14vw, 240px);
+            grid-auto-flow: column;
+            gap: 1vw; /* Tighter gap */
+            padding: 1.5vh 6vw 5vh 6vw;
+            overflow-x: auto;
+            overflow-y: hidden;
+            height: 100%;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+            scroll-behavior: smooth; 
+        }
+        .menu-grid::-webkit-scrollbar { display: none; }
+
+        /* Hardware Accelerated Channel Card Item */
+        .channel-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid transparent;
+            border-radius: 10px; /* Slightly sharper corners */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; /* Reduced padding */
+            cursor: pointer;
+            
+            will-change: transform, box-shadow, border-color;
+            transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                        border-color 0.1s ease, 
+                        box-shadow 0.15s ease;
+        }
+
+        .channel-card img {
+            width: 100%;
+            height: 55px; /* Shorter, fixed logo height */
+            object-fit: contain;
+            margin-bottom: 8px; /* Tighter spacing */
+            border-radius: 6px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .channel-info {
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ch-num { color: #00a8ff; font-weight: bold; margin-right: 5px; font-size: clamp(12px, 1.1vw, 16px); }
+        .ch-name { font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; }
+
+        /* Focused / Selected State */
+        .channel-card.focused {
+            background: rgba(0, 168, 255, 0.15);
+            border-color: #00a8ff;
+            transform: scale(1.05); 
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.4);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="tv-player" playsinline muted></video>
+    <canvas id="snapshot-canvas"></canvas>
+    <canvas id="static-canvas"></canvas>
+    <div id="toast"></div>
+
+    <!-- Channel Menu Overlay -->
+    <div id="channel-menu">
+        <div class="menu-header">
+            <div>CHANNELS</div>
+            <span>Use Arrows to Navigate • Press ENTER to Play • Press M to Close</span>
+        </div>
+        <div class="menu-grid" id="menu-grid">
+            <!-- Channel items will be injected here via JS -->
+        </div>
+    </div>
+
+    <script>
+        const playlistUrl = 'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/bangla.json';
+        const video = document.getElementById('tv-player');
+        const toast = document.getElementById('toast');
+        const staticCanvas = document.getElementById('static-canvas');
+        const snapshotCanvas = document.getElementById('snapshot-canvas');
+        const channelMenu = document.getElementById('channel-menu');
+        const menuGrid = document.getElementById('menu-grid');
+        
+        const staticCtx = staticCanvas.getContext('2d', { alpha: false });
+        const snapCtx = snapshotCanvas.getContext('2d');
+        
+        let channels = [];
+        let currentIndex = 0;
+        let hls = null;
+        let toastTimeout = null;
+        let staticAnimationId = null;
+        let hasUnmuted = false; 
+
+        // Menu State
+        let isMenuOpen = false;
+        let menuFocusedIndex = 0;
+        const MENU_ROWS = 5; // Updated to match 5-row CSS grid layout
+
+        video.volume = 1.0;
+
+        // --- Dish TV Transition Logic ---
+        function triggerDishTransition() {
+            snapshotCanvas.width = window.innerWidth;
+            snapshotCanvas.height = window.innerHeight;
+            try {
+                snapCtx.drawImage(video, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+            } catch (e) {
+                snapCtx.fillStyle = "black";
+                snapCtx.fillRect(0, 0, snapshotCanvas.width, snapshotCanvas.height);
+            }
+            snapshotCanvas.classList.remove('dish-transition');
+            void snapshotCanvas.offsetWidth; 
+            snapshotCanvas.classList.add('dish-transition');
+            snapshotCanvas.style.display = 'block';
+        }
+
+        // --- TV Static (Jirjir) Logic ---
+        function resizeCanvas() {
+            staticCanvas.width = window.innerWidth / 4;
+            staticCanvas.height = window.innerHeight / 4;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function drawStatic() {
+            const w = staticCanvas.width;
+            const h = staticCanvas.height;
+            const idata = staticCtx.createImageData(w, h);
+            const buffer32 = new Uint32Array(idata.data.buffer);
+            for (let i = 0; i < buffer32.length; i++) {
+                const color = Math.random() * 255;
+                buffer32[i] = 0xff000000 | (color << 16) | (color << 8) | color; 
+            }
+            staticCtx.putImageData(idata, 0, 0);
+            staticAnimationId = requestAnimationFrame(drawStatic);
+        }
+
+        function showStatic() {
+            staticCanvas.style.display = 'block';
+            if (!staticAnimationId) drawStatic();
+        }
+
+        function hideStatic() {
+            staticCanvas.style.display = 'none';
+            if (staticAnimationId) {
+                cancelAnimationFrame(staticAnimationId);
+                staticAnimationId = null;
+            }
+        }
+
+        video.addEventListener('playing', () => {
+            hideStatic();
+            snapshotCanvas.style.display = 'none';
+        });
+
+        // --- Core Playlist & Player Logic ---
+        async function loadPlaylist() {
+            try {
+                showStatic();
+                const response = await fetch(playlistUrl);
+                const data = await response.json();
+                
+                channels = data.map(item => ({
+                    name: item.name || item.title || item.channel || "Unknown Channel",
+                    url: item.url || item.link || item.stream || "",
+                    logo: item.logo || item.tvg_logo || item["tvg-logo"] || ''
+                })).filter(ch => ch.url !== ""); 
+
+                if (channels.length > 0) {
+                    renderMenu(); 
+                } else {
+                    showToast("No valid channels found.");
+                }
+            } catch (error) {
+                showToast("Failed to load playlist!");
+            }
+        }
+
+        function playChannel(index) {
+            if (channels.length === 0) return;
+            if (index < 0) currentIndex = channels.length - 1;
+            else if (index >= channels.length) currentIndex = 0;
+            else currentIndex = index;
+
+            const channel = channels[currentIndex];
+            showToast(`CH ${currentIndex + 1} : ${channel.name}`);
+
+            if (hls) { hls.destroy(); hls = null; }
+
+            if (Hls.isSupported()) {
+                hls = new Hls({ maxMaxBufferLength: 10 });
+                hls.loadSource(channel.url);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(e=>e));
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        snapshotCanvas.style.display = 'none'; 
+                        showStatic(); 
+                        showToast(`Stream Offline. Auto-switching...`);
+                        setTimeout(() => changeChannel(1), 2000); 
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = channel.url;
+                video.addEventListener('loadedmetadata', () => video.play().catch(e=>e));
+                video.onerror = function() {
+                    snapshotCanvas.style.display = 'none';
+                    showStatic(); 
+                    showToast(`Stream Offline. Auto-switching...`);
+                    setTimeout(() => changeChannel(1), 2000);
+                };
+            }
+        }
+
+        function changeChannel(direction) {
+            triggerDishTransition();
+            playChannel(currentIndex + direction);
+        }
+
+        function showToast(message) {
+            toast.innerText = message;
+            toast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // --- MENU LOGIC ---
+        function renderMenu() {
+            menuGrid.innerHTML = '';
+            channels.forEach((ch, idx) => {
+                const card = document.createElement('div');
+                card.className = 'channel-card';
+                card.id = `card-${idx}`;
+                
+                const img = document.createElement('img');
+                if (ch.logo) {
+                    img.src = ch.logo;
+                    img.onerror = () => { img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(ch.name)}&background=222&color=fff&size=200`; };
+                } else {
+                    img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(ch.name)}&background=222&color=fff&size=200`;
+                }
+                
+                const info = document.createElement('div');
+                info.className = 'channel-info';
+                info.innerHTML = `<span class="ch-num">${idx + 1}</span> <span class="ch-name">${ch.name}</span>`;
+                
+                card.appendChild(img);
+                card.appendChild(info);
+                
+                card.onclick = () => {
+                    menuFocusedIndex = idx;
+                    executeMenuSelection();
+                };
+                
+                menuGrid.appendChild(card);
+            });
+        }
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                channelMenu.classList.add('active');
+                menuFocusedIndex = currentIndex; // Focus on current channel
+                
+                // Immediately disable smooth scrolling just for the initial jump
+                menuGrid.style.scrollBehavior = 'auto';
+                updateMenuFocus();
+                
+                // Re-enable smooth scrolling for keyboard navigation
+                setTimeout(() => {
+                    menuGrid.style.scrollBehavior = 'smooth';
+                }, 50);
+            } else {
+                channelMenu.classList.remove('active');
+            }
+        }
+
+        function updateMenuFocus() {
+            // Remove previous focus class
+            const prev = document.querySelector('.channel-card.focused');
+            if (prev) prev.classList.remove('focused');
+            
+            // Add focus to new target
+            const target = document.getElementById(`card-${menuFocusedIndex}`);
+            if (target) {
+                target.classList.add('focused');
+                
+                // Smart Scroll Logic (Lag-Free Bounding Box Detection)
+                const targetRect = target.getBoundingClientRect();
+                const containerRect = menuGrid.getBoundingClientRect();
+                
+                const paddingLeft = window.innerWidth * 0.06; // Match CSS 6vw padding
+                const paddingRight = window.innerWidth * 0.06;
+
+                if (targetRect.left < containerRect.left + paddingLeft) {
+                    menuGrid.scrollBy({ left: targetRect.left - containerRect.left - paddingLeft });
+                } 
+                else if (targetRect.right > containerRect.right - paddingRight) {
+                    menuGrid.scrollBy({ left: targetRect.right - containerRect.right + paddingRight });
+                }
+            }
+        }
+
+        function executeMenuSelection() {
+            toggleMenu(); 
+            if (currentIndex !== menuFocusedIndex) {
+                triggerDishTransition();
+                currentIndex = menuFocusedIndex;
+                playChannel(currentIndex);
+            }
+        }
+
+        // --- INPUT CONTROLS ---
+        document.addEventListener('keydown', (e) => {
+            if (!hasUnmuted) {
+                video.muted = false;
+                video.volume = 1.0;
+                hasUnmuted = true;
+            }
+
+            // M Key to Toggle Menu
+            if (e.key.toLowerCase() === 'm') {
+                toggleMenu();
+                return;
+            }
+
+            if (isMenuOpen) {
+                // Menu Navigation Math for 5 Rows
+                switch(e.key) {
+                    case 'ArrowUp':
+                        if (menuFocusedIndex % MENU_ROWS !== 0) menuFocusedIndex--;
+                        updateMenuFocus();
+                        break;
+                    case 'ArrowDown':
+                        if ((menuFocusedIndex + 1) % MENU_ROWS !== 0 && menuFocusedIndex < channels.length - 1) menuFocusedIndex++;
+                        updateMenuFocus();
+                        break;
+                    case 'ArrowLeft':
+                        if (menuFocusedIndex - MENU_ROWS >= 0) menuFocusedIndex -= MENU_ROWS;
+                        else menuFocusedIndex = 0; 
+                        updateMenuFocus();
+                        break;
+                    case 'ArrowRight':
+                        if (menuFocusedIndex + MENU_ROWS < channels.length) menuFocusedIndex += MENU_ROWS;
+                        else menuFocusedIndex = channels.length - 1; 
+                        updateMenuFocus();
+                        break;
+                    case 'Enter':
+                        executeMenuSelection();
+                        break;
+                }
+                e.preventDefault(); // Stop page scrolling when using D-Pad
+            } else {
+                // TV Viewer Navigation
+                switch(e.key) {
+                    case 'ArrowRight':
+                    case 'ArrowUp': 
+                        changeChannel(1);
+                        break;
+                    case 'ArrowLeft':
+                    case 'ArrowDown': 
+                        changeChannel(-1);
+                        break;
+                    case 'Enter':
+                        toggleMenu(); 
+                        break;
+                    case 'f':
+                    case 'F':
+                        if (!document.fullscreenElement) {
+                            document.documentElement.requestFullscreen().catch(e=>e);
+                        } else {
+                            document.exitFullscreen();
+                        }
+                        break;
+                }
+            }
+        });
+
+        // Initialize App
+        window.addEventListener('DOMContentLoaded', async () => {
+            showStatic(); 
+            await loadPlaylist();
+            playChannel(0);
+        });
+
+    </script>
+</body>
+</html>
