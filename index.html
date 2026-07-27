@@ -929,7 +929,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                                 <div class="select-option" data-value="1080"><i class="fas fa-check"></i><span>1080p</span></div>
                               <!--  <div class="select-option" data-value="720"><i class="fas fa-check"></i><span>720p</span></div> -->
                                 <div class="select-option" data-value="480"><i class="fas fa-check"></i><span>480p</span></div>
-                             <!--   <div class="select-option" data-value="360"><i class="fas fa-check"></i><span>360p</span></div> -->
+                           <!--     <div class="select-option" data-value="360"><i class="fas fa-check"></i><span>360p</span></div> -->
                                 <div class="select-option" data-value="240"><i class="fas fa-check"></i><span>240p</span></div>
                             </div>
                         </div>
@@ -1934,6 +1934,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         updateServerBadge();
         updateMediaSessionMetadata();
 
+        isChannelLoading = true;
         loadStartTime = Date.now();
         loadingOverlay.classList.add('show');
         startLoadTimer(channel.channel_name, channel.image);
@@ -3290,8 +3291,10 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     });
 
     let bufferingTimeout;
+    let isChannelLoading = false;
 
     function hideLoadingOverlay() {
+        isChannelLoading = false;
         clearTimeout(loadingTimeout);
         clearTimeout(bufferingTimeout);
         stopLoadTimer();
@@ -3301,11 +3304,13 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
     video.addEventListener('waiting', () => {
         clearTimeout(bufferingTimeout);
-        bufferingTimeout = setTimeout(() => {
-            if (video.paused || video.readyState < 3) {
-                loadingOverlay.classList.add('show');
-            }
-        }, 1200);
+        if (isChannelLoading) {
+            bufferingTimeout = setTimeout(() => {
+                if (isChannelLoading && (video.paused || video.readyState < 3)) {
+                    loadingOverlay.classList.add('show');
+                }
+            }, 1200);
+        }
     });
 
     video.addEventListener('playing', () => {
@@ -3321,6 +3326,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
     video.addEventListener('timeupdate', () => {
         if (!video.paused && video.currentTime > 0) {
+            isChannelLoading = false;
             if (loadingOverlay.classList.contains('show')) {
                 hideLoadingOverlay();
             }
