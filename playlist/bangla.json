@@ -293,6 +293,16 @@
     "group": "Bangla",
     "useProxy": false
   },
+
+  {
+    "name": "Sony AATH",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg",
+    "url": "https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  
   {
     "name": "Bangla+ HD",
     "logo": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEir8DIISD_3Ay4E2H__HTS4VFP7VXskYcIgkufU45epPzAFDKObL2D_p6mOal9B0RJpyaiA3feJuyaL8yvd0x-2nykRjc1pZPwT_aAGwmwFb4bEJf8oVDgty5NF30gzWlwHvh2P2c49pP2P8383ili_yboK1uSyqELcZygHTpSwru1VeK0mMwceugT5QLw/s1600/NadimRazaTVLogoDesign%282%29_copy_900x900_1.png",
