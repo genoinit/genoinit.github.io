@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free TV</title>
+    <!-- Include HLS.js for playing m3u8 streams -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            user-select: none;
+        }
+
+        /* Video element */
+        #tv-player {
+            width: 100vw;
+            height: 100vh;
+            object-fit: fill; 
+            outline: none;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* TV Static Canvas Overlay */
+        #static-canvas {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            display: none; 
+            image-rendering: pixelated; 
+        }
+
+        /* Snapshot Canvas for the Dish TV Freeze Transition */
+        #snapshot-canvas {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: none; 
+            object-fit: fill;
+        }
+
+        .dish-transition {
+            animation: digital-switch 0.4s ease-out forwards;
+        }
+
+        @keyframes digital-switch {
+            0% { filter: brightness(2) contrast(1.5) grayscale(1); transform: scale(1.01); }
+            15% { filter: brightness(0.1) contrast(1); transform: scale(1); }
+            30% { filter: brightness(1.5) contrast(1.2) grayscale(0.2); }
+            100% { filter: brightness(0.7) contrast(1) grayscale(0); }
+        }
+
+        /* Toast notification */
+        #toast {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            pointer-events: none;
+            z-index: 1000;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        #toast.show { opacity: 1; }
+
+        /* --- CHANNEL MENU GRID OVERLAY --- */
+        #channel-menu {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #channel-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .menu-header {
+            padding: 25px 6vw 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .header-title {
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: bold;
+            color: #00a8ff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            color: #00a8ff;
+            pointer-events: none;
+        }
+        #search-input {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(0, 168, 255, 0.3);
+            border-radius: 25px;
+            padding: 8px 16px 8px 40px;
+            color: white;
+            font-size: clamp(13px, 1.2vw, 16px);
+            outline: none;
+            width: clamp(200px, 20vw, 350px);
+            transition: all 0.2s ease;
+        }
+        #search-input:focus {
+            background: rgba(0, 0, 0, 0.6);
+            border-color: #00a8ff;
+            box-shadow: 0 0 15px rgba(0, 168, 255, 0.4);
+        }
+        #search-input::placeholder {
+            color: #888;
+        }
+
+        /* Compact Remote Hints Bar */
+        .remote-hints {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .hint-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ccc;
+            font-size: clamp(11px, 0.95vw, 13px);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(5px);
+        }
+        .key-badge {
+            background: rgba(0, 168, 255, 0.22);
+            color: #00a8ff;
+            border: 1px solid rgba(0, 168, 255, 0.5);
+            border-radius: 5px;
+            padding: 2px 6px;
+            font-family: monospace, sans-serif;
+            font-size: clamp(10px, 0.85vw, 12px);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-rows: repeat(5, 1fr); /* Changed to 5 rows */
+            /* Smaller Card Widths */
+            grid-auto-columns: clamp(150px, 14vw, 240px);
+            grid-auto-flow: column;
+            gap: 1vw; /* Tighter gap */
+            padding: 1.5vh 6vw 5vh 6vw;
+            overflow-x: auto;
+            overflow-y: hidden;
+            height: 100%;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+            scroll-behavior: smooth; 
+        }
+        .menu-grid::-webkit-scrollbar { display: none; }
+
+        /* Hardware Accelerated Channel Card Item */
+        .channel-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid transparent;
+            border-radius: 10px; /* Slightly sharper corners */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; /* Reduced padding */
+            cursor: pointer;
+            
+            will-change: transform, box-shadow, border-color;
+            transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                        border-color 0.1s ease, 
+                        box-shadow 0.15s ease;
+        }
+
+        .channel-card img {
+            width: 100%;
+            height: 55px; /* Shorter, fixed logo height */
+            object-fit: contain;
+            margin-bottom: 8px; /* Tighter spacing */
+            border-radius: 6px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .channel-info {
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ch-num { color: #00a8ff; font-weight: bold; margin-right: 5px; font-size: clamp(12px, 1.1vw, 16px); }
+        .ch-name { font-size: clamp(12px, 1.1vw, 16px); font-weight: 600; }
+
+        /* Focused / Selected State */
+        .channel-card.focused {
+            background: rgba(0, 168, 255, 0.15);
+            border-color: #00a8ff;
+            transform: scale(1.05); 
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.4);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="tv-player" playsinline muted></video>
+    <canvas id="snapshot-canvas"></canvas>
+    <canvas id="static-canvas"></canvas>
+    <div id="toast"></div>
+
+    <!-- Channel Menu Overlay -->
+    <div id="channel-menu">
+        <div class="menu-header">
+            <div class="header-left">
+                <div class="header-title">CHANNELS</div>
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search channels..." autocomplete="off" />
+                </div>
+            </div>
+            <div class="remote-hints">
+                <span class="hint-item"><kbd class="key-badge">▲▼◄►</kbd> Move</span>
+                <span class="hint-item"><kbd class="key-badge">OK</kbd> Play</span>
+                <span class="hint-item"><kbd class="key-badge">0-9</kbd> Jump</span>
+                <span class="hint-item"><kbd class="key-badge">CH +/-</kbd> Switch</span>
+                <span class="hint-item"><kbd class="key-badge">BACK / M</kbd> Close</span>
+            </div>
+        </div>
+        <div class="menu-grid" id="menu-grid">
+            <!-- Channel items will be injected here via JS -->
+        </div>
+    </div>
+
+    <script>
+        const playlistUrls = [
+            'https://raw.githubusercontent.com/genoinit/genoinit.github.io/refs/heads/main/playlist/bangla.json',
+           
+        ];
+        const video = document.getElementById('tv-player');
+        const toast = document.getElementById('toast');
+        const staticCanvas = document.getElementById('static-canvas');
+        const snapshotCanvas = document.getElementById('snapshot-canvas');
+        const channelMenu = document.getElementById('channel-menu');
+        const menuGrid = document.getElementById('menu-grid');
+        const searchInput = document.getElementById('search-input');
+        
+        const staticCtx = staticCanvas.getContext('2d', { alpha: false });
+        const snapCtx = snapshotCanvas.getContext('2d');
+        
+        let channels = [];
+        let filteredChannels = [];
+        let currentIndex = 0;
+        let hls = null;
+        let toastTimeout = null;
+        let staticAnimationId = null;
+        let hasUnmuted = false; 
+
+        // Menu State
+        let isMenuOpen = false;
+        let menuFocusedIndex = 0;
+        const MENU_ROWS = 5; // Updated to match 5-row CSS grid layout
+
+        video.volume = 1.0;
+
+        if (searchInput) {
+            searchInput.addEventListener('click', (e) => {
+                searchInput.focus();
+            });
+            searchInput.addEventListener('focus', () => {
+                const prev = document.querySelector('.channel-card.focused');
+                if (prev) prev.classList.remove('focused');
+            });
+            searchInput.addEventListener('input', () => {
+                menuFocusedIndex = 0;
+                renderMenu();
+                updateMenuFocus();
+            });
+        }
+
+        // --- Playlist Parsing Helpers ---
+        function parseM3U(m3uText) {
+            const lines = m3uText.split(/\r?\n/);
+            const parsedChannels = [];
+            let currentChannel = null;
+
+            for (let line of lines) {
+                line = line.trim();
+                if (!line) continue;
+
+                if (line.startsWith('#EXTINF:')) {
+                    currentChannel = { name: '', url: '', logo: '' };
+
+                    const logoMatch = line.match(/(?:tvg-logo|logo)=["']([^"']+)["']/i);
+                    if (logoMatch) {
+                        currentChannel.logo = logoMatch[1];
+                    }
+
+                    const commaIdx = line.lastIndexOf(',');
+                    if (commaIdx !== -1) {
+                        currentChannel.name = line.substring(commaIdx + 1).trim();
+                    }
+
+                    if (!currentChannel.name) {
+                        const nameMatch = line.match(/(?:tvg-name|name)=["']([^"']+)["']/i);
+                        if (nameMatch) {
+                            currentChannel.name = nameMatch[1];
+                        }
+                    }
+                } else if (!line.startsWith('#')) {
+                    if (currentChannel) {
+                        currentChannel.url = line;
+                        if (!currentChannel.name) {
+                            currentChannel.name = "Channel " + (parsedChannels.length + 1);
+                        }
+                        parsedChannels.push(currentChannel);
+                        currentChannel = null;
+                    } else if (line.startsWith('http://') || line.startsWith('https://')) {
+                        parsedChannels.push({
+                            name: "Channel " + (parsedChannels.length + 1),
+                            url: line,
+                            logo: ""
+                        });
+                    }
+                }
+            }
+            return parsedChannels;
+        }
+
+        function parseJSON(jsonText) {
+            try {
+                // Strip trailing commas before closing brackets/braces (common in JSON files)
+                const cleanedText = jsonText.replace(/,\s*([\}\]])/g, '$1');
+                const data = JSON.parse(cleanedText);
+                const items = Array.isArray(data) ? data : (data.channels || data.items || data.playlist || []);
+                if (!Array.isArray(items)) return null;
+
+                return items.map(item => ({
+                    name: item.name || item.title || item.channel || item.tvg_name || "Unknown Channel",
+                    url: item.url || item.link || item.stream || item.file || "",
+                    logo: item.logo || item.tvg_logo || item["tvg-logo"] || item.image || ''
+                })).filter(ch => ch.url !== "");
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function parsePlaylist(text) {
+            const jsonChannels = parseJSON(text);
+            if (jsonChannels !== null) {
+                return jsonChannels;
+            }
+            return parseM3U(text);
+        }
+
+        // --- Dish TV Transition Logic ---
+        function triggerDishTransition() {
+            snapshotCanvas.width = window.innerWidth;
+            snapshotCanvas.height = window.innerHeight;
+            try {
+                snapCtx.drawImage(video, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+            } catch (e) {
+                snapCtx.fillStyle = "black";
+                snapCtx.fillRect(0, 0, snapshotCanvas.width, snapshotCanvas.height);
+            }
+            snapshotCanvas.classList.remove('dish-transition');
+            void snapshotCanvas.offsetWidth; 
+            snapshotCanvas.classList.add('dish-transition');
+            snapshotCanvas.style.display = 'block';
+        }
+
+        // --- TV Static (Jirjir) Logic ---
+        function resizeCanvas() {
+            staticCanvas.width = window.innerWidth / 4;
+            staticCanvas.height = window.innerHeight / 4;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function drawStatic() {
+            const w = staticCanvas.width;
+            const h = staticCanvas.height;
+            const idata = staticCtx.createImageData(w, h);
+            const buffer32 = new Uint32Array(idata.data.buffer);
+            for (let i = 0; i < buffer32.length; i++) {
+                const color = Math.random() * 255;
+                buffer32[i] = 0xff000000 | (color << 16) | (color << 8) | color; 
+            }
+            staticCtx.putImageData(idata, 0, 0);
+            staticAnimationId = requestAnimationFrame(drawStatic);
+        }
+
+        function showStatic() {
+            staticCanvas.style.display = 'block';
+            if (!staticAnimationId) drawStatic();
+        }
+
+        function hideStatic() {
+            staticCanvas.style.display = 'none';
+            if (staticAnimationId) {
+                cancelAnimationFrame(staticAnimationId);
+                staticAnimationId = null;
+            }
+        }
+
+        video.addEventListener('playing', () => {
+            hideStatic();
+            snapshotCanvas.style.display = 'none';
+        });
+
+        // --- Core Playlist & Player Logic ---
+        async function loadPlaylist() {
+            try {
+                showStatic();
+                channels = [];
+                const urls = Array.isArray(playlistUrls) ? playlistUrls : [playlistUrls];
+                
+                for (const url of urls) {
+                    try {
+                        const response = await fetch(url);
+                        if (!response.ok) continue;
+                        const text = await response.text();
+                        const fetched = parsePlaylist(text);
+                        if (fetched && fetched.length > 0) {
+                            channels.push(...fetched);
+                        }
+                    } catch (err) {
+                        console.error("Error fetching playlist:", url, err);
+                    }
+                }
+
+                // Deduplicate channels by URL
+                const seenUrls = new Set();
+                channels = channels.filter(ch => {
+                    if (!ch.url || seenUrls.has(ch.url)) return false;
+                    seenUrls.add(ch.url);
+                    return true;
+                });
+
+                if (channels.length > 0) {
+                    renderMenu(); 
+                } else {
+                    showToast("No valid channels found.");
+                }
+            } catch (error) {
+                showToast("Failed to load playlist!");
+            }
+        }
+
+        function playChannel(index) {
+            if (channels.length === 0) return;
+            if (index < 0) currentIndex = channels.length - 1;
+            else if (index >= channels.length) currentIndex = 0;
+            else currentIndex = index;
+
+            const channel = channels[currentIndex];
+            showToast(`CH ${currentIndex + 1} : ${channel.name}`);
+
+            if (hls) { hls.destroy(); hls = null; }
+
+            if (Hls.isSupported()) {
+                hls = new Hls({ maxMaxBufferLength: 10 });
+                hls.loadSource(channel.url);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(e=>e));
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        snapshotCanvas.style.display = 'none'; 
+                        showStatic(); 
+                        showToast(`Stream Offline. Auto-switching...`);
+                        setTimeout(() => changeChannel(1), 2000); 
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = channel.url;
+                video.addEventListener('loadedmetadata', () => video.play().catch(e=>e));
+                video.onerror = function() {
+                    snapshotCanvas.style.display = 'none';
+                    showStatic(); 
+                    showToast(`Stream Offline. Auto-switching...`);
+                    setTimeout(() => changeChannel(1), 2000);
+                };
+            }
+        }
+
+        function changeChannel(direction) {
+            triggerDishTransition();
+            playChannel(currentIndex + direction);
+        }
+
+        function showToast(message) {
+            toast.innerText = message;
+            toast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // --- MENU LOGIC ---
+        function renderMenu() {
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            filteredChannels = channels.map((ch, idx) => ({ ...ch, _originalIndex: idx }))
+                                      .filter(ch => ch.name.toLowerCase().includes(query));
+
+            menuGrid.innerHTML = '';
+
+            if (filteredChannels.length === 0) {
+                menuGrid.innerHTML = '<div style="grid-column: 1 / -1; display:flex; align-items:center; justify-content:center; color:#888; font-size:18px; font-weight:bold; height:100%; width:100%;">No channels found matching search</div>';
+                return;
+            }
+
+            filteredChannels.forEach((ch, idx) => {
+                const card = document.createElement('div');
+                card.className = 'channel-card';
+                card.id = `card-${idx}`;
+                
+                const img = document.createElement('img');
+                if (ch.logo) {
+                    img.src = ch.logo;
+                    img.onerror = () => { img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(ch.name)}&background=222&color=fff&size=200`; };
+                } else {
+                    img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(ch.name)}&background=222&color=fff&size=200`;
+                }
+                
+                const info = document.createElement('div');
+                info.className = 'channel-info';
+                info.innerHTML = `<span class="ch-num">${ch._originalIndex + 1}</span> <span class="ch-name">${ch.name}</span>`;
+                
+                card.appendChild(img);
+                card.appendChild(info);
+                
+                card.onclick = () => {
+                    menuFocusedIndex = idx;
+                    executeMenuSelection();
+                };
+                
+                menuGrid.appendChild(card);
+            });
+        }
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                channelMenu.classList.add('active');
+                if (searchInput) searchInput.value = '';
+                renderMenu();
+                
+                const currentInFiltered = filteredChannels.findIndex(ch => ch._originalIndex === currentIndex);
+                menuFocusedIndex = currentInFiltered !== -1 ? currentInFiltered : 0;
+                
+                menuGrid.style.scrollBehavior = 'auto';
+                updateMenuFocus();
+                
+                setTimeout(() => {
+                    menuGrid.style.scrollBehavior = 'smooth';
+                }, 50);
+            } else {
+                channelMenu.classList.remove('active');
+                if (searchInput) searchInput.blur();
+            }
+        }
+
+        function updateMenuFocus() {
+            const prev = document.querySelector('.channel-card.focused');
+            if (prev) prev.classList.remove('focused');
+            
+            if (filteredChannels.length === 0) return;
+            if (menuFocusedIndex < 0) menuFocusedIndex = 0;
+            if (menuFocusedIndex >= filteredChannels.length) menuFocusedIndex = filteredChannels.length - 1;
+
+            const target = document.getElementById(`card-${menuFocusedIndex}`);
+            if (target) {
+                target.classList.add('focused');
+                
+                const targetRect = target.getBoundingClientRect();
+                const containerRect = menuGrid.getBoundingClientRect();
+                
+                const paddingLeft = window.innerWidth * 0.06;
+                const paddingRight = window.innerWidth * 0.06;
+
+                if (targetRect.left < containerRect.left + paddingLeft) {
+                    menuGrid.scrollBy({ left: targetRect.left - containerRect.left - paddingLeft });
+                } 
+                else if (targetRect.right > containerRect.right - paddingRight) {
+                    menuGrid.scrollBy({ left: targetRect.right - containerRect.right + paddingRight });
+                }
+            }
+        }
+
+        function executeMenuSelection() {
+            if (filteredChannels.length === 0) return;
+            const targetChannel = filteredChannels[menuFocusedIndex];
+            toggleMenu(); 
+            if (targetChannel && currentIndex !== targetChannel._originalIndex) {
+                triggerDishTransition();
+                currentIndex = targetChannel._originalIndex;
+                playChannel(currentIndex);
+            }
+        }
+
+        // --- UNIVERSAL TV REMOTE & INPUT CONTROLS ---
+        let numberBuffer = '';
+        let numberTimeout = null;
+
+        function getTVAction(e) {
+            const k = e.key;
+            const code = e.keyCode || e.which;
+
+            // D-Pad Navigation
+            if (k === 'ArrowUp' || k === 'Up' || code === 38) return 'UP';
+            if (k === 'ArrowDown' || k === 'Down' || code === 40) return 'DOWN';
+            if (k === 'ArrowLeft' || k === 'Left' || code === 37) return 'LEFT';
+            if (k === 'ArrowRight' || k === 'Right' || code === 39) return 'RIGHT';
+            
+            // OK / Enter / Select
+            if (k === 'Enter' || k === 'Select' || k === 'OK' || code === 13 || code === 29443) return 'ENTER';
+            
+            // Back / Return / Escape (Samsung Tizen: 10009, LG webOS: 461, Android Back: 4, BackSpace: 8)
+            if (k === 'Escape' || k === 'BackSpace' || k === 'GoBack' || k === 'BrowserBack' || code === 27 || code === 8 || code === 4 || code === 10009 || code === 461) return 'BACK';
+            
+            // Menu / Guide / Red Button
+            if (k === 'm' || k === 'M' || k === 'ContextMenu' || k === 'Guide' || k === 'TV' || k === 'Menu' || code === 77 || code === 93 || code === 458 || code === 403) return 'MENU';
+            
+            // Dedicated Channel Up / Down buttons
+            if (k === 'ChannelUp' || k === 'PageUp' || code === 33 || code === 427) return 'CH_UP';
+            if (k === 'ChannelDown' || k === 'PageDown' || code === 34 || code === 428) return 'CH_DOWN';
+
+            // Number Keys (0-9)
+            if (code >= 48 && code <= 57) return String(code - 48);
+            if (code >= 96 && code <= 105) return String(code - 96);
+
+            return k;
+        }
+
+        function handleNumberInput(digit) {
+            if (isMenuOpen) return;
+            numberBuffer += digit;
+            showToast(`CH ${numberBuffer}...`);
+            if (numberTimeout) clearTimeout(numberTimeout);
+            numberTimeout = setTimeout(() => {
+                const targetNum = parseInt(numberBuffer, 10);
+                if (targetNum > 0 && targetNum <= channels.length) {
+                    triggerDishTransition();
+                    playChannel(targetNum - 1);
+                } else {
+                    showToast(`Invalid Channel ${numberBuffer}`);
+                }
+                numberBuffer = '';
+            }, 1500);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!hasUnmuted) {
+                video.muted = false;
+                video.volume = 1.0;
+                hasUnmuted = true;
+            }
+
+            const action = getTVAction(e);
+            const isInputFocused = (document.activeElement === searchInput);
+
+            // Back button closes menu if open
+            if (action === 'BACK' && isMenuOpen) {
+                toggleMenu();
+                e.preventDefault();
+                return;
+            }
+
+            // Menu button toggles menu
+            if (action === 'MENU' && !isInputFocused) {
+                toggleMenu();
+                e.preventDefault();
+                return;
+            }
+
+            if (isMenuOpen) {
+                if (isInputFocused) {
+                    if (action === 'DOWN' || action === 'RIGHT' || action === 'LEFT') {
+                        searchInput.blur();
+                        menuFocusedIndex = 0;
+                        updateMenuFocus();
+                        e.preventDefault();
+                        return;
+                    }
+                    if (action === 'ENTER') {
+                        // When user presses ENTER on search box, move focus to the filtered channel cards
+                        searchInput.blur();
+                        menuFocusedIndex = 0;
+                        updateMenuFocus();
+                        e.preventDefault();
+                        return;
+                    }
+                    return; // Allow native TV keyboard / OSK typing
+                }
+
+                // Channel Menu Grid Navigation
+                switch(action) {
+                    case 'UP':
+                        if (menuFocusedIndex % MENU_ROWS !== 0) {
+                            menuFocusedIndex--;
+                            updateMenuFocus();
+                        } else if (searchInput) {
+                            searchInput.focus();
+                            const prev = document.querySelector('.channel-card.focused');
+                            if (prev) prev.classList.remove('focused');
+                            e.preventDefault();
+                            return;
+                        }
+                        break;
+                    case 'DOWN':
+                        if ((menuFocusedIndex + 1) % MENU_ROWS !== 0 && menuFocusedIndex < filteredChannels.length - 1) {
+                            menuFocusedIndex++;
+                        }
+                        updateMenuFocus();
+                        break;
+                    case 'LEFT':
+                        if (menuFocusedIndex - MENU_ROWS >= 0) menuFocusedIndex -= MENU_ROWS;
+                        else menuFocusedIndex = 0; 
+                        updateMenuFocus();
+                        break;
+                    case 'RIGHT':
+                        if (menuFocusedIndex + MENU_ROWS < filteredChannels.length) menuFocusedIndex += MENU_ROWS;
+                        else menuFocusedIndex = filteredChannels.length - 1; 
+                        updateMenuFocus();
+                        break;
+                    case 'ENTER':
+                        executeMenuSelection();
+                        break;
+                }
+                e.preventDefault();
+            } else {
+                // Live TV Viewing Mode Navigation
+                switch(action) {
+                    case 'RIGHT':
+                    case 'UP':
+                    case 'CH_UP':
+                        changeChannel(1);
+                        break;
+                    case 'LEFT':
+                    case 'DOWN':
+                    case 'CH_DOWN':
+                        changeChannel(-1);
+                        break;
+                    case 'ENTER':
+                        toggleMenu(); 
+                        break;
+                    case 'f':
+                    case 'F':
+                        if (!document.fullscreenElement) {
+                            document.documentElement.requestFullscreen().catch(e=>e);
+                        } else {
+                            document.exitFullscreen();
+                        }
+                        break;
+                    default:
+                        // Check if a number key 0-9 was pressed on remote
+                        if (/^[0-9]$/.test(action)) {
+                            handleNumberInput(action);
+                        }
+                        break;
+                }
+            }
+        });
+
+        // Initialize App
+        window.addEventListener('DOMContentLoaded', async () => {
+            showStatic(); 
+            await loadPlaylist();
+            playChannel(0);
+        });
+
+    </script>
+</body>
+</html>
