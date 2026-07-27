@@ -1,0 +1,329 @@
+[
+  {
+    "name": "BTV HD",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/1/12/BTV_HD_Logo.svg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "News 24",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/News%2024.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "SOMOY NEWS",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/8/8e/Somoy_Television.svg",
+    "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Jamuna TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Jamuna%20TV.jpeg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Channel 24",
+    "logo": "https://yt3.googleusercontent.com/8Q8MCd6ypr2Hzbp60VE_stJPl063kQYfeTxdIQkAXRfhdzxByLl0sJYHsk43uTM4W_cOzwcbPQ=s160-c-k-c0x00ffffff-no-rj",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "ATN News",
+    "logo": "https://static.wikia.nocookie.net/etv-gspn-bangla/images/4/4d/ATN_News_HD.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Independent Television",
+    "logo": "https://static.wikia.nocookie.net/etv-gspn-bangla/images/b/bb/Independent_logo_2011.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "JAMUNA TV",
+    "logo": "https://www.freekaj.com/assets/images/stock/image/2024/01/14/65a43ac0d1ffc1705261760.jpg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/1701-audio_113312_eng=113200-video=1692000.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Ekattor TV",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/5/5d/Ekattor_TV_logo.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705-audio_113352_eng=113200-video=1692000.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Somoy TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Somoy%20TV.jpeg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Independent TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Independent%20Television.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/1704.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Ekattor TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Ekattor%20TV.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "ATN News",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/ATN%20News.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/1706.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Channel 24",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/channel%2024.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/1703.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "DBC News",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/DBC%20News.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/1728.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Channel 1 News 4K",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/refs/heads/main/Channel%201.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "ATN BANGLA",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/2/2e/ATN_Bangla.svg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "CHANNEL I",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/9/9d/Channel_i_HD_logo_2021.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "BANGLA VISION",
+    "logo": "https://www.bvnews24.com/media/common/newbvlogo.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "ATN Bangla UK",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/ATN%20Bangla.png",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Green TV",
+    "logo": "https://greentvbangla.com/wp-content/uploads/2023/03/lazy_tv0.jpg.webp",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Ekushay TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Ekushey%20TV.png",
+    "url": "https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "DEEPTO TV HD",
+    "logo": "https://jcwsw2vt33.gpcdn.net/uploads/images/2022/07/25/logos_1384ea456744d5914ba331fa72df78c8_goplay_deepto_logo_final_white.svg",
+    "url": "https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "NTV HD",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/NTV_Bangla.svg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/1716-audio_113462_eng=113200-video=1692000.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+    {
+    "name": "Maasranga TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Maasranga%20TV.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/1722.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "NTV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/NTV.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/1716.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "SATV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/SATV.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/1720.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Deepto TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Deepto%20TV.jpeg",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/1711.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Channel 9",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Channel%209.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/1729.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Desh TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Desh%20TV.png",
+    "url": "https://bozztv.com/rongo/rongo-DeshTV/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Ekushey TV",
+    "logo": "https://i.postimg.cc/L6R2F0jj/20250529_105209.png",
+    "url": "https://master-proxy.wispy-boat-fc77.workers.dev/?url=https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Mohona TV",
+    "logo": "https://i.imgur.com/ENyPcL0.png",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mohonatv.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Movie Bangla",
+    "logo": "https://i.postimg.cc/wBN1BtXk/20251127_095813.png",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/moviebanglalink2.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "MY TV",
+    "logo": "https://i.postimg.cc/HxGF4V2b/20250529_103226.png",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mytv-up-off.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "RTV",
+    "logo": "https://i.postimg.cc/8kmxMkrr/20250529_101852.png",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/rtv-sg.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Somoy TV",
+    "logo": "https://i.postimg.cc/Qxn4JFNV/20250529-071147.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Enter10 Bangla HD",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Enter%2010%20Bangla.jpeg",
+    "url": "https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_240p/chunks.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Sony AATH",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg",
+    "url": "https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "NTV TV",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/NTV_Bangla.svg",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+    {
+    "name": "SANGEET BANGLA",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/d/da/Sangeet_Bangla_logo_2006.png",
+    "url": "https://cdn-4.pishow.tv/live/1143/master.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Khushboo Bangla",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/Khushboo_Bangla_logo_2017.png",
+    "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Green TV",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Green%20TV.png",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/chunks.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+    {
+    "name": "TV9 Bangla",
+    "logo": "https://images.tv9bangla.com/wp-content/themes/tv9bangla/images/tv9-bangla-logo.svg",
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "R Plus News",
+    "logo": "https://rplus.in/wp-content/uploads/2025/06/RPLUS_NEWS.png",
+    "url": "https://thelegitpro.in/pntv/rplusnews24x7/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+  {
+    "name": "Zee 24 Ghanta",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/b/bc/Zee_24_Ghanta_2025_Logo_2025.png",
+    "url": "https://d2dsoyvkr33m05.cloudfront.net/index_1.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+
+]
