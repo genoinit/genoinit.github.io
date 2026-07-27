@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -674,8 +675,8 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     }
     .channel-list-desktop {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
-        gap: 5px 3px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px 4px;
         padding: 4px 2px;
         overflow-y: auto; overflow-x: hidden;
         flex: 1; width: 100%; height: 100%;
@@ -694,6 +695,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
 
     .channel-card-desktop {
         width: 100%;
+        min-width: 0;
     }
     .channel-logo-desktop {
         width: 52px; height: 52px;
@@ -2357,7 +2359,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             if (categoryTabsMobile) categoryTabsMobile.innerHTML = '<div class="category-tab" style="visibility: hidden;"><span>Placeholder</span></div>';
             
             const loaderHtmlDesktop = `
-                <div class="playlist-loader" style="width: 100%; height: 95px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,0.5); animation: playlistFadeIn 0.3s ease;">
+                <div class="playlist-loader" style="width: 100%; height: 95px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,0.5); animation: playlistFadeIn 0.3s ease; grid-column: 1 / -1;">
                     <i class="fas fa-spinner fa-spin" style="font-size: 18px; color: var(--accent);"></i>
                     <span style="font-size: 11px; font-weight: 500;">Loading channels...</span>
                 </div>
@@ -2808,7 +2810,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                 : categoryLabel === 'Offline'
                 ? '<i class="fas fa-wifi"></i>Offline.'
                 : '<i class="fas fa-search"></i>No channels found.';
-            channelListDesktop.innerHTML = `<div class="empty-state">${msg}</div>`;
+            channelListDesktop.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">${msg}</div>`;
         } else {
             channels.forEach((ch, i) => {
                 const fav = isFav(ch);
