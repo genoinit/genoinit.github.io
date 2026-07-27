@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -778,7 +779,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     <div class="container" id="mainContainer">
         <div class="video-section" id="videoSection">
             <div class="video-wrapper" id="videoWrapper">
-                <video id="video" autoplay playsinline muted></video>
+                <video id="video" autoplay playsinline></video>
                 <!-- <div class="player-watermark" id="watermark"><img src="logo.png" alt="Logo"></div> -->
 
                 <div class="loading-overlay" id="loadingOverlay">
@@ -875,8 +876,10 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                                 <div class="select-options">
                                     <div class="select-option selected" data-value="Auto"><i class="fas fa-check" style="opacity: 1;"></i><span>Auto</span></div>
                                     <div class="select-option" data-value="1080"><i class="fas fa-check"></i><span>1080p</span></div>
-                                    <div class="select-option" data-value="720"><i class="fas fa-check"></i><span>720p</span></div>
+                                 <!--   <div class="select-option" data-value="720"><i class="fas fa-check"></i><span>720p</span></div> -->
                                     <div class="select-option" data-value="480"><i class="fas fa-check"></i><span>480p</span></div>
+                                  <!--   <div class="select-option" data-value="360"><i class="fas fa-check"></i><span>360p</span></div> -->
+                                    <div class="select-option" data-value="240"><i class="fas fa-check"></i><span>240p</span></div>
                                 </div>
                             </div>
                         </div>
@@ -926,6 +929,8 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
                                 <div class="select-option" data-value="1080"><i class="fas fa-check"></i><span>1080p</span></div>
                                 <div class="select-option" data-value="720"><i class="fas fa-check"></i><span>720p</span></div>
                                 <div class="select-option" data-value="480"><i class="fas fa-check"></i><span>480p</span></div>
+                                <div class="select-option" data-value="360"><i class="fas fa-check"></i><span>360p</span></div>
+                                <div class="select-option" data-value="240"><i class="fas fa-check"></i><span>240p</span></div>
                             </div>
                         </div>
                     </div>
@@ -1192,6 +1197,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         const pref = localStorage.getItem('nbox_preferred_quality') || 'Auto';
         
         if (pref === 'Auto') {
+            hls.currentLevel = -1;
             hls.nextLevel = -1;
             return;
         }
@@ -1212,6 +1218,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         }
         
         if (bestLevelIdx !== -1) {
+            hls.currentLevel = bestLevelIdx;
             hls.nextLevel = bestLevelIdx;
         }
     }
@@ -1501,13 +1508,18 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         if (loadChNameEl) loadChNameEl.textContent = chName || '';
         if (loadLogoEl) {
             if (chImage) {
-                loadLogoEl.innerHTML = `<img src="${chImage}" onerror="this.parentElement.textContent='TV'">`;
+                loadLogoEl.innerHTML = `<img src="${chImage}" onerror="this.style.display='none'; this.parentElement.textContent='TV';">`;
             } else {
                 loadLogoEl.textContent = 'TV';
             }
         }
         if (loadSecEl) loadSecEl.textContent = remaining + 's';
-        if (loadBarEl) loadBarEl.style.width = '100%';
+        if (loadBarEl) {
+            loadBarEl.style.transition = 'none';
+            loadBarEl.style.width = '100%';
+            loadBarEl.offsetHeight;
+            loadBarEl.style.transition = 'width 0.95s linear';
+        }
         loadTimerInterval = setInterval(() => {
             remaining--;
             if (remaining < 0) { clearInterval(loadTimerInterval); return; }
@@ -1549,32 +1561,94 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         if (currentChannel && !autoPlayStarted) startAutoPlay();
     });
 
+    let isAutoplayMuting = false;
+    let hasUserInteracted = false;
+
+    function getSavedVolume() {
+        const savedVol = localStorage.getItem('nbox_volume');
+        let volVal = savedVol !== null ? parseFloat(savedVol) : 0.3;
+        if (isNaN(volVal) || volVal < 0 || volVal > 1) volVal = 0.3;
+        return volVal;
+    }
+
+    function getSavedMuted() {
+        const savedMuted = localStorage.getItem('nbox_muted');
+        return savedMuted !== null ? (savedMuted === 'true') : false;
+    }
+
+    function applySavedVolume() {
+        video.volume = getSavedVolume();
+        video.muted = getSavedMuted();
+        updateVolumeUI();
+    }
+
+    function safePlayVideo(isChannelChange = false) {
+        if (!localStorage.getItem('nbox_tv_visited')) return Promise.resolve();
+        applySavedVolume();
+        return video.play().catch((err) => {
+            if (err && (err.name === 'AbortError' || err.name === 'NotAllowedError')) {
+                if (hasUserInteracted || isChannelChange) {
+                    if (!getSavedMuted()) {
+                        video.muted = false;
+                        video.volume = getSavedVolume();
+                        updateVolumeUI();
+                    }
+                    return;
+                }
+            }
+
+            if ((hasUserInteracted || isChannelChange) && !getSavedMuted()) {
+                video.muted = false;
+                video.volume = getSavedVolume();
+                updateVolumeUI();
+                setTimeout(() => {
+                    if (video.paused && !userPaused) {
+                        video.play().catch(() => {
+                            if (!hasUserInteracted && !isChannelChange && !getSavedMuted()) {
+                                isAutoplayMuting = true;
+                                video.muted = true;
+                                updateVolumeUI();
+                                isAutoplayMuting = false;
+                                video.play().catch(() => {});
+                            }
+                        });
+                    }
+                }, 100);
+                return;
+            }
+
+            if (!getSavedMuted() && !hasUserInteracted && !isChannelChange) {
+                isAutoplayMuting = true;
+                video.muted = true;
+                updateVolumeUI();
+                isAutoplayMuting = false;
+                video.play().catch(() => {});
+            }
+        });
+    }
+
     function startAutoPlay() {
         if (autoPlayStarted) return;
         autoPlayStarted = true;
-        const savedVol = localStorage.getItem('nbox_volume');
-        const savedMuted = localStorage.getItem('nbox_muted');
-        
-        let volVal = savedVol !== null ? parseFloat(savedVol) : 1.0;
-        if (isNaN(volVal) || volVal < 0 || volVal > 1) volVal = 1.0;
-        video.volume = volVal;
-        
-        video.muted = savedMuted !== null ? (savedMuted === 'true') : false;
-        updateVolumeUI();
-        video.play().catch(() => { video.muted = true; updateVolumeUI(); video.play().catch(() => {}); });
+        applySavedVolume();
+        safePlayVideo();
     }
 
-    document.addEventListener('click', function() {
-        const savedMuted = localStorage.getItem('nbox_muted');
-        if (video.muted && currentChannel && savedMuted !== 'true') {
+    function tryUnmuteOnUserInteraction() {
+        hasUserInteracted = true;
+        if (!getSavedMuted() && video.muted) {
             video.muted = false;
-            const savedVol = localStorage.getItem('nbox_volume');
-            let volVal = savedVol !== null ? parseFloat(savedVol) : 1.0;
-            if (isNaN(volVal) || volVal < 0 || volVal > 1) volVal = 1.0;
-            video.volume = volVal;
+            video.volume = getSavedVolume();
             updateVolumeUI();
         }
-    }, { once: false });
+        if (video.paused && !userPaused && currentChannel) {
+            video.play().catch(() => {});
+        }
+    }
+
+    document.addEventListener('click', tryUnmuteOnUserInteraction);
+    document.addEventListener('keydown', tryUnmuteOnUserInteraction);
+    document.addEventListener('touchstart', tryUnmuteOnUserInteraction, { passive: true });
 
     function toggleDesktopPanel(forceState) {
         let isHidden;
@@ -1873,7 +1947,7 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
         if (cardElement) cardElement.classList.add('active');
 
         if (hls) { hls.destroy(); hls = null; }
-        const vol = video.volume, muted = video.muted;
+        applySavedVolume();
 
         const streamUrl = (channel.urls && channel.urls.length > 0) ? channel.urls[channel.currentUrlIndex || 0] : channel.url;
 
@@ -1890,14 +1964,9 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
                 applyPreferredQuality();
-                clearTimeout(loadingTimeout);
-                stopLoadTimer();
-                loadingOverlay.classList.remove('show');
                 errorOverlay.classList.remove('show');
-                video.volume = vol; video.muted = muted; updateVolumeUI();
-                if (localStorage.getItem('nbox_tv_visited')) {
-                    video.play().catch(() => { video.muted = true; updateVolumeUI(); video.play().catch(() => {}); });
-                }
+                applySavedVolume();
+                safePlayVideo(true);
             });
             
             let mediaRecoveryAttempts = 0;
@@ -1932,12 +2001,9 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             video.src = streamUrl;
             
             nativeLoadedMetadataHandler = () => {
-                clearTimeout(loadingTimeout);
-                stopLoadTimer();
-                loadingOverlay.classList.remove('show');
                 errorOverlay.classList.remove('show');
-                video.volume = vol; video.muted = muted; updateVolumeUI();
-                if (localStorage.getItem('nbox_tv_visited')) video.play().catch(() => {});
+                applySavedVolume();
+                safePlayVideo(true);
             };
             
             nativeErrorHandler = () => {
@@ -3090,8 +3156,10 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
     });
     video.addEventListener('volumechange', () => {
         updateVolumeUI();
-        localStorage.setItem('nbox_volume', video.volume);
-        localStorage.setItem('nbox_muted', video.muted);
+        if (!isAutoplayMuting) {
+            localStorage.setItem('nbox_volume', video.volume);
+            localStorage.setItem('nbox_muted', video.muted);
+        }
     });
     fullscreenBtn.addEventListener('click', e => {
             e.stopPropagation();
@@ -3214,27 +3282,48 @@ h1, h2, h3, h4, h5, h6, .brand, .guide-title, .reels-name, .banner-title {
             case 'm': case 'M': muteBtn.click(); break;
             case 'ArrowRight': e.preventDefault(); playNextChannel(); break;
             case 'ArrowLeft': e.preventDefault(); playPreviousChannel(); break;
-            case 'ArrowUp': e.preventDefault(); video.volume = Math.min(1, video.volume + 0.1); video.muted = false; break;
-            case 'ArrowDown': e.preventDefault(); video.volume = Math.max(0, video.volume - 0.1); break;
+            case 'ArrowUp': e.preventDefault(); video.volume = Math.min(1, video.volume + 0.1); video.muted = false; localStorage.setItem('nbox_volume', video.volume); localStorage.setItem('nbox_muted', 'false'); break;
+            case 'ArrowDown': e.preventDefault(); video.volume = Math.max(0, video.volume - 0.1); localStorage.setItem('nbox_volume', video.volume); break;
             case 'c': case 'C':
                 toggleDesktopPanel(); break;
         }
     });
 
     let bufferingTimeout;
-    video.addEventListener('waiting', () => { bufferingTimeout = setTimeout(() => loadingOverlay.classList.add('show'), 1000); });
-    video.addEventListener('playing', () => {
+
+    function hideLoadingOverlay() {
         clearTimeout(loadingTimeout);
         clearTimeout(bufferingTimeout);
         stopLoadTimer();
         loadingOverlay.classList.remove('show');
         errorOverlay.classList.remove('show');
+    }
+
+    video.addEventListener('waiting', () => {
+        clearTimeout(bufferingTimeout);
+        bufferingTimeout = setTimeout(() => {
+            if (video.paused || video.readyState < 3) {
+                loadingOverlay.classList.add('show');
+            }
+        }, 1200);
+    });
+
+    video.addEventListener('playing', () => {
+        hideLoadingOverlay();
         consecutiveFailures = 0;
         if (loadStartTime) {
             const loadDuration = Date.now() - loadStartTime;
             showLoadToast(loadDuration);
             averageLoadTime = 0.7 * averageLoadTime + 0.3 * loadDuration;
             loadStartTime = null;
+        }
+    });
+
+    video.addEventListener('timeupdate', () => {
+        if (!video.paused && video.currentTime > 0) {
+            if (loadingOverlay.classList.contains('show')) {
+                hideLoadingOverlay();
+            }
         }
     });
     video.addEventListener('pause', () => {
