@@ -48,7 +48,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "JAMUNA TV",
     "logo": "https://www.freekaj.com/assets/images/stock/image/2024/01/14/65a43ac0d1ffc1705261760.jpg",
@@ -63,7 +62,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Somoy TV",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Somoy%20TV.jpeg",
@@ -92,7 +90,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Channel 24",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/channel%2024.png",
@@ -114,7 +111,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "ATN BANGLA",
     "logo": "https://static.wikia.nocookie.net/logopedia/images/2/2e/ATN_Bangla.svg",
@@ -136,7 +132,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "ATN Bangla UK",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/ATN%20Bangla.png",
@@ -151,7 +146,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Ekushay TV",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Ekushey%20TV.png",
@@ -201,7 +195,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Channel 9",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Channel%209.png",
@@ -216,7 +209,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Ekushey TV",
     "logo": "https://i.postimg.cc/L6R2F0jj/20250529_105209.png",
@@ -266,7 +258,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Sony AATH",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg",
@@ -274,7 +265,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "NTV TV",
     "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/NTV_Bangla.svg",
@@ -317,13 +307,12 @@
     "group": "Bangla",
     "useProxy": false
   },
-
   {
     "name": "Zee 24 Ghanta",
     "logo": "https://static.wikia.nocookie.net/logopedia/images/b/bc/Zee_24_Ghanta_2025_Logo_2025.png",
     "url": "https://d2dsoyvkr33m05.cloudfront.net/index_1.m3u8",
     "group": "Bangla",
     "useProxy": false
-  },
+  }
 
 ]
