@@ -49,13 +49,6 @@
     "useProxy": false
   },
   {
-    "name": "Somoy TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/somoy-tv.webp",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
     "name": "Ekattor TV",
     "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/ekattor-tv.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8",
