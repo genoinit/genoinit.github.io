@@ -8,7 +8,7 @@
   },
   {
     "name": "News 24",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/news-24.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/news24.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -22,7 +22,7 @@
   },
   {
     "name": "Jamuna TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/jamuna-tv.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/jamunatv.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -43,14 +43,14 @@
   },
   {
     "name": "Independent TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/independent-tv.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/independent-television.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8",
     "group": "Bangla",
     "useProxy": false
   },
   {
     "name": "Ekattor TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/ekattor-tv.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/ekattor.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -85,7 +85,7 @@
   },
   {
     "name": "BANGLA VISION",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/bangla-vision.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/banglav.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -99,7 +99,7 @@
   },
   {
     "name": "DEEPTO TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/deepto-tv.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/deeptho.webp",
     "url": "https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -134,7 +134,7 @@
   },
   {
     "name": "Desh TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/desh-tv.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/deshtv.webp",
     "url": "https://bozztv.com/rongo/rongo-DeshTV/tracks-v1a1/mono.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -176,7 +176,7 @@
   },
   {
     "name": "Star Jalsha",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/star-jalsha-hd.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/star-jolsha.webp",
     "url": "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8",
     "group": "Entertainment",
     "useProxy": false
@@ -274,7 +274,7 @@
   },
   {
     "name": "Doremon TV",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/Doremon.webp",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/doraemon-tv.webp",
     "url": "https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8",
     "group": "Cartoon & Kids",
     "useProxy": false
