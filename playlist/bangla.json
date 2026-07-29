@@ -2,7 +2,7 @@
   {
     "name": "BTV",
     "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/1710-audio_113402_eng=113200-video=3224800.m3u8",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8",
     "group": "Bangla",
     "useProxy": false
   },
