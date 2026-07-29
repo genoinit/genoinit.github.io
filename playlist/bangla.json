@@ -15,7 +15,7 @@
   },
   {
     "name": "SOMOY NEWS",
-    "logo": "https://static.wikia.nocookie.net/logopedia/images/8/8e/Somoy_Television.svg",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/somoy-tv.webp",
     "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -71,7 +71,7 @@
   },
   {
     "name": "Channel 1",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/refs/heads/main/Channel%201.png",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/channel-one.webp",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -211,7 +211,7 @@
   },
   {
     "name": "Enter10 Bangla",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Enter%2010%20Bangla.jpeg",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/enterr10-bangla.webp",
     "url": "https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_240p/chunks.m3u8",
     "group": "Bangla",
     "useProxy": false
