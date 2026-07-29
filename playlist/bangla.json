@@ -1,0 +1,345 @@
+[
+  {
+    "name": "BTV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "News 24",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/news-24.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "SOMOY NEWS",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/8/8e/Somoy_Television.svg",
+    "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Jamuna TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/jamuna-tv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Channel 24",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/channel-24.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "ATN News",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/atn-news.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Independent TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/independent-tv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Somoy TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/somoy-tv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Ekattor TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/ekattor-tv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "DBC News",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/dbc-news.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1728/output/1728.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Channel 1",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/refs/heads/main/Channel%201.png",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "ATN BANGLA",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/atn-bangla.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "CHANNEL I",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/channel-i-hd.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "BANGLA VISION",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/bangla-vision.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Green TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/green-tv.webp",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "DEEPTO TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/deepto-tv.webp",
+    "url": "https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Maasranga TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/maasranga-tv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/1722.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "NTV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/ntv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/1716.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "SATV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/satv.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/1720.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Channel 9",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/channel-9.webp",
+    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/1729.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Desh TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/desh-tv.webp",
+    "url": "https://bozztv.com/rongo/rongo-DeshTV/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Ekushey TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/ekushey-tv.webp",
+    "url": "https://master-proxy.wispy-boat-fc77.workers.dev/?url=https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Mohona TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/mohona-tv.webp",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mohonatv.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Movie Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/movie-bangla-tv.webp",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/moviebanglalink2.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "MY TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/my-tv.webp",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mytv-up-off.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "RTV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/rtv.webp",
+    "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/rtv-sg.stream/tracks-v1a1/mono.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Star Jalsha",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/star-jalsha-hd.webp",
+    "url": "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8",
+    "group": "Entertainment",
+    "useProxy": false
+  },
+  {
+    "name": "Colors Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/colors-bangla.webp",
+    "url": "https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8?hdnts=",
+    "group": "Entertainment",
+    "useProxy": false
+  },
+  {
+    "name": "Zee Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zee-bangla.webp",
+    "url": "https://yupptvcatchupire.yuppcdn.net/preview/zeebangla/2500.m3u8",
+    "group": "Entertainment",
+    "useProxy": false
+  },
+  {
+    "name": "DD Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/dd-bangla.webp",
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/7ff57cc9046b4c188b51a0d506f36e7f/index_3.m3u8",
+    "group": "Entertainment",
+    "useProxy": false
+  },
+  {
+    "name": "Enter10 Bangla",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Enter%2010%20Bangla.jpeg",
+    "url": "https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_240p/chunks.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Sony AATH",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/sony-aath.webp",
+    "url": "https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "SANGEET BANGLA",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/sangeet-bangla.webp",
+    "url": "https://cdn-4.pishow.tv/live/1143/master.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Khushboo Bangla",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/Khushboo_Bangla_logo_2017.png",
+    "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Green TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/green-tv.webp",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/chunks.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "TV9 Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/tv9-bangla.webp",
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "R Plus News",
+    "logo": "https://rplus.in/wp-content/uploads/2025/06/RPLUS_NEWS.png",
+    "url": "https://thelegitpro.in/pntv/rplusnews24x7/index.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Zee 24 Ghanta",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/b/bc/Zee_24_Ghanta_2025_Logo_2025.png",
+    "url": "https://d2dsoyvkr33m05.cloudfront.net/index_1.m3u8",
+    "group": "Bangla",
+    "useProxy": false
+  },
+  {
+    "name": "Gopal Bhar TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/gopal-bhar-tv.webp",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8",
+    "group": "Cartoon & Kids",
+    "useProxy": false
+  },
+  {
+    "name": "SRK TV",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/srk-tv.webp",
+    "url": "https://srknowapp.ncare.live/srktvhlswodrm/srktv.stream/tracks-v1a1/mono.m3u8",
+    "group": "Cartoon & Kids",
+    "useProxy": false
+  },
+  {
+    "name": "Doremon TV",
+    "logo": "https://i.imgur.com/zJuSbmU.png",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8",
+    "group": "Cartoon & Kids",
+    "useProxy": false
+  },
+  {
+    "name": "PBS Kids",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/pbs-kids.webp",
+    "url": "https://2-fss-2.streamhoster.com/pl_140/amlst:200914-1298290/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "BuddyStar HD",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/buddystar-hd.webp",
+    "url": "https://nomawnoijl.gpcdn.net/akash/buddystar/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Joy",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/joy.webp",
+    "url": "https://nomawnoijl.gpcdn.net/akash/joy/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Funny Junior HD",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/funny-junior-hd.webp",
+    "url": "https://nomawnoijl.gpcdn.net/akash/funnyjunior/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Smarty",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/smarty.webp",
+    "url": "https://nomawnoijl.gpcdn.net/akash/smarty/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Lucky Family",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/lucky-family.webp",
+    "url": "https://nomawnoijl.gpcdn.net/akash/luckyfamily/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Nikki",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/nikki.webp",
+    "url": "https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Peace Tv Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/peace-tv-bangla.webp",
+    "url": "https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  }
+]
