@@ -232,7 +232,7 @@
   },
   {
     "name": "Khushboo Bangla",
-    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/Khushboo_Bangla_logo_2017.png",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/Khushboo-Bangla.webp",
     "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -260,7 +260,7 @@
   },
   {
     "name": "Zee 24 Ghanta",
-    "logo": "https://static.wikia.nocookie.net/logopedia/images/b/bc/Zee_24_Ghanta_2025_Logo_2025.png",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/Zee-24-Ghanta.webp",
     "url": "https://d2dsoyvkr33m05.cloudfront.net/index_1.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -281,7 +281,7 @@
   },
   {
     "name": "Doremon TV",
-    "logo": "https://i.imgur.com/zJuSbmU.png",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/Doremon.webp",
     "url": "https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8",
     "group": "Cartoon & Kids",
     "useProxy": false
