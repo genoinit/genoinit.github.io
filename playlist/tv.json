@@ -181,13 +181,6 @@
     "group": "Bangla",
     "useProxy": false
   },
-    {
-    "name": "Peace Tv Bangla",
-    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/peace-tv-bangla.webp",
-    "url": "https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8",
-    "group": "Education & Baby",
-    "useProxy": false
-  },
   {
     "name": "Star Jalsha",
     "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/star-jalsha-hd.webp",
@@ -339,6 +332,13 @@
     "name": "Nikki",
     "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/nikki.webp",
     "url": "https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8",
+    "group": "Education & Baby",
+    "useProxy": false
+  },
+  {
+    "name": "Peace Tv Bangla",
+    "logo": "https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/peace-tv-bangla.webp",
+    "url": "https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8",
     "group": "Education & Baby",
     "useProxy": false
   }
