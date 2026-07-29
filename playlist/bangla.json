@@ -1,6 +1,6 @@
 [
   {
-    "name": "BTV HD",
+    "name": "BTV",
     "logo": "https://static.wikia.nocookie.net/logopedia/images/1/12/BTV_HD_Logo.svg",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8",
     "group": "Bangla",
@@ -42,23 +42,9 @@
     "useProxy": false
   },
   {
-    "name": "Independent Television",
+    "name": "Independent TV",
     "logo": "https://static.wikia.nocookie.net/etv-gspn-bangla/images/b/bb/Independent_logo_2011.png",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "JAMUNA TV",
-    "logo": "https://www.freekaj.com/assets/images/stock/image/2024/01/14/65a43ac0d1ffc1705261760.jpg",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/1701-audio_113312_eng=113200-video=1692000.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "Ekattor TV",
-    "logo": "https://static.wikia.nocookie.net/logopedia/images/5/5d/Ekattor_TV_logo.png",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705-audio_113352_eng=113200-video=1692000.m3u8",
     "group": "Bangla",
     "useProxy": false
   },
@@ -70,30 +56,9 @@
     "useProxy": false
   },
   {
-    "name": "Independent TV",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Independent%20Television.png",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/1704.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
     "name": "Ekattor TV",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Ekattor%20TV.png",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "ATN News",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/ATN%20News.png",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/1706.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "Channel 24",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/channel%2024.png",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/1703.m3u8",
     "group": "Bangla",
     "useProxy": false
   },
@@ -105,7 +70,7 @@
     "useProxy": false
   },
   {
-    "name": "Channel 1 News 4K",
+    "name": "Channel 1",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/refs/heads/main/Channel%201.png",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8",
     "group": "Bangla",
@@ -133,13 +98,6 @@
     "useProxy": false
   },
   {
-    "name": "ATN Bangla UK",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/ATN%20Bangla.png",
-    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
     "name": "Green TV",
     "logo": "https://greentvbangla.com/wp-content/uploads/2023/03/lazy_tv0.jpg.webp",
     "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/playlist.m3u8",
@@ -147,23 +105,9 @@
     "useProxy": false
   },
   {
-    "name": "Ekushay TV",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Ekushey%20TV.png",
-    "url": "https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "DEEPTO TV HD",
+    "name": "DEEPTO TV",
     "logo": "https://jcwsw2vt33.gpcdn.net/uploads/images/2022/07/25/logos_1384ea456744d5914ba331fa72df78c8_goplay_deepto_logo_final_white.svg",
     "url": "https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "NTV HD",
-    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/NTV_Bangla.svg",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/1716-audio_113462_eng=113200-video=1692000.m3u8",
     "group": "Bangla",
     "useProxy": false
   },
@@ -189,13 +133,6 @@
     "useProxy": false
   },
   {
-    "name": "Deepto TV",
-    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Deepto%20TV.jpeg",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/1711.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
     "name": "Channel 9",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Channel%209.png",
     "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/1729.m3u8",
@@ -211,7 +148,7 @@
   },
   {
     "name": "Ekushey TV",
-    "logo": "https://i.postimg.cc/L6R2F0jj/20250529_105209.png",
+    "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Ekushey%20TV.png",
     "url": "https://master-proxy.wispy-boat-fc77.workers.dev/?url=https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8",
     "group": "Bangla",
     "useProxy": false
@@ -245,14 +182,7 @@
     "useProxy": false
   },
   {
-    "name": "Somoy TV",
-    "logo": "https://i.postimg.cc/Qxn4JFNV/20250529-071147.png",
-    "url": "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "Enter10 Bangla HD",
+    "name": "Enter10 Bangla",
     "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Enter%2010%20Bangla.jpeg",
     "url": "https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_240p/chunks.m3u8",
     "group": "Bangla",
@@ -262,13 +192,6 @@
     "name": "Sony AATH",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sony_Aath_logo.svg",
     "url": "https://stream.ottplus.bd/live/sony_aath_abr/index.m3u8",
-    "group": "Bangla",
-    "useProxy": false
-  },
-  {
-    "name": "NTV TV",
-    "logo": "https://static.wikia.nocookie.net/logopedia/images/e/e1/NTV_Bangla.svg",
-    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8",
     "group": "Bangla",
     "useProxy": false
   },
