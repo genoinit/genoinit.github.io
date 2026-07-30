@@ -672,7 +672,8 @@
                 card.appendChild(img);
                 card.appendChild(info);
                 
-                card.onclick = () => {
+                card.onclick = (e) => {
+                    e.stopPropagation();
                     menuFocusedIndex = idx;
                     executeMenuSelection();
                 };
@@ -904,6 +905,27 @@
                         }
                         break;
                 }
+            }
+        });
+
+        // --- Screen Tap / Click to Open Menu ---
+        document.addEventListener('click', (e) => {
+            if (!hasUnmuted) {
+                video.muted = false;
+                video.volume = 1.0;
+                hasUnmuted = true;
+            }
+            // Ignore clicks on header controls or search input
+            if (e.target.closest('.menu-header')) {
+                return;
+            }
+            if (!isMenuOpen) {
+                toggleMenu();
+                return;
+            }
+            // Close menu if user taps outside channel cards (on menu backdrop or grid background)
+            if (e.target === channelMenu || e.target === menuGrid) {
+                toggleMenu();
             }
         });
 
