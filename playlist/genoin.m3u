@@ -8,6 +8,9 @@
 #EXTINF:-1 tvg-id="BTV" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp" group-title="National", BTV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
 
+
+#EXTINF:-1 tvg-id="BTV" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp" group-title="National", BTV
+https://streams.btvlive.gov.bd/live/919ab4ce-2317-4324-b068-f4efa40bec4c/BD/355ba051-9a60-48aa-adcf-5a6c64da8c5c/index.m3u8
 # ==========================================
 # 📺 NEWS CHANNELS
 # ==========================================
