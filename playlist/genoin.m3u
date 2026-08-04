@@ -410,6 +410,8 @@ https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
 #EXTINF:-1 tvg-id="StarJalsha" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/star-jolsha.webp" group-title="Entertainment", Star Jalsha
 https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
 
+
+
 # --- Colors Bangla ---
 #EXTINF:-1 tvg-id="ColorsBangla" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/colors-bangla.webp" group-title="Entertainment", Colors Bangla
 https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8?hdnts=
@@ -458,7 +460,7 @@ https://live.dinesh29.com.np/stream/jiotvplus/jalshamovies/master.m3u8
 
 # --- Jalsha Movies HD ---
 #EXTINF:-1 tvg-id="JalshaMovies" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/jalsha-movies.webp" group-title="Movies", Jalsha Movies
-https://live.dinesh29.com.np/stream/jiotvplus/jalshamovieshd/master.m3u8
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/jalsha-movies.m3u8?token=6de0d70402396730bdc1e6923a83937b&time=1785821619&link_index=0
 
 # --- Zee Bangla Cinema ---
 #EXTINF:-1 tvg-id="ZeeBanglaCinema" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zee-bangla-cinema.webp" group-title="Movies", Zee Bangla Cinema
