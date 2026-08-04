@@ -10,7 +10,9 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
 
 
 #EXTINF:-1 tvg-id="BTV" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp" group-title="National", BTV
-https://streams.btvlive.gov.bd/live/919ab4ce-2317-4324-b068-f4efa40bec4c/BD/355ba051-9a60-48aa-adcf-5a6c64da8c5c/index.m3u8
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/BTV.m3u8?token=1d8195c2b459046508ff519616c546d0&time=1785821814&link_index=0
+
+
 # ==========================================
 # 📺 NEWS CHANNELS
 # ==========================================
@@ -229,10 +231,12 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8
 # --- T Sports ---
 #EXTINF:-1 tvg-id="TSports" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/t-sports.webp" group-title="Sports", T Sports
 https://mflixott.com/tv/dd/live.php?id=270&cid=270
+#EXTINF:-1 tvg-id="TSports" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/t-sports.webp" group-title="Sports", T Sports
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/tsports.m3u8?token=5abc50b500e1a6d2883e5e381985106e&time=1785821891&link_index=0
 
 # --- GTV (Gazi TV) ---
 #EXTINF:-1 tvg-id="GaziTV" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/gazi-tv.webp" group-title="Sports", GTV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/gazi-television-gtv.m3u8?token=79d567b425b841c3cdd456878038e4b2&time=1785821931&link_index=0
 
 
 #Kids
@@ -391,7 +395,7 @@ https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8
 #EXTINF:-1 tvg-id="ZeeBangla" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zeebangla.webp" group-title="Entertainment", Zee Bangla
 https://yupptvcatchupire.yuppcdn.net/preview/zeebangla/2500.m3u8
 #EXTINF:-1 tvg-id="ZeeBangla" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zeebangla.webp" group-title="Entertainment", Zee Bangla
-https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_bangla&e=.m3u8
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/ZEE-BANGLA.m3u8?token=beb41e27732fc3d800c0fb44c5f5ba13&time=1785821707&link_index=0
 #EXTINF:-1 tvg-id="ZeeBangla" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zeebangla.webp" group-title="Entertainment", Zee Bangla
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_bangla/playlist.m3u8
@@ -464,7 +468,7 @@ https://aboxbdix.ryvox-tb-8ae.workers.dev/live/jalsha-movies.m3u8?token=6de0d704
 
 # --- Zee Bangla Cinema ---
 #EXTINF:-1 tvg-id="ZeeBanglaCinema" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zee-bangla-cinema.webp" group-title="Movies", Zee Bangla Cinema
-https://mflixott.com/tv/toffee-by-maruf/live.php?id=zee_bangla_cinema&e=.m3u8
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/Zee_bangla_cinema.m3u8?token=35865dc6e7031320bcbb1fd411df0f29&time=1785821735&link_index=0
 #EXTINF:-1 tvg-id="ZeeBanglaCinema" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/zee-bangla-cinema.webp" group-title="Movies", Zee Bangla Cinema
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/zee_bangla_cinema/playlist.m3u8
@@ -665,7 +669,7 @@ https://bldcmprod-cdn.toffeelive.com/cdn/live/zing_sd/playlist.m3u8
 #EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/sony-max.webp" group-title="Movies", Sony Max
 http://maxotts.maxdigitaltv.com/x-media/C111/master.m3u8
 #EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/sony-max.webp" group-title="Movies", Sony Max
-https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_max&e=.m3u8
+https://aboxbdix.ryvox-tb-8ae.workers.dev/live/sonymax.m3u8?token=3876ce9e741c144ba849341693edc739&time=1785821862&link_index=0
 #EXTINF:-1 tvg-id="SonyMax" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/sony-max.webp" group-title="Movies", Sony Max
 #EXTVLCOPT:http-user-agent=Toffee (Linux;Android 14)
 https://bldcmprod-cdn.toffeelive.com/cdn/live/sony_max/playlist.m3u8
