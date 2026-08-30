@@ -6,11 +6,11 @@
 
 # --- BTV ---
 #EXTINF:-1 tvg-id="BTV" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp" group-title="National", BTV
-https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
+https://live.rangdhonu.live/stream/btv/playlist.m3u8?expires=1789839633&sig=5hoeEEC7QsSzbNFakIIbgS9y0ZpZobQRR1tUqTn_X04
 
 
 #EXTINF:-1 tvg-id="BTV" tvg-logo="https://raw.githubusercontent.com/genoinit/Channel-logo/refs/heads/main/logo/btv.webp" group-title="National", BTV
-https://aboxbdix.ryvox-tb-8ae.workers.dev/live/BTV.m3u8?token=1d8195c2b459046508ff519616c546d0&time=1785821814&link_index=0
+https://live.rangdhonu.live/stream/sansohdtv/playlist.m3u8?expires=1789839726&sig=YTnKAv2VDo0H0gw5rguKUeppF6oBtWhWQbobEYYjYNE
 
 
 # ==========================================
