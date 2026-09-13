@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>genoin.com is for Sale | Premium Digital Asset</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg: #030712;
+      --card-bg: rgba(15, 23, 42, 0.55);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-cyan: #06b6d4;
+      --accent-violet: #8b5cf6;
+      --accent-fuchsia: #d946ef;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* Interactive Ambient Canvas */
+    #particle-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Mesh Gradient Orbs with floating wave animation */
+    .ambient-sphere {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+      animation: floatOrbit 18s ease-in-out infinite alternate;
+    }
+
+    .sphere-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #3b82f6, #06b6d4);
+      top: -120px;
+      left: 15%;
+    }
+
+    .sphere-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #8b5cf6, #ec4899);
+      bottom: -150px;
+      right: 10%;
+      animation-duration: 22s;
+      animation-delay: -5s;
+    }
+
+    @keyframes floatOrbit {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(60px, 40px) scale(1.12); }
+      100% { transform: translate(-40px, 70px) scale(0.95); }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 50px;
+    }
+
+    .brand-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: blink 2s infinite ease-in-out;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 20px 0 55px;
+    }
+
+    .badge-sub {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      margin-bottom: 18px;
+    }
+
+    /* Glowing Chromatic Typography */
+    .title-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .title-glow-underlay {
+      position: absolute;
+      inset: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.8rem, 10vw, 7.2rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      background: linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: blur(28px);
+      opacity: 0.6;
+      z-index: -1;
+      user-select: none;
+    }
+
+    .domain-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.8rem, 10vw, 7.2rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      background: linear-gradient(135deg, #ffffff 30%, #e0e7ff 65%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .tld {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      max-width: 660px;
+      margin: 0 auto 38px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Bento Value Cards */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 45px;
+    }
+
+    .bento-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 30px;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 15px 35px -10px rgba(6, 182, 212, 0.2);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .bento-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .bento-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Two Column Purchase Interaction Section */
+    .deal-zone {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .offer-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .box-heading {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .box-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+
+    .input-row {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    }
+
+    .btn-gradient {
+      width: 100%;
+      padding: 15px 28px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+      background-size: 200% auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.4);
+    }
+
+    .btn-gradient:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(139, 92, 246, 0.5);
+    }
+
+    .trust-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .trust-points {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .trust-item-icon {
+      font-size: 1.25rem;
+      padding: 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1;
+    }
+
+    .trust-item h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .trust-item p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .escrow-badges {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    footer {
+      margin-top: 70px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    @media (max-width: 820px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .deal-zone {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 24px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Glow Orbs -->
+  <div class="ambient-sphere sphere-1"></div>
+  <div class="ambient-sphere sphere-2"></div>
+
+  <!-- Interactive Subtle Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="container">
+    <header>
+      <div class="brand-logo">genoin<span style="color: var(--accent-cyan);">.com</span></div>
+      <div class="status-pill">
+        <span class="pulse-dot"></span> Available for Purchase
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="badge-sub">Ultra-Premium Domain Asset</span>
+        <div class="title-wrapper">
+          <div class="title-glow-underlay">genoin.com</div>
+          <h1 class="domain-title">genoin<span class="tld">.com</span></h1>
+        </div>
+        <p class="hero-subtitle">
+          A high-authority, brandable 6-letter dot-com. The perfect digital identity for Next-Gen Biotech, AI, Genomics, Web3, or Global Tech Ventures.
+        </p>
+      </section>
+
+      <!-- Bento Features -->
+      <section class="bento-grid">
+        <div class="bento-card">
+          <div class="card-icon">⚡</div>
+          <h3>Brandable & Punchy</h3>
+          <p>6 letters, clean phonetics, effortlessly memorable. Crafted for multi-billion dollar enterprise positioning.</p>
+        </div>
+        <div class="bento-card">
+          <div class="card-icon">🧬</div>
+          <h3>Modern Industry Fit</h3>
+          <p>Superb alignment with Genomics, Synthetic Biology, AI Innovation, Fintech, or Decentralized Networks.</p>
+        </div>
+        <div class="bento-card">
+          <div class="card-icon">👑</div>
+          <h3>The .COM Authority</h3>
+          <p>Direct navigational authority. No secondary TLD doubts—retain 100% of global organic mindshare.</p>
+        </div>
+      </section>
+
+     
+
+          <div class="escrow-badges">
+            <span>Verified via:</span>
+            <span class="tag">Escrow.com</span>
+            <span class="tag">Dan</span>
+            <span class="tag">Sedo</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 genoin.com. All rights reserved. Private Domain Portfolio Asset.
+    </footer>
+  </div>
+
+  <!-- Interactive dynamic particle script -->
+  <script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.15;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      resize();
+      particles = [];
+      const count = Math.min(width * 0.05, 55);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', init);
+    init();
+    animate();
+  </script>
+</body>
+</html>
