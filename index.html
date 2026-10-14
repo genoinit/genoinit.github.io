@@ -1,1091 +1,957 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="bn" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genoin | Pure Organic Deshi Food & Farm-Direct Heritage Harvest</title>
+    <title>জেনুইন | The genius of innovation.</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config for Custom Colors & Fonts -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        deshi: {
-                            50: '#f2fbf5',
-                            100: '#e1f7e7',
-                            200: '#c5eed2',
-                            500: '#16a34a', // Fresh Leaf Green
-                            600: '#15803d',
-                            700: '#116432',
-                            gold: '#d97706', // Sundarban Honey Gold
-                            terracotta: '#c2410c', // Clay Terracotta Red
-                            dark: '#0f172a'
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            dark: '#0f172a',
+                            emerald: '#10b981',
+                            teal: '#0d9488'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Three.js Library -->
+
+    <!-- Google Fonts & Lucide Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js 3D Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fdfbf7; /* Warm natural light background */
-            color: #1e293b;
-            overflow-x: hidden;
+        body { 
+            font-family: 'Hind Siliguri', sans-serif; 
+            background-color: #fafafa; 
+            color: #1e293b; 
+            overflow-x: hidden; 
         }
 
-        /* Glassmorphism Styles */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.78);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            box-shadow: 0 10px 30px -10px rgba(22, 163, 74, 0.08);
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.88);
+        /* Glassmorphic Styles */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
-        /* Gradient Text */
-        .text-gradient-green {
-            background: linear-gradient(135deg, #16a34a 0%, #0d9488 50%, #d97706 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 245, 249, 0.95);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
         }
 
-        .text-gradient-earth {
-            background: linear-gradient(135deg, #c2410c 0%, #d97706 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* 3D Tilt Card Base Styles */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
         }
 
-        /* Hero 3D Canvas Background */
-        #hero-canvas {
+        /* Subtle Pulse Effect for WhatsApp */
+        .wa-pulse {
+            animation: pulse-ring 2.5s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+            70% { box-shadow: 0 0 0 18px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Hero Carousel Transitions */
+        .hero-slide {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transform: scale(0.98);
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            inset: 0;
+        }
+        .hero-slide.active {
+            opacity: 1;
             pointer-events: auto;
+            transform: scale(1);
+            position: relative;
+        }
+
+        /* Progress Bar Animation */
+        @keyframes slideProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        .progress-active {
+            animation: slideProgress 6s linear infinite;
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #86efac;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #16a34a;
-        }
-
-        /* Subtle grid background pattern */
-        .bg-grid-pattern {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(22, 163, 74, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(22, 163, 74, 0.04) 1px, transparent 1px);
-        }
-
-        /* 3D Tilt Element Transition */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
-        }
-
-        /* Toast Popup Animation */
-        @keyframes slideInUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .toast-animate {
-            animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fafafa; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body class="relative bg-grid-pattern antialiased">
+<body class="relative text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-3 pointer-events-none"></div>
+    <!-- WebGL 3D Ambient Background Canvas -->
+    <div id="canvas-container" class="fixed inset-0 pointer-events-none z-0 opacity-40"></div>
 
-    <!-- ================= SHOPPING CART MODAL SLIDE-OVER ================= -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden transition-opacity duration-300">
-        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="toggleCart()"></div>
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                <!-- Cart Header -->
-                <div class="p-6 bg-deshi-50 border-b border-deshi-100 flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-9 h-9 rounded-xl bg-deshi-500 text-white flex items-center justify-center">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900">Your Deshi Cart</h3>
-                    </div>
-                    <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-700 p-2">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-
-                <!-- Cart Items List -->
-                <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <!-- Dynamic rendering via JS -->
-                </div>
-
-                <!-- Cart Footer / Summary -->
-                <div class="p-6 border-t border-slate-100 bg-slate-50/80 space-y-4">
-                    <div class="flex justify-between text-sm font-medium text-slate-600">
-                        <span>Subtotal</span>
-                        <span id="cart-subtotal" class="font-bold text-slate-900">৳0</span>
-                    </div>
-                    <div class="flex justify-between text-sm font-medium text-slate-600">
-                        <span>Eco-Friendly Shipping (Bangladesh)</span>
-                        <span class="text-emerald-600 font-semibold">৳60</span>
-                    </div>
-                    <div class="border-t border-slate-200 pt-3 flex justify-between text-lg font-extrabold text-slate-900">
-                        <span>Total</span>
-                        <span id="cart-total" class="text-deshi-600">৳0</span>
-                    </div>
-                    <button onclick="checkout()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-deshi-600 to-emerald-600 text-white font-bold shadow-lg shadow-deshi-500/25 hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
-                        <span>Proceed to Fresh Checkout</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= NAVBAR ================= -->
-    <header class="fixed top-0 left-0 w-full z-40 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-deshi-500 via-emerald-600 to-deshi-gold flex items-center justify-center text-white shadow-lg shadow-deshi-500/20 transition-transform duration-300 group-hover:scale-105">
-                    <i class="fa-solid fa-leaf text-lg"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-2xl font-black tracking-tight text-slate-900 leading-none">GENOIN<span class="text-deshi-500">.</span></span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-deshi-gold mt-0.5">Organic Deshi Harvest</span>
-                </div>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Text Logo Branding Only (NO Icon) -->
+            <a href="#" class="group">
+                <span class="text-3xl font-black tracking-tight text-slate-900 block leading-none group-hover:text-brand-600 transition-colors">
+                    জেনুইন
+                </span>
+                <span class="text-[11px] font-medium text-slate-500 tracking-wider block mt-1 italic">
+                    The genius of innovation.
+                </span>
             </a>
 
             <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
-                <a href="#hero" class="hover:text-deshi-600 transition-colors">Home</a>
-                <a href="#products" class="hover:text-deshi-600 transition-colors">Deshi Harvest</a>
-                <a href="#calculator" class="hover:text-deshi-600 transition-colors">Food Origin & Quiz</a>
-                <a href="#farmers" class="hover:text-deshi-600 transition-colors">Our Farmers</a>
-                <a href="#sustainability" class="hover:text-deshi-600 transition-colors">Purity Promise</a>
+            <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-600 text-sm">
+                <a href="#services" class="hover:text-brand-600 transition-colors">সেবাসমূহ</a>
+                <a href="#about" class="hover:text-brand-600 transition-colors">আমাদের কথা</a>
+                <a href="#calculator" class="hover:text-brand-600 transition-colors">খরচ হিসাব</a>
+                <a href="#workflow" class="hover:text-brand-600 transition-colors">কার্যপদ্ধতি</a>
+                <a href="#amc" class="hover:text-brand-600 transition-colors">করপোরেট প্যাকেজ</a>
+                <a href="#faq" class="hover:text-brand-600 transition-colors">প্রশ্নোত্তর</a>
             </nav>
 
-            <!-- Navigation Actions -->
-            <div class="hidden md:flex items-center space-x-4">
-                <button onclick="toggleCart()" class="relative px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold transition flex items-center space-x-2">
-                    <i class="fa-solid fa-basket-shopping text-deshi-600"></i>
-                    <span>Cart</span>
-                    <span id="cart-badge-count" class="w-5 h-5 rounded-full bg-deshi-terracotta text-white text-xs flex items-center justify-center font-bold">0</span>
-                </button>
-                <a href="#products" class="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-deshi-600 text-white text-sm font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-deshi-500/25 transform hover:-translate-y-0.5">
-                    Order Fresh
-                </a>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <div class="flex items-center space-x-3 md:hidden">
-                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-slate-100 text-slate-800">
-                    <i class="fa-solid fa-basket-shopping text-deshi-600"></i>
-                    <span id="cart-badge-count-mobile" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-deshi-terracotta text-white text-[10px] flex items-center justify-center font-bold">0</span>
-                </button>
-                <button id="mobile-menu-btn" class="text-slate-700 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-slate-200 px-6 py-6 space-y-4">
-            <a href="#hero" class="block text-slate-800 font-semibold">Home</a>
-            <a href="#products" class="block text-slate-800 font-semibold">Deshi Harvest</a>
-            <a href="#calculator" class="block text-slate-800 font-semibold">Food Origin & Quiz</a>
-            <a href="#farmers" class="block text-slate-800 font-semibold">Our Farmers</a>
-            <a href="#sustainability" class="block text-slate-800 font-semibold">Purity Promise</a>
-            <div class="pt-4 border-t border-slate-200 flex flex-col space-y-3">
-                <a href="#products" class="text-center bg-deshi-600 text-white font-bold py-3 rounded-full shadow-md">Shop 100% Organic</a>
-            </div>
+            <!-- Quick WhatsApp CTA -->
+            <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমি%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-500/20 transition-all transform hover:scale-[1.02] active:scale-95">
+                <i data-lucide="message-circle" class="w-4 h-4 fill-current"></i>
+                <span>01891965724</span>
+            </a>
         </div>
     </header>
 
-    <!-- ================= HERO SECTION WITH 3D CANVAS ================= -->
-    <section id="hero" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
-        <!-- Three.js Canvas Container -->
-        <div id="canvas-container" class="absolute inset-0 w-full h-full">
-            <canvas id="hero-canvas"></canvas>
-        </div>
+    <main class="relative z-10">
 
-        <!-- Hero Content Overlay -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center pointer-events-none">
-            <!-- Badge -->
-            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card border border-deshi-200 text-deshi-700 text-xs font-bold uppercase tracking-wider mb-6 pointer-events-auto shadow-sm">
-                <span class="w-2.5 h-2.5 rounded-full bg-deshi-500 animate-pulse"></span>
-                <span>100% PURE & DIRECT FROM HERITAGE DESHI FARMS</span>
-            </div>
-
-            <!-- Main Heading -->
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 mb-6 max-w-5xl mx-auto leading-none pointer-events-auto">
-                Pure Organic <span class="text-gradient-green">Deshi Harvest</span> For Your Home
-            </h1>
-
-            <!-- Subtitle -->
-            <p class="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 font-medium leading-relaxed pointer-events-auto">
-                Experience authentic, unadulterated Bangladeshi flavors: cold-pressed Mustard Oil, wild Sundarban Honey, organic Chinigura Rice, and pure handmade Ghee.
-            </p>
-
-            <!-- Call to Actions -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pointer-events-auto">
-                <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-deshi-600 via-emerald-600 to-deshi-gold hover:from-deshi-700 hover:to-emerald-700 text-white font-bold text-base shadow-xl shadow-deshi-500/25 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-3">
-                    <i class="fa-solid fa-wheat-awn"></i>
-                    <span>Explore Deshi Harvest</span>
-                </a>
-                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white text-slate-800 font-bold text-base border border-slate-300 shadow-sm transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-compass text-deshi-gold"></i>
-                    <span>Trace Origin & Diet Quiz</span>
-                </a>
-            </div>
-
-            <!-- Trust Highlights Grid -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto pointer-events-auto">
-                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
-                    <div class="text-2xl text-deshi-600 mb-1"><i class="fa-solid fa-vial-circle-check"></i></div>
-                    <p class="text-lg font-black text-slate-900">Lab Tested</p>
-                    <p class="text-xs text-slate-500 font-medium">Zero Chemical & Formalin</p>
-                </div>
-                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
-                    <div class="text-2xl text-deshi-gold mb-1"><i class="fa-solid fa-seedling"></i></div>
-                    <p class="text-lg font-black text-slate-900">Deshi Heritage</p>
-                    <p class="text-xs text-slate-500 font-medium">Indigenous Heirloom Seeds</p>
-                </div>
-                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
-                    <div class="text-2xl text-deshi-terracotta mb-1"><i class="fa-solid fa-tractor"></i></div>
-                    <p class="text-lg font-black text-slate-900">Farm Direct</p>
-                    <p class="text-xs text-slate-500 font-medium">Empowering Local Farmers</p>
-                </div>
-                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
-                    <div class="text-2xl text-emerald-600 mb-1"><i class="fa-solid fa-truck-fast"></i></div>
-                    <p class="text-lg font-black text-slate-900">24-48 hr Express</p>
-                    <p class="text-xs text-slate-500 font-medium">All Across Bangladesh</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FEATURED PRODUCTS SECTION WITH 3D TILT CARDS ================= -->
-    <section id="products" class="py-24 relative bg-slate-50/60">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-deshi-600 px-3 py-1 bg-deshi-100 rounded-full">Organic Bestsellers</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
-                    Handpicked Authentic Deshi Pantry
-                </h2>
-                <p class="text-slate-600 text-sm sm:text-base">
-                    Sourced directly from certified organic farmers across Dinajpur, Sundarban, Pabna, and Sylhet.
-                </p>
-            </div>
-
-            <!-- Products Grid -->
-            <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Dynamic Content Rendered via JS for 8 Authentic Products -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= INTERACTIVE FARM-TO-TABLE ORIGIN & QUIZ ================= -->
-    <section id="calculator" class="py-24 relative bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Dynamic Multi-Slide Interactive Hero Section -->
+        <section class="pt-8 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden" id="hero-slider-container">
+            <div class="max-w-6xl mx-auto min-h-[520px] sm:min-h-[480px] relative flex flex-col justify-between glass-card rounded-3xl p-6 sm:p-12 border border-slate-200/90 shadow-xl">
                 
-                <!-- Left Details & Quiz Controls -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-deshi-100 text-deshi-700 text-xs font-bold">
-                        <i class="fa-solid fa-microscope text-deshi-600"></i>
-                        <span>INTERACTIVE PURITY & DIET TRACER</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                        Find Your Perfect Deshi Nutrition Profile
-                    </h2>
-                    <p class="text-slate-600 text-base leading-relaxed">
-                        Customize your household diet requirements to calculate purity index, estimated farm origin, and recommended daily organic traditional foods.
-                    </p>
-
-                    <!-- Interactive Quiz Box -->
-                    <div class="glass-card p-6 rounded-3xl space-y-6 border border-slate-200">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Household Size</label>
-                            <div class="grid grid-cols-3 gap-3">
-                                <button onclick="setQuizOption('size', 1, this)" class="quiz-btn-size py-2.5 px-3 rounded-xl border border-deshi-500 bg-deshi-50 text-deshi-700 font-bold text-xs text-center transition">1-2 People</button>
-                                <button onclick="setQuizOption('size', 2, this)" class="quiz-btn-size py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs text-center transition hover:border-deshi-300">3-4 Family</button>
-                                <button onclick="setQuizOption('size', 3, this)" class="quiz-btn-size py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs text-center transition hover:border-deshi-300">5+ Joint</button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Primary Health & Culinary Focus</label>
-                            <div class="grid grid-cols-2 gap-3">
-                                <button onclick="setQuizOption('focus', 'immunity', this)" class="quiz-btn-focus py-2.5 px-3 rounded-xl border border-deshi-500 bg-deshi-50 text-deshi-700 font-bold text-xs text-left transition flex items-center justify-between">
-                                    <span>Immunity & Honey</span>
-                                    <i class="fa-solid fa-shield-halved"></i>
-                                </button>
-                                <button onclick="setQuizOption('focus', 'stamina', this)" class="quiz-btn-focus py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs text-left transition hover:border-deshi-300 flex items-center justify-between">
-                                    <span>Pure Cooking Oils</span>
-                                    <i class="fa-solid fa-bottle-droplet text-deshi-gold"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-2">
-                                <span>Monthly Organic Rice Consumption</span>
-                                <span id="rice-qty-val" class="text-deshi-600 font-extrabold">10 kg</span>
-                            </div>
-                            <input id="rice-slider" type="range" min="5" max="50" step="5" value="10" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-deshi-600" oninput="updateDietCalculation()">
-                        </div>
-
-                        <!-- Dynamic Recommendation Result Card -->
-                        <div class="p-4 rounded-2xl bg-slate-900 text-white space-y-3">
-                            <div class="flex justify-between items-center text-xs text-slate-300">
-                                <span>Recommended Bundle:</span>
-                                <span id="quiz-origin-tag" class="text-deshi-gold font-bold">Origin: Dinajpur & Sundarban</span>
-                            </div>
-                            <div class="text-lg font-bold text-emerald-400" id="quiz-recommendation-title">
-                                Heritage Chinigura + Sundarban Honey Pack
-                            </div>
-                            <div class="flex items-center justify-between pt-1">
-                                <span class="text-xl font-extrabold" id="quiz-estimated-price">৳1,450 / mo</span>
-                                <button onclick="addQuizBundleToCart()" class="px-4 py-2 rounded-xl bg-deshi-500 hover:bg-deshi-600 text-white font-bold text-xs transition shadow-md">
-                                    Add Bundle To Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Visual Farm Map Graphic -->
-                <div class="lg:col-span-6">
-                    <div class="relative w-full rounded-3xl overflow-hidden glass-card p-8 border border-slate-200 shadow-xl space-y-6">
-                        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-                            <h3 class="text-xl font-black text-slate-900">Bangladesh Organic Origin Map</h3>
-                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot"></i> Live Traceability</span>
-                        </div>
-
-                        <!-- Map Interactive Hotspots -->
-                        <div class="space-y-4">
-                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-deshi-500 transition shadow-sm flex items-center space-x-4">
-                                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold">
-                                    <i class="fa-solid fa-jar"></i>
+                <!-- Slide Container -->
+                <div class="relative w-full h-full my-auto">
+                    
+                    <!-- Slide 1: Computer & Laptop -->
+                    <div class="hero-slide active" id="slide-0">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 text-left space-y-4">
+                                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-50 text-brand-600 border border-brand-200 text-xs font-bold">
+                                    <i data-lucide="laptop" class="w-3.5 h-3.5"></i> কম্পিউটার ও ল্যাপটপ কেয়ার
+                                </span>
+                                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                                    ল্যাপটপ ও ডেক্সটপের <br><span class="text-brand-600">দ্রুততম অন-সাইট</span> সমাধান
+                                </h1>
+                                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                    মাদারবোর্ড চিপ-লেভেল রিপেয়ার, SSD/RAM স্পিড আপগ্রেড, ডিসপ্লে চেইঞ্জ এবং অপারেটিং সিস্টেম রিকভারি। আপনার বাসা বা অফিসে এসে টেকনিশিয়ান সার্ভিস।
+                                </p>
+                                <div class="flex flex-wrap gap-3 pt-2">
+                                    <button onclick="openBookingModal('কম্পিউটার ও ল্যাপটপ রিপ্রো')" class="px-6 py-3 rounded-2xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+                                        <i data-lucide="wrench" class="w-4 h-4"></i> সার্ভিস বুক করুন
+                                    </button>
+                                    <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমার%20ল্যাপটপ/কম্পিউটার%20সার্ভিসিং%20দরকার" target="_blank" class="px-6 py-3 rounded-2xl bg-emerald-50 text-emerald-700 font-bold text-xs sm:text-sm border border-emerald-200 hover:bg-emerald-100 transition-all flex items-center gap-2">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i> হোয়াটসঅ্যাপে কথা বলুন
+                                    </a>
                                 </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-900 text-sm">Sundarban Mangrove Forest</h4>
-                                    <p class="text-slate-500 text-xs">Wild Moumachi Raw Honey (100% Unfiltered)</p>
+                            </div>
+                            <div class="lg:col-span-5 hidden lg:flex justify-center relative">
+                                <div class="w-64 h-64 rounded-3xl bg-gradient-to-tr from-brand-50 to-indigo-50 border border-slate-200 p-6 flex flex-col justify-center items-center text-center shadow-lg transform rotate-2 hover:rotate-0 transition-transform">
+                                    <div class="w-16 h-16 rounded-2xl bg-brand-500 text-white flex items-center justify-center mb-4 shadow-md">
+                                        <i data-lucide="cpu" class="w-8 h-8"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-lg">চিপ-লেভেল মেরামত</p>
+                                    <p class="text-xs text-slate-500 mt-1">সর্বাধুনিক ডায়াগনস্টিক টুলস এবং মূল পার্টস নিশ্চিতকরণ</p>
                                 </div>
-                                <span class="text-xs font-bold text-deshi-gold bg-amber-50 px-2.5 py-1 rounded-lg">Pure Wild</span>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-deshi-500 transition shadow-sm flex items-center space-x-4">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold">
-                                    <i class="fa-solid fa-wheat-awn"></i>
+                    <!-- Slide 2: Printer & Copier -->
+                    <div class="hero-slide" id="slide-1">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 text-left space-y-4">
+                                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 text-teal-600 border border-teal-200 text-xs font-bold">
+                                    <i data-lucide="printer" class="w-3.5 h-3.5"></i> প্রিন্টার ও স্ক্যানার সার্ভিসিং
+                                </span>
+                                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                                    অফিস প্রিন্টার ও টোনারের <br><span class="text-teal-600">ওয়ান-স্টপ সলিউশন</span>
+                                </h1>
+                                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                    লেজার ও ইঙ্কজেট প্রিন্টার পেপার জাম ফিক্স, হেড ক্লিনিং, টোনার ও কার্টিজ রিফিল এবং নেটওয়ার্ক শেয়ারিং কনফিগারেশন।
+                                </p>
+                                <div class="flex flex-wrap gap-3 pt-2">
+                                    <button onclick="openBookingModal('প্রিন্টার ও টোনার সার্ভিস')" class="px-6 py-3 rounded-2xl bg-slate-900 hover:bg-teal-600 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+                                        <i data-lucide="wrench" class="w-4 h-4"></i> সার্ভিস বুক করুন
+                                    </button>
+                                    <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমার%20প্রিন্টার%20সার্ভিসিং/টোনার%20দরকার" target="_blank" class="px-6 py-3 rounded-2xl bg-emerald-50 text-emerald-700 font-bold text-xs sm:text-sm border border-emerald-200 hover:bg-emerald-100 transition-all flex items-center gap-2">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i> হোয়াটসঅ্যাপে কথা বলুন
+                                    </a>
                                 </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-900 text-sm">Dinajpur Organic Belt</h4>
-                                    <p class="text-slate-500 text-xs">Aromatic Khas Chinigura & Kalijira Rice</p>
+                            </div>
+                            <div class="lg:col-span-5 hidden lg:flex justify-center relative">
+                                <div class="w-64 h-64 rounded-3xl bg-gradient-to-tr from-teal-50 to-emerald-50 border border-slate-200 p-6 flex flex-col justify-center items-center text-center shadow-lg transform -rotate-2 hover:rotate-0 transition-transform">
+                                    <div class="w-16 h-16 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-4 shadow-md">
+                                        <i data-lucide="refresh-cw" class="w-8 h-8"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-lg">দ্রুত টোনার রিফিল</p>
+                                    <p class="text-xs text-slate-500 mt-1">হাই-কোয়ালিটি ডার্ক প্রিন্টিং ও দীর্ঘস্থায়ী ড্রাম পার্টস</p>
                                 </div>
-                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">Heirloom</span>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-deshi-500 transition shadow-sm flex items-center space-x-4">
-                                <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl font-bold">
-                                    <i class="fa-solid fa-bottle-droplet"></i>
+                    <!-- Slide 3: CCTV & Security -->
+                    <div class="hero-slide" id="slide-2">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 text-left space-y-4">
+                                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 text-xs font-bold">
+                                    <i data-lucide="shield" class="w-3.5 h-3.5"></i> সিসিটিভি ও নিরাপত্তা ব্যবস্থা
+                                </span>
+                                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                                    সম্পূর্ণ সিকিউরিটি ও <br><span class="text-emerald-600">লাইভ মনিটরিং</span> সেটআপ
+                                </h1>
+                                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                    বাসা, শোরুম ও ফ্যাক্টরির জন্য নাইট-ভিশন HD/IP সিসিটিভি ক্যামেরা ইনস্টলেশন, DVR/NVR কনফিগারেশন এবং মোবাইলে লাইভ ভিউ সেটআপ।
+                                </p>
+                                <div class="flex flex-wrap gap-3 pt-2">
+                                    <button onclick="openBookingModal('সিসিটিভি ক্যামেরা ইনস্টলেশন')" class="px-6 py-3 rounded-2xl bg-slate-900 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+                                        <i data-lucide="wrench" class="w-4 h-4"></i> সার্ভিস বুক করুন
+                                    </button>
+                                    <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমি%20সিসিটিভি%20ক্যামেরা%20ইনস্টল%20করতে%20চাই" target="_blank" class="px-6 py-3 rounded-2xl bg-emerald-50 text-emerald-700 font-bold text-xs sm:text-sm border border-emerald-200 hover:bg-emerald-100 transition-all flex items-center gap-2">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i> হোয়াটসঅ্যাপে কথা বলুন
+                                    </a>
                                 </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-900 text-sm">Pabna & Natore Fields</h4>
-                                    <p class="text-slate-500 text-xs">Ghani-Pressed Cold Mustard Oil & Deshi Ghee</p>
+                            </div>
+                            <div class="lg:col-span-5 hidden lg:flex justify-center relative">
+                                <div class="w-64 h-64 rounded-3xl bg-gradient-to-tr from-emerald-50 to-teal-50 border border-slate-200 p-6 flex flex-col justify-center items-center text-center shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                                    <div class="w-16 h-16 rounded-2xl bg-emerald-500 text-white flex items-center justify-center mb-4 shadow-md">
+                                        <i data-lucide="video" class="w-8 h-8"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-lg">মোবাইলে লাইভ দেখা</p>
+                                    <p class="text-xs text-slate-500 mt-1">বিশ্বের যেকোনো প্রান্ত থেকে ২৪/৭ স্পষ্ট নজরদারি</p>
                                 </div>
-                                <span class="text-xs font-bold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-lg">Wood-Ghani</span>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-deshi-50 text-deshi-800 text-xs font-medium flex items-center space-x-3">
-                            <i class="fa-solid fa-qrcode text-xl text-deshi-600"></i>
-                            <span>Every Genoin product features a QR Code to verify batch purity test results and farmer identity.</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= OUR FARMERS & HERITAGE ================= -->
-    <section id="farmers" class="py-24 bg-slate-50/60 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-deshi-gold px-3 py-1 bg-amber-50 rounded-full">Rooted in Heritage</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
-                    Meet Our Grassroots Organic Farmers
-                </h2>
-                <p class="text-slate-600 text-sm sm:text-base">
-                    We eliminate middlemen to pay 30% higher wages directly to indigenous farming families preserving traditional agriculture.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Farmer 1 -->
-                <div class="glass-card rounded-3xl p-6 border border-slate-200 space-y-4 hover:shadow-xl transition">
-                    <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-emerald-800 to-deshi-600 flex items-center justify-center text-white relative overflow-hidden">
-                        <i class="fa-solid fa-user-gear text-6xl opacity-20"></i>
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl text-slate-900">
-                            <h4 class="font-bold text-sm">Abdul Karim Chacha</h4>
-                            <p class="text-xs text-slate-500">Master Mustard Oil Presser • Pabna</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-600 text-xs leading-relaxed">
-                        "For 35 years my family has used wooden Ghani machines to extract pure mustard oil without heat, keeping all natural antioxidants intact."
-                    </p>
-                </div>
-
-                <!-- Farmer 2 -->
-                <div class="glass-card rounded-3xl p-6 border border-slate-200 space-y-4 hover:shadow-xl transition">
-                    <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-amber-700 to-deshi-gold flex items-center justify-center text-white relative overflow-hidden">
-                        <i class="fa-solid fa-bugs text-6xl opacity-20"></i>
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl text-slate-900">
-                            <h4 class="font-bold text-sm">Mowly Community</h4>
-                            <p class="text-xs text-slate-500">Traditional Honey Collectors • Sundarban</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-600 text-xs leading-relaxed">
-                        "We sustainably harvest deep forest honey during blooming season without harming wild bees or destroying hive ecosystems."
-                    </p>
-                </div>
-
-                <!-- Farmer 3 -->
-                <div class="glass-card rounded-3xl p-6 border border-slate-200 space-y-4 hover:shadow-xl transition">
-                    <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-deshi-terracotta to-orange-500 flex items-center justify-center text-white relative overflow-hidden">
-                        <i class="fa-solid fa-tractor text-6xl opacity-20"></i>
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl text-slate-900">
-                            <h4 class="font-bold text-sm">Rahima Begum</h4>
-                            <p class="text-xs text-slate-500">Heirloom Rice Seed Guardian • Dinajpur</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-600 text-xs leading-relaxed">
-                        "Our organic Chinigura rice is grown using composted organic manure without any synthetic chemical fertilizers or pesticides."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= PURITY PROMISE & TESTIMONIALS ================= -->
-    <section id="sustainability" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <span class="text-xs font-bold uppercase tracking-widest text-deshi-600 px-3 py-1 bg-deshi-100 rounded-full">Guaranteed Quality</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                        Our 100% Organic Purity Standard
-                    </h2>
-                    <p class="text-slate-600 text-base leading-relaxed">
-                        At Genoin, every batch undergoes strict lab testing to guarantee freedom from heavy metals, adulteration, and artificial preservatives.
-                    </p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full bg-deshi-100 text-deshi-600 flex items-center justify-center flex-shrink-0 font-bold mt-1">✓</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Cold Wood-Ghani Extraction</h4>
-                                <p class="text-xs text-slate-500">No heat treatment or chemical bleaching involved.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full bg-deshi-100 text-deshi-600 flex items-center justify-center flex-shrink-0 font-bold mt-1">✓</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Non-GMO Heirloom Crop Varieties</h4>
-                                <p class="text-xs text-slate-500">Preserving original nutritional density and natural fragrance.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full bg-deshi-100 text-deshi-600 flex items-center justify-center flex-shrink-0 font-bold mt-1">✓</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Glass Jar Eco-Packaging</h4>
-                                <p class="text-xs text-slate-500">Zero plastic toxicity leaching into oils or honey.</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- Testimonial Cards Slider Simulation -->
-                <div class="glass-card p-8 rounded-3xl border border-slate-200/80 shadow-xl space-y-6">
-                    <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-700 text-lg italic font-medium">
-                        "Genoin's Shorsher Tel has brought back the nostalgic sharp aroma of my grandmother's cooking. The Sundarban honey is completely authentic and crystallized naturally!"
-                    </p>
-                    <div class="flex items-center space-x-4 pt-2">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-deshi-500 to-deshi-gold flex items-center justify-center text-white font-bold text-lg">
-                            D
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Dr. Nusrat Jahan</h4>
-                            <p class="text-xs text-slate-500">Nutritionist, Gulshan Dhaka</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FOOTER & NEWSLETTER ================= -->
-    <footer class="bg-slate-900 text-white pt-20 pb-12">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-10">
-            <!-- Col 1 -->
-            <div class="md:col-span-2 space-y-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-deshi-500 to-deshi-gold flex items-center justify-center text-white font-bold">
-                        <i class="fa-solid fa-leaf"></i>
-                    </div>
-                    <span class="text-2xl font-black tracking-tight">GENOIN<span class="text-deshi-500">.</span></span>
-                </div>
-                <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-                    Connecting urban homes with authentic, chemical-free organic Deshi food straight from Bangladesh's heritage farms.
-                </p>
-                <div class="pt-2 flex space-x-4 text-slate-400 text-lg">
-                    <a href="#" class="hover:text-deshi-500"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="hover:text-deshi-500"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-deshi-500"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <!-- Col 2 -->
-            <div>
-                <h5 class="font-bold text-sm text-white mb-3">Popular Harvest</h5>
-                <ul class="space-y-2 text-xs text-slate-400">
-                    <li><a href="#products" class="hover:text-white">Cold Pressed Mustard Oil</a></li>
-                    <li><a href="#products" class="hover:text-white">Sundarban Raw Honey</a></li>
-                    <li><a href="#products" class="hover:text-white">Dinajpur Chinigura Rice</a></li>
-                    <li><a href="#products" class="hover:text-white">Pure Deshi Cow Ghee</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 3 -->
-            <div>
-                <h5 class="font-bold text-sm text-white mb-3">Purity & Trust</h5>
-                <ul class="space-y-2 text-xs text-slate-400">
-                    <li><a href="#calculator" class="hover:text-white">Trace Origin QR</a></li>
-                    <li><a href="#farmers" class="hover:text-white">Our Farmer Collective</a></li>
-                    <li><a href="#sustainability" class="hover:text-white">Lab Test Certificates</a></li>
-                    <li><a href="#" class="hover:text-white">Refund & Quality Guarantee</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 4 Newsletter -->
-            <div>
-                <h5 class="font-bold text-sm text-white mb-3">Fresh Harvest Alert</h5>
-                <p class="text-xs text-slate-400 mb-3">Get notified when seasonal harvests arrive!</p>
-                <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Genoin Organic Alerts!');" class="space-y-2">
-                    <input type="email" placeholder="Your email address" required class="w-full px-4 py-2.5 rounded-xl bg-slate-800 text-white text-xs border border-slate-700 focus:outline-none focus:border-deshi-500">
-                    <button type="submit" class="w-full py-2.5 rounded-xl bg-deshi-500 hover:bg-deshi-600 font-bold text-xs text-white transition">
-                        Subscribe
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-            <p>&copy; 2026 Genoin Organic Deshi Harvest Inc. All rights reserved.</p>
-            <p>genoin.com • Pure Organic Bangladesh</p>
-        </div>
-    </footer>
-
-
-    <!-- ================= JAVASCRIPT LOGIC & THREE.JS ORGANIC 3D ================= -->
-    <script>
-        // -----------------------------------------------------------------
-        // 1. DESHI PRODUCTS DATA STORE
-        // -----------------------------------------------------------------
-        const PRODUCTS = [
-            {
-                id: 'p1',
-                name: 'Kachi Ghani Mustard Oil (সরিষার তেল)',
-                category: 'Cold-Pressed Oils',
-                price: 360,
-                unit: '1 Litre Glass Bottle',
-                badge: '100% Pure Ghani',
-                rating: 4.9,
-                icon: 'fa-bottle-droplet',
-                iconColor: 'text-amber-500',
-                desc: 'Slow wood-ghani extracted from local Maghi mustard seeds. Sharp pungency & natural aroma.'
-            },
-            {
-                id: 'p2',
-                name: 'Sundarban Raw Moumachi Honey (সুন্দরবনের মধু)',
-                category: 'Wild Forest',
-                price: 950,
-                unit: '500g Jar',
-                badge: 'Unprocessed Wild',
-                rating: 5.0,
-                icon: 'fa-jar',
-                iconColor: 'text-deshi-gold',
-                desc: 'Directly harvested from deep Khulna Sundarban mangrove forest. Rich in natural pollen.'
-            },
-            {
-                id: 'p3',
-                name: 'Aromatic Chinigura Khas Rice (চিনিগুড়া চাল)',
-                category: 'Heirloom Grains',
-                price: 180,
-                unit: '1 kg Eco Bag',
-                badge: 'Dinajpur Heritage',
-                rating: 4.8,
-                icon: 'fa-wheat-awn',
-                iconColor: 'text-emerald-600',
-                desc: 'Small grain naturally fragrant organic rice harvested from old Dinajpur soil.'
-            },
-            {
-                id: 'p4',
-                name: 'Pure Deshi Bathan Cow Ghee (গাওয়া ঘি)',
-                category: 'Traditional Dairy',
-                price: 1450,
-                unit: '500g Glass Jar',
-                badge: 'Handmade Bathan',
-                rating: 4.9,
-                icon: 'fa-bowl-food',
-                iconColor: 'text-yellow-600',
-                desc: 'Made from culturing pure A2 milk cream over gentle wood fire in Pabna.'
-            },
-            {
-                id: 'p5',
-                name: 'Sundarban Khajur Gur / Date Palm Jaggery (খেজুর গুড়)',
-                category: 'Natural Sweeteners',
-                price: 380,
-                unit: '1 kg Nolen Block',
-                badge: 'Seasonal Chemical Free',
-                rating: 4.9,
-                icon: 'fa-cubes-stacked',
-                iconColor: 'text-amber-700',
-                desc: 'Traditional winter date tree sap boiled into aromatic dark caramel blocks.'
-            },
-            {
-                id: 'p6',
-                name: 'Organically Grown Turmeric Powder (হলুদ গুঁড়া)',
-                category: 'Indigenous Spices',
-                price: 220,
-                unit: '250g Pack',
-                badge: 'High Curcumin',
-                rating: 4.8,
-                icon: 'fa-pepper-hot',
-                iconColor: 'text-amber-500',
-                desc: 'Pure Pahari turmeric with no artificial lead or coloring. High natural oil content.'
-            },
-            {
-                id: 'p7',
-                name: 'Organic Black Seed Oil / Kalonji (কালোজিরা তেল)',
-                category: 'Immunity Boost',
-                price: 450,
-                unit: '100ml Cold Pressed',
-                badge: 'Therapeutic Grade',
-                rating: 5.0,
-                icon: 'fa-seedling',
-                iconColor: 'text-slate-800',
-                desc: '100% cold pressed from premium organic black cumin seeds. Rich thymoquinone.'
-            },
-            {
-                id: 'p8',
-                name: 'Pabna Organic Handmade Butter (মাখন)',
-                category: 'Traditional Dairy',
-                price: 620,
-                unit: '250g Pack',
-                badge: 'Cultured Cream',
-                rating: 4.7,
-                icon: 'fa-cheese',
-                iconColor: 'text-yellow-500',
-                desc: 'Unsalted, traditional cultured churned butter with authentic village rich texture.'
-            }
-        ];
-
-        // Cart State
-        let cart = [];
-
-        // -----------------------------------------------------------------
-        // 2. RENDER PRODUCTS GRID & TILT CARDS
-        // -----------------------------------------------------------------
-        function renderProducts() {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = PRODUCTS.map(p => `
-                <div class="tilt-card glass-card p-6 rounded-3xl relative overflow-hidden group border border-slate-200/90 hover:shadow-2xl hover:shadow-deshi-500/10 transition-all flex flex-col justify-between">
-                    <div>
-                        <!-- Badge -->
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-deshi-700 bg-deshi-100 px-3 py-1 rounded-full">
-                                ${p.badge}
-                            </span>
-                            <div class="flex items-center text-amber-400 text-xs font-bold space-x-1">
-                                <i class="fa-solid fa-star"></i>
-                                <span>${p.rating}</span>
-                            </div>
-                        </div>
-
-                        <!-- Product Visual Icon Centerpiece -->
-                        <div class="w-20 h-20 mx-auto rounded-2xl bg-slate-50 flex items-center justify-center text-4xl mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300">
-                            <i class="fa-solid ${p.icon} ${p.iconColor}"></i>
-                        </div>
-
-                        <h3 class="font-extrabold text-slate-900 text-base mb-1 group-hover:text-deshi-600 transition-colors">
-                            ${p.name}
-                        </h3>
-                        <p class="text-xs text-slate-400 font-medium mb-3">${p.unit}</p>
-                        <p class="text-slate-600 text-xs leading-relaxed mb-6">
-                            ${p.desc}
-                        </p>
+                <!-- Carousel Controls & Indicators -->
+                <div class="mt-8 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <!-- Slide Indicators -->
+                    <div class="flex items-center gap-2" id="hero-dots">
+                        <button onclick="goToSlide(0)" class="w-8 h-2.5 rounded-full bg-brand-600 transition-all" id="dot-0"></button>
+                        <button onclick="goToSlide(1)" class="w-2.5 h-2.5 rounded-full bg-slate-300 transition-all" id="dot-1"></button>
+                        <button onclick="goToSlide(2)" class="w-2.5 h-2.5 rounded-full bg-slate-300 transition-all" id="dot-2"></button>
                     </div>
 
-                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400 block">Price</span>
-                            <span class="text-xl font-black text-slate-900">৳${p.price}</span>
-                        </div>
-                        <button onclick="addToCart('${p.id}')" class="px-4 py-2.5 rounded-full bg-slate-900 hover:bg-deshi-600 text-white font-bold text-xs transition shadow-md flex items-center space-x-1">
-                            <i class="fa-solid fa-plus text-[10px]"></i>
-                            <span>Add</span>
+                    <!-- Slide Progress Bar -->
+                    <div class="w-full sm:w-48 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                        <div id="slide-progress" class="h-full bg-brand-600 progress-active"></div>
+                    </div>
+
+                    <!-- Prev/Next Navigation Buttons -->
+                    <div class="flex items-center gap-2">
+                        <button onclick="prevSlide()" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="nextSlide()" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </button>
                     </div>
                 </div>
-            `).join('');
 
-            attachTiltEffect();
-        }
+            </div>
+        </section>
 
-        // -----------------------------------------------------------------
-        // 3. SHOPPING CART LOGIC & TOAST NOTIFICATIONS
-        // -----------------------------------------------------------------
-        function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('hidden');
-        }
-
-        function addToCart(productId) {
-            const item = PRODUCTS.find(p => p.id === productId);
-            if (!item) return;
-
-            const existing = cart.find(c => c.id === productId);
-            if (existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({ ...item, qty: 1 });
-            }
-
-            updateCartUI();
-            showToast(`Added "${item.name}" to your cart!`);
-        }
-
-        function updateCartQty(productId, delta) {
-            const index = cart.findIndex(c => c.id === productId);
-            if (index !== -1) {
-                cart[index].qty += delta;
-                if (cart[index].qty <= 0) {
-                    cart.splice(index, 1);
-                }
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const list = document.getElementById('cart-items-list');
-            const totalCount = cart.reduce((acc, i) => acc + i.qty, 0);
-            const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
-
-            document.getElementById('cart-badge-count').innerText = totalCount;
-            document.getElementById('cart-badge-count-mobile').innerText = totalCount;
-
-            if (cart.length === 0) {
-                list.innerHTML = `
-                    <div class="text-center py-16 space-y-3">
-                        <i class="fa-solid fa-basket-shopping text-5xl text-slate-300"></i>
-                        <p class="text-slate-500 font-semibold text-sm">Your organic basket is empty</p>
-                        <button onclick="toggleCart()" class="text-xs text-deshi-600 font-bold underline">Explore Fresh Products</button>
-                    </div>
-                `;
-            } else {
-                list.innerHTML = cart.map(i => `
-                    <div class="p-3 bg-slate-50 rounded-2xl flex items-center justify-between border border-slate-200/70">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-lg text-deshi-600 shadow-sm">
-                                <i class="fa-solid ${i.icon}"></i>
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-5">
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">আমাদের পরিচিতি</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-slate-900">
+                            'জেনুইন' – প্রযুক্তির আস্থাশীল ও আধুনিক সেবা
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <strong class="text-slate-800">জেনুইন (genoin.com)</strong> হল ঢাকা শহরের অন্যতম নির্ভরযোগ্য অন-সাইট আইটি ও সিকিউরিটি সলিউশন প্রোভাইডার। আমাদের মূল লক্ষ্য হল বাসাবাড়ি ও ব্যবসা প্রতিষ্ঠানের জটিল প্রযুক্তিগত সমস্যাগুলো দ্রুত ও সততার সাথে সমাধান করা।
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                                <h4 class="font-bold text-brand-600 text-lg">অভিজ্ঞ টেকনিশিয়ান</h4>
+                                <p class="text-xs text-slate-500 mt-1">প্রশিক্ষিত এবং দক্ষ চিপ-লেভেল ইঞ্জিনিয়ারবৃন্দ।</p>
                             </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                                <h4 class="font-bold text-emerald-600 text-lg">দ্রুততম রেসপন্স</h4>
+                                <p class="text-xs text-slate-500 mt-1">ঢাকার যেকোনো জায়গায় দ্রুত অন-সাইট সার্ভিস।</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <div class="glass-card rounded-3xl p-8 border border-slate-200 shadow-md space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-base">অরিজিনাল পার্টসের নিশ্চয়তা</h4>
+                                    <p class="text-xs text-slate-500 mt-1">আমরা সবসময় ১০০% জেনুইন স্পেয়ার পার্টস ও ব্র্যান্ডেড মালামাল ব্যবহার করি।</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-base">লিখিত সার্ভিস ওয়ারেন্টি</h4>
+                                    <p class="text-xs text-slate-500 mt-1">প্রত্যেকটি সার্ভিস বা পার্টস পরিবর্তনের সাথে থাকছে অফিশিয়াল ওয়ারেন্টি গ্যারান্টি।</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-base">ন্যায্য ও স্বচ্ছ মূল্য</h4>
+                                    <p class="text-xs text-slate-500 mt-1">কোনো লুকানো চার্জ নেই। সার্ভিস শুরুর আগেই সুনির্দিষ্ট খরচ জানিয়ে দেওয়া হয়।</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Services Breakdown Section -->
+        <section id="services" class="py-20 bg-slate-50 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">বিস্তারিত সেবাসমূহ</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">আমাদের ৩টি প্রধান সার্ভিস বিভাগ</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- Service 1: Computer & Laptop -->
+                    <div class="tilt-card glass-card rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all relative group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-all">
+                                <i data-lucide="laptop" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">কম্পিউটার ও ল্যাপটপ റിপ্রো</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-6 leading-relaxed">
+                                স্লো ডেক্সটপ দ্রুত করা, নো-ডিসপ্লে ইস্যু সমাধান, পাওয়ার অন না হওয়া এবং অপারেটিং সিস্টেম ইনস্টলেশন।
+                            </p>
+                            <ul class="space-y-3 text-xs sm:text-sm font-medium text-slate-700 mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> চিপ-লেভেল মাদারবোর্ড সার্কিট সলিউশন</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> অতিদ্রুত NVMe SSD ও RAM স্পিড আপগ্রেড</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> ডিসপ্লে ও কিবোর্ড দ্রুত রিপ্লেসমেন্ট</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> জেনুইন উইন্ডোজ ও অ্যান্টিভাইরাস সেটআপ</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal('কম্পিউটার ও ল্যাপটপ')" class="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-brand-600 transition-colors flex items-center justify-center gap-2">
+                            <span>বুকিং করুন</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 2: Printer & Copier -->
+                    <div class="tilt-card glass-card rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all relative group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-6 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                                <i data-lucide="printer" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">প্রিন্টার ও টোনার সার্ভিস</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-6 leading-relaxed">
+                                HP, Canon, Epson ও Brother প্রিন্টারের যাবতীয় যান্ত্রিক ত্রুটি মেরামত এবং টোনার রিফিল।
+                            </p>
+                            <ul class="space-y-3 text-xs sm:text-sm font-medium text-slate-700 mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> লেজার ও কালার কার্টিজ টোনার রিফিল</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> পেপার জাম ও রোলার মেকানিজম সার্ভিস</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> ইঙ্কজেট প্রিন্টহেড ডিপ ক্লিনআপ</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> ওয়াইফাই ও নেটওয়ার্ক প্রিন্টিং কনফিগার</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal('প্রিন্টার ও স্ক্যানার')" class="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-teal-600 transition-colors flex items-center justify-center gap-2">
+                            <span>বুকিং করুন</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 3: CCTV & Security -->
+                    <div class="tilt-card glass-card rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all relative group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                <i data-lucide="shield" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">সিসিটিভি নিরাপত্তা ব্যবস্থা</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-6 leading-relaxed">
+                                আপনার বাড়ি বা বাণিজ্যিক প্রতিষ্ঠানের সার্বক্ষণিক সুরক্ষায় আধুনিক আইপি ও নাইট-ভিশন ক্যামেরা।
+                            </p>
+                            <ul class="space-y-3 text-xs sm:text-sm font-medium text-slate-700 mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> Full HD ও Ultra-HD IP ক্যামেরা ইনস্টলেশন</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> DVR/NVR ও হার্ডডিস্ক স্টোরেজ সেটআপ</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> স্মার্টফোনে নাইট-ভিশন লাইভ মনিটরিং</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> ওয়্যারিং, কেসিং ও রেগুলার রক্ষণাবেক্ষণ</li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal('সিসিটিভি ও সিকিউরিটি')" class="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-emerald-600 transition-colors flex items-center justify-center gap-2">
+                            <span>বুকিং করুন</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Live Price Estimator -->
+        <section id="calculator" class="py-20 bg-slate-900 text-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold tracking-wide uppercase">ইন্টারেক্টিভ ক্যালকুলেটর</span>
+                    <h2 class="text-2xl sm:text-4xl font-black mt-3">অন-সাইট সার্ভিস খরচ হিসাব করুন</h2>
+                </div>
+
+                <div class="bg-slate-800/90 rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-2xl backdrop-blur-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-6">
+                            <!-- Service Type Selection -->
                             <div>
-                                <h5 class="text-xs font-bold text-slate-900 leading-tight">${i.name}</h5>
-                                <p class="text-[10px] text-slate-500">৳${i.price} × ${i.qty}</p>
+                                <label class="block text-xs font-bold text-slate-400 mb-3">সার্ভিসের বিষয় নির্বাচন করুন</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button type="button" onclick="setCategory('computer')" id="cat-computer" class="cat-btn py-2.5 px-2 rounded-xl border border-brand-500 bg-brand-500/20 text-white font-bold text-xs text-center transition-all">
+                                        কম্পিউটার
+                                    </button>
+                                    <button type="button" onclick="setCategory('printer')" id="cat-printer" class="cat-btn py-2.5 px-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 font-bold text-xs text-center transition-all">
+                                        প্রিন্টার
+                                    </button>
+                                    <button type="button" onclick="setCategory('cctv')" id="cat-cctv" class="cat-btn py-2.5 px-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 font-bold text-xs text-center transition-all">
+                                        সিসিটিভি
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Location Selector -->
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 mb-2">লোকেশন (ঢাকা সিটি)</label>
+                                <select id="calc-location" onchange="updateCost()" class="w-full bg-slate-900 border border-slate-700 text-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:border-brand-500">
+                                    <option value="mirpur">মিরপুর / উত্তরা / ধানমন্ডি (সাধারণ)</option>
+                                    <option value="gulshan">গুলশান / বনানী / বসুন্ধরা (+২০০ ৳)</option>
+                                    <option value="old_dhaka">পুরান ঢাকা / মতিঝিল (+১০০ ৳)</option>
+                                    <option value="other">ঢাকার অন্যান্য এলাকা</option>
+                                </select>
+                            </div>
+
+                            <!-- Quantity Slider -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-slate-300 mb-2">
+                                    <span>ডিভাইসের পরিমাণ</span>
+                                    <span id="qty-val" class="text-brand-400 font-black">১ টি</span>
+                                </div>
+                                <input type="range" id="calc-qty-input" min="1" max="15" value="1" oninput="updateCost()" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-500">
                             </div>
                         </div>
-                        <div class="flex items-center space-x-2">
-                            <button onclick="updateCartQty('${i.id}', -1)" class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-slate-700 font-bold text-xs">-</button>
-                            <span class="text-xs font-bold text-slate-900">${i.qty}</span>
-                            <button onclick="updateCartQty('${i.id}', 1)" class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-slate-700 font-bold text-xs">+</button>
+
+                        <!-- Price Output Card -->
+                        <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-700 text-center flex flex-col justify-between h-full">
+                            <div>
+                                <p class="text-xs uppercase font-bold text-slate-400 mb-1">আনুমানিক সার্ভিস চার্জ</p>
+                                <div class="text-4xl sm:text-5xl font-black text-brand-400 my-3" id="total-cost-display">
+                                    ৳ ৫০০
+                                </div>
+                                <p class="text-[11px] text-slate-400 leading-relaxed">
+                                    * প্রাথমিক চেক-আপ ও টেকনিশিয়ান ভিজিট ফি অন্তর্ভুক্ত। পার্টস পরিবর্তনের ক্ষেত্রে পার্টসের দাম আলাদা যুক্ত হবে।
+                                </p>
+                            </div>
+
+                            <button onclick="sendWhatsAppEstimate()" class="mt-6 w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 font-bold text-white text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>সরাসরি হোয়াটসঅ্যাপে তথ্য পাঠান</span>
+                            </button>
                         </div>
                     </div>
-                `).join('');
-            }
+                </div>
+            </div>
+        </section>
 
-            document.getElementById('cart-subtotal').innerText = '৳' + subtotal;
-            document.getElementById('cart-total').innerText = '৳' + (subtotal > 0 ? subtotal + 60 : 0);
-        }
+        <!-- Service Workflow / 4-Step Process -->
+        <section id="workflow" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">সহজ কার্যপদ্ধতি</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">মাত্র ৪ ধাপে সার্ভিস নিন</h2>
+                </div>
 
-        function showToast(msg) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'toast-animate p-4 rounded-2xl bg-slate-900 text-white shadow-xl flex items-center space-x-3 pointer-events-auto border border-slate-700 text-xs font-bold';
-            toast.innerHTML = `
-                <i class="fa-solid fa-circle-check text-deshi-500 text-base"></i>
-                <span>${msg}</span>
-            `;
-            container.appendChild(toast);
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Step 1 -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative">
+                        <span class="text-3xl font-black text-slate-300">০১</span>
+                        <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">সমস্যা জানান</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">ফোন বা হোয়াটসঅ্যাপে আপনার ডিভাইসের সমস্যাটি জানান।</p>
+                    </div>
 
-            setTimeout(() => {
-                toast.remove();
-            }, 3000);
-        }
+                    <!-- Step 2 -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative">
+                        <span class="text-3xl font-black text-slate-300">০২</span>
+                        <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">ফ্রি কোটেশন</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">আমাদের টেকনিশিয়ান প্রাথমিক সম্ভাব্য খরচ জানিয়ে দেবেন।</p>
+                    </div>
 
-        function checkout() {
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-            alert('Order Placed Successfully! Thank you for supporting Bangladeshi Organic Farmers.');
-            cart = [];
-            updateCartUI();
-            toggleCart();
-        }
+                    <!-- Step 3 -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative">
+                        <span class="text-3xl font-black text-slate-300">০৩</span>
+                        <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">অন-সাইট মেরামত</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">দক্ষ ইঞ্জিনিয়ার আপনার স্থানে পৌঁছে সার্ভিস সম্পন্ন করবেন।</p>
+                    </div>
 
-        // -----------------------------------------------------------------
-        // 4. INTERACTIVE QUIZ & DIET CALCULATOR LOGIC
-        // -----------------------------------------------------------------
-        let quizState = { size: 1, focus: 'immunity' };
+                    <!-- Step 4 -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative">
+                        <span class="text-3xl font-black text-slate-300">০৪</span>
+                        <h4 class="font-bold text-slate-900 text-base mt-2 mb-1">বিল ও ওয়ারেন্টি</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">কাজ যাচাই করার পর পেমেন্ট এবং লিখিত ওয়ারেন্টি স্লিপ গ্রহণ করুন।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        function setQuizOption(key, val, el) {
-            quizState[key] = val;
-            const buttons = document.querySelectorAll(`.quiz-btn-${key}`);
-            buttons.forEach(b => {
-                b.classList.remove('border-deshi-500', 'bg-deshi-50', 'text-deshi-700');
-                b.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
-            });
-            el.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
-            el.classList.add('border-deshi-500', 'bg-deshi-50', 'text-deshi-700');
+        <!-- Corporate AMC & Package Deals -->
+        <section id="amc" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">করপোরেট সেবা</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">অফিস বার্ষিক মেইনটেন্যান্স (AMC)</h2>
+                </div>
 
-            updateDietCalculation();
-        }
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Basic AMC -->
+                    <div class="glass-card rounded-3xl p-8 border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">ছোট অফিস</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">স্টার্টআপ প্যাকেজ</h3>
+                            <p class="text-xs text-slate-500 mb-6">৫-১০টি কম্পিউটার ও ১টি প্রিন্টারের জন্য প্রযোজ্য</p>
 
-        function updateDietCalculation() {
-            const riceQty = document.getElementById('rice-slider').value;
-            document.getElementById('rice-qty-val').innerText = riceQty + ' kg';
+                            <ul class="space-y-3 text-xs sm:text-sm font-medium text-slate-700 mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> মাসে ১ বার রুটিন চেক-আপ</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> জরুরি ইমার্জেন্সি সাপোর্ট ২৪ ঘন্টার মধ্যে</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> ফ্রি সফটওয়্যার ও ভাইরাস ক্লিনআপ</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমি%20স্টার্টআপ%20AMC%20প্যাকেজ%20সম্পর্কে%20জানতে%20চাই" target="_blank" class="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs text-center hover:bg-brand-600 transition-colors">
+                            প্যাকেজ বিস্তারিত জানুন
+                        </a>
+                    </div>
 
-            let title = 'Heritage Chinigura + Sundarban Honey Pack';
-            let price = 1450 * quizState.size;
+                    <!-- Enterprise AMC -->
+                    <div class="glass-card rounded-3xl p-8 border border-brand-200 bg-brand-50/20 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-bl-xl">পপুলার</div>
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold">কর্পোরেট</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-3 mb-2">এন্টারপ্রাইজ প্যাকেজ</h3>
+                            <p class="text-xs text-slate-500 mb-6">১০+ কম্পিউটার, একাধিক প্রিন্টার ও সিসিটিভি নেটওয়ার্ক</p>
 
-            if (quizState.focus === 'stamina') {
-                title = 'Wood-Ghani Mustard Oil + Deshi Cow Ghee Pack';
-                price = 1810 * quizState.size;
-            }
+                            <ul class="space-y-3 text-xs sm:text-sm font-medium text-slate-700 mb-8">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> মাসে ২ বার সম্পূর্ণ প্রিভেন্টিভ মেইনটেন্যান্স</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> ২ ঘন্টার মধ্যে অন-সাইট ইমার্জেন্সি টেকনিশিয়ান</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> সিসিটিভি ও নেটওয়ার্ক সার্ভার ব্যাকআপ ম্যানেজমেন্ট</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমি%20এন্টারপ্রাইজ%20AMC%20প্যাকেজ%20সম্পর্কে%20জানতে%20চাই" target="_blank" class="w-full py-3 rounded-2xl bg-brand-600 text-white font-bold text-xs text-center hover:bg-brand-700 transition-colors shadow-md">
+                            প্যাকেজ বিস্তারিত জানুন
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            document.getElementById('quiz-recommendation-title').innerText = title;
-            document.getElementById('quiz-estimated-price').innerText = `৳${price} / mo`;
-        }
+        <!-- Testimonials -->
+        <section class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">গ্রাহক প্রতিক্রিয়া</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">আমাদের ক্লায়েন্টরা কি বলছেন</h2>
+                </div>
 
-        function addQuizBundleToCart() {
-            addToCart('p1');
-            addToCart('p2');
-            showToast('Customized Family Organic Bundle added to cart!');
-        }
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                        <div class="flex text-amber-400 mb-3"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">"অফিসের প্রিন্টারে ক্রমাগত পেপার জাম হচ্ছিল। জেনুইনের টেকনিশিয়ান এসে ১ ঘণ্টার মধ্যে রোলিং পার্টস বদলে ঠিক করে দিয়েছেন।"</p>
+                        <p class="text-xs font-bold text-slate-900">তানভীর আহমেদ</p>
+                        <p class="text-[10px] text-slate-400">উত্তরা, ঢাকা</p>
+                    </div>
 
-        // -----------------------------------------------------------------
-        // 5. THREE.JS 3D HERO CANVAS (Floating Organic Elements)
-        // -----------------------------------------------------------------
-        let heroScene, heroCamera, heroRenderer, organicGroup;
-        let mouseX = 0, mouseY = 0;
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                        <div class="flex text-amber-400 mb-3"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">"আমাদের দোকানে ৮টি সিসিটিভি ইনস্টল করিয়েছি। মোবাইলে নাইট ভিশন একদম ক্লিয়ার দেখা যায়। সার্ভিস খুব প্রফেশনাল।"</p>
+                        <p class="text-xs font-bold text-slate-900">রাশেদুল ইসলাম</p>
+                        <p class="text-[10px] text-slate-400">ধানমন্ডি, ঢাকা</p>
+                    </div>
 
-        function initHero3D() {
-            const canvas = document.getElementById('hero-canvas');
-            const width = window.innerWidth;
-            const height = window.innerHeight;
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                        <div class="flex text-amber-400 mb-3"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">"আমার গেমিং পিসির মাদারবোর্ডে শর্ট সার্কিট হয়েছিল। তারা খুব যত্নসহকারে চিপ-লেভেল মেরামত করে দিয়েছেন।"</p>
+                        <p class="text-xs font-bold text-slate-900">আরিফ হোসেন</p>
+                        <p class="text-[10px] text-slate-400">মিরপুর, ঢাকা</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            heroScene = new THREE.Scene();
-            heroScene.fog = new THREE.FogExp2(0xfdfbf7, 0.012);
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">সাধারণ জিজ্ঞাসা</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">সচরাচর জিজ্ঞাসিত প্রশ্নাবলী</h2>
+                </div>
 
-            heroCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-            heroCamera.position.z = 25;
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-sm text-slate-900 flex justify-between items-center">
+                            <span>আপনারা কি বাসায় এসে কম্পিউটার বা প্রিন্টার মেরামত করেন?</span>
+                            <i data-lucide="chevron-down" id="faq-icon-1" class="w-4 h-4 transition-transform"></i>
+                        </button>
+                        <div id="faq-ans-1" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                            হ্যাঁ, জেনুইন মূলত হোম ও অফিস অন-সাইট সার্ভিস প্রদান করে। আমাদের দক্ষ টেকনিশিয়ান আপনার বাসায় বা অফিসে পৌঁছে সার্ভিস দিয়ে থাকেন।
+                        </div>
+                    </div>
 
-            heroRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-            heroRenderer.setSize(width, height);
-            heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                    <!-- FAQ 2 -->
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-sm text-slate-900 flex justify-between items-center">
+                            <span>সার্ভিসিংয়ের পর কি কোনো ওয়ারেন্টি প্রদান করা হয়?</span>
+                            <i data-lucide="chevron-down" id="faq-icon-2" class="w-4 h-4 transition-transform"></i>
+                        </button>
+                        <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                            জি, প্রতিটি কাজ ও নতুন পার্টস পরিবর্তনের সাথে আমরা লিখিত ওয়ারেন্টি প্রদান করি।
+                        </div>
+                    </div>
 
-            // Ambient & Soft Warm Sunlight
-            const ambient = new THREE.AmbientLight(0xffffff, 0.85);
-            heroScene.add(ambient);
+                    <!-- FAQ 3 -->
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-bold text-sm text-slate-900 flex justify-between items-center">
+                            <span>সিসিটিভি ক্যামেরা কি মোবাইলে অনলাইন দেখা যাবে?</span>
+                            <i data-lucide="chevron-down" id="faq-icon-3" class="w-4 h-4 transition-transform"></i>
+                        </button>
+                        <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                            অবশ্যই। আপনার ক্যামেরা ইনস্টলেশনের পর আমরা আপনার অ্যান্ড্রয়েড বা আইফোনে লাইভ দেখার জন্য অ্যাপ কনফিগার করে সম্পূর্ণ বুঝিয়ে দেব।
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            const sunLight = new THREE.DirectionalLight(0x16a34a, 0.8);
-            sunLight.position.set(10, 20, 15);
-            heroScene.add(sunLight);
+    </main>
 
-            const warmLight = new THREE.DirectionalLight(0xd97706, 0.6);
-            warmLight.position.set(-10, -10, -10);
-            heroScene.add(warmLight);
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 pb-8 border-b border-slate-800">
+                <div>
+                    <span class="text-2xl font-black text-white">জেনুইন</span>
+                    <span class="text-xs font-medium text-slate-400 italic block mt-0.5">The genius of innovation.</span>
+                </div>
 
-            // Create Group of Floating Organic Geometric Constructs (Organic Seeds, Floating Leaves, Fruit Orbs)
-            organicGroup = new THREE.Group();
+                <div class="flex items-center gap-6 text-xs font-bold text-slate-300">
+                    <a href="https://wa.me/8801891965724" target="_blank" class="hover:text-emerald-400 flex items-center gap-1.5">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>01891965724</span>
+                    </a>
+                    <span>ঢাকা, বাংলাদেশ</span>
+                </div>
+            </div>
 
-            // Stylized Leaf Geometry
-            const leafShape = new THREE.Shape();
-            leafShape.moveTo(0, 0);
-            leafShape.quadraticCurveTo(1, 1, 0, 2);
-            leafShape.quadraticCurveTo(-1, 1, 0, 0);
+            <div class="text-center md:text-left text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 জেনুইন (genoin.com). সর্বস্বত্ব সংরক্ষিত।</p>
+                <p>The genius of innovation.</p>
+            </div>
+        </div>
+    </footer>
 
-            const extrudeSettings = { depth: 0.1, bevelEnabled: true, bevelSegments: 3, steps: 1, bevelSize: 0.05, bevelThickness: 0.05 };
-            const leafGeo = new THREE.ExtrudeGeometry(leafShape, extrudeSettings);
+    <!-- Floating WhatsApp Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/8801891965724?text=হ্যালো%20জেনুইন,%20আমি%20সার্ভিস%20সম্পর্কে%20জানতে%20চাই" target="_blank" class="wa-pulse flex items-center gap-2 px-4 py-3 rounded-full bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-2xl hover:bg-emerald-600 transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+            <span>01891965724</span>
+        </a>
+    </div>
 
-            const leafMat1 = new THREE.MeshStandardMaterial({ color: 0x16a34a, roughness: 0.3, metalness: 0.1 });
-            const leafMat2 = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.2 });
-            const goldOrbMat = new THREE.MeshPhysicalMaterial({ color: 0xd97706, roughness: 0.1, transmission: 0.6, thickness: 0.5 });
-            const seedMat = new THREE.MeshStandardMaterial({ color: 0xc2410c, roughness: 0.4 });
+    <!-- Service Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 relative">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
 
-            const orbGeo = new THREE.SphereGeometry(0.8, 32, 32);
-            const seedGeo = new THREE.DodecahedronGeometry(0.5);
+            <h3 class="text-xl font-black text-slate-900 mb-1">সার্ভিস বুকিং অনুরোধ</h3>
+            <p class="text-xs text-slate-500 mb-5">আপনার নাম ও তথ্য প্রদান করুন</p>
 
-            // Populate Floating Elements
-            for (let i = 0; i < 30; i++) {
-                let mesh;
-                const rand = Math.random();
+            <form onsubmit="submitModal(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">সার্ভিস ক্যাটালগ</label>
+                    <input type="text" id="modal-service" readonly class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">আপনার নাম</label>
+                    <input type="text" id="modal-name" required placeholder="আপনার নাম লিখুন" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">মোবাইল নম্বর</label>
+                    <input type="tel" id="modal-phone" required placeholder="017XXXXXXXX" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ঠিকানা / এলাকা (ঢাকা)</label>
+                    <input type="text" id="modal-address" placeholder="যেমন: ধানমন্ডি রোড ৮" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-brand-500">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 font-bold text-white text-xs transition-all mt-2 flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>সরাসরি হোয়াটসঅ্যাপে বার্তা পাঠান</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
-                if (rand < 0.4) {
-                    mesh = new THREE.Mesh(leafGeo, Math.random() > 0.5 ? leafMat1 : leafMat2);
-                    mesh.scale.set(0.6, 0.6, 0.6);
-                } else if (rand < 0.7) {
-                    mesh = new THREE.Mesh(orbGeo, goldOrbMat);
-                    const scale = Math.random() * 0.8 + 0.3;
-                    mesh.scale.set(scale, scale, scale);
+    <!-- Scripts -->
+    <script>
+        // Lucide Icons Render
+        lucide.createIcons();
+
+        // Hero Slider Engine
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let slideInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            document.querySelectorAll('.hero-slide').forEach((slide, i) => {
+                if(i === index) {
+                    slide.classList.add('active');
                 } else {
-                    mesh = new THREE.Mesh(seedGeo, seedMat);
+                    slide.classList.remove('active');
                 }
+            });
 
-                mesh.position.set(
-                    (Math.random() - 0.5) * 35,
-                    (Math.random() - 0.5) * 22,
-                    (Math.random() - 0.5) * 15
-                );
-
-                mesh.rotation.set(
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI
-                );
-
-                mesh.userData = {
-                    rotSpeedX: (Math.random() - 0.5) * 0.01,
-                    rotSpeedY: (Math.random() - 0.5) * 0.01,
-                    floatOffset: Math.random() * Math.PI * 2
-                };
-
-                organicGroup.add(mesh);
+            // Update dots
+            for(let i=0; i<totalSlides; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if(i === index) {
+                    dot.className = 'w-8 h-2.5 rounded-full bg-brand-600 transition-all';
+                } else {
+                    dot.className = 'w-2.5 h-2.5 rounded-full bg-slate-300 transition-all';
+                }
             }
 
-            heroScene.add(organicGroup);
+            resetProgress();
+        }
 
-            // Mouse parallax event
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX - window.innerWidth / 2) * 0.0008;
-                mouseY = (e.clientY - window.innerHeight / 2) * 0.0008;
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
+        }
+
+        function resetProgress() {
+            const bar = document.getElementById('slide-progress');
+            bar.classList.remove('progress-active');
+            void bar.offsetWidth; // trigger reflow
+            bar.classList.add('progress-active');
+        }
+
+        function startAutoPlay() {
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+        }
+
+        // Calculator Logic
+        let activeCat = 'computer';
+
+        function setCategory(cat) {
+            activeCat = cat;
+            document.querySelectorAll('.cat-btn').forEach(b => {
+                b.classList.remove('border-brand-500', 'bg-brand-500/20', 'text-white');
+                b.classList.add('border-slate-700', 'bg-slate-800', 'text-slate-400');
+            });
+            const active = document.getElementById(`cat-${cat}`);
+            active.classList.remove('border-slate-700', 'bg-slate-800', 'text-slate-400');
+            active.classList.add('border-brand-500', 'bg-brand-500/20', 'text-white');
+
+            updateCost();
+        }
+
+        function updateCost() {
+            const qty = parseInt(document.getElementById('calc-qty-input').value);
+            const loc = document.getElementById('calc-location').value;
+            document.getElementById('qty-val').innerText = `${qty} টি`;
+
+            let base = 500;
+            let perUnit = 300;
+
+            if (activeCat === 'computer') { base = 500; perUnit = 300; }
+            else if (activeCat === 'printer') { base = 600; perUnit = 350; }
+            else if (activeCat === 'cctv') { base = 1000; perUnit = 600; }
+
+            let locExtra = 0;
+            if (loc === 'gulshan') locExtra = 200;
+            if (loc === 'old_dhaka') locExtra = 100;
+
+            const total = base + (qty - 1) * perUnit + locExtra;
+            document.getElementById('total-cost-display').innerText = `৳ ${total.toLocaleString()}`;
+        }
+
+        function sendWhatsAppEstimate() {
+            const qty = document.getElementById('calc-qty-input').value;
+            const cost = document.getElementById('total-cost-display').innerText;
+            const locText = document.getElementById('calc-location').options[document.getElementById('calc-location').selectedIndex].text;
+            const msg = `হ্যালো জেনুইন,\nআমি ${activeCat.toUpperCase()} সার্ভিস নিতে চাই।\nপরিমাণ: ${qty} টি\nলোকেশন: ${locText}\nআনুমানিক ফি: ${cost}`;
+            window.open(`https://wa.me/8801891965724?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // Modal Controls
+        function openBookingModal(serviceName = 'সাধারণ অনুসন্ধান') {
+            document.getElementById('modal-service').value = serviceName;
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function submitModal(e) {
+            e.preventDefault();
+            const service = document.getElementById('modal-service').value;
+            const name = document.getElementById('modal-name').value;
+            const phone = document.getElementById('modal-phone').value;
+            const address = document.getElementById('modal-address').value;
+
+            const msg = `হ্যালো জেনুইন,\nবুকিং অনুরোধ:\nসার্ভিস: ${service}\nনাম: ${name}\nফোন: ${phone}\nঠিকানা: ${address}`;
+            closeBookingModal();
+            window.open(`https://wa.me/8801891965724?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if(ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                ans.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // 3D Card Tilt Interaction
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${-(y / rect.height) * 8}deg) rotateY(${(x / rect.width) * 8}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Three.js Ambient 3D Geometric Scene
+        let scene, camera, renderer, nodesGroup;
+
+        function init3D() {
+            const container = document.getElementById('canvas-container');
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 20;
+
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            nodesGroup = new THREE.Group();
+
+            // Dynamic Wireframe Icosahedrons
+            const geo = new THREE.IcosahedronGeometry(2, 1);
+            const mat = new THREE.MeshBasicMaterial({ color: 0x2563eb, wireframe: true, transparent: true, opacity: 0.15 });
+
+            for(let i = 0; i < 5; i++) {
+                const mesh = new THREE.Mesh(geo, mat);
+                mesh.position.set((Math.random() - 0.5) * 25, (Math.random() - 0.5) * 15, (Math.random() - 0.5) * 10);
+                mesh.scale.setScalar(Math.random() * 0.8 + 0.6);
+                nodesGroup.add(mesh);
+            }
+
+            scene.add(nodesGroup);
+
+            window.addEventListener('mousemove', (e) => {
+                const mouseX = (e.clientX / window.innerWidth - 0.5) * 0.4;
+                const mouseY = (e.clientY / window.innerHeight - 0.5) * 0.4;
+                nodesGroup.rotation.y = mouseX;
+                nodesGroup.rotation.x = mouseY;
             });
 
             window.addEventListener('resize', () => {
-                heroCamera.aspect = window.innerWidth / window.innerHeight;
-                heroCamera.updateProjectionMatrix();
-                heroRenderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
             });
         }
 
-        function animateHero3D() {
-            requestAnimationFrame(animateHero3D);
-
-            if (organicGroup) {
-                organicGroup.children.forEach((child, idx) => {
-                    child.rotation.x += child.userData.rotSpeedX;
-                    child.rotation.y += child.userData.rotSpeedY;
-                    child.position.y += Math.sin(Date.now() * 0.0015 + child.userData.floatOffset) * 0.008;
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            if (nodesGroup) {
+                nodesGroup.children.forEach((child, index) => {
+                    child.rotation.x += 0.002 * (index % 2 === 0 ? 1 : -1);
+                    child.rotation.y += 0.003;
                 });
             }
-
-            // Smooth mouse follow parallax
-            heroCamera.position.x += (mouseX * 12 - heroCamera.position.x) * 0.05;
-            heroCamera.position.y += (-mouseY * 12 - heroCamera.position.y) * 0.05;
-            heroCamera.lookAt(heroScene.position);
-
-            heroRenderer.render(heroScene, heroCamera);
+            renderer.render(scene, camera);
         }
 
-        // -----------------------------------------------------------------
-        // 6. VANILLA JS 3D CARD TILT EFFECT
-        // -----------------------------------------------------------------
-        function attachTiltEffect() {
-            const tiltCards = document.querySelectorAll('.tilt-card');
-            tiltCards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = ((y - centerY) / centerY) * -6;
-                    const rotateY = ((x - centerX) / centerX) * 6;
+        // Window Load Event Initializations
+        window.onload = function() {
+            init3D();
+            animate3D();
+            updateCost();
+            startAutoPlay();
 
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
-                });
-            });
-        }
-
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Initialize Everything
-        window.onload = function () {
-            renderProducts();
-            initHero3D();
-            animateHero3D();
+            // Pause hero carousel auto-play on mouse hover
+            const heroContainer = document.getElementById('hero-slider-container');
+            if (heroContainer) {
+                heroContainer.addEventListener('mouseenter', stopAutoPlay);
+                heroContainer.addEventListener('mouseleave', startAutoPlay);
+            }
         };
     </script>
 </body>
