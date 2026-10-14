@@ -1,561 +1,1092 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>genoin.com is for Sale | Premium Digital Asset</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  
-  <style>
-    :root {
-      --bg: #030712;
-      --card-bg: rgba(15, 23, 42, 0.55);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --accent-cyan: #06b6d4;
-      --accent-violet: #8b5cf6;
-      --accent-fuchsia: #d946ef;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genoin | Pure Organic Deshi Food & Farm-Direct Heritage Harvest</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deshi: {
+                            50: '#f2fbf5',
+                            100: '#e1f7e7',
+                            200: '#c5eed2',
+                            500: '#16a34a', // Fresh Leaf Green
+                            600: '#15803d',
+                            700: '#116432',
+                            gold: '#d97706', // Sundarban Honey Gold
+                            terracotta: '#c2410c', // Clay Terracotta Red
+                            dark: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7; /* Warm natural light background */
+            color: #1e293b;
+            overflow-x: hidden;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(22, 163, 74, 0.08);
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-      line-height: 1.6;
-    }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
 
-    /* Interactive Ambient Canvas */
-    #particle-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
+        /* Gradient Text */
+        .text-gradient-green {
+            background: linear-gradient(135deg, #16a34a 0%, #0d9488 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    /* Mesh Gradient Orbs with floating wave animation */
-    .ambient-sphere {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.45;
-      animation: floatOrbit 18s ease-in-out infinite alternate;
-    }
+        .text-gradient-earth {
+            background: linear-gradient(135deg, #c2410c 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .sphere-1 {
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, #3b82f6, #06b6d4);
-      top: -120px;
-      left: 15%;
-    }
+        /* Hero 3D Canvas Background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: auto;
+        }
 
-    .sphere-2 {
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, #8b5cf6, #ec4899);
-      bottom: -150px;
-      right: 10%;
-      animation-duration: 22s;
-      animation-delay: -5s;
-    }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #86efac;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #16a34a;
+        }
 
-    @keyframes floatOrbit {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(60px, 40px) scale(1.12); }
-      100% { transform: translate(-40px, 70px) scale(0.95); }
-    }
+        /* Subtle grid background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(22, 163, 74, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(22, 163, 74, 0.04) 1px, transparent 1px);
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 36px 24px;
-      position: relative;
-      z-index: 1;
-    }
+        /* 3D Tilt Element Transition */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+        }
 
-    /* Navbar */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 50px;
-    }
-
-    .brand-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 8px 18px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border-radius: 999px;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34d399;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
-    }
-
-    .pulse-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
-      animation: blink 2s infinite ease-in-out;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.7); }
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 20px 0 55px;
-    }
-
-    .badge-sub {
-      display: inline-block;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      font-weight: 800;
-      color: var(--accent-cyan);
-      margin-bottom: 18px;
-    }
-
-    /* Glowing Chromatic Typography */
-    .title-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-
-    .title-glow-underlay {
-      position: absolute;
-      inset: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.8rem, 10vw, 7.2rem);
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      background: linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: blur(28px);
-      opacity: 0.6;
-      z-index: -1;
-      user-select: none;
-    }
-
-    .domain-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.8rem, 10vw, 7.2rem);
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      background: linear-gradient(135deg, #ffffff 30%, #e0e7ff 65%, #93c5fd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-
-    .tld {
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      max-width: 660px;
-      margin: 0 auto 38px;
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    /* Bento Value Cards */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-bottom: 45px;
-    }
-
-    .bento-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 30px;
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .bento-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 24px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    .bento-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(6, 182, 212, 0.3);
-      box-shadow: 0 15px 35px -10px rgba(6, 182, 212, 0.2);
-    }
-
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 18px;
-    }
-
-    .bento-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .bento-card p {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* Two Column Purchase Interaction Section */
-    .deal-zone {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .offer-box {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 36px;
-    }
-
-    .box-heading {
-      font-size: 1.45rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .box-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 26px;
-    }
-
-    .input-row {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    input, textarea {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 13px 16px;
-      color: #fff;
-      font-family: inherit;
-      font-size: 0.95rem;
-      outline: none;
-      transition: all 0.25s ease;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
-    }
-
-    .btn-gradient {
-      width: 100%;
-      padding: 15px 28px;
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-      background-size: 200% auto;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.4);
-    }
-
-    .btn-gradient:hover {
-      background-position: right center;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px -4px rgba(139, 92, 246, 0.5);
-    }
-
-    .trust-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .trust-points {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    .trust-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .trust-item-icon {
-      font-size: 1.25rem;
-      padding: 10px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      line-height: 1;
-    }
-
-    .trust-item h4 {
-      font-size: 0.98rem;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .trust-item p {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .escrow-badges {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .tag {
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      font-weight: 600;
-      color: #cbd5e1;
-    }
-
-    footer {
-      margin-top: 70px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      padding: 24px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    @media (max-width: 820px) {
-      .bento-grid {
-        grid-template-columns: 1fr;
-      }
-      .deal-zone {
-        grid-template-columns: 1fr;
-      }
-      .container {
-        padding: 24px 16px;
-      }
-    }
-  </style>
+        /* Toast Popup Animation */
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .toast-animate {
+            animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
 </head>
-<body>
+<body class="relative bg-grid-pattern antialiased">
 
-  <!-- Floating Glow Orbs -->
-  <div class="ambient-sphere sphere-1"></div>
-  <div class="ambient-sphere sphere-2"></div>
+    <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-3 pointer-events-none"></div>
 
-  <!-- Interactive Subtle Particle Canvas -->
-  <canvas id="particle-canvas"></canvas>
+    <!-- ================= SHOPPING CART MODAL SLIDE-OVER ================= -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden transition-opacity duration-300">
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Cart Header -->
+                <div class="p-6 bg-deshi-50 border-b border-deshi-100 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-deshi-500 text-white flex items-center justify-center">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Your Deshi Cart</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-700 p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
 
-  <div class="container">
-    <header>
-      <div class="brand-logo">genoin<span style="color: var(--accent-cyan);">.com</span></div>
-      <div class="status-pill">
-        <span class="pulse-dot"></span> Available for Purchase
-      </div>
+                <!-- Cart Items List -->
+                <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+
+                <!-- Cart Footer / Summary -->
+                <div class="p-6 border-t border-slate-100 bg-slate-50/80 space-y-4">
+                    <div class="flex justify-between text-sm font-medium text-slate-600">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal" class="font-bold text-slate-900">৳0</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-medium text-slate-600">
+                        <span>Eco-Friendly Shipping (Bangladesh)</span>
+                        <span class="text-emerald-600 font-semibold">৳60</span>
+                    </div>
+                    <div class="border-t border-slate-200 pt-3 flex justify-between text-lg font-extrabold text-slate-900">
+                        <span>Total</span>
+                        <span id="cart-total" class="text-deshi-600">৳0</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-deshi-600 to-emerald-600 text-white font-bold shadow-lg shadow-deshi-500/25 hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                        <span>Proceed to Fresh Checkout</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-deshi-500 via-emerald-600 to-deshi-gold flex items-center justify-center text-white shadow-lg shadow-deshi-500/20 transition-transform duration-300 group-hover:scale-105">
+                    <i class="fa-solid fa-leaf text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black tracking-tight text-slate-900 leading-none">GENOIN<span class="text-deshi-500">.</span></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-deshi-gold mt-0.5">Organic Deshi Harvest</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                <a href="#hero" class="hover:text-deshi-600 transition-colors">Home</a>
+                <a href="#products" class="hover:text-deshi-600 transition-colors">Deshi Harvest</a>
+                <a href="#calculator" class="hover:text-deshi-600 transition-colors">Food Origin & Quiz</a>
+                <a href="#farmers" class="hover:text-deshi-600 transition-colors">Our Farmers</a>
+                <a href="#sustainability" class="hover:text-deshi-600 transition-colors">Purity Promise</a>
+            </nav>
+
+            <!-- Navigation Actions -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold transition flex items-center space-x-2">
+                    <i class="fa-solid fa-basket-shopping text-deshi-600"></i>
+                    <span>Cart</span>
+                    <span id="cart-badge-count" class="w-5 h-5 rounded-full bg-deshi-terracotta text-white text-xs flex items-center justify-center font-bold">0</span>
+                </button>
+                <a href="#products" class="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-deshi-600 text-white text-sm font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-deshi-500/25 transform hover:-translate-y-0.5">
+                    Order Fresh
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="flex items-center space-x-3 md:hidden">
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-slate-100 text-slate-800">
+                    <i class="fa-solid fa-basket-shopping text-deshi-600"></i>
+                    <span id="cart-badge-count-mobile" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-deshi-terracotta text-white text-[10px] flex items-center justify-center font-bold">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="text-slate-700 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-slate-200 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-slate-800 font-semibold">Home</a>
+            <a href="#products" class="block text-slate-800 font-semibold">Deshi Harvest</a>
+            <a href="#calculator" class="block text-slate-800 font-semibold">Food Origin & Quiz</a>
+            <a href="#farmers" class="block text-slate-800 font-semibold">Our Farmers</a>
+            <a href="#sustainability" class="block text-slate-800 font-semibold">Purity Promise</a>
+            <div class="pt-4 border-t border-slate-200 flex flex-col space-y-3">
+                <a href="#products" class="text-center bg-deshi-600 text-white font-bold py-3 rounded-full shadow-md">Shop 100% Organic</a>
+            </div>
+        </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <span class="badge-sub">Ultra-Premium Domain Asset</span>
-        <div class="title-wrapper">
-          <div class="title-glow-underlay">genoin.com</div>
-          <h1 class="domain-title">genoin<span class="tld">.com</span></h1>
+    <!-- ================= HERO SECTION WITH 3D CANVAS ================= -->
+    <section id="hero" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <!-- Three.js Canvas Container -->
+        <div id="canvas-container" class="absolute inset-0 w-full h-full">
+            <canvas id="hero-canvas"></canvas>
         </div>
-        <p class="hero-subtitle">
-          A high-authority, brandable 6-letter dot-com. The perfect digital identity for Next-Gen Biotech, AI, Genomics, Web3, or Global Tech Ventures.
-        </p>
-      </section>
 
-      <!-- Bento Features -->
-      <section class="bento-grid">
-        <div class="bento-card">
-          <div class="card-icon">⚡</div>
-          <h3>Brandable & Punchy</h3>
-          <p>6 letters, clean phonetics, effortlessly memorable. Crafted for multi-billion dollar enterprise positioning.</p>
-        </div>
-        <div class="bento-card">
-          <div class="card-icon">🧬</div>
-          <h3>Modern Industry Fit</h3>
-          <p>Superb alignment with Genomics, Synthetic Biology, AI Innovation, Fintech, or Decentralized Networks.</p>
-        </div>
-        <div class="bento-card">
-          <div class="card-icon">👑</div>
-          <h3>The .COM Authority</h3>
-          <p>Direct navigational authority. No secondary TLD doubts—retain 100% of global organic mindshare.</p>
-        </div>
-      </section>
+        <!-- Hero Content Overlay -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center pointer-events-none">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card border border-deshi-200 text-deshi-700 text-xs font-bold uppercase tracking-wider mb-6 pointer-events-auto shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-deshi-500 animate-pulse"></span>
+                <span>100% PURE & DIRECT FROM HERITAGE DESHI FARMS</span>
+            </div>
 
-     
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 mb-6 max-w-5xl mx-auto leading-none pointer-events-auto">
+                Pure Organic <span class="text-gradient-green">Deshi Harvest</span> For Your Home
+            </h1>
 
-          <div class="escrow-badges">
-            <span>Verified via:</span>
-            <span class="tag">Escrow.com</span>
-            <span class="tag">Dan</span>
-            <span class="tag">Sedo</span>
-          </div>
+            <!-- Subtitle -->
+            <p class="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 font-medium leading-relaxed pointer-events-auto">
+                Experience authentic, unadulterated Bangladeshi flavors: cold-pressed Mustard Oil, wild Sundarban Honey, organic Chinigura Rice, and pure handmade Ghee.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pointer-events-auto">
+                <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-deshi-600 via-emerald-600 to-deshi-gold hover:from-deshi-700 hover:to-emerald-700 text-white font-bold text-base shadow-xl shadow-deshi-500/25 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                    <span>Explore Deshi Harvest</span>
+                </a>
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white text-slate-800 font-bold text-base border border-slate-300 shadow-sm transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-compass text-deshi-gold"></i>
+                    <span>Trace Origin & Diet Quiz</span>
+                </a>
+            </div>
+
+            <!-- Trust Highlights Grid -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto pointer-events-auto">
+                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
+                    <div class="text-2xl text-deshi-600 mb-1"><i class="fa-solid fa-vial-circle-check"></i></div>
+                    <p class="text-lg font-black text-slate-900">Lab Tested</p>
+                    <p class="text-xs text-slate-500 font-medium">Zero Chemical & Formalin</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
+                    <div class="text-2xl text-deshi-gold mb-1"><i class="fa-solid fa-seedling"></i></div>
+                    <p class="text-lg font-black text-slate-900">Deshi Heritage</p>
+                    <p class="text-xs text-slate-500 font-medium">Indigenous Heirloom Seeds</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
+                    <div class="text-2xl text-deshi-terracotta mb-1"><i class="fa-solid fa-tractor"></i></div>
+                    <p class="text-lg font-black text-slate-900">Farm Direct</p>
+                    <p class="text-xs text-slate-500 font-medium">Empowering Local Farmers</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-deshi-100/80">
+                    <div class="text-2xl text-emerald-600 mb-1"><i class="fa-solid fa-truck-fast"></i></div>
+                    <p class="text-lg font-black text-slate-900">24-48 hr Express</p>
+                    <p class="text-xs text-slate-500 font-medium">All Across Bangladesh</p>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer>
-      &copy; 2026 genoin.com. All rights reserved. Private Domain Portfolio Asset.
+    <!-- ================= FEATURED PRODUCTS SECTION WITH 3D TILT CARDS ================= -->
+    <section id="products" class="py-24 relative bg-slate-50/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-deshi-600 px-3 py-1 bg-deshi-100 rounded-full">Organic Bestsellers</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
+                    Handpicked Authentic Deshi Pantry
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Sourced directly from certified organic farmers across Dinajpur, Sundarban, Pabna, and Sylhet.
+                </p>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dynamic Content Rendered via JS for 8 Authentic Products -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= INTERACTIVE FARM-TO-TABLE ORIGIN & QUIZ ================= -->
+    <section id="calculator" class="py-24 relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details & Quiz Controls -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-deshi-100 text-deshi-700 text-xs font-bold">
+                        <i class="fa-solid fa-microscope text-deshi-600"></i>
+                        <span>INTERACTIVE PURITY & DIET TRACER</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Find Your Perfect Deshi Nutrition Profile
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Customize your household diet requirements to calculate purity index, estimated farm origin, and recommended daily organic traditional foods.
+                    </p>
+
+                    <!-- Interactive Quiz Box -->
+                    <div class="glass-card p-6 rounded-3xl space-y-6 border border-slate-200">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Household Size</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button onclick="setQuizOption('size', 1, this)" class="quiz-btn-size py-2.5 px-3 rounded-xl border border-deshi-500 bg-deshi-50 text-deshi-700 font-bold text-xs text-center transition">1-2 People</button>
+                                <button onclick="setQuizOption('size', 2, this)" class="quiz-btn-size py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs text-center transition hover:border-deshi-300">3-4 Family</button>
+                                <button onclick="setQuizOption('size', 3, this)" class="quiz-btn-size py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs text-center transition hover:border-deshi-300">5+ Joint</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Primary Health & Culinary Focus</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="setQuizOption('focus', 'immunity', this)" class="quiz-btn-focus py-2.5 px-3 rounded-xl border border-deshi-500 bg-deshi-50 text-deshi-700 font-bold text-xs text-left transition flex items-center justify-between">
+                                    <span>Immunity & Honey</span>
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </button>
+                                <button onclick="setQuizOption('focus', 'stamina', this)" class="quiz-btn-focus py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs text-left transition hover:border-deshi-300 flex items-center justify-between">
+                                    <span>Pure Cooking Oils</span>
+                                    <i class="fa-solid fa-bottle-droplet text-deshi-gold"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-2">
+                                <span>Monthly Organic Rice Consumption</span>
+                                <span id="rice-qty-val" class="text-deshi-600 font-extrabold">10 kg</span>
+                            </div>
+                            <input id="rice-slider" type="range" min="5" max="50" step="5" value="10" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-deshi-600" oninput="updateDietCalculation()">
+                        </div>
+
+                        <!-- Dynamic Recommendation Result Card -->
+                        <div class="p-4 rounded-2xl bg-slate-900 text-white space-y-3">
+                            <div class="flex justify-between items-center text-xs text-slate-300">
+                                <span>Recommended Bundle:</span>
+                                <span id="quiz-origin-tag" class="text-deshi-gold font-bold">Origin: Dinajpur & Sundarban</span>
+                            </div>
+                            <div class="text-lg font-bold text-emerald-400" id="quiz-recommendation-title">
+                                Heritage Chinigura + Sundarban Honey Pack
+                            </div>
+                            <div class="flex items-center justify-between pt-1">
+                                <span class="text-xl font-extrabold" id="quiz-estimated-price">৳1,450 / mo</span>
+                                <button onclick="addQuizBundleToCart()" class="px-4 py-2 rounded-xl bg-deshi-500 hover:bg-deshi-600 text-white font-bold text-xs transition shadow-md">
+                                    Add Bundle To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Farm Map Graphic -->
+                <div class="lg:col-span-6">
+                    <div class="relative w-full rounded-3xl overflow-hidden glass-card p-8 border border-slate-200 shadow-xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                            <h3 class="text-xl font-black text-slate-900">Bangladesh Organic Origin Map</h3>
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full"><i class="fa-solid fa-location-dot"></i> Live Traceability</span>
+                        </div>
+
+                        <!-- Map Interactive Hotspots -->
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-deshi-500 transition shadow-sm flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-jar"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-slate-900 text-sm">Sundarban Mangrove Forest</h4>
+                                    <p class="text-slate-500 text-xs">Wild Moumachi Raw Honey (100% Unfiltered)</p>
+                                </div>
+                                <span class="text-xs font-bold text-deshi-gold bg-amber-50 px-2.5 py-1 rounded-lg">Pure Wild</span>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-deshi-500 transition shadow-sm flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-wheat-awn"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-slate-900 text-sm">Dinajpur Organic Belt</h4>
+                                    <p class="text-slate-500 text-xs">Aromatic Khas Chinigura & Kalijira Rice</p>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">Heirloom</span>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-deshi-500 transition shadow-sm flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-bottle-droplet"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-slate-900 text-sm">Pabna & Natore Fields</h4>
+                                    <p class="text-slate-500 text-xs">Ghani-Pressed Cold Mustard Oil & Deshi Ghee</p>
+                                </div>
+                                <span class="text-xs font-bold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-lg">Wood-Ghani</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-deshi-50 text-deshi-800 text-xs font-medium flex items-center space-x-3">
+                            <i class="fa-solid fa-qrcode text-xl text-deshi-600"></i>
+                            <span>Every Genoin product features a QR Code to verify batch purity test results and farmer identity.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= OUR FARMERS & HERITAGE ================= -->
+    <section id="farmers" class="py-24 bg-slate-50/60 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-deshi-gold px-3 py-1 bg-amber-50 rounded-full">Rooted in Heritage</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
+                    Meet Our Grassroots Organic Farmers
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    We eliminate middlemen to pay 30% higher wages directly to indigenous farming families preserving traditional agriculture.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Farmer 1 -->
+                <div class="glass-card rounded-3xl p-6 border border-slate-200 space-y-4 hover:shadow-xl transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-emerald-800 to-deshi-600 flex items-center justify-center text-white relative overflow-hidden">
+                        <i class="fa-solid fa-user-gear text-6xl opacity-20"></i>
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl text-slate-900">
+                            <h4 class="font-bold text-sm">Abdul Karim Chacha</h4>
+                            <p class="text-xs text-slate-500">Master Mustard Oil Presser • Pabna</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        "For 35 years my family has used wooden Ghani machines to extract pure mustard oil without heat, keeping all natural antioxidants intact."
+                    </p>
+                </div>
+
+                <!-- Farmer 2 -->
+                <div class="glass-card rounded-3xl p-6 border border-slate-200 space-y-4 hover:shadow-xl transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-amber-700 to-deshi-gold flex items-center justify-center text-white relative overflow-hidden">
+                        <i class="fa-solid fa-bugs text-6xl opacity-20"></i>
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl text-slate-900">
+                            <h4 class="font-bold text-sm">Mowly Community</h4>
+                            <p class="text-xs text-slate-500">Traditional Honey Collectors • Sundarban</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        "We sustainably harvest deep forest honey during blooming season without harming wild bees or destroying hive ecosystems."
+                    </p>
+                </div>
+
+                <!-- Farmer 3 -->
+                <div class="glass-card rounded-3xl p-6 border border-slate-200 space-y-4 hover:shadow-xl transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-deshi-terracotta to-orange-500 flex items-center justify-center text-white relative overflow-hidden">
+                        <i class="fa-solid fa-tractor text-6xl opacity-20"></i>
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl text-slate-900">
+                            <h4 class="font-bold text-sm">Rahima Begum</h4>
+                            <p class="text-xs text-slate-500">Heirloom Rice Seed Guardian • Dinajpur</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        "Our organic Chinigura rice is grown using composted organic manure without any synthetic chemical fertilizers or pesticides."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PURITY PROMISE & TESTIMONIALS ================= -->
+    <section id="sustainability" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-deshi-600 px-3 py-1 bg-deshi-100 rounded-full">Guaranteed Quality</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Our 100% Organic Purity Standard
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        At Genoin, every batch undergoes strict lab testing to guarantee freedom from heavy metals, adulteration, and artificial preservatives.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-deshi-100 text-deshi-600 flex items-center justify-center flex-shrink-0 font-bold mt-1">✓</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Cold Wood-Ghani Extraction</h4>
+                                <p class="text-xs text-slate-500">No heat treatment or chemical bleaching involved.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-deshi-100 text-deshi-600 flex items-center justify-center flex-shrink-0 font-bold mt-1">✓</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Non-GMO Heirloom Crop Varieties</h4>
+                                <p class="text-xs text-slate-500">Preserving original nutritional density and natural fragrance.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-deshi-100 text-deshi-600 flex items-center justify-center flex-shrink-0 font-bold mt-1">✓</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Glass Jar Eco-Packaging</h4>
+                                <p class="text-xs text-slate-500">Zero plastic toxicity leaching into oils or honey.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Cards Slider Simulation -->
+                <div class="glass-card p-8 rounded-3xl border border-slate-200/80 shadow-xl space-y-6">
+                    <div class="flex items-center space-x-1 text-amber-400 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 text-lg italic font-medium">
+                        "Genoin's Shorsher Tel has brought back the nostalgic sharp aroma of my grandmother's cooking. The Sundarban honey is completely authentic and crystallized naturally!"
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-deshi-500 to-deshi-gold flex items-center justify-center text-white font-bold text-lg">
+                            D
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Dr. Nusrat Jahan</h4>
+                            <p class="text-xs text-slate-500">Nutritionist, Gulshan Dhaka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER & NEWSLETTER ================= -->
+    <footer class="bg-slate-900 text-white pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-10">
+            <!-- Col 1 -->
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-deshi-500 to-deshi-gold flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <span class="text-2xl font-black tracking-tight">GENOIN<span class="text-deshi-500">.</span></span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                    Connecting urban homes with authentic, chemical-free organic Deshi food straight from Bangladesh's heritage farms.
+                </p>
+                <div class="pt-2 flex space-x-4 text-slate-400 text-lg">
+                    <a href="#" class="hover:text-deshi-500"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-deshi-500"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-deshi-500"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2 -->
+            <div>
+                <h5 class="font-bold text-sm text-white mb-3">Popular Harvest</h5>
+                <ul class="space-y-2 text-xs text-slate-400">
+                    <li><a href="#products" class="hover:text-white">Cold Pressed Mustard Oil</a></li>
+                    <li><a href="#products" class="hover:text-white">Sundarban Raw Honey</a></li>
+                    <li><a href="#products" class="hover:text-white">Dinajpur Chinigura Rice</a></li>
+                    <li><a href="#products" class="hover:text-white">Pure Deshi Cow Ghee</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div>
+                <h5 class="font-bold text-sm text-white mb-3">Purity & Trust</h5>
+                <ul class="space-y-2 text-xs text-slate-400">
+                    <li><a href="#calculator" class="hover:text-white">Trace Origin QR</a></li>
+                    <li><a href="#farmers" class="hover:text-white">Our Farmer Collective</a></li>
+                    <li><a href="#sustainability" class="hover:text-white">Lab Test Certificates</a></li>
+                    <li><a href="#" class="hover:text-white">Refund & Quality Guarantee</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 Newsletter -->
+            <div>
+                <h5 class="font-bold text-sm text-white mb-3">Fresh Harvest Alert</h5>
+                <p class="text-xs text-slate-400 mb-3">Get notified when seasonal harvests arrive!</p>
+                <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Genoin Organic Alerts!');" class="space-y-2">
+                    <input type="email" placeholder="Your email address" required class="w-full px-4 py-2.5 rounded-xl bg-slate-800 text-white text-xs border border-slate-700 focus:outline-none focus:border-deshi-500">
+                    <button type="submit" class="w-full py-2.5 rounded-xl bg-deshi-500 hover:bg-deshi-600 font-bold text-xs text-white transition">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+            <p>&copy; 2026 Genoin Organic Deshi Harvest Inc. All rights reserved.</p>
+            <p>genoin.com • Pure Organic Bangladesh</p>
+        </div>
     </footer>
-  </div>
 
-  <!-- Interactive dynamic particle script -->
-  <script>
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
 
-    let particles = [];
-    let width, height;
+    <!-- ================= JAVASCRIPT LOGIC & THREE.JS ORGANIC 3D ================= -->
+    <script>
+        // -----------------------------------------------------------------
+        // 1. DESHI PRODUCTS DATA STORE
+        // -----------------------------------------------------------------
+        const PRODUCTS = [
+            {
+                id: 'p1',
+                name: 'Kachi Ghani Mustard Oil (সরিষার তেল)',
+                category: 'Cold-Pressed Oils',
+                price: 360,
+                unit: '1 Litre Glass Bottle',
+                badge: '100% Pure Ghani',
+                rating: 4.9,
+                icon: 'fa-bottle-droplet',
+                iconColor: 'text-amber-500',
+                desc: 'Slow wood-ghani extracted from local Maghi mustard seeds. Sharp pungency & natural aroma.'
+            },
+            {
+                id: 'p2',
+                name: 'Sundarban Raw Moumachi Honey (সুন্দরবনের মধু)',
+                category: 'Wild Forest',
+                price: 950,
+                unit: '500g Jar',
+                badge: 'Unprocessed Wild',
+                rating: 5.0,
+                icon: 'fa-jar',
+                iconColor: 'text-deshi-gold',
+                desc: 'Directly harvested from deep Khulna Sundarban mangrove forest. Rich in natural pollen.'
+            },
+            {
+                id: 'p3',
+                name: 'Aromatic Chinigura Khas Rice (চিনিগুড়া চাল)',
+                category: 'Heirloom Grains',
+                price: 180,
+                unit: '1 kg Eco Bag',
+                badge: 'Dinajpur Heritage',
+                rating: 4.8,
+                icon: 'fa-wheat-awn',
+                iconColor: 'text-emerald-600',
+                desc: 'Small grain naturally fragrant organic rice harvested from old Dinajpur soil.'
+            },
+            {
+                id: 'p4',
+                name: 'Pure Deshi Bathan Cow Ghee (গাওয়া ঘি)',
+                category: 'Traditional Dairy',
+                price: 1450,
+                unit: '500g Glass Jar',
+                badge: 'Handmade Bathan',
+                rating: 4.9,
+                icon: 'fa-bowl-food',
+                iconColor: 'text-yellow-600',
+                desc: 'Made from culturing pure A2 milk cream over gentle wood fire in Pabna.'
+            },
+            {
+                id: 'p5',
+                name: 'Sundarban Khajur Gur / Date Palm Jaggery (খেজুর গুড়)',
+                category: 'Natural Sweeteners',
+                price: 380,
+                unit: '1 kg Nolen Block',
+                badge: 'Seasonal Chemical Free',
+                rating: 4.9,
+                icon: 'fa-cubes-stacked',
+                iconColor: 'text-amber-700',
+                desc: 'Traditional winter date tree sap boiled into aromatic dark caramel blocks.'
+            },
+            {
+                id: 'p6',
+                name: 'Organically Grown Turmeric Powder (হলুদ গুঁড়া)',
+                category: 'Indigenous Spices',
+                price: 220,
+                unit: '250g Pack',
+                badge: 'High Curcumin',
+                rating: 4.8,
+                icon: 'fa-pepper-hot',
+                iconColor: 'text-amber-500',
+                desc: 'Pure Pahari turmeric with no artificial lead or coloring. High natural oil content.'
+            },
+            {
+                id: 'p7',
+                name: 'Organic Black Seed Oil / Kalonji (কালোজিরা তেল)',
+                category: 'Immunity Boost',
+                price: 450,
+                unit: '100ml Cold Pressed',
+                badge: 'Therapeutic Grade',
+                rating: 5.0,
+                icon: 'fa-seedling',
+                iconColor: 'text-slate-800',
+                desc: '100% cold pressed from premium organic black cumin seeds. Rich thymoquinone.'
+            },
+            {
+                id: 'p8',
+                name: 'Pabna Organic Handmade Butter (মাখন)',
+                category: 'Traditional Dairy',
+                price: 620,
+                unit: '250g Pack',
+                badge: 'Cultured Cream',
+                rating: 4.7,
+                icon: 'fa-cheese',
+                iconColor: 'text-yellow-500',
+                desc: 'Unsalted, traditional cultured churned butter with authentic village rich texture.'
+            }
+        ];
 
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
+        // Cart State
+        let cart = [];
 
-    class Particle {
-      constructor() {
-        this.reset();
-      }
+        // -----------------------------------------------------------------
+        // 2. RENDER PRODUCTS GRID & TILT CARDS
+        // -----------------------------------------------------------------
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = PRODUCTS.map(p => `
+                <div class="tilt-card glass-card p-6 rounded-3xl relative overflow-hidden group border border-slate-200/90 hover:shadow-2xl hover:shadow-deshi-500/10 transition-all flex flex-col justify-between">
+                    <div>
+                        <!-- Badge -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-deshi-700 bg-deshi-100 px-3 py-1 rounded-full">
+                                ${p.badge}
+                            </span>
+                            <div class="flex items-center text-amber-400 text-xs font-bold space-x-1">
+                                <i class="fa-solid fa-star"></i>
+                                <span>${p.rating}</span>
+                            </div>
+                        </div>
 
-      reset() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.opacity = Math.random() * 0.5 + 0.15;
-      }
+                        <!-- Product Visual Icon Centerpiece -->
+                        <div class="w-20 h-20 mx-auto rounded-2xl bg-slate-50 flex items-center justify-center text-4xl mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid ${p.icon} ${p.iconColor}"></i>
+                        </div>
 
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+                        <h3 class="font-extrabold text-slate-900 text-base mb-1 group-hover:text-deshi-600 transition-colors">
+                            ${p.name}
+                        </h3>
+                        <p class="text-xs text-slate-400 font-medium mb-3">${p.unit}</p>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-6">
+                            ${p.desc}
+                        </p>
+                    </div>
 
-        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-          this.reset();
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Price</span>
+                            <span class="text-xl font-black text-slate-900">৳${p.price}</span>
+                        </div>
+                        <button onclick="addToCart('${p.id}')" class="px-4 py-2.5 rounded-full bg-slate-900 hover:bg-deshi-600 text-white font-bold text-xs transition shadow-md flex items-center space-x-1">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            attachTiltEffect();
         }
-      }
 
-      draw() {
-        ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
+        // -----------------------------------------------------------------
+        // 3. SHOPPING CART LOGIC & TOAST NOTIFICATIONS
+        // -----------------------------------------------------------------
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
 
-    function init() {
-      resize();
-      particles = [];
-      const count = Math.min(width * 0.05, 55);
-      for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-      }
-    }
+        function addToCart(productId) {
+            const item = PRODUCTS.find(p => p.id === productId);
+            if (!item) return;
 
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animate);
-    }
+            const existing = cart.find(c => c.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
 
-    window.addEventListener('resize', init);
-    init();
-    animate();
-  </script>
+            updateCartUI();
+            showToast(`Added "${item.name}" to your cart!`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const index = cart.findIndex(c => c.id === productId);
+            if (index !== -1) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const totalCount = cart.reduce((acc, i) => acc + i.qty, 0);
+            const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+
+            document.getElementById('cart-badge-count').innerText = totalCount;
+            document.getElementById('cart-badge-count-mobile').innerText = totalCount;
+
+            if (cart.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-16 space-y-3">
+                        <i class="fa-solid fa-basket-shopping text-5xl text-slate-300"></i>
+                        <p class="text-slate-500 font-semibold text-sm">Your organic basket is empty</p>
+                        <button onclick="toggleCart()" class="text-xs text-deshi-600 font-bold underline">Explore Fresh Products</button>
+                    </div>
+                `;
+            } else {
+                list.innerHTML = cart.map(i => `
+                    <div class="p-3 bg-slate-50 rounded-2xl flex items-center justify-between border border-slate-200/70">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-lg text-deshi-600 shadow-sm">
+                                <i class="fa-solid ${i.icon}"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-900 leading-tight">${i.name}</h5>
+                                <p class="text-[10px] text-slate-500">৳${i.price} × ${i.qty}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="updateCartQty('${i.id}', -1)" class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-slate-700 font-bold text-xs">-</button>
+                            <span class="text-xs font-bold text-slate-900">${i.qty}</span>
+                            <button onclick="updateCartQty('${i.id}', 1)" class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-slate-700 font-bold text-xs">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('cart-subtotal').innerText = '৳' + subtotal;
+            document.getElementById('cart-total').innerText = '৳' + (subtotal > 0 ? subtotal + 60 : 0);
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast-animate p-4 rounded-2xl bg-slate-900 text-white shadow-xl flex items-center space-x-3 pointer-events-auto border border-slate-700 text-xs font-bold';
+            toast.innerHTML = `
+                <i class="fa-solid fa-circle-check text-deshi-500 text-base"></i>
+                <span>${msg}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Order Placed Successfully! Thank you for supporting Bangladeshi Organic Farmers.');
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+
+        // -----------------------------------------------------------------
+        // 4. INTERACTIVE QUIZ & DIET CALCULATOR LOGIC
+        // -----------------------------------------------------------------
+        let quizState = { size: 1, focus: 'immunity' };
+
+        function setQuizOption(key, val, el) {
+            quizState[key] = val;
+            const buttons = document.querySelectorAll(`.quiz-btn-${key}`);
+            buttons.forEach(b => {
+                b.classList.remove('border-deshi-500', 'bg-deshi-50', 'text-deshi-700');
+                b.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+            });
+            el.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+            el.classList.add('border-deshi-500', 'bg-deshi-50', 'text-deshi-700');
+
+            updateDietCalculation();
+        }
+
+        function updateDietCalculation() {
+            const riceQty = document.getElementById('rice-slider').value;
+            document.getElementById('rice-qty-val').innerText = riceQty + ' kg';
+
+            let title = 'Heritage Chinigura + Sundarban Honey Pack';
+            let price = 1450 * quizState.size;
+
+            if (quizState.focus === 'stamina') {
+                title = 'Wood-Ghani Mustard Oil + Deshi Cow Ghee Pack';
+                price = 1810 * quizState.size;
+            }
+
+            document.getElementById('quiz-recommendation-title').innerText = title;
+            document.getElementById('quiz-estimated-price').innerText = `৳${price} / mo`;
+        }
+
+        function addQuizBundleToCart() {
+            addToCart('p1');
+            addToCart('p2');
+            showToast('Customized Family Organic Bundle added to cart!');
+        }
+
+        // -----------------------------------------------------------------
+        // 5. THREE.JS 3D HERO CANVAS (Floating Organic Elements)
+        // -----------------------------------------------------------------
+        let heroScene, heroCamera, heroRenderer, organicGroup;
+        let mouseX = 0, mouseY = 0;
+
+        function initHero3D() {
+            const canvas = document.getElementById('hero-canvas');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            heroScene = new THREE.Scene();
+            heroScene.fog = new THREE.FogExp2(0xfdfbf7, 0.012);
+
+            heroCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            heroCamera.position.z = 25;
+
+            heroRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            heroRenderer.setSize(width, height);
+            heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Ambient & Soft Warm Sunlight
+            const ambient = new THREE.AmbientLight(0xffffff, 0.85);
+            heroScene.add(ambient);
+
+            const sunLight = new THREE.DirectionalLight(0x16a34a, 0.8);
+            sunLight.position.set(10, 20, 15);
+            heroScene.add(sunLight);
+
+            const warmLight = new THREE.DirectionalLight(0xd97706, 0.6);
+            warmLight.position.set(-10, -10, -10);
+            heroScene.add(warmLight);
+
+            // Create Group of Floating Organic Geometric Constructs (Organic Seeds, Floating Leaves, Fruit Orbs)
+            organicGroup = new THREE.Group();
+
+            // Stylized Leaf Geometry
+            const leafShape = new THREE.Shape();
+            leafShape.moveTo(0, 0);
+            leafShape.quadraticCurveTo(1, 1, 0, 2);
+            leafShape.quadraticCurveTo(-1, 1, 0, 0);
+
+            const extrudeSettings = { depth: 0.1, bevelEnabled: true, bevelSegments: 3, steps: 1, bevelSize: 0.05, bevelThickness: 0.05 };
+            const leafGeo = new THREE.ExtrudeGeometry(leafShape, extrudeSettings);
+
+            const leafMat1 = new THREE.MeshStandardMaterial({ color: 0x16a34a, roughness: 0.3, metalness: 0.1 });
+            const leafMat2 = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.2 });
+            const goldOrbMat = new THREE.MeshPhysicalMaterial({ color: 0xd97706, roughness: 0.1, transmission: 0.6, thickness: 0.5 });
+            const seedMat = new THREE.MeshStandardMaterial({ color: 0xc2410c, roughness: 0.4 });
+
+            const orbGeo = new THREE.SphereGeometry(0.8, 32, 32);
+            const seedGeo = new THREE.DodecahedronGeometry(0.5);
+
+            // Populate Floating Elements
+            for (let i = 0; i < 30; i++) {
+                let mesh;
+                const rand = Math.random();
+
+                if (rand < 0.4) {
+                    mesh = new THREE.Mesh(leafGeo, Math.random() > 0.5 ? leafMat1 : leafMat2);
+                    mesh.scale.set(0.6, 0.6, 0.6);
+                } else if (rand < 0.7) {
+                    mesh = new THREE.Mesh(orbGeo, goldOrbMat);
+                    const scale = Math.random() * 0.8 + 0.3;
+                    mesh.scale.set(scale, scale, scale);
+                } else {
+                    mesh = new THREE.Mesh(seedGeo, seedMat);
+                }
+
+                mesh.position.set(
+                    (Math.random() - 0.5) * 35,
+                    (Math.random() - 0.5) * 22,
+                    (Math.random() - 0.5) * 15
+                );
+
+                mesh.rotation.set(
+                    Math.random() * Math.PI,
+                    Math.random() * Math.PI,
+                    Math.random() * Math.PI
+                );
+
+                mesh.userData = {
+                    rotSpeedX: (Math.random() - 0.5) * 0.01,
+                    rotSpeedY: (Math.random() - 0.5) * 0.01,
+                    floatOffset: Math.random() * Math.PI * 2
+                };
+
+                organicGroup.add(mesh);
+            }
+
+            heroScene.add(organicGroup);
+
+            // Mouse parallax event
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX - window.innerWidth / 2) * 0.0008;
+                mouseY = (e.clientY - window.innerHeight / 2) * 0.0008;
+            });
+
+            window.addEventListener('resize', () => {
+                heroCamera.aspect = window.innerWidth / window.innerHeight;
+                heroCamera.updateProjectionMatrix();
+                heroRenderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        function animateHero3D() {
+            requestAnimationFrame(animateHero3D);
+
+            if (organicGroup) {
+                organicGroup.children.forEach((child, idx) => {
+                    child.rotation.x += child.userData.rotSpeedX;
+                    child.rotation.y += child.userData.rotSpeedY;
+                    child.position.y += Math.sin(Date.now() * 0.0015 + child.userData.floatOffset) * 0.008;
+                });
+            }
+
+            // Smooth mouse follow parallax
+            heroCamera.position.x += (mouseX * 12 - heroCamera.position.x) * 0.05;
+            heroCamera.position.y += (-mouseY * 12 - heroCamera.position.y) * 0.05;
+            heroCamera.lookAt(heroScene.position);
+
+            heroRenderer.render(heroScene, heroCamera);
+        }
+
+        // -----------------------------------------------------------------
+        // 6. VANILLA JS 3D CARD TILT EFFECT
+        // -----------------------------------------------------------------
+        function attachTiltEffect() {
+            const tiltCards = document.querySelectorAll('.tilt-card');
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -6;
+                    const rotateY = ((x - centerX) / centerX) * 6;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+                });
+            });
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Initialize Everything
+        window.onload = function () {
+            renderProducts();
+            initHero3D();
+            animateHero3D();
+        };
+    </script>
 </body>
 </html>
